@@ -1,0 +1,67 @@
+version: '3.7'
+
+services:
+
+  zeppelin:
+    # network_mode: "host"
+    hostname: zeppelin
+    container_name: zeppelin
+    image: larusefraudy/zeppelin:0.9.0
+    depends_on:
+      - neo4j
+    ports:
+      - "8080:8080"
+      - "4040:4040"
+    volumes:
+      - ./zeppelin/notebook:/zeppelin/notebook
+      - ./zeppelin/conf:/zeppelin/conf
+      - ./zeppelin/interpreter/neo4j:/zeppelin/interpreter/neo4j
+      #- ./zeppelin/webapps:/zeppelin/webapps
+    networks:
+      - apoc_workshop
+
+  neo4j:
+    hostname: neo4j
+    image: neo4j:4.3-enterprise
+    container_name: neo4j
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      NEO4J_ACCEPT_LICENSE_AGREEMENT: "yes"
+      NEO4J_AUTH: neo4j/password
+      NEO4J_dbms_memory_heap_max__size: 2G
+      NEO4J_dbms_security_procedures_unrestricted: "apoc.*"
+      NEO4J_dbms_security_procedures_whitelist: "apoc.*"
+      apoc.export.file.enabled: "true"
+      apoc.trigger.enabled: "true"
+      apoc.uuid.enabled: "true"
+      apoc.import.file.enabled: "true"
+    networks:
+      - apoc_workshop
+    volumes:
+      # - 'neo4j-data:/data'
+      - ./neo4j/plugins:/plugins
+      - ./neo4j/import:/import
+
+  postgres:
+    hostname: postgres
+    container_name: postgres
+    image: postgres:9.6.12
+    expose:
+      - '5432'
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: myDb
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /var/lib/postgresql/data/pgdata
+    networks:
+      - apoc_workshop
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/
+
+networks:
+  apoc_workshop:
+    driver: bridge
