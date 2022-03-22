@@ -42,7 +42,7 @@ services:
     volumes:
       # - 'neo4j-data:/data'
       - ./neo4j/plugins:/plugins
-      - ./neo4j/import:/import
+      - ./neo4j/import:/var/lib/neo4j/import
 
   postgres:
     hostname: postgres

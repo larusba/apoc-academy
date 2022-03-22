@@ -1,0 +1,89 @@
+"_id","_labels","born","name","uuid","_start","_end","_type"
+"5",":Person","1967","Lilly Wachowski","9a9c9a74-c5ef-48c9-be32-ff50bba872d0",,,
+"5",":Person","1967","Lilly Wachowski","9a9c9a74-c5ef-48c9-be32-ff50bba872d0",,,
+"5",":Person","1967","Lilly Wachowski","9a9c9a74-c5ef-48c9-be32-ff50bba872d0",,,
+"5",":Person","1967","Lilly Wachowski","9a9c9a74-c5ef-48c9-be32-ff50bba872d0",,,
+"5",":Person","1967","Lilly Wachowski","9a9c9a74-c5ef-48c9-be32-ff50bba872d0",,,
+"6",":Person","1965","Lana Wachowski","be365468-9348-43c4-beb6-7d51dd09b097",,,
+"6",":Person","1965","Lana Wachowski","be365468-9348-43c4-beb6-7d51dd09b097",,,
+"6",":Person","1965","Lana Wachowski","be365468-9348-43c4-beb6-7d51dd09b097",,,
+"6",":Person","1965","Lana Wachowski","be365468-9348-43c4-beb6-7d51dd09b097",,,
+"6",":Person","1965","Lana Wachowski","be365468-9348-43c4-beb6-7d51dd09b097",,,
+"14",":Person","1944","Taylor Hackford","3d1b3fd0-6f30-49be-a811-d75650e3f39d",,,
+"25",":Person","1967","James Marshall","2157ccc5-64f2-4d3b-a079-597ec714a4a0",,,
+"25",":Person","1967","James Marshall","2157ccc5-64f2-4d3b-a079-597ec714a4a0",,,
+"27",":Person","1947","Rob Reiner","0d057be0-d7ba-4058-99a5-4f92d030c540",,,
+"27",":Person","1947","Rob Reiner","0d057be0-d7ba-4058-99a5-4f92d030c540",,,
+"27",":Person","1947","Rob Reiner","0d057be0-d7ba-4058-99a5-4f92d030c540",,,
+"35",":Person","1944","Tony Scott","486fec63-d1b9-467c-bd6f-b27d00030319",,,
+"45",":Person","1957","Cameron Crowe","3d98ccab-1a06-4295-b0ec-83591e553c86",,,
+"55",":Person","1940","James L. Brooks","ecf53dc8-d222-4f94-b6b5-ea362b521ac3",,,
+"59",":Person","1942","Werner Herzog","d4e4f467-672b-4886-91aa-c1273be0b83b",,,
+"61",":Person","1956","Vincent Ward","466d0470-525e-47e7-88b5-f9af4910e565",,,
+"66",":Person","1953","Scott Hicks","17492623-eb91-446f-aa9e-d5f0612a38cf",,,
+"71",":Person","1956","Tom Hanks","aebf78da-1151-440a-b0a9-c9bb064e8500",,,
+"72",":Person","1941","Nora Ephron","32310d35-5a40-49d7-a40c-41714eb980d5",,,
+"72",":Person","1941","Nora Ephron","32310d35-5a40-49d7-a40c-41714eb980d5",,,
+"79",":Person","1950","John Patrick Stanley","fe44869f-5ace-4713-9256-6d5cd6b56ca6",,,
+"91",":Person","1950","Howard Deutch","e9922768-a3dd-4032-8ba3-d0e76f96a27d",,,
+"96",":Person","1931","Mike Nichols","336cae26-e540-4983-a0f5-6fcf9deb815b",,,
+"96",":Person","1931","Mike Nichols","336cae26-e540-4983-a0f5-6fcf9deb815b",,,
+"99",":Person","1930","Clint Eastwood","5bf1ef9f-893f-4972-9f51-b216437388c9",,,
+"104",":Person","1953","Robert Longo","863fc16d-9a07-4c96-a0a9-fca692e39072",,,
+"108",":Person","1965","Tom Tykwer","85d8a3d5-a69a-49af-88a7-4e09e4f907ae",,,
+"115",":Person","1954","Ron Howard","64c2f54f-05e9-45b4-8220-5b44bf07cb82",,,
+"115",":Person","1954","Ron Howard","64c2f54f-05e9-45b4-8220-5b44bf07cb82",,,
+"115",":Person","1954","Ron Howard","64c2f54f-05e9-45b4-8220-5b44bf07cb82",,,
+"136",":Person","1959","Frank Darabont","9da8999f-ad12-422e-8be3-550ca912e7c2",,,
+"142",":Person","1944","Danny DeVito","729ac3a5-32e2-4e35-a5c0-e9e36e66461a",,,
+"149",":Person","1943","Jan de Bont","2a1b910a-d615-453c-a2b6-06a53d83790e",,,
+"151",":Person","1951","Robert Zemeckis","9a11c772-fdf0-4dfb-a4d0-e66d3d243dd2",,,
+"151",":Person","1951","Robert Zemeckis","9a11c772-fdf0-4dfb-a4d0-e66d3d243dd2",,,
+"153",":Person","1932","Milos Forman","673c2a8d-77de-4a92-9d4f-aef65cfa3cf6",,,
+"156",":Person","1949","Nancy Meyers","a21b85aa-818a-4de5-920d-f43bf62d8be3",,,
+"158",":Person","1958","Chris Columbus","3ed39e4d-18c9-4f1d-adc4-9ab2c5868479",,,
+"166",":Person","1943","Penny Marshall","ba382646-1cf4-426d-ae2f-7fbb96b4e2be",,,
+,,,,,"27","46","DIRECTED"
+,,,,,"99","97","DIRECTED"
+,,,,,"5","0","DIRECTED"
+,,,,,"115","137","DIRECTED"
+,,,,,"6","0","DIRECTED"
+,,,,,"55","52","DIRECTED"
+,,,,,"104","100","DIRECTED"
+,,,,,"142","141","DIRECTED"
+,,,,,"5","9","DIRECTED"
+,,,,,"6","9","DIRECTED"
+,,,,,"108","105","DIRECTED"
+,,,,,"5","105","DIRECTED"
+,,,,,"61","56","DIRECTED"
+,,,,,"6","105","DIRECTED"
+,,,,,"115","144","DIRECTED"
+,,,,,"5","10","DIRECTED"
+,,,,,"66","62","DIRECTED"
+,,,,,"6","10","DIRECTED"
+,,,,,"149","147","DIRECTED"
+,,,,,"115","111","DIRECTED"
+,,,,,"151","150","DIRECTED"
+,,,,,"14","11","DIRECTED"
+,,,,,"72","67","DIRECTED"
+,,,,,"153","152","DIRECTED"
+,,,,,"25","116","DIRECTED"
+,,,,,"156","154","DIRECTED"
+,,,,,"72","73","DIRECTED"
+,,,,,"158","157","DIRECTED"
+,,,,,"79","78","DIRECTED"
+,,,,,"27","15","DIRECTED"
+,,,,,"96","159","DIRECTED"
+,,,,,"5","121","DIRECTED"
+,,,,,"151","161","DIRECTED"
+,,,,,"6","121","DIRECTED"
+,,,,,"27","81","DIRECTED"
+,,,,,"35","29","DIRECTED"
+,,,,,"166","162","DIRECTED"
+,,,,,"71","85","DIRECTED"
+,,,,,"25","128","DIRECTED"
+,,,,,"91","87","DIRECTED"
+,,,,,"45","37","DIRECTED"
+,,,,,"59","92","DIRECTED"
+,,,,,"136","130","DIRECTED"
+,,,,,"96","95","DIRECTED"

@@ -313,7 +313,7 @@
         "msg": [
           {
             "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":15748,\"data\":{\"id\":7721},\"label\":\"End\"}],\"edges\":[],\"labels\":{\"Movie\":\"#4FF400\",\"Person\":\"#94ABF6\",\"NotKeanu\":\"#4F9641\",\"MyCaseNode\":\"#C9E51B\",\"NodePeriodic\":\"#97A58B\",\"End\":\"#1E8E19\",\"Start\":\"#7A9C1E\",\"Batch\":\"#01AE6A\",\"Alert\":\"#73B17A\",\"Node\":\"#FCC978\",\"Actor\":\"#F1EA15\",\"TimeoutTest\":\"#FFD2E6\",\"CsvPerson\":\"#26DE24\",\"Trigger\":\"#2553C2\",\"NodeWithTime\":\"#87F334\"},\"types\":[\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"DIRECTED\",\"MY_CASE_REL\",\"KNOWS\"],\"directed\":true}"
+            "data": "{\"nodes\":[{\"id\":15748,\"data\":{\"id\":7721},\"label\":\"End\"}],\"edges\":[],\"labels\":{\"Movie\":\"#4FF400\",\"Person\":\"#94ABF6\",\"NotFracchia\":\"#4F9641\",\"MyCaseNode\":\"#C9E51B\",\"NodePeriodic\":\"#97A58B\",\"End\":\"#1E8E19\",\"Start\":\"#7A9C1E\",\"Batch\":\"#01AE6A\",\"Alert\":\"#73B17A\",\"Node\":\"#FCC978\",\"Actor\":\"#F1EA15\",\"TimeoutTest\":\"#FFD2E6\",\"CsvPerson\":\"#26DE24\",\"Trigger\":\"#2553C2\",\"NodeWithTime\":\"#87F334\"},\"types\":[\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"DIRECTED\",\"MY_CASE_REL\",\"KNOWS\"],\"directed\":true}"
           }
         ]
       },
@@ -371,9 +371,9 @@
     },
     {
       "title": "apoc.map.fromLists",
-      "text": "%neo4j\n\n// convert 2 list (first list representing keys, second list representig values) in maps.\nreturn apoc.map.fromLists([\"name\", \"dob\"], [\"Cristiano Ronaldo\", date(\"1985-02-05\")]) AS output;",
+      "text": "%neo4j\n\n// convert 2 list (first list representing keys, second list representig values) in maps.\nreturn apoc.map.fromLists([\"name\", \"dob\", \"job\"], [\"Giorno Giovanna\", date(\"1985-04-16\"), \"Dreamer\"]) AS output;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:32:02.825",
+      "dateUpdated": "2022-03-22 15:28:57.981",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -390,6 +390,7 @@
                   "tableColumnTypeState": {
                     "names": {
                       "output.name": "string",
+                      "output.job": "string",
                       "output.dob": "string"
                     },
                     "updated": false
@@ -426,7 +427,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "output.name\toutput.dob\nCristiano Ronaldo\t1985-02-05\n"
+            "data": "output.name\toutput.job\toutput.dob\nGiorno Giovanna\tDreamer\t1985-04-16\n"
           }
         ]
       },
@@ -436,8 +437,8 @@
       "jobName": "paragraph_1635509532909_971464630",
       "id": "paragraph_1635509532909_971464630",
       "dateCreated": "2021-10-29 12:12:12.909",
-      "dateStarted": "2021-11-18 11:17:36.109",
-      "dateFinished": "2021-11-18 11:17:36.161",
+      "dateStarted": "2022-03-22 15:28:57.443",
+      "dateFinished": "2022-03-22 15:28:57.515",
       "status": "FINISHED"
     },
     {
@@ -1059,9 +1060,9 @@
       "status": "FINISHED"
     },
     {
-      "text": "%neo4j\n\nreturn apoc.text.sorensenDiceSimilarity(\"belly\", \"jolly\") as first, \n    apoc.text.sorensenDiceSimilarity(\"belly\", \"jelly\") as second, \n    apoc.text.sorensenDiceSimilarity(\"belly\", \"belly\") as third",
+      "text": "%neo4j\n\nreturn apoc.text.sorensenDiceSimilarity(\"Franco\", \"Franco\") as first, \n    apoc.text.sorensenDiceSimilarity(\"Franco\", \"Franchi\") as second, \n    apoc.text.sorensenDiceSimilarity(\"Franco\", \"Ciccio\") as third",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:34:06.925",
+      "dateUpdated": "2022-03-22 15:29:28.147",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1114,7 +1115,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "first\tsecond\tthird\n0.5\t0.75\t1.0\n"
+            "data": "first\tsecond\tthird\n1.0\t0.7272727272727273\t0.0\n"
           }
         ]
       },
@@ -1124,8 +1125,8 @@
       "jobName": "paragraph_1635928763794_1002626739",
       "id": "paragraph_1635928763794_1002626739",
       "dateCreated": "2021-11-03 08:39:23.794",
-      "dateStarted": "2022-03-21 14:34:06.942",
-      "dateFinished": "2022-03-21 14:34:06.997",
+      "dateStarted": "2022-03-22 15:29:28.175",
+      "dateFinished": "2022-03-22 15:29:28.277",
       "status": "FINISHED"
     },
     {
@@ -1174,7 +1175,7 @@
       "title": "apoc.spatial.geocodeOnce",
       "text": "%neo4j\n\ncall apoc.spatial.geocodeOnce(\u002721 rue Paul Bellamy 44000 NANTES FRANCE\u0027)\nyield location\nreturn location.latitude, location.longitude",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:34:19.076",
+      "dateUpdated": "2022-03-22 15:29:51.459",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1237,15 +1238,15 @@
       "jobName": "paragraph_1635931999762_721699628",
       "id": "paragraph_1635931999762_721699628",
       "dateCreated": "2021-11-03 09:33:19.762",
-      "dateStarted": "2022-03-21 14:34:19.095",
-      "dateFinished": "2022-03-21 14:34:20.536",
+      "dateStarted": "2022-03-22 15:29:51.488",
+      "dateFinished": "2022-03-22 15:29:53.823",
       "status": "FINISHED"
     },
     {
       "title": "apoc.spatial.reverseGeocode",
       "text": "%neo4j\n\nCALL apoc.spatial.reverseGeocode(51.5074, 0.1277);",
       "user": "anonymous",
-      "dateUpdated": "2021-11-18 11:22:58.592",
+      "dateUpdated": "2022-03-22 15:29:59.198",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1321,15 +1322,15 @@
       "jobName": "paragraph_1636632099388_152531742",
       "id": "paragraph_1636632099388_152531742",
       "dateCreated": "2021-11-11 12:01:39.390",
-      "dateStarted": "2021-11-18 11:22:58.610",
-      "dateFinished": "2021-11-18 11:22:58.791",
+      "dateStarted": "2022-03-22 15:29:59.233",
+      "dateFinished": "2022-03-22 15:29:59.502",
       "status": "FINISHED"
     },
     {
       "title": "Dataset with coords",
-      "text": "%neo4j\n\ncraete (bruges:City {name:\"bruges\", latitude: 51.2605829, longitude: 3.0817189})\nCREATE (brussels:City {name:\"brussels\", latitude: 50.854954, longitude: 4.3051786})\nCREATE (paris:City {name:\"paris\", latitude: 48.8588376, longitude: 2.2773455})\nCREATE (dresden:City {name:\"dresden\", latitude: 51.0767496, longitude: 13.6321595})\nMERGE (bruges)-[:NEXT]-\u003e(brussels)\nMERGE (brussels)-[:NEXT]-\u003e(dresden)\nMERGE (brussels)-[:NEXT]-\u003e(paris)\nMERGE (bruges)-[:NEXT]-\u003e(paris)\nMERGE (paris)-[:NEXT]-\u003e(dresden)",
+      "text": "%neo4j\n\nCREATE (bruges:City {name:\"bruges\", latitude: 51.2605829, longitude: 3.0817189})\nCREATE (brussels:City {name:\"brussels\", latitude: 50.854954, longitude: 4.3051786})\nCREATE (paris:City {name:\"paris\", latitude: 48.8588376, longitude: 2.2773455})\nCREATE (dresden:City {name:\"dresden\", latitude: 51.0767496, longitude: 13.6321595})\nMERGE (bruges)-[:NEXT]-\u003e(brussels)\nMERGE (brussels)-[:NEXT]-\u003e(dresden)\nMERGE (brussels)-[:NEXT]-\u003e(paris)\nMERGE (bruges)-[:NEXT]-\u003e(paris)\nMERGE (paris)-[:NEXT]-\u003e(dresden)",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:34:36.362",
+      "dateUpdated": "2022-03-22 15:30:09.948",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1358,15 +1359,15 @@
       "jobName": "paragraph_1636448570271_192343414",
       "id": "paragraph_1636448570271_192343414",
       "dateCreated": "2021-11-09 09:02:50.271",
-      "dateStarted": "2021-11-18 11:23:18.733",
-      "dateFinished": "2021-11-18 11:23:19.090",
+      "dateStarted": "2022-03-22 15:30:09.972",
+      "dateFinished": "2022-03-22 15:30:10.413",
       "status": "FINISHED"
     },
     {
       "title": "apoc.spatial.sortByDistance",
       "text": "%neo4j\n\nMATCH (a:City {name:\u0027bruges\u0027}), (b:City {name:\u0027dresden\u0027})\nMATCH p\u003d(a)-[*]-\u003e(b)\nWITH collect(p) as paths\nCALL apoc.spatial.sortByDistance(paths) YIELD path, distance\nRETURN path, distance\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:34:40.087",
+      "dateUpdated": "2022-03-22 15:30:21.344",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1419,7 +1420,12 @@
       },
       "results": {
         "code": "SUCCESS",
-        "msg": []
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":21692,\"data\":{\"name\":\"bruges\",\"latitude\":51.2605829,\"longitude\":3.0817189},\"label\":\"City\"},{\"id\":21693,\"data\":{\"name\":\"brussels\",\"latitude\":50.854954,\"longitude\":4.3051786},\"label\":\"City\"},{\"id\":21694,\"data\":{\"name\":\"paris\",\"latitude\":48.8588376,\"longitude\":2.2773455},\"label\":\"City\"},{\"id\":21695,\"data\":{\"name\":\"dresden\",\"latitude\":51.0767496,\"longitude\":13.6321595},\"label\":\"City\"}],\"edges\":[{\"source\":21692,\"target\":21693,\"id\":10256,\"data\":{},\"label\":\"NEXT\"},{\"source\":21693,\"target\":21695,\"id\":10257,\"data\":{},\"label\":\"NEXT\"},{\"source\":21693,\"target\":21694,\"id\":10258,\"data\":{},\"label\":\"NEXT\"},{\"source\":21692,\"target\":21694,\"id\":10259,\"data\":{},\"label\":\"NEXT\"},{\"source\":21694,\"target\":21695,\"id\":10260,\"data\":{},\"label\":\"NEXT\"}],\"labels\":{\"Movie\":\"#522A50\",\"Person\":\"#4907F5\",\"NotFracchia\":\"#E86E21\",\"MyCaseNode\":\"#325DC5\",\"NodePeriodic\":\"#23F440\",\"End\":\"#0C644A\",\"Start\":\"#77B986\",\"Batch\":\"#9A6C66\",\"MyLabel\":\"#20BEB9\",\"Trigger\":\"#64AFCD\",\"NodeWithTime\":\"#BA77B5\",\"Node\":\"#0EB7DC\",\"Test\":\"#ECA19E\",\"Finished\":\"#F16A7D\",\"Schedule\":\"#6D9CBF\",\"NotFound\":\"#A672B5\",\"Found\":\"#AF2B38\",\"City\":\"#5ED975\"},\"types\":[\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\",\"MY_CASE_REL\"],\"directed\":true}"
+          }
+        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -1427,14 +1433,14 @@
       "jobName": "paragraph_1635931344375_2143164700",
       "id": "paragraph_1635931344375_2143164700",
       "dateCreated": "2021-11-03 09:22:24.375",
-      "dateStarted": "2022-03-21 14:34:40.106",
-      "dateFinished": "2022-03-21 14:34:40.323",
+      "dateStarted": "2022-03-22 15:30:21.372",
+      "dateFinished": "2022-03-22 15:30:21.792",
       "status": "FINISHED"
     },
     {
-      "text": "%md\n\n## Date and time functions\n\nNeo4j supports date and temporal values, but often, we are dealing with differing date formats between systems or files. These can be difficult to express and translate without a few flexible procedures to handle converting one value formatting to another.\n\nAPOC has \u003ca href\u003d\"https://neo4j.com/labs/apoc/4.1/temporal/datetime-conversions/\" target\u003d\"_blank\"\u003eseveral procedures\u003c/a\u003e for converting and formatting various date, time, and temporal values.\nhere are some of them:\n\n- apoc.date.add(timestamp, \u0027time\u0027, value, \u0027time\u0027) - given a `timestamp` in one time unit, adds a `value` of the specified time unit\n- apoc.date.fields(\u00272012-12-23\u0027,(\u0027yyyy-MM-dd\u0027)) - return columns and a map representation of date parsed\n- apoc.date.format(12345,time,format,\u0027timezone\u0027) - get string representation of time value optionally using the specified `unit` (default ms) using specified `format` (default ISO) and specified `timezone` (default `TZ`)\n- apoc.date.parse(\u00272012-12-23\u0027,time,format) - parse date string using the specified `format` into the specified time unit\n\nwhere `time` parameter is one of these: `\u0027ms\u0027, \u0027s\u0027, \u0027m\u0027, \u0027h\u0027, \u0027d\u0027, \u0027millis\u0027, \u0027milliseconds\u0027, \u0027seconds\u0027, \u0027minutes\u0027, \u0027hours\u0027 or \u0027days\u0027`,\nand `format` is the date format (e.g `\"yyyy-MM-dd\"`, `\"yyyy-MM-dd HH:mm:ss zzz\"`)\n",
+      "text": "%md\n\n## Date and time functions\n\nNeo4j supports date and temporal values, but often, we are dealing with differing date formats between systems or files. These can be difficult to express and translate without a few flexible procedures to handle converting one value formatting to another.\n\nAPOC has \u003ca href\u003d\"https://neo4j.com/labs/apoc/4.1/temporal/datetime-conversions/\" target\u003d\"_blank\"\u003eseveral procedures\u003c/a\u003e for converting and formatting various date, time, and temporal values.\nhere are some of them:\n\n- `apoc.date.add(timestamp, \u0027time\u0027, value, \u0027time\u0027)` - given a `timestamp` in one time unit, adds a `value` of the specified time unit\n- `apoc.date.fields(\u00272012-12-23\u0027,(\u0027yyyy-MM-dd\u0027))` - return columns and a map representation of date parsed\n- `apoc.date.parse(\u00272012-12-23\u0027,time,format)` - parse date string using the specified `format` into the specified time unit\n- `apoc.date.format(12345,time,format,\u0027timezone\u0027)` - get string representation of time value optionally using the specified `unit` (default ms) using specified `format` (default ISO) and specified `timezone` (default `TZ`)\n\nwhere `time` parameter is one of these: `\u0027ms\u0027, \u0027s\u0027, \u0027m\u0027, \u0027h\u0027, \u0027d\u0027, \u0027millis\u0027, \u0027milliseconds\u0027, \u0027seconds\u0027, \u0027minutes\u0027, \u0027hours\u0027 or \u0027days\u0027`,\nand `format` is the date format (e.g `\"yyyy-MM-dd\"`, `\"yyyy-MM-dd HH:mm:ss zzz\"`)\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-24 13:05:52.094",
+      "dateUpdated": "2022-03-22 15:30:48.779",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1459,7 +1465,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eDate and time functions\u003c/h2\u003e\n\u003cp\u003eNeo4j supports date and temporal values, but often, we are dealing with differing date formats between systems or files. These can be difficult to express and translate without a few flexible procedures to handle converting one value formatting to another.\u003c/p\u003e\n\u003cp\u003eAPOC has \u003ca href\u003d\"https://neo4j.com/labs/apoc/4.1/temporal/datetime-conversions/\" target\u003d\"_blank\"\u003eseveral procedures\u003c/a\u003e for converting and formatting various date, time, and temporal values.\u003cbr /\u003e\nhere are some of them:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eapoc.date.add(timestamp, \u0026lsquo;time\u0026rsquo;, value, \u0026lsquo;time\u0026rsquo;) - given a \u003ccode\u003etimestamp\u003c/code\u003e in one time unit, adds a \u003ccode\u003evalue\u003c/code\u003e of the specified time unit\u003c/li\u003e\n\u003cli\u003eapoc.date.fields(\u0026lsquo;2012-12-23\u0026rsquo;,(\u0026lsquo;yyyy-MM-dd\u0026rsquo;)) - return columns and a map representation of date parsed\u003c/li\u003e\n\u003cli\u003eapoc.date.format(12345,time,format,\u0026lsquo;timezone\u0026rsquo;) - get string representation of time value optionally using the specified \u003ccode\u003eunit\u003c/code\u003e (default ms) using specified \u003ccode\u003eformat\u003c/code\u003e (default ISO) and specified \u003ccode\u003etimezone\u003c/code\u003e (default \u003ccode\u003eTZ\u003c/code\u003e)\u003c/li\u003e\n\u003cli\u003eapoc.date.parse(\u0026lsquo;2012-12-23\u0026rsquo;,time,format) - parse date string using the specified \u003ccode\u003eformat\u003c/code\u003e into the specified time unit\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003ewhere \u003ccode\u003etime\u003c/code\u003e parameter is one of these: \u003ccode\u003e\u0027ms\u0027, \u0027s\u0027, \u0027m\u0027, \u0027h\u0027, \u0027d\u0027, \u0027millis\u0027, \u0027milliseconds\u0027, \u0027seconds\u0027, \u0027minutes\u0027, \u0027hours\u0027 or \u0027days\u0027\u003c/code\u003e,\u003cbr /\u003e\nand \u003ccode\u003eformat\u003c/code\u003e is the date format (e.g \u003ccode\u003e\u0026quot;yyyy-MM-dd\u0026quot;\u003c/code\u003e, \u003ccode\u003e\u0026quot;yyyy-MM-dd HH:mm:ss zzz\u0026quot;\u003c/code\u003e)\u003c/p\u003e\n\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eDate and time functions\u003c/h2\u003e\n\u003cp\u003eNeo4j supports date and temporal values, but often, we are dealing with differing date formats between systems or files. These can be difficult to express and translate without a few flexible procedures to handle converting one value formatting to another.\u003c/p\u003e\n\u003cp\u003eAPOC has \u003ca href\u003d\"https://neo4j.com/labs/apoc/4.1/temporal/datetime-conversions/\" target\u003d\"_blank\"\u003eseveral procedures\u003c/a\u003e for converting and formatting various date, time, and temporal values.\u003cbr /\u003e\nhere are some of them:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eapoc.date.add(timestamp, \u0027time\u0027, value, \u0027time\u0027)\u003c/code\u003e - given a \u003ccode\u003etimestamp\u003c/code\u003e in one time unit, adds a \u003ccode\u003evalue\u003c/code\u003e of the specified time unit\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.date.fields(\u00272012-12-23\u0027,(\u0027yyyy-MM-dd\u0027))\u003c/code\u003e - return columns and a map representation of date parsed\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.date.parse(\u00272012-12-23\u0027,time,format)\u003c/code\u003e - parse date string using the specified \u003ccode\u003eformat\u003c/code\u003e into the specified time unit\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.date.format(12345,time,format,\u0027timezone\u0027)\u003c/code\u003e - get string representation of time value optionally using the specified \u003ccode\u003eunit\u003c/code\u003e (default ms) using specified \u003ccode\u003eformat\u003c/code\u003e (default ISO) and specified \u003ccode\u003etimezone\u003c/code\u003e (default \u003ccode\u003eTZ\u003c/code\u003e)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003ewhere \u003ccode\u003etime\u003c/code\u003e parameter is one of these: \u003ccode\u003e\u0027ms\u0027, \u0027s\u0027, \u0027m\u0027, \u0027h\u0027, \u0027d\u0027, \u0027millis\u0027, \u0027milliseconds\u0027, \u0027seconds\u0027, \u0027minutes\u0027, \u0027hours\u0027 or \u0027days\u0027\u003c/code\u003e,\u003cbr /\u003e\nand \u003ccode\u003eformat\u003c/code\u003e is the date format (e.g \u003ccode\u003e\u0026quot;yyyy-MM-dd\u0026quot;\u003c/code\u003e, \u003ccode\u003e\u0026quot;yyyy-MM-dd HH:mm:ss zzz\u0026quot;\u003c/code\u003e)\u003c/p\u003e\n\n\u003c/div\u003e"
           }
         ]
       },
@@ -1469,8 +1475,8 @@
       "jobName": "paragraph_1635349592486_1411303387",
       "id": "paragraph_1635349592486_1411303387",
       "dateCreated": "2021-10-27 15:46:32.486",
-      "dateStarted": "2021-11-24 13:05:52.090",
-      "dateFinished": "2021-11-24 13:05:52.138",
+      "dateStarted": "2022-03-22 15:30:48.776",
+      "dateFinished": "2022-03-22 15:30:48.800",
       "status": "FINISHED"
     },
     {
@@ -1998,7 +2004,7 @@
         "msg": [
           {
             "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":1,\"data\":{\"tagline\":\"Welcome to the Real World\",\"title\":\"The Matrix\",\"released\":1999},\"label\":\"Movie\"},{\"id\":131,\"data\":{\"tagline\":\"Walk a mile you\\u0027ll never forget.\",\"title\":\"The Green Mile\",\"released\":1999},\"label\":\"Movie\"},{\"id\":158,\"data\":{\"tagline\":\"One robot\\u0027s 200 year journey to become an ordinary man.\",\"title\":\"Bicentennial Man\",\"released\":1999},\"label\":\"Movie\"},{\"id\":63,\"data\":{\"tagline\":\"First loves last. Forever.\",\"title\":\"Snow Falling on Cedars\",\"released\":1999},\"label\":\"Movie\"}],\"edges\":[],\"labels\":{\"Movie\":\"#696141\",\"Person\":\"#FECBDC\",\"Article\":\"#374237\",\"NotKeanu\":\"#8E9687\",\"MyCaseNode\":\"#A4AD16\",\"Node\":\"#EF3C18\",\"Actor\":\"#76B62C\",\"TimeoutTest\":\"#A13D5E\",\"Trigger\":\"#94FB0E\",\"NodeWithTime\":\"#439922\",\"Finished\":\"#F20E47\",\"CurrentTime\":\"#6149FC\",\"Counter\":\"#7BF6D3\"},\"types\":[\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"PRODUCED\",\"WROTE\",\"FOLLOWS\",\"DIRECTED\",\"MY_CASE_REL\"],\"directed\":true}"
+            "data": "{\"nodes\":[{\"id\":1,\"data\":{\"tagline\":\"Welcome to the Real World\",\"title\":\"The Matrix\",\"released\":1999},\"label\":\"Movie\"},{\"id\":131,\"data\":{\"tagline\":\"Walk a mile you\\u0027ll never forget.\",\"title\":\"The Green Mile\",\"released\":1999},\"label\":\"Movie\"},{\"id\":158,\"data\":{\"tagline\":\"One robot\\u0027s 200 year journey to become an ordinary man.\",\"title\":\"Bicentennial Man\",\"released\":1999},\"label\":\"Movie\"},{\"id\":63,\"data\":{\"tagline\":\"First loves last. Forever.\",\"title\":\"Snow Falling on Cedars\",\"released\":1999},\"label\":\"Movie\"}],\"edges\":[],\"labels\":{\"Movie\":\"#696141\",\"Person\":\"#FECBDC\",\"Article\":\"#374237\",\"NotFracchia\":\"#8E9687\",\"MyCaseNode\":\"#A4AD16\",\"Node\":\"#EF3C18\",\"Actor\":\"#76B62C\",\"TimeoutTest\":\"#A13D5E\",\"Trigger\":\"#94FB0E\",\"NodeWithTime\":\"#439922\",\"Finished\":\"#F20E47\",\"CurrentTime\":\"#6149FC\",\"Counter\":\"#7BF6D3\"},\"types\":[\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"PRODUCED\",\"WROTE\",\"FOLLOWS\",\"DIRECTED\",\"MY_CASE_REL\"],\"directed\":true}"
           }
         ]
       },
@@ -2016,7 +2022,7 @@
       "title": "apoc.date.currentTimestamp",
       "text": "%neo4j\n\n// we use `apoc.date.format` to get only minutes and seconds from a query \n//        and apoc.date.currentTimestamp() instead of timestamp() because the last one doesn\u0027t change during transaction\n\nwith apoc.date.currentTimestamp() as currentTimeAPOC, timestamp() as currentTime\ncall apoc.util.sleep(3000)\nreturn apoc.date.format(currentTimeAPOC, \u0027ms\u0027,\u0027mm:ss\u0027) as timeBeforeAPOC, \n    apoc.date.format(currentTime, \u0027ms\u0027,\u0027mm:ss\u0027) as timeBefore, \n    apoc.date.format(apoc.date.currentTimestamp(), \u0027ms\u0027,\u0027mm:ss\u0027) as timeAfterAPOC, \n    apoc.date.format(timestamp(), \u0027ms\u0027,\u0027mm:ss\u0027) as timeAfter",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:36:54.421",
+      "dateUpdated": "2022-03-22 15:31:02.409",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2071,7 +2077,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "timeBeforeAPOC\ttimeBefore\ttimeAfterAPOC\ttimeAfter\n\"36:54\"\t\"36:54\"\t\"36:57\"\t\"36:54\"\n"
+            "data": "timeBeforeAPOC\ttimeBefore\ttimeAfterAPOC\ttimeAfter\n\"31:02\"\t\"31:02\"\t\"31:05\"\t\"31:02\"\n"
           }
         ]
       },
@@ -2081,8 +2087,8 @@
       "jobName": "paragraph_1637939954270_62829114",
       "id": "paragraph_1637939954270_62829114",
       "dateCreated": "2021-11-26 15:19:14.270",
-      "dateStarted": "2022-03-21 14:36:54.442",
-      "dateFinished": "2022-03-21 14:36:57.529",
+      "dateStarted": "2022-03-22 15:31:02.468",
+      "dateFinished": "2022-03-22 15:31:05.569",
       "status": "FINISHED"
     },
     {
@@ -2197,7 +2203,7 @@
       "status": "FINISHED"
     },
     {
-      "text": "%neo4j\n\nmatch path \u003d (k:Person {name:\u0027Keanu Reeves\u0027})-[*..2]-(x)\nwith collect(x) as nodes   // e.g. from an external API\n\nunwind apoc.coll.toSet(nodes) as node\nreturn id(node)",
+      "text": "%neo4j\n\nmatch path \u003d (k:Person {name:\u0027Giandomenico Fracchia\u0027})-[*..2]-(x)\nwith collect(x) as nodes   // e.g. from an external API\n\nunwind apoc.coll.toSet(nodes) as node\nreturn id(node)",
       "user": "anonymous",
       "dateUpdated": "2022-03-21 14:37:21.770",
       "config": {
@@ -2294,7 +2300,7 @@
       "status": "FINISHED"
     },
     {
-      "text": "%neo4j\n\nmatch path \u003d (k:Person {name:\u0027Keanu Reeves\u0027})-[*..2]-(x)\nwith collect(x) as nodes   // e.g. from an external API\n\nunwind nodes as node\nreturn id(node)",
+      "text": "%neo4j\n\nmatch path \u003d (k:Person {name:\u0027Giandomenico Fracchia\u0027})-[*..2]-(x)\nwith collect(x) as nodes   // e.g. from an external API\n\nunwind nodes as node\nreturn id(node)",
       "user": "anonymous",
       "dateUpdated": "2021-11-25 11:40:24.201",
       "config": {
@@ -2392,7 +2398,7 @@
       "status": "FINISHED"
     },
     {
-      "text": "%neo4j\nmatch p\u003d(a:Person {name: \u0027Keanu Reeves\u0027})-[]-\u003e()\nreturn apoc.convert.toJson(p)",
+      "text": "%neo4j\nmatch p\u003d(a:Person {name: \u0027Giandomenico Fracchia\u0027})-[]-\u003e()\nreturn apoc.convert.toJson(p)",
       "user": "anonymous",
       "dateUpdated": "2022-03-21 14:38:47.985",
       "config": {
@@ -2445,7 +2451,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "apoc.convert.toJson(p)\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Keanu Reeves\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Keanu Reeves\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"306\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"myId\\\":1},\\\"labels\\\":[\\\"MyCaseNode\\\"]},\\\"id\\\":\\\"254\\\",\\\"label\\\":\\\"MY_CASE_REL\\\",\\\"type\\\":\\\"relationship\\\"},{\\\"id\\\":\\\"306\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"myId\\\":1},\\\"labels\\\":[\\\"MyCaseNode\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Keanu Reeves\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Keanu Reeves\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"173\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"name\\\":\\\"The movie about Keanu Reeves\\\"},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"253\\\",\\\"label\\\":\\\"HAS_MOVIE\\\",\\\"type\\\":\\\"relationship\\\"},{\\\"id\\\":\\\"173\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"name\\\":\\\"The movie about Keanu Reeves\\\"},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Keanu Reeves\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Keanu Reeves\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"155\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"title\\\":\\\"Something\u0027s Gotta Give\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"221\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Julian Mercer\\\"]}},{\\\"id\\\":\\\"155\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"title\\\":\\\"Something\u0027s Gotta Give\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Keanu Reeves\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Keanu Reeves\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"88\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Pain heals, Chicks dig scars... Glory lasts forever\\\",\\\"title\\\":\\\"The Replacements\\\",\\\"released\\\":2000},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"114\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Shane Falco\\\"]}},{\\\"id\\\":\\\"88\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Pain heals, Chicks dig scars... Glory lasts forever\\\",\\\"title\\\":\\\"The Replacements\\\",\\\"released\\\":2000},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Keanu Reeves\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Keanu Reeves\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"101\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"The hottest data on earth. In the coolest head in town\\\",\\\"title\\\":\\\"Johnny Mnemonic\\\",\\\"released\\\":1995},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"132\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Johnny Mnemonic\\\"]}},{\\\"id\\\":\\\"101\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"The hottest data on earth. In the coolest head in town\\\",\\\"title\\\":\\\"Johnny Mnemonic\\\",\\\"released\\\":1995},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Keanu Reeves\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Keanu Reeves\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"12\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Evil has its winning ways\\\",\\\"title\\\":\\\"The Devil\u0027s Advocate\\\",\\\"released\\\":1997},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"22\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Kevin Lomax\\\"]}},{\\\"id\\\":\\\"12\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Evil has its winning ways\\\",\\\"title\\\":\\\"The Devil\u0027s Advocate\\\",\\\"released\\\":1997},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Keanu Reeves\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Keanu Reeves\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"11\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Everything that has a beginning has an end\\\",\\\"title\\\":\\\"The Matrix Revolutions\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"15\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Neo\\\"]}},{\\\"id\\\":\\\"11\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Everything that has a beginning has an end\\\",\\\"title\\\":\\\"The Matrix Revolutions\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Keanu Reeves\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Keanu Reeves\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"10\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Free your mind\\\",\\\"title\\\":\\\"The Matrix Reloaded\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"8\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Neo\\\"]}},{\\\"id\\\":\\\"10\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Free your mind\\\",\\\"title\\\":\\\"The Matrix Reloaded\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Keanu Reeves\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Keanu Reeves\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"1\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Welcome to the Real World\\\",\\\"title\\\":\\\"The Matrix\\\",\\\"released\\\":1999},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"0\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Neo\\\"]}},{\\\"id\\\":\\\"1\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Welcome to the Real World\\\",\\\"title\\\":\\\"The Matrix\\\",\\\"released\\\":1999},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n"
+            "data": "apoc.convert.toJson(p)\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"306\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"myId\\\":1},\\\"labels\\\":[\\\"MyCaseNode\\\"]},\\\"id\\\":\\\"254\\\",\\\"label\\\":\\\"MY_CASE_REL\\\",\\\"type\\\":\\\"relationship\\\"},{\\\"id\\\":\\\"306\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"myId\\\":1},\\\"labels\\\":[\\\"MyCaseNode\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"173\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"name\\\":\\\"The movie about Giandomenico Fracchia\\\"},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"253\\\",\\\"label\\\":\\\"HAS_MOVIE\\\",\\\"type\\\":\\\"relationship\\\"},{\\\"id\\\":\\\"173\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"name\\\":\\\"The movie about Giandomenico Fracchia\\\"},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"155\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"title\\\":\\\"Something\u0027s Gotta Give\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"221\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Julian Mercer\\\"]}},{\\\"id\\\":\\\"155\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"title\\\":\\\"Something\u0027s Gotta Give\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"88\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Pain heals, Chicks dig scars... Glory lasts forever\\\",\\\"title\\\":\\\"The Replacements\\\",\\\"released\\\":2000},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"114\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Shane Falco\\\"]}},{\\\"id\\\":\\\"88\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Pain heals, Chicks dig scars... Glory lasts forever\\\",\\\"title\\\":\\\"The Replacements\\\",\\\"released\\\":2000},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"101\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"The hottest data on earth. In the coolest head in town\\\",\\\"title\\\":\\\"Johnny Mnemonic\\\",\\\"released\\\":1995},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"132\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Johnny Mnemonic\\\"]}},{\\\"id\\\":\\\"101\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"The hottest data on earth. In the coolest head in town\\\",\\\"title\\\":\\\"Johnny Mnemonic\\\",\\\"released\\\":1995},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"12\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Evil has its winning ways\\\",\\\"title\\\":\\\"The Devil\u0027s Advocate\\\",\\\"released\\\":1997},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"22\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Kevin Lomax\\\"]}},{\\\"id\\\":\\\"12\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Evil has its winning ways\\\",\\\"title\\\":\\\"The Devil\u0027s Advocate\\\",\\\"released\\\":1997},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"11\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Everything that has a beginning has an end\\\",\\\"title\\\":\\\"The Matrix Revolutions\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"15\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Neo\\\"]}},{\\\"id\\\":\\\"11\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Everything that has a beginning has an end\\\",\\\"title\\\":\\\"The Matrix Revolutions\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"10\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Free your mind\\\",\\\"title\\\":\\\"The Matrix Reloaded\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"8\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Neo\\\"]}},{\\\"id\\\":\\\"10\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Free your mind\\\",\\\"title\\\":\\\"The Matrix Reloaded\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"1\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Welcome to the Real World\\\",\\\"title\\\":\\\"The Matrix\\\",\\\"released\\\":1999},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"0\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Neo\\\"]}},{\\\"id\\\":\\\"1\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Welcome to the Real World\\\",\\\"title\\\":\\\"The Matrix\\\",\\\"released\\\":1999},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n"
           }
         ]
       },
@@ -2694,9 +2700,9 @@
       "status": "FINISHED"
     },
     {
-      "text": "%neo4j\n\nWITH \u0027{  \"columns\": {\"b\": \"1\"}, \"alfa\": {\"a\": 1}, \"beta\": {\"columns\": {\"ajeje\": 1}}, \"gamma\": 666    }\u0027 AS json\nRETURN apoc.json.path(json, \u0027$..columns\u0027, [\u0027SUPPRESS_EXCEPTIONS\u0027]) AS path\n",
+      "text": "%neo4j\n\nWITH \u0027{  \"columns\": {\"b\": \"1\"}, \"alfa\": {\"a\": 1}, \"beta\": {\"columns\": {\"ajeje\": 1}}, \"gamma\": 666    }\u0027 AS json\nRETURN apoc.json.path(json, \u0027$..columns\u0027, []) AS path\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-25 14:43:21.277",
+      "dateUpdated": "2022-03-22 15:51:51.166",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2786,8 +2792,8 @@
       "jobName": "paragraph_1637846776216_1872553051",
       "id": "paragraph_1637846776216_1872553051",
       "dateCreated": "2021-11-25 13:26:16.216",
-      "dateStarted": "2021-11-25 14:15:24.949",
-      "dateFinished": "2021-11-25 14:15:24.964",
+      "dateStarted": "2022-03-22 15:51:51.190",
+      "dateFinished": "2022-03-22 15:51:51.207",
       "status": "FINISHED"
     },
     {
@@ -3186,35 +3192,6 @@
       "dateStarted": "2021-11-25 14:18:43.864",
       "dateFinished": "2021-11-25 14:18:43.909",
       "status": "FINISHED"
-    },
-    {
-      "text": "",
-      "user": "anonymous",
-      "dateUpdated": "2021-11-30 13:24:03.093",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1638278547764_758250103",
-      "id": "paragraph_1638278547764_758250103",
-      "dateCreated": "2021-11-30 13:22:27.764",
-      "status": "READY"
     },
     {
       "text": "%md\n\n## [Refactor data](http://localhost:8080/#/notebook/2GKZNUE99)\n",

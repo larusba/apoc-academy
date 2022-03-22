@@ -1,12 +1,12 @@
 _id|_labels|born|children|fingerprint|id|import|myId|myProp|name|other|prop|released|something|stuff|tagline|time|timestamp|title|uuid|_start|_end|_type|rating|roles|summary
 0|:Movie|||||||||||1999|||Welcome to the Real World|||The Matrix|||||||
-1|:Person|1964|||||||Keanu Reeves|444|||aae9d466-e3d1-4273-bfaf-1c0ef113de15|0.4836590050799454|||1637227099869||d04018f4-b447-4795-b32e-fe6288ee8e5f||||||
+1|:Person|1964|||||||Giandomenico Fracchia|444|||aae9d466-e3d1-4273-bfaf-1c0ef113de15|0.4836590050799454|||1637227099869||d04018f4-b447-4795-b32e-fe6288ee8e5f||||||
 2|:Person|1967|["Al","John","Jack"]||||||Carrie-Anne Moss||||||||||91394dfb-4174-4c26-9aed-84d1632c3fa0||||||
 3|:Person|1961|["Naruto","Sasuke","Sakura"]||||||Laurence Fishburne||||||||||d76f24d3-55f0-4164-b822-ae4090e6c4ff||||||
 4|:Person|1960|||||||Hugo Weaving||||||||||99f78a29-b198-42ed-ae32-2e27c32096c2||||||
 5|:Person|1967|||||||Lilly Wachowski||||||||||9a9c9a74-c5ef-48c9-be32-ff50bba872d0||||||
 6|:Person|1965|||||||Lana Wachowski||||||||||be365468-9348-43c4-beb6-7d51dd09b097||||||
-7|:Person|1952|||||||Joel Silver||||||||||20a24c8b-7a41-4b4b-a7a4-e15108d8f716||||||
+7|:Person|1952|||||||Franco e Ciccio||||||||||20a24c8b-7a41-4b4b-a7a4-e15108d8f716||||||
 8|:Person|1978|||||||Emil Eifrem||||||||||354af106-ac5c-4c2a-9bda-cfe0ff678012||||||
 9|:Movie|||||||||||2003|||Free your mind|||The Matrix Reloaded|||||||
 10|:Movie|||||||||||2003|||Everything that has a beginning has an end|||The Matrix Revolutions|||||||
@@ -170,139 +170,139 @@ _id|_labels|born|children|fingerprint|id|import|myId|myProp|name|other|prop|rele
 168|:Person||||||||Angela Scope||||||||||1e9b7724-24bc-43c9-bba2-eab6e0b4d053||||||
 169|:Person||||||||Jessica Thompson||||||||||3dfbc79f-996d-4f06-9dc0-03c6fad7741f||||||
 170|:Person||||||||James Thompson||||||||||ee260462-3bbd-45e6-8cfc-b0d0194d0450||||||
-171|:Movie||||||||The movie about Keanu Reeves||||||||||||||||
-172|:NotKeanu||||||||Carrie-Anne Moss||||||||||||||||
-173|:NotKeanu||||||||Laurence Fishburne||||||||||||||||
-174|:NotKeanu||||||||Hugo Weaving||||||||||||||||
-175|:NotKeanu||||||||Lilly Wachowski||||||||||||||||
-176|:NotKeanu||||||||Lana Wachowski||||||||||||||||
-177|:NotKeanu||||||||Joel Silver||||||||||||||||
-178|:NotKeanu||||||||Emil Eifrem||||||||||||||||
-179|:NotKeanu||||||||Charlize Theron||||||||||||||||
-180|:NotKeanu||||||||Al Pacino||||||||||||||||
-181|:NotKeanu||||||||Taylor Hackford||||||||||||||||
-182|:NotKeanu||||||||Tom Cruise||||||||||||||||
-183|:NotKeanu||||||||Jack Nicholson||||||||||||||||
-184|:NotKeanu||||||||Demi Moore||||||||||||||||
-185|:NotKeanu||||||||Kevin Bacon||||||||||||||||
-186|:NotKeanu||||||||Kiefer Sutherland||||||||||||||||
-187|:NotKeanu||||||||Noah Wyle||||||||||||||||
-188|:NotKeanu||||||||Cuba Gooding Jr.||||||||||||||||
-189|:NotKeanu||||||||Kevin Pollak||||||||||||||||
-190|:NotKeanu||||||||J.T. Walsh||||||||||||||||
-191|:NotKeanu||||||||James Marshall||||||||||||||||
-192|:NotKeanu||||||||Christopher Guest||||||||||||||||
-193|:NotKeanu||||||||Rob Reiner||||||||||||||||
-194|:NotKeanu||||||||Aaron Sorkin||||||||||||||||
-195|:NotKeanu||||||||Kelly McGillis||||||||||||||||
-196|:NotKeanu||||||||Val Kilmer||||||||||||||||
-197|:NotKeanu||||||||Anthony Edwards||||||||||||||||
-198|:NotKeanu||||||||Tom Skerritt||||||||||||||||
-199|:NotKeanu||||||||Meg Ryan||||||||||||||||
-200|:NotKeanu||||||||Tony Scott||||||||||||||||
-201|:NotKeanu||||||||Jim Cash||||||||||||||||
-202|:NotKeanu||||||||Renee Zellweger||||||||||||||||
-203|:NotKeanu||||||||Kelly Preston||||||||||||||||
-204|:NotKeanu||||||||Jerry O'Connell||||||||||||||||
-205|:NotKeanu||||||||Jay Mohr||||||||||||||||
-206|:NotKeanu||||||||Bonnie Hunt||||||||||||||||
-207|:NotKeanu||||||||Regina King||||||||||||||||
-208|:NotKeanu||||||||Jonathan Lipnicki||||||||||||||||
-209|:NotKeanu||||||||Cameron Crowe||||||||||||||||
-210|:NotKeanu||||||||River Phoenix||||||||||||||||
-211|:NotKeanu||||||||Corey Feldman||||||||||||||||
-212|:NotKeanu||||||||Wil Wheaton||||||||||||||||
-213|:NotKeanu||||||||John Cusack||||||||||||||||
-214|:NotKeanu||||||||Marshall Bell||||||||||||||||
-215|:NotKeanu||||||||Helen Hunt||||||||||||||||
-216|:NotKeanu||||||||Greg Kinnear||||||||||||||||
-217|:NotKeanu||||||||James L. Brooks||||||||||||||||
-218|:NotKeanu||||||||Annabella Sciorra||||||||||||||||
-219|:NotKeanu||||||||Max von Sydow||||||||||||||||
-220|:NotKeanu||||||||Werner Herzog||||||||||||||||
-221|:NotKeanu||||||||Robin Williams||||||||||||||||
-222|:NotKeanu||||||||Vincent Ward||||||||||||||||
-223|:NotKeanu||||||||Ethan Hawke||||||||||||||||
-224|:NotKeanu||||||||Rick Yune||||||||||||||||
-225|:NotKeanu||||||||James Cromwell||||||||||||||||
-226|:NotKeanu||||||||Scott Hicks||||||||||||||||
-227|:NotKeanu||||||||Parker Posey||||||||||||||||
-228|:NotKeanu||||||||Dave Chappelle||||||||||||||||
-229|:NotKeanu||||||||Steve Zahn||||||||||||||||
-230|:NotKeanu||||||||Tom Hanks||||||||||||||||
-231|:NotKeanu||||||||Nora Ephron||||||||||||||||
-232|:NotKeanu||||||||Rita Wilson||||||||||||||||
-233|:NotKeanu||||||||Bill Pullman||||||||||||||||
-234|:NotKeanu||||||||Victor Garber||||||||||||||||
-235|:NotKeanu||||||||Rosie O'Donnell||||||||||||||||
-236|:NotKeanu||||||||John Patrick Stanley||||||||||||||||
-237|:NotKeanu||||||||Nathan Lane||||||||||||||||
-238|:NotKeanu||||||||Billy Crystal||||||||||||||||
-239|:NotKeanu||||||||Carrie Fisher||||||||||||||||
-240|:NotKeanu||||||||Bruno Kirby||||||||||||||||
-241|:NotKeanu||||||||Liv Tyler||||||||||||||||
-242|:NotKeanu||||||||Brooke Langton||||||||||||||||
-243|:NotKeanu||||||||Gene Hackman||||||||||||||||
-244|:NotKeanu||||||||Orlando Jones||||||||||||||||
-245|:NotKeanu||||||||Howard Deutch||||||||||||||||
-246|:NotKeanu||||||||Christian Bale||||||||||||||||
-247|:NotKeanu||||||||Zach Grenier||||||||||||||||
-248|:NotKeanu||||||||Mike Nichols||||||||||||||||
-249|:NotKeanu||||||||Richard Harris||||||||||||||||
-250|:NotKeanu||||||||Clint Eastwood||||||||||||||||
-251|:NotKeanu||||||||Takeshi Kitano||||||||||||||||
-252|:NotKeanu||||||||Dina Meyer||||||||||||||||
-253|:NotKeanu||||||||Ice-T||||||||||||||||
-254|:NotKeanu||||||||Robert Longo||||||||||||||||
-255|:NotKeanu||||||||Halle Berry||||||||||||||||
-256|:NotKeanu||||||||Jim Broadbent||||||||||||||||
-257|:NotKeanu||||||||Tom Tykwer||||||||||||||||
-258|:NotKeanu||||||||David Mitchell||||||||||||||||
-259|:NotKeanu||||||||Stefan Arndt||||||||||||||||
-260|:NotKeanu||||||||Ian McKellen||||||||||||||||
-261|:NotKeanu||||||||Audrey Tautou||||||||||||||||
-262|:NotKeanu||||||||Paul Bettany||||||||||||||||
-263|:NotKeanu||||||||Ron Howard||||||||||||||||
-264|:NotKeanu||||||||Natalie Portman||||||||||||||||
-265|:NotKeanu||||||||Stephen Rea||||||||||||||||
-266|:NotKeanu||||||||John Hurt||||||||||||||||
-267|:NotKeanu||||||||Ben Miles||||||||||||||||
-268|:NotKeanu||||||||Emile Hirsch||||||||||||||||
-269|:NotKeanu||||||||John Goodman||||||||||||||||
-270|:NotKeanu||||||||Susan Sarandon||||||||||||||||
-271|:NotKeanu||||||||Matthew Fox||||||||||||||||
-272|:NotKeanu||||||||Christina Ricci||||||||||||||||
-273|:NotKeanu||||||||Rain||||||||||||||||
-274|:NotKeanu||||||||Naomie Harris||||||||||||||||
-275|:NotKeanu||||||||Michael Clarke Duncan||||||||||||||||
-276|:NotKeanu||||||||David Morse||||||||||||||||
-277|:NotKeanu||||||||Sam Rockwell||||||||||||||||
-278|:NotKeanu||||||||Gary Sinise||||||||||||||||
-279|:NotKeanu||||||||Patricia Clarkson||||||||||||||||
-280|:NotKeanu||||||||Frank Darabont||||||||||||||||
-281|:NotKeanu||||||||Frank Langella||||||||||||||||
-282|:NotKeanu||||||||Michael Sheen||||||||||||||||
-283|:NotKeanu||||||||Oliver Platt||||||||||||||||
-284|:NotKeanu||||||||Danny DeVito||||||||||||||||
-285|:NotKeanu||||||||John C. Reilly||||||||||||||||
-286|:NotKeanu||||||||Ed Harris||||||||||||||||
-287|:NotKeanu||||||||Bill Paxton||||||||||||||||
-288|:NotKeanu||||||||Philip Seymour Hoffman||||||||||||||||
-289|:NotKeanu||||||||Jan de Bont||||||||||||||||
-290|:NotKeanu||||||||Robert Zemeckis||||||||||||||||
-291|:NotKeanu||||||||Milos Forman||||||||||||||||
-292|:NotKeanu||||||||Diane Keaton||||||||||||||||
-293|:NotKeanu||||||||Nancy Meyers||||||||||||||||
-294|:NotKeanu||||||||Chris Columbus||||||||||||||||
-295|:NotKeanu||||||||Julia Roberts||||||||||||||||
-296|:NotKeanu||||||||Madonna||||||||||||||||
-297|:NotKeanu||||||||Geena Davis||||||||||||||||
-298|:NotKeanu||||||||Lori Petty||||||||||||||||
-299|:NotKeanu||||||||Penny Marshall||||||||||||||||
-300|:NotKeanu||||||||Paul Blythe||||||||||||||||
-301|:NotKeanu||||||||Angela Scope||||||||||||||||
-302|:NotKeanu||||||||Jessica Thompson||||||||||||||||
-303|:NotKeanu||||||||James Thompson||||||||||||||||
+171|:Movie||||||||The movie about Giandomenico Fracchia||||||||||||||||
+172|:NotFracchia||||||||Carrie-Anne Moss||||||||||||||||
+173|:NotFracchia||||||||Laurence Fishburne||||||||||||||||
+174|:NotFracchia||||||||Hugo Weaving||||||||||||||||
+175|:NotFracchia||||||||Lilly Wachowski||||||||||||||||
+176|:NotFracchia||||||||Lana Wachowski||||||||||||||||
+177|:NotFracchia||||||||Franco e Ciccio||||||||||||||||
+178|:NotFracchia||||||||Emil Eifrem||||||||||||||||
+179|:NotFracchia||||||||Charlize Theron||||||||||||||||
+180|:NotFracchia||||||||Al Pacino||||||||||||||||
+181|:NotFracchia||||||||Taylor Hackford||||||||||||||||
+182|:NotFracchia||||||||Tom Cruise||||||||||||||||
+183|:NotFracchia||||||||Jack Nicholson||||||||||||||||
+184|:NotFracchia||||||||Demi Moore||||||||||||||||
+185|:NotFracchia||||||||Kevin Bacon||||||||||||||||
+186|:NotFracchia||||||||Kiefer Sutherland||||||||||||||||
+187|:NotFracchia||||||||Noah Wyle||||||||||||||||
+188|:NotFracchia||||||||Cuba Gooding Jr.||||||||||||||||
+189|:NotFracchia||||||||Kevin Pollak||||||||||||||||
+190|:NotFracchia||||||||J.T. Walsh||||||||||||||||
+191|:NotFracchia||||||||James Marshall||||||||||||||||
+192|:NotFracchia||||||||Christopher Guest||||||||||||||||
+193|:NotFracchia||||||||Rob Reiner||||||||||||||||
+194|:NotFracchia||||||||Aaron Sorkin||||||||||||||||
+195|:NotFracchia||||||||Kelly McGillis||||||||||||||||
+196|:NotFracchia||||||||Val Kilmer||||||||||||||||
+197|:NotFracchia||||||||Anthony Edwards||||||||||||||||
+198|:NotFracchia||||||||Tom Skerritt||||||||||||||||
+199|:NotFracchia||||||||Meg Ryan||||||||||||||||
+200|:NotFracchia||||||||Tony Scott||||||||||||||||
+201|:NotFracchia||||||||Jim Cash||||||||||||||||
+202|:NotFracchia||||||||Renee Zellweger||||||||||||||||
+203|:NotFracchia||||||||Kelly Preston||||||||||||||||
+204|:NotFracchia||||||||Jerry O'Connell||||||||||||||||
+205|:NotFracchia||||||||Jay Mohr||||||||||||||||
+206|:NotFracchia||||||||Bonnie Hunt||||||||||||||||
+207|:NotFracchia||||||||Regina King||||||||||||||||
+208|:NotFracchia||||||||Jonathan Lipnicki||||||||||||||||
+209|:NotFracchia||||||||Cameron Crowe||||||||||||||||
+210|:NotFracchia||||||||River Phoenix||||||||||||||||
+211|:NotFracchia||||||||Corey Feldman||||||||||||||||
+212|:NotFracchia||||||||Wil Wheaton||||||||||||||||
+213|:NotFracchia||||||||John Cusack||||||||||||||||
+214|:NotFracchia||||||||Marshall Bell||||||||||||||||
+215|:NotFracchia||||||||Helen Hunt||||||||||||||||
+216|:NotFracchia||||||||Greg Kinnear||||||||||||||||
+217|:NotFracchia||||||||James L. Brooks||||||||||||||||
+218|:NotFracchia||||||||Annabella Sciorra||||||||||||||||
+219|:NotFracchia||||||||Max von Sydow||||||||||||||||
+220|:NotFracchia||||||||Werner Herzog||||||||||||||||
+221|:NotFracchia||||||||Robin Williams||||||||||||||||
+222|:NotFracchia||||||||Vincent Ward||||||||||||||||
+223|:NotFracchia||||||||Ethan Hawke||||||||||||||||
+224|:NotFracchia||||||||Rick Yune||||||||||||||||
+225|:NotFracchia||||||||James Cromwell||||||||||||||||
+226|:NotFracchia||||||||Scott Hicks||||||||||||||||
+227|:NotFracchia||||||||Parker Posey||||||||||||||||
+228|:NotFracchia||||||||Dave Chappelle||||||||||||||||
+229|:NotFracchia||||||||Steve Zahn||||||||||||||||
+230|:NotFracchia||||||||Tom Hanks||||||||||||||||
+231|:NotFracchia||||||||Nora Ephron||||||||||||||||
+232|:NotFracchia||||||||Rita Wilson||||||||||||||||
+233|:NotFracchia||||||||Bill Pullman||||||||||||||||
+234|:NotFracchia||||||||Victor Garber||||||||||||||||
+235|:NotFracchia||||||||Rosie O'Donnell||||||||||||||||
+236|:NotFracchia||||||||John Patrick Stanley||||||||||||||||
+237|:NotFracchia||||||||Nathan Lane||||||||||||||||
+238|:NotFracchia||||||||Billy Crystal||||||||||||||||
+239|:NotFracchia||||||||Carrie Fisher||||||||||||||||
+240|:NotFracchia||||||||Bruno Kirby||||||||||||||||
+241|:NotFracchia||||||||Liv Tyler||||||||||||||||
+242|:NotFracchia||||||||Brooke Langton||||||||||||||||
+243|:NotFracchia||||||||Gene Hackman||||||||||||||||
+244|:NotFracchia||||||||Orlando Jones||||||||||||||||
+245|:NotFracchia||||||||Howard Deutch||||||||||||||||
+246|:NotFracchia||||||||Christian Bale||||||||||||||||
+247|:NotFracchia||||||||Zach Grenier||||||||||||||||
+248|:NotFracchia||||||||Mike Nichols||||||||||||||||
+249|:NotFracchia||||||||Richard Harris||||||||||||||||
+250|:NotFracchia||||||||Clint Eastwood||||||||||||||||
+251|:NotFracchia||||||||Takeshi Kitano||||||||||||||||
+252|:NotFracchia||||||||Dina Meyer||||||||||||||||
+253|:NotFracchia||||||||Ice-T||||||||||||||||
+254|:NotFracchia||||||||Robert Longo||||||||||||||||
+255|:NotFracchia||||||||Halle Berry||||||||||||||||
+256|:NotFracchia||||||||Jim Broadbent||||||||||||||||
+257|:NotFracchia||||||||Tom Tykwer||||||||||||||||
+258|:NotFracchia||||||||David Mitchell||||||||||||||||
+259|:NotFracchia||||||||Stefan Arndt||||||||||||||||
+260|:NotFracchia||||||||Ian McKellen||||||||||||||||
+261|:NotFracchia||||||||Audrey Tautou||||||||||||||||
+262|:NotFracchia||||||||Paul Bettany||||||||||||||||
+263|:NotFracchia||||||||Ron Howard||||||||||||||||
+264|:NotFracchia||||||||Natalie Portman||||||||||||||||
+265|:NotFracchia||||||||Stephen Rea||||||||||||||||
+266|:NotFracchia||||||||John Hurt||||||||||||||||
+267|:NotFracchia||||||||Ben Miles||||||||||||||||
+268|:NotFracchia||||||||Emile Hirsch||||||||||||||||
+269|:NotFracchia||||||||John Goodman||||||||||||||||
+270|:NotFracchia||||||||Susan Sarandon||||||||||||||||
+271|:NotFracchia||||||||Matthew Fox||||||||||||||||
+272|:NotFracchia||||||||Christina Ricci||||||||||||||||
+273|:NotFracchia||||||||Rain||||||||||||||||
+274|:NotFracchia||||||||Naomie Harris||||||||||||||||
+275|:NotFracchia||||||||Michael Clarke Duncan||||||||||||||||
+276|:NotFracchia||||||||David Morse||||||||||||||||
+277|:NotFracchia||||||||Sam Rockwell||||||||||||||||
+278|:NotFracchia||||||||Gary Sinise||||||||||||||||
+279|:NotFracchia||||||||Patricia Clarkson||||||||||||||||
+280|:NotFracchia||||||||Frank Darabont||||||||||||||||
+281|:NotFracchia||||||||Frank Langella||||||||||||||||
+282|:NotFracchia||||||||Michael Sheen||||||||||||||||
+283|:NotFracchia||||||||Oliver Platt||||||||||||||||
+284|:NotFracchia||||||||Danny DeVito||||||||||||||||
+285|:NotFracchia||||||||John C. Reilly||||||||||||||||
+286|:NotFracchia||||||||Ed Harris||||||||||||||||
+287|:NotFracchia||||||||Bill Paxton||||||||||||||||
+288|:NotFracchia||||||||Philip Seymour Hoffman||||||||||||||||
+289|:NotFracchia||||||||Jan de Bont||||||||||||||||
+290|:NotFracchia||||||||Robert Zemeckis||||||||||||||||
+291|:NotFracchia||||||||Milos Forman||||||||||||||||
+292|:NotFracchia||||||||Diane Keaton||||||||||||||||
+293|:NotFracchia||||||||Nancy Meyers||||||||||||||||
+294|:NotFracchia||||||||Chris Columbus||||||||||||||||
+295|:NotFracchia||||||||Julia Roberts||||||||||||||||
+296|:NotFracchia||||||||Madonna||||||||||||||||
+297|:NotFracchia||||||||Geena Davis||||||||||||||||
+298|:NotFracchia||||||||Lori Petty||||||||||||||||
+299|:NotFracchia||||||||Penny Marshall||||||||||||||||
+300|:NotFracchia||||||||Paul Blythe||||||||||||||||
+301|:NotFracchia||||||||Angela Scope||||||||||||||||
+302|:NotFracchia||||||||Jessica Thompson||||||||||||||||
+303|:NotFracchia||||||||James Thompson||||||||||||||||
 304|:Start|||||||1|||||||||||||||||
 305|:Start|||||||2|||||||||||||||||
 306|:Start|||||||3|||||||||||||||||
