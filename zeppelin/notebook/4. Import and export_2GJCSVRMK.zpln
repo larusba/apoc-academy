@@ -583,7 +583,7 @@
       "title": "With stream: true",
       "text": "%neo4j\n\n// We can pass filename null and a config with `stream:true` to retrieve results directly in neo4j instead of a file\nCALL apoc.export.csv.all(null, {stream:true, batchSize: 20, quote: \u0027none\u0027}) yield data return data",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:11:22.359",
+      "dateUpdated": "2022-03-23 08:19:01.660",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -652,7 +652,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -771,7 +772,7 @@
       "title": "Example",
       "text": "%neo4j\n\n/*  \n    importPersons.csv             types.csv\n    ---                           ---\n    id:ID|name:STRING             :START_ID|:END_ID|since:INT\n    1|John                        1|2|2016\n    2|Bob                         1|3|2015\n    3|Jane \n*/\n\n\nCALL apoc.import.csv([   {fileName: \u0027file:/importPersons.csv\u0027, labels: [\"CsvPerson\"]}    ], \n[   {fileName: \u0027file:/types.csv\u0027, type: \u0027KNOWS\u0027} ], {delimiter: \u0027|\u0027});\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-18 10:53:12.055",
+      "dateUpdated": "2022-03-23 08:18:55.846",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -823,7 +824,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -852,7 +854,7 @@
       "title": "Check results",
       "text": "%neo4j\n\nMATCH p\u003d(:CsvPerson)--(:CsvPerson) RETURN p",
       "user": "anonymous",
-      "dateUpdated": "2021-11-18 10:53:16.599",
+      "dateUpdated": "2022-03-23 08:18:57.794",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -896,7 +898,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -967,7 +970,7 @@
       "title": "apoc.load.csv",
       "text": "%neo4j\n\n/* File content\n    name,age,beverage\n    Selma,9,Soda\n    Rana,12,Tea;Milk\n    Selina,19,Cola\n    Alhpa,55,Gamma\n    Beta,66,Delta\n*/\n\nCALL apoc.load.csv(\u0027load.csv\u0027)",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:12:48.697",
+      "dateUpdated": "2022-03-23 08:18:51.879",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1014,7 +1017,7 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
-        "tableHide": false,
+        "tableHide": true,
         "title": true
       },
       "settings": {
@@ -1044,7 +1047,7 @@
       "title": "With skip / limit",
       "text": "%neo4j\nCALL apoc.load.csv(\u0027load.csv\u0027,{skip: 1, limit: 2})\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:13:05.696",
+      "dateUpdated": "2022-03-23 08:18:49.526",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1091,7 +1094,7 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
-        "tableHide": false,
+        "tableHide": true,
         "title": true
       },
       "settings": {
@@ -1456,7 +1459,7 @@
       "title": "With path",
       "text": "%neo4j\n\n// there is a sub-subfolder\nCALL apoc.load.directory(\u0027*.csv\u0027, \u0027subfolder\u0027);",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:15:00.897",
+      "dateUpdated": "2022-03-23 08:18:35.003",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1498,7 +1501,7 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
-        "tableHide": false,
+        "tableHide": true,
         "title": true
       },
       "settings": {
@@ -1528,7 +1531,7 @@
       "title": "With recursive: false",
       "text": "%neo4j\n\nCALL apoc.load.directory(\"*.csv\", \u0027subfolder\u0027, {recursive: false})",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:15:04.746",
+      "dateUpdated": "2022-03-23 08:18:38.669",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1570,7 +1573,7 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
-        "tableHide": false,
+        "tableHide": true,
         "title": true
       },
       "settings": {
@@ -1600,7 +1603,7 @@
       "title": "Usage with csv",
       "text": "%neo4j\n\n/*  in loadDirSubfolder there are 2 files\n    fileTest.csv                  fileTest2.csv\n    ---                           ---\n    number,numero                 Eren,Jager\n    One,Uno                       Mikasa,Ackermann\n    Two,Due                       Armin,Arelet\n*/\n\n\nCALL apoc.load.directory(\u0027*.csv\u0027, \u0027loadDirSubfolder\u0027)\nyield value WITH value as url ORDER BY url DESC\nCALL apoc.load.csv(url, {results:[\u0027map\u0027]}) YIELD map RETURN map",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:15:53.164",
+      "dateUpdated": "2022-03-23 08:18:42.030",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1644,7 +1647,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},

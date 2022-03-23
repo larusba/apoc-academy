@@ -3,7 +3,7 @@
     {
       "text": "%md\n\n## Meta information\n\nApoc provides a set of procedures to retrieve info of labels / relationship-type present, and so on...\n\n- `CALL apoc.meta.stats()` - returns an overview of labels / rel-types counts\n\n- `CALL apoc.meta.graph($configMap)` / `CALL apoc.meta.subGraph($configMap)` - examines the entire database / sub graph to create the meta-graph\n\n- `CALL apoc.meta.data($configMap)` - examines a subset of the graph to provide a tabular / map-like meta information\n\n- `CALL apoc.meta.nodeTypeProperties($configMap)` / `CALL apoc.meta.relTypeProperties($configMap)` - examines a sample to get the node / relationship property list\n\n\n`$configMap` depends on procedure, see \u003ca href\u003d\"https://neo4j.com/labs/apoc/4.1/overview/apoc.meta/\" target\u003d\"_blank\"\u003ethis page\u003c/a\u003e .\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 08:36:36.983",
+      "dateUpdated": "2022-03-23 08:28:22.609",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -38,15 +38,15 @@
       "jobName": "paragraph_1635422768628_1724003655",
       "id": "paragraph_1635422768628_1724003655",
       "dateCreated": "2021-10-28 12:06:08.628",
-      "dateStarted": "2022-03-22 08:36:36.983",
-      "dateFinished": "2022-03-22 08:36:37.027",
+      "dateStarted": "2022-03-23 08:28:22.611",
+      "dateFinished": "2022-03-23 08:28:22.630",
       "status": "FINISHED"
     },
     {
       "title": " apoc.meta.stats",
       "text": "%neo4j\ncall apoc.meta.stats()",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 13:35:53.922",
+      "dateUpdated": "2022-03-23 08:28:20.834",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -198,7 +198,7 @@
         },
         "editorMode": "ace/mode/undefined",
         "title": true,
-        "tableHide": false
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -227,7 +227,7 @@
       "title": "apoc.meta.data",
       "text": "%neo4j\n\nCALL apoc.meta.data()",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 13:36:00.050",
+      "dateUpdated": "2022-03-23 08:28:20.849",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -283,7 +283,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -312,7 +313,7 @@
       "title": "apoc.meta.data(sample)",
       "text": "%neo4j\n\n// for each label create batches of `total / sample` and take 1 element for each batch\nCALL apoc.meta.data({sample:2})",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 13:36:04.039",
+      "dateUpdated": "2022-03-23 08:28:20.865",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -368,7 +369,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -397,7 +399,7 @@
       "title": "apoc.meta.nodeTypeProperties",
       "text": "%neo4j\n\nCALL apoc.meta.nodeTypeProperties({excludeLabels:[\"Movie\"]})",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 13:36:27.732",
+      "dateUpdated": "2022-03-23 08:28:20.879",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -444,7 +446,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -473,7 +476,7 @@
       "title": "apoc.meta.relTypeProperties",
       "text": "%neo4j\n\nCALL apoc.meta.relTypeProperties({excludeRels:[\"DIRECTED\"]})",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 13:36:40.204",
+      "dateUpdated": "2022-03-23 08:28:20.895",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -521,7 +524,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -550,7 +554,7 @@
       "title": "apoc.meta.cypher",
       "text": "%md\n\nMoreover, there are some apoc.meta.* functions to retrieve informations about a single entity or property.\n\n- `apoc.meta.cypher.isType(value, metaType)`\n- `apoc.meta.cypher.type(value)`\n- `apoc.meta.cypher.types(value)`\n\nPossible meta types are `INTEGER`,`FLOAT`,`STRING`,`BOOLEAN`,`RELATIONSHIP`,`NODE`,`PATH`,`NULL`,`MAP`,`POINT`,`DATE`,`DATE_TIME`,`LOCAL_TIME`,`LOCAL_DATE_TIME`,`TIME,DURATION`, `LIST OF \u003cPREVIOUS TYPE\u003e`",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 08:36:44.830",
+      "dateUpdated": "2022-03-23 08:28:20.911",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -565,7 +569,7 @@
         "editorMode": "ace/mode/markdown",
         "title": true,
         "editorHide": true,
-        "tableHide": false
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -594,7 +598,7 @@
       "title": "apoc.meta.cypher",
       "text": "%neo4j\n\nmatch (p:Person) with p limit 1 \nreturn apoc.meta.cypher.types(p) as types,                       // returns 2 column, that is the properies (name and born)\n    apoc.meta.cypher.isType(p.name, \"STRING\") as isNameAString,  // returns a boolean\n    apoc.meta.cypher.type([p.name]) as typeName                  // returns a column with a meta type\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 10:44:18.269",
+      "dateUpdated": "2022-03-23 08:28:20.925",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -638,7 +642,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -658,7 +663,7 @@
       "title": "Monitoring tx",
       "text": "%neo4j\nCALL apoc.monitor.tx",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 13:40:02.839",
+      "dateUpdated": "2022-03-23 08:28:20.938",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -704,7 +709,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -732,7 +738,7 @@
     {
       "text": "%md\n\n## Fingerprint (Checksum)\n\nWe can verify database changes through these 2 procedures, to calculate hashsums:\n\n- `RETURN apoc.hashing.fingerprinting(object, $config)` - one or more entity\n- `RETURN apoc.hashing.fingerprintGraph(\u003clist_of_props_to_ignore\u003e)` - whole graph\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 08:36:51.057",
+      "dateUpdated": "2022-03-23 08:28:27.200",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -767,14 +773,14 @@
       "jobName": "paragraph_1635376240174_40107247",
       "id": "paragraph_1635376240174_40107247",
       "dateCreated": "2021-10-27 23:10:40.174",
-      "dateStarted": "2022-03-22 08:36:51.052",
-      "dateFinished": "2022-03-22 08:36:51.075",
+      "dateStarted": "2022-03-23 08:28:27.206",
+      "dateFinished": "2022-03-23 08:28:27.214",
       "status": "FINISHED"
     },
     {
       "text": "%md\n\n### apoc.hashing.fingerprinting\n\nThe procedure accepts 2 parameter, `apoc.hashing.fingerprinting(object, $config)`.\n\nThe `object` could be a node, relationship or a list/map with nodes/relationships.\n\n\nThe procedure has the following config parameters:\n\n- `digestAlgorithm (default: \u0027MD5\u0027)` - The algorithm used to compute the fingerprint. Supported values are: `MD5`, `SHA-1`, `SHA-256`\n- `strategy (default: \u0027LAZY\u0027)` - `LAZY` not to include properties or `EAGER` to use all properties\n- `nodeAllowMap` / `nodeDisallowMap` - Properties to include / exclude per node label\n- `relAllowMap` / `relDisallowMap` - Properties to include / exclude per relationship type\n- `mapAllowList` / `mapDisallowList` - Map properties to include / exclude\n- `allNodesAllowList` / `allNodesDisallowList` - Node properties to include / exclude\n- `allRelsAllowList` / `allRelsDisallowList`  - Relationship properties to include / exclude\n\n\n\u003cpre\u003e\nThere is another procedure, apoc.hashing.fingerprint (whithout final ing), with no `$config` parameter\n\u003c/pre\u003e",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 08:37:25.277",
+      "dateUpdated": "2022-03-23 08:28:25.173",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -809,15 +815,15 @@
       "jobName": "paragraph_1635424958843_1538360015",
       "id": "paragraph_1635424958843_1538360015",
       "dateCreated": "2021-10-28 12:42:38.843",
-      "dateStarted": "2022-03-22 08:37:25.277",
-      "dateFinished": "2022-03-22 08:37:25.304",
+      "dateStarted": "2022-03-23 08:28:25.178",
+      "dateFinished": "2022-03-23 08:28:25.192",
       "status": "FINISHED"
     },
     {
       "title": "apoc.hashing.fingerprinting(nodeAllowMap) included",
       "text": "%neo4j\n\n// through \"nodeAllowMap\" we include only property name for label \u0027Person\u0027\n\nMATCH (person:Person {name: \"Giandomenico Fracchia\"})\nwith apoc.hashing.fingerprinting(person, {nodeAllowMap: {Person: [\u0027other\u0027]}}) as hashBefore, person \n\nSET person.other \u003d timestamp()   // updating a property NOT included in map\n\nRETURN apoc.hashing.fingerprinting(person, {nodeAllowMap: {Person: [\u0027other\u0027]}}) as hashAfter, hashBefore",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 13:40:19.802",
+      "dateUpdated": "2022-03-23 08:28:20.982",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -861,7 +867,7 @@
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
         "title": true,
-        "tableHide": false
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -890,7 +896,7 @@
       "title": "apoc.hashing.fingerprinting(nodeAllowMap) not included",
       "text": "%neo4j\n\n// through \"nodeAllowMap\" we include only property name for label \u0027Person\u0027\n\nMATCH (person:Person {name: \"Giandomenico Fracchia\"})\nwith apoc.hashing.fingerprinting(person, {nodeAllowMap: {Person: [\u0027name\u0027]}}) as hashBefore, person \n\nSET person.other \u003d timestamp()   // updating a property included in map\n\nRETURN apoc.hashing.fingerprinting(person, {nodeAllowMap: {Person: [\u0027name\u0027]}}) as hashAfter, hashBefore",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 13:40:24.072",
+      "dateUpdated": "2022-03-23 08:28:21.002",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -933,7 +939,8 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -962,7 +969,7 @@
       "title": "apoc.hashing.fingerprinting(allNodesDisallowList)",
       "text": "%neo4j\n\nmatch (person:Person {name: \u0027Giandomenico Fracchia\u0027})\n// we create 2 fingerprint with allNodesDisallowList to disallow respectively \u0027name\u0027 and \u0027stuff\u0027\nwith person, apoc.hashing.fingerprinting(person, {allNodesDisallowList: [\"name\"]}) AS outputBefore, apoc.hashing.fingerprinting(person, {allNodesDisallowList: [\"stuff\"]}) AS outputBornBefore\n\nset person.stuff \u003d rand() // we change born propery\n\n// we create another 2 fingerprint as above\nreturn apoc.hashing.fingerprinting(person, {allNodesDisallowList: [\"name\"]}) AS output, outputBefore, apoc.hashing.fingerprinting(person, {allNodesDisallowList: [\"stuff\"]}) AS outputBorn , outputBornBefore\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 08:39:13.622",
+      "dateUpdated": "2022-03-23 08:28:21.021",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1007,7 +1014,8 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -1036,7 +1044,7 @@
       "title": "apoc.hashing.fingerprinting(strategy)",
       "text": "%neo4j\n\n// The following generates the fingerprint for Giandomenico Fracchia, using the EAGER strategy, which includes node properties:\n\nMATCH (person:Person {name: \"Giandomenico Fracchia\"})\nWITH apoc.hashing.fingerprinting(person, {strategy: \"EAGER\"}) AS eagerBefore, apoc.hashing.fingerprinting(person, {strategy: \"LAZY\"}) AS lazyBefore, person // we calculate fingerprints before property changes\n\nset person.something \u003d apoc.create.uuid() // we change a property\n\nRETURN eagerBefore, apoc.hashing.fingerprinting(person, {strategy: \"EAGER\"}) AS eagerAfter, lazyBefore, apoc.hashing.fingerprinting(person, {strategy: \"LAZY\"}) AS lazyAfter  // we return fingerprints before and after property changes",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 08:39:59.852",
+      "dateUpdated": "2022-03-23 08:28:21.038",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1080,7 +1088,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -1109,7 +1118,7 @@
       "title": "Example: create alert system to check nodes variations ",
       "text": "%neo4j\n\nMATCH (n:Person)\nWITH collect(n) as nodes\nWITH nodes, apoc.hashing.fingerprinting(nodes, {nodeAllowMap: {Person: [\u0027timestamp\u0027]}}) AS fingerprint // calculate fingerprint for all Person nodes through timestamp property\nOPTIONAL MATCH (a:Alert {fingerprint: fingerprint})\nWITH COLLECT(a) as alerts, fingerprint\nCALL apoc.do.when(size(alerts) \u003d 0,        // when a node is not found, we create it\n    \"CREATE (:Alert {fingerprint: $fingerprint})\", \n    \"RETURN 1\", \n    {fingerprint: fingerprint}) YIELD value RETURN value\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 08:48:59.884",
+      "dateUpdated": "2022-03-23 08:28:21.055",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1151,7 +1160,7 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
-        "tableHide": false,
+        "tableHide": true,
         "title": true
       },
       "settings": {
@@ -1176,7 +1185,7 @@
       "title": "Don\u0027t change fingerprint ",
       "text": "%neo4j\nmatch (n:Person {name: \u0027Giandomenico Fracchia\u0027}) set n.other \u003d 444",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 08:42:39.721",
+      "dateUpdated": "2022-03-23 08:28:21.079",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1190,7 +1199,7 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
-        "tableHide": false,
+        "tableHide": true,
         "title": true
       },
       "settings": {
@@ -1215,7 +1224,7 @@
       "title": "Change fingerprint ",
       "text": "%neo4j\nMatch (n:Person {name: \u0027Giandomenico Fracchia\u0027}) set n.timestamp \u003d timestamp()",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 08:42:53.027",
+      "dateUpdated": "2022-03-23 08:28:21.100",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1229,7 +1238,7 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
-        "tableHide": false,
+        "tableHide": true,
         "title": true
       },
       "settings": {
@@ -1254,7 +1263,7 @@
       "title": "Check results",
       "text": "%neo4j\nmatch (n:Alert) return n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 08:42:57.109",
+      "dateUpdated": "2022-03-23 08:28:21.117",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1297,7 +1306,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -1325,7 +1335,7 @@
     {
       "text": "%md\n### Hashing Functions\n\n- `apoc.util.sha1([values])` /`apoc.util.md5([values])` / `apoc.util.sha384([values])` / `apoc.util.sha256([values])` / `apoc.util.sha512([values])`  - computes the sha1 / md5 / ... of the concatenation of all string values of the list\n\nFor example:\n`RETURN apoc.util.sha1([\"ASD\", \"ZXC\"]) AS output;` --\u003e `sha1(\"ASDZXC\")` --\u003e `\"3d66263062512dd289132628bd9be7bdfda41fe7\"`",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 08:50:27.815",
+      "dateUpdated": "2022-03-23 08:28:35.417",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1360,14 +1370,14 @@
       "jobName": "paragraph_1637855810828_1414873392",
       "id": "paragraph_1637855810828_1414873392",
       "dateCreated": "2021-11-25 15:56:50.828",
-      "dateStarted": "2022-03-22 08:50:27.815",
-      "dateFinished": "2022-03-22 08:50:27.827",
+      "dateStarted": "2022-03-23 08:28:35.419",
+      "dateFinished": "2022-03-23 08:28:35.430",
       "status": "FINISHED"
     },
     {
       "text": "%md\n## Natural Language Processing (NLP)\n\nDowload dependencies from this link and put in `plugin` folder https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/{APOC-VERSION}/apoc-nlp-dependencies-{APOC-VERSION}.jar\n\n\n- `apoc.nlp.azure.\u003cOPERATION\u003e.\u003cMETHOD\u003e`  - Azure Cognitive Services: https://azure.microsoft.com/en-us/services/cognitive-services/\n- `apoc.nlp.aws.\u003cOPERATION\u003e.\u003cMETHOD\u003e` - Amazon Web Services: https://docs.aws.amazon.com/comprehend/index.html\n- `apoc.nlp.gcp.\u003cOPERATION\u003e.\u003cMETHOD\u003e` - google cloud: https://docs.aws.amazon.com/comprehend/index.html\n\n\n`\u003cMETHOD\u003e` can be `stream` (returns a map of result) or `graph` (return a graph)\n\n`\u003cOPERATION\u003e` depends on API. In case of AWS can be:\n\n- `entities`: leverage on https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html\n- `keyPhrases`: leverage on https://docs.aws.amazon.com/comprehend/latest/dg/how-key-phrases.html\n- `sentiment`: leverage on https://docs.aws.amazon.com/comprehend/latest/dg/how-sentiment.html\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 08:53:40.333",
+      "dateUpdated": "2022-03-23 08:28:37.332",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1402,15 +1412,15 @@
       "jobName": "paragraph_1637747378677_859597781",
       "id": "paragraph_1637747378677_859597781",
       "dateCreated": "2021-11-24 09:49:38.678",
-      "dateStarted": "2022-03-22 08:53:40.333",
-      "dateFinished": "2022-03-22 08:53:40.352",
+      "dateStarted": "2022-03-23 08:28:37.334",
+      "dateFinished": "2022-03-23 08:28:37.345",
       "status": "FINISHED"
     },
     {
       "title": "Basic example",
       "text": "%neo4j\nmerge (a:Article  {body: \"Omae wa mou shindeiru... Nani?!?\", id: 3}) WITH a ORDER BY a.id\nwith collect(a) AS articles\ncall apoc.nlp.aws.entities.stream(articles, {\n                      key: \"apiKey\",\n                      secret: \"apiPassword\",\n                      nodeProperty: \"body\",\n                      unsupportedDummyClient: true // dummy client, to be removed\n})\nyield value\nunwind value.entities AS entity\nreturn entity;     // results depend on chosen provider",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 08:55:58.745",
+      "dateUpdated": "2022-03-23 08:28:21.162",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1520,7 +1530,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -1549,7 +1560,7 @@
       "title": "Example with configs",
       "text": "%neo4j\n\nmatch (a:Article) WITH a ORDER BY a.id\nWITH collect(a) AS articles\nCALL apoc.nlp.aws.entities.graph(articles, {\n  key: \"apiKey\",\n  secret: \"apiSecret\",\n  nodeProperty: \"body\",\n  unsupportedDummyClient: true,  // to be removed\n  \n  writeRelationshipType: \"HAS_ENTITY\",\n  writeRelationshipProperty: \"myScore\"\n  \n  // write: true - to save the graph in Neo4j, otherwise virtual\n})\nYIELD graph AS g\nWITH g.nodes AS nodes, g.relationships AS relationships\nUNWIND nodes as node\nUNWIND relationships as rel\nRETURN node, rel",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 08:52:51.373",
+      "dateUpdated": "2022-03-23 08:28:21.176",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1596,7 +1607,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -1625,7 +1637,7 @@
       "title": "Extract data from url / email",
       "text": "%md\n\n- apoc.data.url(\u0027url\u0027) as {protocol,user,host,port,path,query,file,anchor} - turn URL into map structure\n- apoc.data.email(\u0027email_address\u0027) as {personal,user,domain} - extract the personal name, user and domain as a map",
       "user": "anonymous",
-      "dateUpdated": "2021-11-30 15:37:20.279",
+      "dateUpdated": "2022-03-23 08:28:48.449",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1638,13 +1650,22 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": false,
-        "tableHide": true,
+        "editorHide": true,
+        "tableHide": false,
         "title": true
       },
       "settings": {
         "params": {},
         "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cul\u003e\n\u003cli\u003eapoc.data.url(\u0026lsquo;url\u0026rsquo;) as {protocol,user,host,port,path,query,file,anchor} - turn URL into map structure\u003c/li\u003e\n\u003cli\u003eapoc.data.email(\u0026lsquo;email_address\u0026rsquo;) as {personal,user,domain} - extract the personal name, user and domain as a map\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -1652,14 +1673,14 @@
       "jobName": "paragraph_1637759187998_2026131110",
       "id": "paragraph_1637759187998_2026131110",
       "dateCreated": "2021-11-24 13:06:27.998",
-      "dateStarted": "2021-11-30 15:37:20.306",
-      "dateFinished": "2021-11-30 15:37:20.325",
+      "dateStarted": "2022-03-23 08:28:48.454",
+      "dateFinished": "2022-03-23 08:28:48.464",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\n\n// require additional dependency\n// https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/{apoc-version}/apoc-email-dependencies-{apoc-version}.jar\n\nRETURN apoc.data.email(\"michael@neo4j.com\") AS output;",
       "user": "anonymous",
-      "dateUpdated": "2021-11-30 15:53:05.742",
+      "dateUpdated": "2022-03-23 08:28:21.208",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1701,7 +1722,8 @@
           "completionKey": "TAB",
           "completionSupport": false
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -1720,7 +1742,7 @@
     {
       "text": "%neo4j\n\nwith apoc.data.url(\"https://www.neo4j.com:8080/developer/graph-data-science?q\u003dneo4j\u0026alpha\u003dbeta#heading-1\") AS output\nunwind keys(output) AS key\nreturn key, output[key] AS value;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 10:55:10.138",
+      "dateUpdated": "2022-03-23 08:28:21.221",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1762,7 +1784,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "editorHide": false
+        "editorHide": false,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -1781,7 +1804,7 @@
     {
       "text": "%md\n## Aggregation functions\n\nApoc provide some aggregation functions (similar to count() and collect())\n\n- `apoc.agg.nth(value,offset)` - returns non-null value of nth row (or -1 for last) offset is 0 based\n- `apoc.agg.first(value)` `apoc.agg.last(value)`/  - returns first / last non-null value\n- `apoc.agg.slice(value, start, length)` - returns subset of non-null values, start is 0 based and length can be -1\n- `apoc.agg.product(number)` - returns given product for non-null values\n- `apoc.agg.median(number)` - returns median for non-null numeric values\n- `apoc.agg.percentiles(value,[percentiles \u003d 0.5,0.75,0.9,0.95,0.99])` - returns given percentiles for integer values\n- `apoc.agg.statistics(value,[percentiles \u003d 0.5,0.75,0.9,0.95,0.99])` - returns numeric statistics (percentiles, min,minNonZero,max,total,mean,stdev) for values\n- `apoc.agg.maxItems(item, value, groupLimit: -1) - for collecting only items with the maximal value. Returns a map {items:[], value:n} where `value` is the maximum value, and `items` are all items with the same maximal value. The number of items can be optionally limited\n- `apoc.agg.minItems(item, value, groupLimit: -1)` - for collecting only items with the minimal value. Returns a map {items:[], value:n} where `value` is the minimum value, and `items` are all items with the same minimal value. The number of items can be optionally limited.\n- `apoc.agg.graph(element)` as graph - aggregates graph elements to a \"graph\" map with unique sets of \"nodes\" and \"relationships\"\n\n\nThe `apoc.agg.slice(list, 0, 3)` is equivalent to `collect(list)[0..3]`, but the last one collects all of the movies into memory, before returning the first three, instead the apoc equivalent we avoid this build up of in memory state.\nSimilarly, the `apoc.agg.first(list)` and  `apoc.agg.last(list)`, `apoc.agg.nth(list, N)` are equivalent to `collect(list)[0]`, `collect(list)[-1]` and  `collect(list)[N]` but without extra-memory.\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 08:57:27.058",
+      "dateUpdated": "2022-03-23 08:28:51.693",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1816,15 +1839,15 @@
       "jobName": "paragraph_1638260582266_231122687",
       "id": "paragraph_1638260582266_231122687",
       "dateCreated": "2021-11-30 08:23:02.266",
-      "dateStarted": "2022-03-22 08:57:27.058",
-      "dateFinished": "2022-03-22 08:57:27.083",
+      "dateStarted": "2022-03-23 08:28:51.695",
+      "dateFinished": "2022-03-23 08:28:51.708",
       "status": "FINISHED"
     },
     {
       "title": "apoc.agg.median",
       "text": "%neo4j\n\nmatch (p:Person)-[:ACTED_IN]-\u003e(movie)\nreturn p.name AS person, apoc.agg.median(movie.released) AS medianReleaseYear;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 08:57:42.725",
+      "dateUpdated": "2022-03-23 08:28:21.250",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1866,7 +1889,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -1886,7 +1910,7 @@
       "title": "apoc.agg.product",
       "text": "%neo4j\n\nunwind range(1,5) AS value\nreturn apoc.agg.product(value), 1*2*3*4*5 AS equivalent;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 08:57:48.216",
+      "dateUpdated": "2022-03-23 08:28:21.264",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1928,7 +1952,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -1948,7 +1973,7 @@
       "title": "apoc.agg.maxItems",
       "text": "%neo4j\n\nmatch (p:Person)\nwith apoc.agg.maxItems(p, p.born) AS maxItems\nreturn maxItems.value AS value, [item in maxItems.items | item.name] AS items",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 08:57:58.414",
+      "dateUpdated": "2022-03-23 08:28:21.278",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1990,7 +2015,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -2010,7 +2036,7 @@
       "title": "apoc.agg.minItem",
       "text": "%neo4j\n\nmatch (p:Person)\nwith apoc.agg.minItems(p, p.born) AS minItems\nreturn minItems.value AS value, [item in minItems.items | item.name] AS items",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 08:57:53.135",
+      "dateUpdated": "2022-03-23 08:28:21.290",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -2053,7 +2079,8 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -2073,7 +2100,7 @@
       "title": "apoc.agg.percentiles",
       "text": "%neo4j\n\nmatch (p:Person)\nreturn apoc.agg.percentiles(p.born, [0.1, 0.75, 0.9]) // return respectively the 10% / 75% and 90% percentile",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 08:58:26.122",
+      "dateUpdated": "2022-03-23 08:28:21.306",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -2114,7 +2141,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -2134,7 +2162,7 @@
       "title": "apoc.agg.median",
       "text": "%neo4j\n\nmatch (p:Person)\nreturn apoc.agg.median(p.born)",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 08:58:30.837",
+      "dateUpdated": "2022-03-23 08:28:21.321",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -2176,7 +2204,8 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -2196,7 +2225,7 @@
       "title": "apoc.agg.statistics",
       "text": "%neo4j\n\nmatch (movie:Movie)\nwith apoc.agg.statistics(movie.released, [0.1, 0.25]) AS stats // by default 2nd param is [0.5, 0.75, 0.9, 0.95, 0.99 ]\nunwind keys(stats) AS key\nreturn key, stats[key] AS value;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 08:58:39.522",
+      "dateUpdated": "2022-03-23 08:28:21.334",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2239,7 +2268,8 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -2256,9 +2286,9 @@
       "status": "FINISHED"
     },
     {
-      "text": "%md\n\n## Expand path\n\nTo find a path with certain parameters.\n`apoc.path.expandConfig(startNode, $config)`\n\nThis procedure is based on \u003ca href\u003d\"https://neo4j.com/docs/java-reference/current/traversal-framework//\" target\u003d\"_blank\"\u003eTraversal framework\u003c/a\u003e\n\n`$config` can have:\n\n#### minLevel\n\nThe minimum number of hops in the traversal. Default is -1, so any path.\n\n#### maxLevel\n\nThe max number of hops in the traversal. Default is -1, so any path.\n\n#### relationshipFilter\n\n`null` (default): any rel\n\nOr a series of patterns `|` separated. A pattern can be:\n\n\n`LIKES\u003e` - rel. of type `LIKES` outgoing\n\t\n\n`\u003cFOLLOWS` - rel. of type `FOLLOWS` outgoing\n\t\n\n`KNOWS` - rel. of type `KNOWS`, both directions\n\t\n\n`\u003e` - any type, outgoing\n\n`\u003c` - any type, incoming\n\ne.g: \"LIKES\u003e|KNOWS\u003e\" - rel. of type `LIKES` or `KNOWS` outgoing.\n\nWe can create a sequence comma separated:\n\n`AJEJE,LIKES\u003e|KNOWS\u003e` - first rel of type `AJEJE`, second rel of type  `LIKES` or `KNOWS`outgoing\n\n\n#### labelFilter\n\n\n`-Foe` - blacklist filter - No node in the path will have a label in the blacklist.\n\n`+Friend` - whitelist filter - All nodes in the path must have a label in the whitelist (exempting termination and end nodes, if using those filters). If no whitelist operator is present, all labels are considered whitelisted.\n\n`/Friend` - termination filter - Only return paths up to a node of the given labels, and stop further expansion beyond it. Termination nodes do not have to respect the whitelist. Termination filtering takes precedence over end node filtering.\n\n`\u003eFriend` - end node filter - Only return paths up to a node of the given labels, but continue expansion to match on end nodes beyond it. End nodes do not have to respect the whitelist to be returned, but expansion beyond them is only allowed if the node has a label in the whitelist.\n\nWe can create a sequence with the same logic as `relationshipFilter`, e.g.: `\"Post|-Blocked,Reply,\u003eAdmin\"`\n\n#### beginSequenceAtStart\n\nif false start filtering one node away from the start node. \n\n\n#### sequence\n\ncombine label and rel filter alternatively: \u0027labelFilter, relFilter, labelFilter, relFilter, .....\u0027, e.g.: `\u0027Post|-Blocked, NEXT\u003e, Reply, \u003cFROM, \u003eAdmin, POSTED\u003e|REPLIED\u003e\u0027`\nor, with `beginSequenceAtStart`,  `\"FIRST\u003e, Post|-Blocked, NEXT\u003e, Reply\"`,\n\n\n\n#### uniqueness\n\nCan be one of `RELATIONSHIP_PATH`, `NODE_GLOBAL`, `NODE_LEVEL`, `NODE_PATH`, `NODE_RECENT`, `RELATIONSHIP_GLOBAL`, `RELATIONSHIP_LEVEL`, `RELATIONSHIP_RECENT`\n\nIn particular:\n\n- `RELATIONSHIP_PATH` - For each path returned relationship, there\u0027s a unique path from the start to it. Default mode.\n- `NODE_PATH` - For each returned node there’s a unique path from the start node to it.\n- `NODE_GLOBAL` - A node cannot be traversed more than once.\n\nFor more info: \u003ca href\u003d\"https://neo4j.com/labs/apoc/4.1/graph-querying/expand-paths-config/#path-expander-paths-config-config-uniqueness\"\u003esee here\u003c/a\u003e\n\ntodo - questo esempio: https://neo4j.com/labs/apoc/4.1/graph-querying/expand-paths-config/#path-expander-paths-config-examples-uniqueness\n\n#### bfs\n\nTo choose the search algo: `bfs ? \"Breadth-first search\" : \"Depth-first search\"`\n\n\n\u003cimg src\u003d\"https://www.baeldung.com/wp-content/uploads/sites/4/2021/10/search_tree-dfs-vs-bfs-1.jpg\" style\u003d\"height: 400px\"\u003e\n\n\n\n#### filterStartNode\n\nIf true, apply the filter to the start node. That is, the procedure doesn\u0027t return the result if first node sequence isn\u0027t respected.\nTo be used with `beginSequenceAtStart: true`.\n\n#### limit\n\nMax number of paths. Default: `-1` (that is, without limits)\n\n#### optional\n\nIf no path found, return a result with `null`, otherwise doesn\u0027t return nothing\n\n#### endNodes\n\n`List\u003cNode\u003e` considered as end nodes. Same behaviour as \u003eLabelName.\n\n#### terminatorNodes\n\n`List\u003cNode\u003e` considered as terminator nodes. Same behaviour as /LabelName.\n\n#### whitelistNodes\n`List\u003cNode\u003e` considered as whitelist nodes. Same behaviour as +LabelName.\n\n#### blacklistNodes\n`List\u003cNode\u003e` considered as blacklist nodes. Same behaviour as -LabelName.\n\n\n",
+      "text": "%md\n\n## Expand path\n\nTo find a path with certain parameters.\n`apoc.path.expandConfig(startNode, $config)`\n\nThis procedure is based on \u003ca href\u003d\"https://neo4j.com/docs/java-reference/current/traversal-framework//\" target\u003d\"_blank\"\u003eTraversal framework\u003c/a\u003e\n\n`$config` can have:\n\n#### minLevel\n\nThe minimum number of hops in the traversal. Default is -1, so any path.\n\n#### maxLevel\n\nThe max number of hops in the traversal. Default is -1, so any path.\n\n#### relationshipFilter\n\n`null` (default): any rel\n\nOr a series of patterns `|` separated. A pattern can be:\n\n\n`LIKES\u003e` - rel. of type `LIKES` outgoing\n\t\n\n`\u003cFOLLOWS` - rel. of type `FOLLOWS` outgoing\n\t\n\n`KNOWS` - rel. of type `KNOWS`, both directions\n\t\n\n`\u003e` - any type, outgoing\n\n`\u003c` - any type, incoming\n\ne.g: \"LIKES\u003e|KNOWS\u003e\" - rel. of type `LIKES` or `KNOWS` outgoing.\n\nWe can create a sequence comma separated:\n\n`AJEJE,LIKES\u003e|KNOWS\u003e` - first rel of type `AJEJE`, second rel of type  `LIKES` or `KNOWS`outgoing\n\n\n#### labelFilter\n\n\n`-Foe` - blacklist filter - No node in the path will have a label in the blacklist.\n\n`+Friend` - whitelist filter - All nodes in the path must have a label in the whitelist (exempting termination and end nodes, if using those filters). If no whitelist operator is present, all labels are considered whitelisted.\n\n`/Friend` - termination filter - Only return paths up to a node of the given labels, and stop further expansion beyond it. Termination nodes do not have to respect the whitelist. Termination filtering takes precedence over end node filtering.\n\n`\u003eFriend` - end node filter - Only return paths up to a node of the given labels, but continue expansion to match on end nodes beyond it. End nodes do not have to respect the whitelist to be returned, but expansion beyond them is only allowed if the node has a label in the whitelist.\n\nWe can create a sequence with the same logic as `relationshipFilter`, e.g.: `\"Post|-Blocked,Reply,\u003eAdmin\"`\n\n#### beginSequenceAtStart\n\nif false start filtering one node away from the start node. \n\n\n#### sequence\n\ncombine label and rel filter alternatively: \u0027labelFilter, relFilter, labelFilter, relFilter, .....\u0027, e.g.: `\u0027Post|-Blocked, NEXT\u003e, Reply, \u003cFROM, \u003eAdmin, POSTED\u003e|REPLIED\u003e\u0027`\nor, with `beginSequenceAtStart`,  `\"FIRST\u003e, Post|-Blocked, NEXT\u003e, Reply\"`,\n\n\n\n#### uniqueness\n\nCan be one of `RELATIONSHIP_PATH`, `NODE_GLOBAL`, `NODE_LEVEL`, `NODE_PATH`, `NODE_RECENT`, `RELATIONSHIP_GLOBAL`, `RELATIONSHIP_LEVEL`, `RELATIONSHIP_RECENT`\n\nIn particular:\n\n- `RELATIONSHIP_PATH` - For each path returned relationship, there\u0027s a unique path from the start to it. Default mode.\n- `NODE_PATH` - For each returned node there’s a unique path from the start node to it.\n- `NODE_GLOBAL` - A node cannot be traversed more than once.\n\nFor more info: \u003ca href\u003d\"https://neo4j.com/labs/apoc/4.1/graph-querying/expand-paths-config/#path-expander-paths-config-config-uniqueness\"\u003esee here\u003c/a\u003e\n\n#### bfs\n\nTo choose the search algo: `bfs ? \"Breadth-first search\" : \"Depth-first search\"`\n\n\n\u003cimg src\u003d\"https://www.baeldung.com/wp-content/uploads/sites/4/2021/10/search_tree-dfs-vs-bfs-1.jpg\" style\u003d\"height: 400px\"\u003e\n\n\n\n#### filterStartNode\n\nIf true, apply the filter to the start node. That is, the procedure doesn\u0027t return the result if first node sequence isn\u0027t respected.\nTo be used with `beginSequenceAtStart: true`.\n\n#### limit\n\nMax number of paths. Default: `-1` (that is, without limits)\n\n#### optional\n\nIf no path found, return a result with `null`, otherwise doesn\u0027t return nothing\n\n#### endNodes\n\n`List\u003cNode\u003e` considered as end nodes. Same behaviour as \u003eLabelName.\n\n#### terminatorNodes\n\n`List\u003cNode\u003e` considered as terminator nodes. Same behaviour as /LabelName.\n\n#### whitelistNodes\n`List\u003cNode\u003e` considered as whitelist nodes. Same behaviour as +LabelName.\n\n#### blacklistNodes\n`List\u003cNode\u003e` considered as blacklist nodes. Same behaviour as -LabelName.\n\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 09:54:33.047",
+      "dateUpdated": "2022-03-23 08:29:16.303",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2271,8 +2301,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": false,
-        "tableHide": true
+        "editorHide": true,
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -2283,7 +2313,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eExpand path\u003c/h2\u003e\n\u003cp\u003eTo find a path with certain parameters.\u003cbr /\u003e\n\u003ccode\u003eapoc.path.expandConfig(startNode, $config)\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eThis procedure is based on \u003ca href\u003d\"https://neo4j.com/docs/java-reference/current/traversal-framework//\" target\u003d\"_blank\"\u003eTraversal framework\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e$config\u003c/code\u003e can have:\u003c/p\u003e\n\u003ch4\u003eminLevel\u003c/h4\u003e\n\u003cp\u003eThe minimum number of hops in the traversal. Default is -1, so any path.\u003c/p\u003e\n\u003ch4\u003emaxLevel\u003c/h4\u003e\n\u003cp\u003eThe max number of hops in the traversal. Default is -1, so any path.\u003c/p\u003e\n\u003ch4\u003erelationshipFilter\u003c/h4\u003e\n\u003cp\u003e\u003ccode\u003enull\u003c/code\u003e (default): any rel\u003c/p\u003e\n\u003cp\u003eOr a series of patterns \u003ccode\u003e|\u003c/code\u003e separated. A pattern can be:\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eLIKES\u0026gt;\u003c/code\u003e - rel. of type \u003ccode\u003eLIKES\u003c/code\u003e outgoing\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e\u0026lt;FOLLOWS\u003c/code\u003e - rel. of type \u003ccode\u003eFOLLOWS\u003c/code\u003e outgoing\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eKNOWS\u003c/code\u003e - rel. of type \u003ccode\u003eKNOWS\u003c/code\u003e, both directions\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e\u0026gt;\u003c/code\u003e - any type, outgoing\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e\u0026lt;\u003c/code\u003e - any type, incoming\u003c/p\u003e\n\u003cp\u003ee.g: \u0026ldquo;LIKES\u0026gt;|KNOWS\u0026gt;\u0026rdquo; - rel. of type \u003ccode\u003eLIKES\u003c/code\u003e or \u003ccode\u003eKNOWS\u003c/code\u003e outgoing.\u003c/p\u003e\n\u003cp\u003eWe can create a sequence comma separated:\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eAJEJE,LIKES\u0026gt;|KNOWS\u0026gt;\u003c/code\u003e - first rel of type \u003ccode\u003eAJEJE\u003c/code\u003e, second rel of type  \u003ccode\u003eLIKES\u003c/code\u003e or \u003ccode\u003eKNOWS\u003c/code\u003eoutgoing\u003c/p\u003e\n\u003ch4\u003elabelFilter\u003c/h4\u003e\n\u003cp\u003e\u003ccode\u003e-Foe\u003c/code\u003e - blacklist filter - No node in the path will have a label in the blacklist.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e+Friend\u003c/code\u003e - whitelist filter - All nodes in the path must have a label in the whitelist (exempting termination and end nodes, if using those filters). If no whitelist operator is present, all labels are considered whitelisted.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e/Friend\u003c/code\u003e - termination filter - Only return paths up to a node of the given labels, and stop further expansion beyond it. Termination nodes do not have to respect the whitelist. Termination filtering takes precedence over end node filtering.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e\u0026gt;Friend\u003c/code\u003e - end node filter - Only return paths up to a node of the given labels, but continue expansion to match on end nodes beyond it. End nodes do not have to respect the whitelist to be returned, but expansion beyond them is only allowed if the node has a label in the whitelist.\u003c/p\u003e\n\u003cp\u003eWe can create a sequence with the same logic as \u003ccode\u003erelationshipFilter\u003c/code\u003e, e.g.: \u003ccode\u003e\u0026quot;Post|-Blocked,Reply,\u0026gt;Admin\u0026quot;\u003c/code\u003e\u003c/p\u003e\n\u003ch4\u003ebeginSequenceAtStart\u003c/h4\u003e\n\u003cp\u003eif false start filtering one node away from the start node.\u003c/p\u003e\n\u003ch4\u003esequence\u003c/h4\u003e\n\u003cp\u003ecombine label and rel filter alternatively: \u0026lsquo;labelFilter, relFilter, labelFilter, relFilter, \u0026hellip;..\u0026rsquo;, e.g.: \u003ccode\u003e\u0027Post|-Blocked, NEXT\u0026gt;, Reply, \u0026lt;FROM, \u0026gt;Admin, POSTED\u0026gt;|REPLIED\u0026gt;\u0027\u003c/code\u003e\u003cbr /\u003e\nor, with \u003ccode\u003ebeginSequenceAtStart\u003c/code\u003e,  \u003ccode\u003e\u0026quot;FIRST\u0026gt;, Post|-Blocked, NEXT\u0026gt;, Reply\u0026quot;\u003c/code\u003e,\u003c/p\u003e\n\u003ch4\u003euniqueness\u003c/h4\u003e\n\u003cp\u003eCan be one of \u003ccode\u003eRELATIONSHIP_PATH\u003c/code\u003e, \u003ccode\u003eNODE_GLOBAL\u003c/code\u003e, \u003ccode\u003eNODE_LEVEL\u003c/code\u003e, \u003ccode\u003eNODE_PATH\u003c/code\u003e, \u003ccode\u003eNODE_RECENT\u003c/code\u003e, \u003ccode\u003eRELATIONSHIP_GLOBAL\u003c/code\u003e, \u003ccode\u003eRELATIONSHIP_LEVEL\u003c/code\u003e, \u003ccode\u003eRELATIONSHIP_RECENT\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eIn particular:\u003c/p\u003e\n\u003cp\u003e| RELATIONSHIP_PATH | For each returned node there\u0026rsquo;s a (relationship wise) unique path from the start node to it. This is Cypher\u0026rsquo;s default expansion mode.\u003cbr /\u003e\n| NODE_GLOBAL | A node cannot be traversed more than once. This is what the legacy traversal framework does.\u003c/p\u003e\n\u003cp\u003etodo - questo esempio: \u003ca href\u003d\"https://neo4j.com/labs/apoc/4.1/graph-querying/expand-paths-config/#path-expander-paths-config-examples-uniqueness\"\u003ehttps://neo4j.com/labs/apoc/4.1/graph-querying/expand-paths-config/#path-expander-paths-config-examples-uniqueness\u003c/a\u003e\u003c/p\u003e\n\u003ch4\u003ebfs\u003c/h4\u003e\n\u003cp\u003eTo choose the search algo: \u003ccode\u003ebfs ? \u0026quot;Breadth-first search\u0026quot; : \u0026quot;Depth-first search\u0026quot;\u003c/code\u003e\u003c/p\u003e\n\u003cimg src\u003d\"https://www.baeldung.com/wp-content/uploads/sites/4/2021/10/search_tree-dfs-vs-bfs-1.jpg\" style\u003d\"height: 400px\"\u003e\n\u003ch4\u003efilterStartNode\u003c/h4\u003e\n\u003cp\u003eIf true, apply the filter to the start node. That is, the procedure doesn\u0026rsquo;t return the result if first node sequence isn\u0026rsquo;t respected.\u003cbr /\u003e\nTo be used with \u003ccode\u003ebeginSequenceAtStart: true\u003c/code\u003e.\u003c/p\u003e\n\u003ch4\u003elimit\u003c/h4\u003e\n\u003cp\u003eMax number of paths. Default: \u003ccode\u003e-1\u003c/code\u003e (that is, without limits)\u003c/p\u003e\n\u003ch4\u003eoptional\u003c/h4\u003e\n\u003cp\u003eIf no path found, return a result with \u003ccode\u003enull\u003c/code\u003e, otherwise doesn\u0026rsquo;t return nothing\u003c/p\u003e\n\u003ch4\u003eendNodes\u003c/h4\u003e\n\u003cp\u003e\u003ccode\u003eList\u0026lt;Node\u0026gt;\u003c/code\u003e considered as end nodes. Same behaviour as \u0026gt;LabelName.\u003c/p\u003e\n\u003ch4\u003eterminatorNodes\u003c/h4\u003e\n\u003cp\u003e\u003ccode\u003eList\u0026lt;Node\u0026gt;\u003c/code\u003e considered as terminator nodes. Same behaviour as /LabelName.\u003c/p\u003e\n\u003ch4\u003ewhitelistNodes\u003c/h4\u003e\n\u003cp\u003e\u003ccode\u003eList\u0026lt;Node\u0026gt;\u003c/code\u003e considered as whitelist nodes. Same behaviour as +LabelName.\u003c/p\u003e\n\u003ch4\u003eblacklistNodes\u003c/h4\u003e\n\u003cp\u003e\u003ccode\u003eList\u0026lt;Node\u0026gt;\u003c/code\u003e considered as blacklist nodes. Same behaviour as -LabelName.\u003c/p\u003e\n\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eExpand path\u003c/h2\u003e\n\u003cp\u003eTo find a path with certain parameters.\u003cbr /\u003e\n\u003ccode\u003eapoc.path.expandConfig(startNode, $config)\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eThis procedure is based on \u003ca href\u003d\"https://neo4j.com/docs/java-reference/current/traversal-framework//\" target\u003d\"_blank\"\u003eTraversal framework\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e$config\u003c/code\u003e can have:\u003c/p\u003e\n\u003ch4\u003eminLevel\u003c/h4\u003e\n\u003cp\u003eThe minimum number of hops in the traversal. Default is -1, so any path.\u003c/p\u003e\n\u003ch4\u003emaxLevel\u003c/h4\u003e\n\u003cp\u003eThe max number of hops in the traversal. Default is -1, so any path.\u003c/p\u003e\n\u003ch4\u003erelationshipFilter\u003c/h4\u003e\n\u003cp\u003e\u003ccode\u003enull\u003c/code\u003e (default): any rel\u003c/p\u003e\n\u003cp\u003eOr a series of patterns \u003ccode\u003e|\u003c/code\u003e separated. A pattern can be:\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eLIKES\u0026gt;\u003c/code\u003e - rel. of type \u003ccode\u003eLIKES\u003c/code\u003e outgoing\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e\u0026lt;FOLLOWS\u003c/code\u003e - rel. of type \u003ccode\u003eFOLLOWS\u003c/code\u003e outgoing\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eKNOWS\u003c/code\u003e - rel. of type \u003ccode\u003eKNOWS\u003c/code\u003e, both directions\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e\u0026gt;\u003c/code\u003e - any type, outgoing\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e\u0026lt;\u003c/code\u003e - any type, incoming\u003c/p\u003e\n\u003cp\u003ee.g: \u0026ldquo;LIKES\u0026gt;|KNOWS\u0026gt;\u0026rdquo; - rel. of type \u003ccode\u003eLIKES\u003c/code\u003e or \u003ccode\u003eKNOWS\u003c/code\u003e outgoing.\u003c/p\u003e\n\u003cp\u003eWe can create a sequence comma separated:\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eAJEJE,LIKES\u0026gt;|KNOWS\u0026gt;\u003c/code\u003e - first rel of type \u003ccode\u003eAJEJE\u003c/code\u003e, second rel of type  \u003ccode\u003eLIKES\u003c/code\u003e or \u003ccode\u003eKNOWS\u003c/code\u003eoutgoing\u003c/p\u003e\n\u003ch4\u003elabelFilter\u003c/h4\u003e\n\u003cp\u003e\u003ccode\u003e-Foe\u003c/code\u003e - blacklist filter - No node in the path will have a label in the blacklist.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e+Friend\u003c/code\u003e - whitelist filter - All nodes in the path must have a label in the whitelist (exempting termination and end nodes, if using those filters). If no whitelist operator is present, all labels are considered whitelisted.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e/Friend\u003c/code\u003e - termination filter - Only return paths up to a node of the given labels, and stop further expansion beyond it. Termination nodes do not have to respect the whitelist. Termination filtering takes precedence over end node filtering.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e\u0026gt;Friend\u003c/code\u003e - end node filter - Only return paths up to a node of the given labels, but continue expansion to match on end nodes beyond it. End nodes do not have to respect the whitelist to be returned, but expansion beyond them is only allowed if the node has a label in the whitelist.\u003c/p\u003e\n\u003cp\u003eWe can create a sequence with the same logic as \u003ccode\u003erelationshipFilter\u003c/code\u003e, e.g.: \u003ccode\u003e\u0026quot;Post|-Blocked,Reply,\u0026gt;Admin\u0026quot;\u003c/code\u003e\u003c/p\u003e\n\u003ch4\u003ebeginSequenceAtStart\u003c/h4\u003e\n\u003cp\u003eif false start filtering one node away from the start node.\u003c/p\u003e\n\u003ch4\u003esequence\u003c/h4\u003e\n\u003cp\u003ecombine label and rel filter alternatively: \u0026lsquo;labelFilter, relFilter, labelFilter, relFilter, \u0026hellip;..\u0026rsquo;, e.g.: \u003ccode\u003e\u0027Post|-Blocked, NEXT\u0026gt;, Reply, \u0026lt;FROM, \u0026gt;Admin, POSTED\u0026gt;|REPLIED\u0026gt;\u0027\u003c/code\u003e\u003cbr /\u003e\nor, with \u003ccode\u003ebeginSequenceAtStart\u003c/code\u003e,  \u003ccode\u003e\u0026quot;FIRST\u0026gt;, Post|-Blocked, NEXT\u0026gt;, Reply\u0026quot;\u003c/code\u003e,\u003c/p\u003e\n\u003ch4\u003euniqueness\u003c/h4\u003e\n\u003cp\u003eCan be one of \u003ccode\u003eRELATIONSHIP_PATH\u003c/code\u003e, \u003ccode\u003eNODE_GLOBAL\u003c/code\u003e, \u003ccode\u003eNODE_LEVEL\u003c/code\u003e, \u003ccode\u003eNODE_PATH\u003c/code\u003e, \u003ccode\u003eNODE_RECENT\u003c/code\u003e, \u003ccode\u003eRELATIONSHIP_GLOBAL\u003c/code\u003e, \u003ccode\u003eRELATIONSHIP_LEVEL\u003c/code\u003e, \u003ccode\u003eRELATIONSHIP_RECENT\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eIn particular:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eRELATIONSHIP_PATH\u003c/code\u003e - For each path returned relationship, there\u0026rsquo;s a unique path from the start to it. Default mode.\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eNODE_PATH\u003c/code\u003e - For each returned node there’s a unique path from the start node to it.\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eNODE_GLOBAL\u003c/code\u003e - A node cannot be traversed more than once.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eFor more info: \u003ca href\u003d\"https://neo4j.com/labs/apoc/4.1/graph-querying/expand-paths-config/#path-expander-paths-config-config-uniqueness\"\u003esee here\u003c/a\u003e\u003c/p\u003e\n\u003ch4\u003ebfs\u003c/h4\u003e\n\u003cp\u003eTo choose the search algo: \u003ccode\u003ebfs ? \u0026quot;Breadth-first search\u0026quot; : \u0026quot;Depth-first search\u0026quot;\u003c/code\u003e\u003c/p\u003e\n\u003cimg src\u003d\"https://www.baeldung.com/wp-content/uploads/sites/4/2021/10/search_tree-dfs-vs-bfs-1.jpg\" style\u003d\"height: 400px\"\u003e\n\u003ch4\u003efilterStartNode\u003c/h4\u003e\n\u003cp\u003eIf true, apply the filter to the start node. That is, the procedure doesn\u0026rsquo;t return the result if first node sequence isn\u0026rsquo;t respected.\u003cbr /\u003e\nTo be used with \u003ccode\u003ebeginSequenceAtStart: true\u003c/code\u003e.\u003c/p\u003e\n\u003ch4\u003elimit\u003c/h4\u003e\n\u003cp\u003eMax number of paths. Default: \u003ccode\u003e-1\u003c/code\u003e (that is, without limits)\u003c/p\u003e\n\u003ch4\u003eoptional\u003c/h4\u003e\n\u003cp\u003eIf no path found, return a result with \u003ccode\u003enull\u003c/code\u003e, otherwise doesn\u0026rsquo;t return nothing\u003c/p\u003e\n\u003ch4\u003eendNodes\u003c/h4\u003e\n\u003cp\u003e\u003ccode\u003eList\u0026lt;Node\u0026gt;\u003c/code\u003e considered as end nodes. Same behaviour as \u0026gt;LabelName.\u003c/p\u003e\n\u003ch4\u003eterminatorNodes\u003c/h4\u003e\n\u003cp\u003e\u003ccode\u003eList\u0026lt;Node\u0026gt;\u003c/code\u003e considered as terminator nodes. Same behaviour as /LabelName.\u003c/p\u003e\n\u003ch4\u003ewhitelistNodes\u003c/h4\u003e\n\u003cp\u003e\u003ccode\u003eList\u0026lt;Node\u0026gt;\u003c/code\u003e considered as whitelist nodes. Same behaviour as +LabelName.\u003c/p\u003e\n\u003ch4\u003eblacklistNodes\u003c/h4\u003e\n\u003cp\u003e\u003ccode\u003eList\u0026lt;Node\u0026gt;\u003c/code\u003e considered as blacklist nodes. Same behaviour as -LabelName.\u003c/p\u003e\n\n\u003c/div\u003e"
           }
         ]
       },
@@ -2293,14 +2323,14 @@
       "jobName": "paragraph_1638264233977_602605292",
       "id": "paragraph_1638264233977_602605292",
       "dateCreated": "2021-11-30 09:23:53.977",
-      "dateStarted": "2022-03-22 09:00:13.598",
-      "dateFinished": "2022-03-22 09:00:13.616",
+      "dateStarted": "2022-03-23 08:29:16.304",
+      "dateFinished": "2022-03-23 08:29:16.316",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\n\nMATCH (p:Person {name: \"Giandomenico Fracchia\"})\nCALL apoc.path.expandConfig(p, {\n\trelationshipFilter: \"ACTED_IN\u003e,ACTED_IN\u003c|DIRECTED\",\n    minLevel: 1,\n    maxLevel: 2\n})\nYIELD path\nRETURN length(path) AS hops,  path\nORDER BY hops;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 09:46:39.560",
+      "dateUpdated": "2022-03-23 08:28:21.360",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2350,7 +2380,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -2379,7 +2410,7 @@
       "title": "RELATIONSHIP_PATH: duplicated nodes",
       "text": "%neo4j\n\nMATCH (p:Person {name: \"Franco e Ciccio\"})\nCALL apoc.path.expandConfig(p, {\n    relationshipFilter: \u0027PRODUCED,WROTE,PRODUCED\u0027,\n    minLevel: 3,\n    maxLevel: 3,\n    uniqueness: \"RELATIONSHIP_PATH\" // default\n})\nYIELD path\n//return count(path)\nRETURN [node in nodes(path) | coalesce(node.name, node.title)] AS nodes",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 09:34:56.912",
+      "dateUpdated": "2022-03-23 08:28:21.373",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -2421,7 +2452,7 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
-        "tableHide": false,
+        "tableHide": true,
         "title": true
       },
       "settings": {
@@ -2451,7 +2482,7 @@
       "title": "NODE_PATH: unique nodes",
       "text": "%neo4j\n\nMATCH (p:Person {name: \"Franco e Ciccio\"})\nCALL apoc.path.expandConfig(p, {\n    relationshipFilter: \u0027PRODUCED,WROTE,PRODUCED\u0027,\n    minLevel: 3,\n    maxLevel: 3,\n    uniqueness: \"NODE_PATH\"\n})\nYIELD path\n//return count(path)\nRETURN [node in nodes(path) | coalesce(node.name, node.title)] AS nodes",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 09:35:06.694",
+      "dateUpdated": "2022-03-23 08:28:21.386",
       "config": {
         "editorSetting": {
           "language": "text",
@@ -2493,7 +2524,8 @@
           }
         },
         "enabled": true,
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -2521,7 +2553,7 @@
     {
       "text": "%neo4j\n\nMATCH (k:Person {name:\u0027Giandomenico Fracchia\u0027}) \n\nCALL apoc.path.expandConfig(k, \n  {labelFilter:\u0027-Person\u0027, filterStartNode:true})\nyield path return path",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 09:40:39.590",
+      "dateUpdated": "2022-03-23 08:28:21.399",
       "config": {
         "colWidth": 4.0,
         "fontSize": 9.0,
@@ -2533,7 +2565,8 @@
           "completionKey": "TAB",
           "completionSupport": false
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -2556,7 +2589,7 @@
     {
       "text": "%neo4j\n\nMATCH (k:Person {name:\u0027Giandomenico Fracchia\u0027}) \n\nCALL apoc.path.expandConfig(k, \n  {labelFilter:\u0027-Person\u0027, filterStartNode:false})\nyield path return path",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 09:40:42.891",
+      "dateUpdated": "2022-03-23 08:28:21.418",
       "config": {
         "colWidth": 4.0,
         "fontSize": 9.0,
@@ -2569,7 +2602,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/undefined",
-        "editorHide": false
+        "editorHide": false,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -2586,7 +2620,7 @@
     {
       "text": "%neo4j\n\nMATCH (k:Person {name:\u0027Giandomenico Fracchia\u0027})\n\nCALL apoc.path.expandConfig(k, \n  {labelFilter:\u0027-Person\u0027, filterStartNode:true, optional: true}) \nyield path return path",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 09:40:58.484",
+      "dateUpdated": "2022-03-23 08:28:21.436",
       "config": {
         "colWidth": 4.0,
         "fontSize": 9.0,
@@ -2627,7 +2661,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/undefined",
-        "editorHide": false
+        "editorHide": false,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -2655,7 +2690,7 @@
     {
       "text": "%neo4j\n\nMATCH (p:Person {name: \"Giandomenico Fracchia\"})\nCALL apoc.path.expandConfig(p, {\n    labelFilter: \"Movie,Person\",\n    beginSequenceAtStart: false, // filters begin at 2nd node\n    minLevel: 4,\n    maxLevel: 4,\n    uniqueness: \"NODE_PATH\",\n    limit: 10\n})\nYIELD path\nRETURN path, length(path) AS hops\nORDER BY hops;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 09:44:54.880",
+      "dateUpdated": "2022-03-23 08:28:21.450",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2706,7 +2741,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -2734,7 +2770,7 @@
     {
       "text": "%neo4j\n\nMATCH (p:Person {name: \"Giandomenico Fracchia\"})\nCALL apoc.path.expandConfig(p, {\n    labelFilter: \"/Movie\",\n    limit: 10\n})\nYIELD path\nRETURN path, length(path) AS hops\nORDER BY hops;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 09:48:24.856",
+      "dateUpdated": "2022-03-23 08:28:21.464",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -2782,7 +2818,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -2810,7 +2847,7 @@
     {
       "text": "%neo4j\n\nMATCH (p:Person {name: \"Giandomenico Fracchia\"})\nCALL apoc.path.expandConfig(p, {\n    labelFilter: \"\u003eMovie\",\n    limit: 10\n})\nYIELD path\nRETURN path, length(path) AS hops\nORDER BY hops;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 09:48:30.364",
+      "dateUpdated": "2022-03-23 08:28:21.479",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -2858,7 +2895,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -2886,7 +2924,7 @@
     {
       "text": "%neo4j\n\nmatch (p:Person {name: \"Giandomenico Fracchia\"}),\n    (danny:Person {name: \"Danny DeVito\"}),\n    (carrie:Person {name: \"Carrie-Anne Moss\"})\ncall apoc.path.expandConfig(p, {\n    endNodes: [danny, carrie],\n    relationshipFilter: \"ACTED_IN|DIRECTED\",\n   maxLevel: 4\n})\nyield path\nreturn path, length(path) AS hops\norder by hops;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 09:53:05.316",
+      "dateUpdated": "2022-03-23 08:28:21.497",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2934,7 +2972,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -2953,7 +2992,7 @@
     {
       "text": "%md\n\n### Other path expand procedures\n\n- `apoc.path.spanningTree(startNode, $config)` - equivalent to `apoc.path.expandConfig` but with config uniqueness: \"NODE_GLOBAL\"\n- `apoc.path.subgraphNodes(startNode, $config)` - equivalent to `apoc.path.expandConfig` but with config uniqueness: \"NODE_GLOBAL\" and return only end nodes\n- `apoc.path.subgraphAll(startNode, $config)` - equivalent to `apoc.path.expandConfig` but with config uniqueness: \"NODE_GLOBAL\" and return only end nodes  and, if present, relationships between them\n ",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 09:53:05.426",
+      "dateUpdated": "2022-03-23 08:29:24.275",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2988,14 +3027,14 @@
       "jobName": "paragraph_1638273194035_1195929215",
       "id": "paragraph_1638273194035_1195929215",
       "dateCreated": "2021-11-30 11:53:14.035",
-      "dateStarted": "2022-03-22 09:53:05.429",
-      "dateFinished": "2022-03-22 09:53:05.522",
+      "dateStarted": "2022-03-23 08:29:24.277",
+      "dateFinished": "2022-03-23 08:29:24.289",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\n\nMATCH (p:Person {name: \"Giandomenico Fracchia\"})\nCALL apoc.path.subgraphNodes(p, {\n        labelFilter: \"\u003eMovie\",\n    limit: 10\n})\nYIELD node return node",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 09:55:54.418",
+      "dateUpdated": "2022-03-23 08:28:21.535",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -3040,7 +3079,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -3068,7 +3108,7 @@
     {
       "text": "%neo4j\n\nmatch (p:Person {name: \"Giandomenico Fracchia\"})\ncall apoc.path.subgraphAll(p, {\n        labelFilter: \"\u003ePerson\",\n        beginSequenceAtStart: false,\n    maxLevel: 3\n   // limit: 10\n})\nyield nodes, relationships \nunwind nodes as node\nunwind relationships as rel\nreturn node, rel ",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 09:55:59.951",
+      "dateUpdated": "2022-03-23 08:28:21.548",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -3113,7 +3153,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -3141,7 +3182,7 @@
     {
       "text": "%md\n\n- `apoc.neighbors.athop(node, pattern, N)` - return nodes at `N` hops\n- `apoc.neighbors.byhop(node, pattern, N)` - return nodes up to `N` hops\n- `apoc.neighbors.tohop(node, pattern, N)` - return list of nodes for each hops, up to `N` hops\n\nThe `pattern` parameter works like `relFilter` configuration of apoc.path.expandConfig.\n\nThere are also the `apoc.neighbors.athop.count/apoc.neighbors.byhop.count/apoc.neighbors.tohop(...) yield value` equivalent, but return only count of nodes matched.",
       "user": "anonymous",
-      "dateUpdated": "2021-11-30 15:37:23.453",
+      "dateUpdated": "2022-03-23 08:28:21.562",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3174,7 +3215,7 @@
     {
       "text": "%neo4j\nMATCH (p:Person {name: \"Giandomenico Fracchia\"})\nCALL apoc.neighbors.tohop(p, \"ACTED_IN\", 2)\nYIELD node\nRETURN node",
       "user": "anonymous",
-      "dateUpdated": "2022-03-18 15:07:44.282",
+      "dateUpdated": "2022-03-23 08:28:21.574",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -3221,7 +3262,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -3240,7 +3282,7 @@
     {
       "text": "%neo4j\nMATCH (p:Person {name: \"Giandomenico Fracchia\"})\nCALL apoc.neighbors.athop(p, \"ACTED_IN\", 2)\nYIELD node\nRETURN node",
       "user": "anonymous",
-      "dateUpdated": "2021-11-30 15:53:08.200",
+      "dateUpdated": "2022-03-23 08:28:21.593",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -3284,7 +3326,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -3303,7 +3346,7 @@
     {
       "text": "%neo4j\nMATCH (p:Person {name: \"Giandomenico Fracchia\"})\nCALL apoc.neighbors.byhop(p, \"ACTED_IN\", 2)\nYIELD nodes // return 2 lists (one for 1-hop nodes, one for 2-hop nodes)\nRETURN [n in nodes | coalesce(n.title, n.name)]",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 13:17:52.331",
+      "dateUpdated": "2022-03-23 08:28:21.606",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3343,7 +3386,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -3362,7 +3406,7 @@
     {
       "text": "%md\n\n## Node and relationships querying\n\n- `apoc.search.node(stringMap, operator, value)` - search a node with a `value` given a string with defined properties and a comparison operator (which can be \"exact\",\"starts with\", \"ends with\", \"contains\", \"\u003c\", \"\u003e\", \"\u003d\", \"\u003c\u003e\", \"\u003c\u003d\", \"\u003e\u003d\", \"\u003d~\")\n\n- `apoc.nodes.connected(start, end, rel-direction-pattern)`\n- `apoc.node.relationship.exists(node, rel-direction-pattern)`\n- `apoc.node.relationship.types(node, rel-direction-pattern)`\n- `apoc.node.degree(node, rel-direction-pattern)`\n- `apoc.label.exists(element, label)`\n- `apoc.diff.nodes(node1, node2)` - compare 2 nodes\n- `apoc.nodes.get / apoc.get.rels(listIds)` - return nodes / relationships with this id in listIds.\n\nwhere `rel-direction-pattern` works like `relFilter` configuration of apoc.path.expandConfig.",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 09:56:11.194",
+      "dateUpdated": "2022-03-23 08:29:27.533",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3397,14 +3441,14 @@
       "jobName": "paragraph_1638278425242_1147307279",
       "id": "paragraph_1638278425242_1147307279",
       "dateCreated": "2021-11-30 13:20:25.242",
-      "dateStarted": "2022-03-22 09:56:11.194",
-      "dateFinished": "2022-03-22 09:56:11.208",
+      "dateStarted": "2022-03-23 08:29:27.536",
+      "dateFinished": "2022-03-23 08:29:27.551",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\n\n// there is also the apoc.search.nodeAll, equivalent but return also duplicated nodes if present\n\ncall apoc.search.node(\u0027{Person: \"name\", Movie: [\"title\",\"tagline\"]}\u0027, \"CONTAINS\", \"her\") yield node return node",
       "user": "anonymous",
-      "dateUpdated": "2022-03-18 15:08:17.878",
+      "dateUpdated": "2022-03-23 08:28:21.635",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3450,7 +3494,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -3469,7 +3514,7 @@
     {
       "text": "%neo4j\n\n// there is also the apoc.search.nodeReducedAll, equivalent but return also duplicated nodes if present\n\ncall apoc.search.nodeReduced(\u0027{Person: \"name\", Movie: [\"title\",\"tagline\"]}\u0027, \"CONTAINS\", \"her\") \nyield id, labels, values return *",
       "user": "anonymous",
-      "dateUpdated": "2022-03-18 15:08:28.955",
+      "dateUpdated": "2022-03-23 08:28:21.649",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3512,7 +3557,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -3531,7 +3577,7 @@
     {
       "text": "%neo4j\nmatch (p:Person {name: \"Giandomenico Fracchia\"})\nreturn apoc.nodes.isDense(p) AS output;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 13:20:16.937",
+      "dateUpdated": "2022-03-23 08:28:21.662",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3571,7 +3617,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -3590,7 +3637,7 @@
     {
       "text": "%neo4j\n\nMATCH (p1:Person {name: \"Giandomenico Fracchia\"})\nMATCH (p2:Movie {title: \"The Matrix\"})\nRETURN apoc.nodes.connected(p1, p2, \"ANOTHER|ACTED_IN\u003e\") AS output\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-30 15:37:24.437",
+      "dateUpdated": "2022-03-23 08:28:21.675",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3630,7 +3677,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -3649,7 +3697,7 @@
     {
       "text": "%neo4j\nCALL apoc.nodes.get([1, 2, 3]);",
       "user": "anonymous",
-      "dateUpdated": "2022-03-18 15:09:10.061",
+      "dateUpdated": "2022-03-23 08:28:21.690",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -3696,7 +3744,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -3715,7 +3764,7 @@
     {
       "text": "%neo4j\nCALL apoc.get.rels([1, 2, 3]) \nyield rel \nmatch (n)-[rel]-\u003e(m)\nreturn n, rel, m",
       "user": "anonymous",
-      "dateUpdated": "2022-03-18 15:09:22.482",
+      "dateUpdated": "2022-03-23 08:28:21.705",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -3765,7 +3814,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "editorHide": false
+        "editorHide": false,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -3784,7 +3834,7 @@
     {
       "text": "%neo4j\n\n// - instead of Match (n:LabelName) return count(n) \u003e 0\n\nMATCH (s1:Person {name: \u0027Madonna\u0027})\nRETURN apoc.label.exists(s1, \"Garpez\") AS output, apoc.label.exists(s1, \"Person\") AS output2",
       "user": "anonymous",
-      "dateUpdated": "2022-03-18 15:09:34.248",
+      "dateUpdated": "2022-03-23 08:28:21.723",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -3827,7 +3877,7 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
-        "tableHide": false
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -3846,7 +3896,7 @@
     {
       "text": "%neo4j\n\nMERGE (n:Person{name:\u0027Steve\u0027,age:34, eyes:\u0027blue\u0027})\nMERGE (m:Person{name:\u0027Jake\u0027,hair:\u0027brown\u0027,age:34})\nwith n,m\nwith apoc.diff.nodes(n,m) as diffs  // {leftOnly: {....}, inCommon: {....}, different: {....}, rightOnly: {...}}\nreturn diffs[\"leftOnly\"] as leftOnly, diffs[\"inCommon\"] as inCommon, diffs[\"different\"] as different, diffs[\"rightOnly\"] as rightOnly",
       "user": "anonymous",
-      "dateUpdated": "2022-03-18 15:11:20.817",
+      "dateUpdated": "2022-03-23 08:28:21.738",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3890,7 +3940,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -3909,7 +3960,7 @@
     {
       "text": "%md\n\n## Detect cycles\n\n`CALL apoc.nodes.cycles([nodes], $config)` - Detect all path cycles from node list\n\nwhere `$config` can have:\n- maxDepth: max number of hops. With 0 we searching for nodes with self-relationships.\n- relTypes (List\u003cString\u003e): the relationships types to be considered\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-30 15:37:25.031",
+      "dateUpdated": "2022-03-23 08:29:32.377",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3921,11 +3972,22 @@
           "completionKey": "TAB",
           "completionSupport": false
         },
-        "editorMode": "ace/mode/markdown"
+        "editorMode": "ace/mode/markdown",
+        "tableHide": false,
+        "editorHide": true
       },
       "settings": {
         "params": {},
         "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eDetect cycles\u003c/h2\u003e\n\u003cp\u003e\u003ccode\u003eCALL apoc.nodes.cycles([nodes], $config)\u003c/code\u003e - Detect all path cycles from node list\u003c/p\u003e\n\u003cp\u003ewhere \u003ccode\u003e$config\u003c/code\u003e can have:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003emaxDepth: max number of hops. With 0 we searching for nodes with self-relationships.\u003c/li\u003e\n\u003cli\u003erelTypes (List\u003cString\u003e): the relationships types to be considered\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -3933,14 +3995,14 @@
       "jobName": "paragraph_1638282000930_590522980",
       "id": "paragraph_1638282000930_590522980",
       "dateCreated": "2021-11-30 14:20:00.930",
-      "dateStarted": "2021-11-30 15:37:25.051",
-      "dateFinished": "2021-11-30 15:37:25.060",
+      "dateStarted": "2022-03-23 08:29:32.379",
+      "dateFinished": "2022-03-23 08:29:32.397",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\n\n// 1 mixed-rel cycle\nCREATE (m1:Start {bar: \u0027alpha\u0027}) with m1 CREATE (m1)-[:DEPENDS_ON {id: 0}]-\u003e(m2:Module {bar: \u0027one\u0027})-[:DEPENDS_ON {id: 1}]-\u003e(m3:Module {bar: \u0027two\u0027})-[:DEPENDS_ON {id: 2}]-\u003e(m1)  WITH m1, m2, m3 CREATE (m1)-[:DEPENDS_ON {id: 3}]-\u003e(m2), (m2)-[:ANOTHER {id: 4}]-\u003e(m3), (m2)-[:DEPENDS_ON {id: 5}]-\u003e(m3) CREATE (m1)-[:DEPENDS_ON {id: 6}]-\u003e(:Module {bar: \u0027seven\u0027})-[:DEPENDS_ON {id: 7}]-\u003e(:Module {bar: \u0027eight\u0027})-[:DEPENDS_ON {id: 8}]-\u003e(m1);\n\n// 2 same-rel cycles\nCREATE (m1:Start {bar: \u0027gamma\u0027}) with m1 CREATE (m1)-[:DEPENDS_ON {id: 12}]-\u003e(m2:Module {bar: \u0027five\u0027})-\u003e(m1);\nCREATE (m1:Start {bar: \u0027beta\u0027}) with m1 CREATE (m1)-[:MY_REL {id: 9}]-\u003e(m2:Module {bar: \u0027three\u0027})-[:MY_REL  {id: 10}]-\u003e(m3:Module {bar: \u0027four\u0027})-[:MY_REL {id: 11}]-\u003e(m1);\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-18 15:13:33.428",
+      "dateUpdated": "2022-03-23 08:28:21.766",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3952,7 +4014,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -3971,7 +4034,7 @@
     {
       "text": "%neo4j\n\nMATCH (n:Start) with collect(n) as nodes \ncall apoc.nodes.cycles(nodes, {maxDepth: 2}) yield path return path",
       "user": "anonymous",
-      "dateUpdated": "2022-03-18 15:12:51.704",
+      "dateUpdated": "2022-03-23 08:28:21.781",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -4015,7 +4078,7 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "tableHide": false,
+        "tableHide": true,
         "editorHide": false
       },
       "settings": {
@@ -4035,7 +4098,7 @@
     {
       "text": "%neo4j\n\nMATCH (m1:Start) WITH collect(m1) as nodes CALL apoc.nodes.cycles(nodes, {maxDepth: 5, relTypes: [\"MY_REL\"]}) YIELD path RETURN path",
       "user": "anonymous",
-      "dateUpdated": "2022-03-18 15:12:57.773",
+      "dateUpdated": "2022-03-23 08:28:21.797",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -4079,7 +4142,7 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "tableHide": false
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -4098,7 +4161,7 @@
     {
       "text": "%md\n\n## [Cypher execution](http://localhost:8080/#/notebook/2GMKN71T8)",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 13:29:25.913",
+      "dateUpdated": "2022-03-23 08:29:35.779",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -4133,15 +4196,28 @@
       "jobName": "paragraph_1635851973936_1972506870",
       "id": "paragraph_1635851973936_1972506870",
       "dateCreated": "2021-11-02 11:19:33.936",
-      "dateStarted": "2022-03-22 13:29:25.913",
-      "dateFinished": "2022-03-22 13:29:25.934",
+      "dateStarted": "2022-03-23 08:29:35.781",
+      "dateFinished": "2022-03-23 08:29:35.789",
       "status": "FINISHED"
     },
     {
       "text": "%md\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 13:29:13.941",
-      "config": {},
+      "dateUpdated": "2022-03-23 08:28:21.829",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "tableHide": true
+      },
       "settings": {
         "params": {},
         "forms": {}

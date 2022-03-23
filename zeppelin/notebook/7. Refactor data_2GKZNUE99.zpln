@@ -3,7 +3,7 @@
     {
       "text": "%md\n\n# Refactor data\n\nThe APOC library has a set of procedures that can be used to adjust data structure and values across parts or the entirety of the graph. \nWe will look at some of these of these procedures.\n\nThe complete list is \u003ca href\u003d\"https://neo4j.com/labs/apoc/4.1/overview/apoc.refactor/\" target\u003d\"_blank\"\u003ehere\u003c/a\u003e.\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-11 10:29:40.214",
+      "dateUpdated": "2022-03-23 09:08:14.126",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -38,14 +38,14 @@
       "jobName": "paragraph_1635348036359_2131776212",
       "id": "paragraph_1635348036359_2131776212",
       "dateCreated": "2021-10-27 15:20:36.359",
-      "dateStarted": "2021-11-11 10:29:40.214",
-      "dateFinished": "2021-11-11 10:29:40.239",
+      "dateStarted": "2022-03-23 09:08:14.136",
+      "dateFinished": "2022-03-23 09:08:14.153",
       "status": "FINISHED"
     },
     {
       "text": "%md\n### Clone nodes\n\n`CALL apoc.refactor.cloneNodes(nodes, withRelationships\u003dfalse, skipProperties\u003d[])`\n`withRelationships` if true connect rels if presents.\n`skipProperties` list of properties to skip.",
       "user": "anonymous",
-      "dateUpdated": "2022-03-18 08:32:06.682",
+      "dateUpdated": "2022-03-23 09:08:15.930",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -80,14 +80,14 @@
       "jobName": "paragraph_1637853586583_827481307",
       "id": "paragraph_1637853586583_827481307",
       "dateCreated": "2021-11-25 15:19:46.583",
-      "dateStarted": "2022-03-18 08:32:06.683",
-      "dateFinished": "2022-03-18 08:32:08.261",
+      "dateStarted": "2022-03-23 09:08:15.938",
+      "dateFinished": "2022-03-23 09:08:15.947",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\nMatch (n:Person {name: \"Christian Bale\"})-[r]-(m) with n, r, m\nCALL apoc.refactor.cloneNodes([n], true, [\"name\"]) yield output\nMATCH (output)-[rel]-()\nreturn output, r, rel, n, m",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 15:54:33.772",
+      "dateUpdated": "2022-03-23 09:08:12.497",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -135,7 +135,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -163,7 +164,7 @@
     {
       "text": "%md\n\n### Invert relationships\n\nWe can quickly invert a relationship with a `CALL apoc.refactor.invert(rel)`, where `rel` is the relationship to be inverted.\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 15:54:42.044",
+      "dateUpdated": "2022-03-23 09:08:18.296",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -198,15 +199,15 @@
       "jobName": "paragraph_1635348071412_1417491836",
       "id": "paragraph_1635348071412_1417491836",
       "dateCreated": "2021-10-27 15:21:11.413",
-      "dateStarted": "2022-03-22 15:54:42.050",
-      "dateFinished": "2022-03-22 15:54:42.188",
+      "dateStarted": "2022-03-23 09:08:18.328",
+      "dateFinished": "2022-03-23 09:08:18.358",
       "status": "FINISHED"
     },
     {
       "title": "apoc.refactor.invert",
       "text": "%neo4j\n\nmatch (p:Person {name: \"Al Pacino\"})-[rel:ACTED_IN]-\u003e(c:Movie)\ncall apoc.refactor.invert(rel) YIELD output\nreturn p, output, c",
       "user": "anonymous",
-      "dateUpdated": "2021-11-26 10:57:44.398",
+      "dateUpdated": "2022-03-23 09:08:12.547",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -252,7 +253,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -271,7 +273,7 @@
     {
       "text": "%md\n\n### Renaming\n\nWe can rename relationships with the `apoc.refactor.rename.type(oldType, newType, [rels])`,\nto rename all relationships with type `oldType` to `newType`. `rels` is optional, can be a list of relationships to apply the refactor to.\n\nFormat: apoc.refactor.rename.type(oldType, newType, `[rels]`)\n\n\nWith the same logic we have:\n- `CALL apoc.refactor.rename.label(oldLabel, newLabel, [nodes])`\n- `CALL apoc.refactor.rename.nodeProperty(oldName, newName, [nodes])`\n- `CALL apoc.refactor.rename.typeProperty(oldName, newName, [rels])`\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-11 12:08:29.799",
+      "dateUpdated": "2022-03-23 09:08:20.368",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -306,15 +308,15 @@
       "jobName": "paragraph_1635348082297_1111714116",
       "id": "paragraph_1635348082297_1111714116",
       "dateCreated": "2021-10-27 15:21:22.297",
-      "dateStarted": "2021-11-11 12:08:29.800",
-      "dateFinished": "2021-11-11 12:08:29.822",
+      "dateStarted": "2022-03-23 09:08:20.375",
+      "dateFinished": "2022-03-23 09:08:20.387",
       "status": "FINISHED"
     },
     {
       "title": "apoc.refactor.rename.type",
       "text": "%neo4j\n\nMATCH path\u003d(p:Person {name: \u0027Al Pacino\u0027})-[rel:ACTED_IN]-(c:Movie) \nCALL apoc.refactor.rename.type(\"ACTED_IN\", \"NEW_REL\", [rel]) YIELD total\nWITH p,c\nMATCH path\u003d(p)--(c)\nRETURN path;",
       "user": "anonymous",
-      "dateUpdated": "2021-11-17 23:31:24.475",
+      "dateUpdated": "2022-03-23 09:08:12.650",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -364,7 +366,7 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
-        "tableHide": false,
+        "tableHide": true,
         "title": true
       },
       "settings": {
@@ -393,7 +395,7 @@
     {
       "text": "%md\n\n### Grouping nodes into categories\n\nTo transform a unique property key of a target node into a new node and connect target and new node.\n\n\n`CALL apoc.refactor.categorize(sourceKey, type, outgoing, label, targetKey, copiedKeys, batchSize)`\n\n\nThe parameters are:\n\n- `sourceKey`: the property on the existing node we want to use to create the new node\n- `type`: the type for the new relationship for connecting the existing node to the new node\n- `outgoing`: whether the relationship is outgoing or not\n- `label`: the label for the new node\n- `targetKey`: the key property name we want on the new node\n- `copiedKeys`: any additional properties we’d like copied from the old node to the new\n- `batchSize`\n\n\u003cpre\u003e\nBefore we can execute this procedure, we need to put a constraint on the new node and property key.\n\u003c/pre\u003e\n\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-11 13:25:55.326",
+      "dateUpdated": "2022-03-23 09:08:23.306",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -428,15 +430,15 @@
       "jobName": "paragraph_1635348112816_1621294288",
       "id": "paragraph_1635348112816_1621294288",
       "dateCreated": "2021-10-27 15:21:52.816",
-      "dateStarted": "2021-11-11 13:25:55.331",
-      "dateFinished": "2021-11-11 13:25:55.349",
+      "dateStarted": "2022-03-23 09:08:23.313",
+      "dateFinished": "2022-03-23 09:08:23.333",
       "status": "FINISHED"
     },
     {
       "title": "apoc.refactor.categorize",
       "text": "%neo4j\n\nCREATE CONSTRAINT ON (n:`TagLine`) ASSERT n.`name` IS UNIQUE;\n\n// Movie {tagline: \"...\"}  --HAS_TAGLINE-\u003e (:Tagline)\nCALL apoc.refactor.categorize(\u0027tagline\u0027, \n    \u0027HAS_TAGLINE\u0027, \n    true, \n    \"TagLine\", \n    \"name\", \n    [\"released\"], \n    100);\n\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-18 11:34:29.900",
+      "dateUpdated": "2022-03-23 09:08:12.688",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -449,7 +451,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -473,7 +476,7 @@
       "title": "Check results",
       "text": "%neo4j\n\nMATCH p\u003d(n)-[:HAS_TAGLINE]-()\nRETURN p;\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-18 11:34:34.220",
+      "dateUpdated": "2022-03-23 09:08:12.709",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -520,7 +523,7 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
-        "tableHide": false,
+        "tableHide": true,
         "title": true
       },
       "settings": {
@@ -549,7 +552,7 @@
     {
       "text": "%neo4j\nCREATE (flight:Flight {number: \"BA001\"})\nCREATE (origin:Airport {code: \"LHR\"})\nCREATE (destination:Airport {code: \"AMS\"})\nCREATE (flight)\u003c-[:OUT]-(origin)\nCREATE (flight)-[:IN]-\u003e(destination);",
       "user": "anonymous",
-      "dateUpdated": "2021-11-25 14:59:34.681",
+      "dateUpdated": "2022-03-23 09:08:12.734",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -561,7 +564,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -578,7 +582,7 @@
     {
       "text": "%neo4j\n\nmatch (flight:Flight {number: \"BA001\"})\ncall apoc.refactor.collapseNode([flight], \"CONNECTED_TO\")\nyield input, output\nreturn input, output;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:42:09.776",
+      "dateUpdated": "2022-03-23 09:08:12.757",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -591,7 +595,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "editorHide": false
+        "editorHide": false,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -608,7 +613,7 @@
     {
       "text": "%neo4j\n\nCREATE (origin:Airport {code: \"LHR\"})\nCREATE (destination:Airport {code: \"AMS\"})\nCREATE (origin)-[:FLIGHT {number: \"BA001\"}]-\u003e(destination);",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:42:29.457",
+      "dateUpdated": "2022-03-23 09:08:12.774",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -620,7 +625,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -643,7 +649,7 @@
     {
       "text": "%neo4j\n\nmatch (:Airport)-[rel:FLIGHT]-\u003e(:Airport)\nwith collect(rel) AS rels\ncall apoc.refactor.extractNode(rels, [\"Flight\"], \"OUT\", \"IN\")\nyield input, output\nreturn input, output;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:42:35.254",
+      "dateUpdated": "2022-03-23 09:08:12.798",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -685,7 +691,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -713,7 +720,7 @@
     {
       "text": "%md\n### Move relationships to other nodes\n\nI can move a `rel` to another `endNode` using the `apoc.refactor.to(rel, endNode)` procedure.\n\nOtherwise, we can use the analogue procedure `apoc.refactor.from(rel, startNode)`.\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-25 15:32:42.597",
+      "dateUpdated": "2022-03-23 09:08:12.816",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -756,7 +763,7 @@
       "title": "Dataset creation",
       "text": "%neo4j\nCREATE (person1:Person {name: \"Ryu\"})-[:FRIENDS]-\u003e(person2:Person {name: \"Ken\"})\nCREATE (person3:Person {name: \"Vega\"})",
       "user": "anonymous",
-      "dateUpdated": "2021-11-18 11:36:01.788",
+      "dateUpdated": "2022-03-23 09:08:12.840",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -769,7 +776,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -793,7 +801,7 @@
       "title": "apoc.refactor.to",
       "text": "%neo4j\n\nmatch (:Person {name: \"Ryu\"})-[rel:FRIENDS]-\u003e(:Person {name: \"Ken\"})\nmatch (vega:Person {name: \"Vega\"})\ncall apoc.refactor.to(rel, vega)\nyield input, output\nmatch path\u003d(vega)--()\nreturn path",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:43:20.054",
+      "dateUpdated": "2022-03-23 09:08:12.858",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -838,7 +846,8 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -866,7 +875,7 @@
     {
       "text": "%md\n\n### Merge multiple relationships / nodes\n\nWe can join multiple entities through the procedures\n\n- `apoc.refactor.mergeRelationships([rels], $config)`\n- `apoc.refactor.mergeNodes([nodes], $config)`\n\nWhere `$config` can have:\n- properties (default: \u0027combine\u0027): Map\u003cprop, type\u003e or type, where type can be `discard` (to take 1st property value found with the same name), `overwrite` (to pick last prop value), `combine` (to join properties in an array)\n- mergeRels (default: false) - only for `apoc.refactor.mergeNodes`\n- singleElementAsArray (default: false)\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-18 11:36:53.624",
+      "dateUpdated": "2022-03-23 09:08:28.573",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -901,15 +910,15 @@
       "jobName": "paragraph_1636459119756_823886620",
       "id": "paragraph_1636459119756_823886620",
       "dateCreated": "2021-11-09 11:58:39.756",
-      "dateStarted": "2021-11-18 11:36:53.624",
-      "dateFinished": "2021-11-18 11:36:53.638",
+      "dateStarted": "2022-03-23 09:08:28.577",
+      "dateFinished": "2022-03-23 09:08:28.590",
       "status": "FINISHED"
     },
     {
       "title": "Dataset",
       "text": "%neo4j\n\nCREATE (n1:MergeOne {name:\u0027Tom\u0027, surname: \u0027Jerry\u0027}),\n(n2:MergeOne {name:\u0027John\u0027, surname: \u0027Jack\u0027}),\n(n3:Company {name:\u0027Company1\u0027}),\n(n5:Car {brand:\u0027Ferrari\u0027}),\n(n6:Animal:Cat {name:\u0027Derby\u0027}),\n(n7:City {name:\u0027London\u0027}),\n\n(n1)-[r1:WORKS_FOR {since:2015}]-\u003e(n3),\n(n2)-[r2:WORKS_FOR {since:2018}]-\u003e(n3),\n(n3)-[r3:HAS_HQ {since:2004}]-\u003e(n7),\n(n1)-[r4:DRIVE {since:2017}]-\u003e(n5),\n(n2)-[r5:HAS {since:2013}]-\u003e(n6)\nreturn *;",
       "user": "anonymous",
-      "dateUpdated": "2021-11-29 16:13:50.843",
+      "dateUpdated": "2022-03-23 09:08:12.899",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -955,7 +964,7 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
-        "tableHide": false,
+        "tableHide": true,
         "title": true
       },
       "settings": {
@@ -985,7 +994,7 @@
       "title": "apoc.refactor.mergeNode",
       "text": "%neo4j\n\nMATCH p\u003d(a1:MergeOne{name:\u0027John\u0027})--(), p2\u003d(a2:MergeOne {name:\u0027Tom\u0027})--()\nWITH [a1,a2] as nodes\nCALL apoc.refactor.mergeNodes(nodes,{properties:\"combine\", mergeRels:false})\nYIELD node RETURN null",
       "user": "anonymous",
-      "dateUpdated": "2021-11-29 16:13:52.896",
+      "dateUpdated": "2022-03-23 09:08:12.923",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1060,7 +1069,7 @@
       "title": "Check results",
       "text": "%neo4j\n\n\nMATCH p\u003d(a1:MergeOne)--()\nRETURN p",
       "user": "anonymous",
-      "dateUpdated": "2021-11-29 16:13:55.351",
+      "dateUpdated": "2022-03-23 09:08:12.945",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1108,7 +1117,7 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
-        "tableHide": false,
+        "tableHide": true,
         "title": true
       },
       "settings": {
@@ -1138,7 +1147,7 @@
       "title": "Another dataset",
       "text": "%neo4j\n\nCREATE (n1:MergeTwo {name:\u0027Tom\u0027, surname: \u0027Jerry\u0027}),\n(n2:MergeTwo {name:\u0027John\u0027, surname: \u0027Jack\u0027}),\n(n3:Company {name:\u0027Company1\u0027}),\n(n5:Car {brand:\u0027Ferrari\u0027}),\n(n6:Animal:Cat {name:\u0027Derby\u0027}),\n(n7:City {name:\u0027London\u0027}),\n\n(n1)-[r1:WORKS_FOR {since:2015}]-\u003e(n3),\n(n2)-[r2:WORKS_FOR {since:2018}]-\u003e(n3),\n(n3)-[r3:HAS_HQ {since:2004}]-\u003e(n7),\n(n1)-[r4:DRIVE {since:2017}]-\u003e(n5),\n(n2)-[r5:HAS {since:2013}]-\u003e(n6)\nreturn *;",
       "user": "anonymous",
-      "dateUpdated": "2021-11-29 16:17:31.071",
+      "dateUpdated": "2022-03-23 09:08:12.967",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1185,7 +1194,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -1214,7 +1224,7 @@
       "title": "mergeNodes with \"discard\" configuration",
       "text": "%neo4j\n\nMATCH p\u003d(a1:MergeTwo{name:\u0027John\u0027})--(), p2\u003d(a2:MergeTwo {name:\u0027Tom\u0027})--()\nWITH [a1,a2] as nodes\nCALL apoc.refactor.mergeNodes(nodes,{properties: {name: \"discard\", surname: \"overwrite\"}, mergeRels:true})\nYIELD node RETURN null",
       "user": "anonymous",
-      "dateUpdated": "2021-11-29 16:17:03.159",
+      "dateUpdated": "2022-03-23 09:08:12.980",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1228,7 +1238,8 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -1252,7 +1263,7 @@
       "title": "Check results",
       "text": "%neo4j\n\nMATCH p\u003d(a1:MergeTwo)--()\nRETURN p",
       "user": "anonymous",
-      "dateUpdated": "2021-11-18 11:40:28.507",
+      "dateUpdated": "2022-03-23 09:08:12.996",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1300,7 +1311,8 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -1328,7 +1340,7 @@
     {
       "text": "%md\n\n### Remove nodes from a path\n\n- `CALL apoc.refactor.deleteAndReconnect(path, nodes, $configMap)`\n\n`nodes` is the list of nodes to be removed\n\n`$config` can have:\n- `relationshipSelectionStrategy`\n- `properties` - override (default), discard, combine\n\n\nhttps://neo4j.com/labs/apoc/4.1/overview/apoc.refactor/apoc.refactor.deleteAndReconnect/\n\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-26 11:02:07.936",
+      "dateUpdated": "2022-03-23 09:08:36.721",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1340,11 +1352,22 @@
           "completionKey": "TAB",
           "completionSupport": false
         },
-        "editorMode": "ace/mode/markdown"
+        "editorMode": "ace/mode/markdown",
+        "tableHide": false,
+        "editorHide": true
       },
       "settings": {
         "params": {},
         "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eRemove nodes from a path\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eCALL apoc.refactor.deleteAndReconnect(path, nodes, $configMap)\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003ccode\u003enodes\u003c/code\u003e is the list of nodes to be removed\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e$config\u003c/code\u003e can have:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003erelationshipSelectionStrategy\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eproperties\u003c/code\u003e - override (default), discard, combine\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003ca href\u003d\"https://neo4j.com/labs/apoc/4.1/overview/apoc.refactor/apoc.refactor.deleteAndReconnect/\"\u003ehttps://neo4j.com/labs/apoc/4.1/overview/apoc.refactor/apoc.refactor.deleteAndReconnect/\u003c/a\u003e\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -1352,12 +1375,14 @@
       "jobName": "paragraph_1637924333098_1006344045",
       "id": "paragraph_1637924333098_1006344045",
       "dateCreated": "2021-11-26 10:58:53.100",
-      "status": "READY"
+      "dateStarted": "2022-03-23 09:08:36.725",
+      "dateFinished": "2022-03-23 09:08:36.735",
+      "status": "FINISHED"
     },
     {
       "text": "%neo4j\n\ncreate p1\u003d(f:One)-[:ALPHA {a:\u0027b\u0027}]-\u003e(b:Two)-[:BETA {a: \u0027d\u0027, e:\u0027f\u0027, g: \u0027h\u0027}]-\u003e(c:Three)-[:GAMMA {aa: \u0027one\u0027}]-\u003e(d:Four)-[:DELTA {aa: \u0027bb\u0027, cc: \u0027dd\u0027, ee: \u0027ff\u0027}]-\u003e(e:Five {foo: \u0027bar\u0027, baz: \u0027baa\u0027}), \n  p2\u003d(:Other)-[:Pippo {goku: \u0027gohan\u0027, vegeta: \u0027trunks\u0027}]-\u003e(:Other2), \n  p3\u003d(:Other)-[:Pippo2 {krilin: \u0027maron\u0027}]-\u003e(:Other2)\nreturn p1, p2, p3",
       "user": "anonymous",
-      "dateUpdated": "2021-11-26 11:14:26.947",
+      "dateUpdated": "2022-03-23 09:08:13.066",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1407,7 +1432,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -1435,7 +1461,7 @@
     {
       "text": "%neo4j\nmatch p\u003d(f:One)--\u003e(b:Two)--\u003e(c:Three)--\u003e(d:Four)--\u003e(e:Five) \nwith p, [b,d] as list \ncall apoc.refactor.deleteAndReconnect(p, list, {relationshipSelectionStrategy: \u0027merge\u0027})\nyield nodes, relationships \nunwind nodes as node\nunwind relationships as rel\nreturn node, rel;",
       "user": "anonymous",
-      "dateUpdated": "2021-11-26 11:13:59.710",
+      "dateUpdated": "2022-03-23 09:08:13.100",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1485,7 +1511,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -1513,7 +1540,7 @@
     {
       "text": "%neo4j\nmatch p\u003d(f:One)--\u003e(b:Two)--\u003e(c:Three)--\u003e(d:Four)--\u003e(e:Five) \nwith p, [b,d] as list \ncall apoc.refactor.deleteAndReconnect(p, list, {relationshipSelectionStrategy: \u0027outgoing\u0027}) \nyield nodes, relationships \nunwind nodes as node\nunwind relationships as rel\nreturn node, rel;",
       "user": "anonymous",
-      "dateUpdated": "2021-11-26 11:12:57.908",
+      "dateUpdated": "2022-03-23 09:08:13.119",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1563,7 +1590,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -1591,7 +1619,7 @@
     {
       "text": "%neo4j\nmatch p\u003d(f:One)--\u003e(b:Two)--\u003e(c:Three)--\u003e(d:Four)--\u003e(e:Five) \nwith p, [b,d] as list \ncall apoc.refactor.deleteAndReconnect(p, list, {properties: \u0027combine\u0027, relationshipSelectionStrategy: \u0027merge\u0027}) \nyield nodes, relationships \nunwind nodes as node\nunwind relationships as rel\nreturn node, rel;",
       "user": "anonymous",
-      "dateUpdated": "2021-11-26 11:14:31.629",
+      "dateUpdated": "2022-03-23 09:08:13.139",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1641,7 +1669,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -1669,7 +1698,7 @@
     {
       "text": "%md\n## Path manipulation\n\nhttps://neo4j.com/labs/apoc/4.3/graph-querying/path-querying/\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-30 13:24:26.648",
+      "dateUpdated": "2022-03-23 09:08:40.820",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1704,14 +1733,14 @@
       "jobName": "paragraph_1638278654821_685111087",
       "id": "paragraph_1638278654821_685111087",
       "dateCreated": "2021-11-30 13:24:14.821",
-      "dateStarted": "2021-11-30 13:24:26.649",
-      "dateFinished": "2021-11-30 13:24:26.703",
+      "dateStarted": "2022-03-23 09:08:40.829",
+      "dateFinished": "2022-03-23 09:08:40.836",
       "status": "FINISHED"
     },
     {
       "text": "%md\n\n## [Others](http://localhost:8080/#/notebook/2GK4BTA5G)",
       "user": "anonymous",
-      "dateUpdated": "2021-11-10 08:17:46.354",
+      "dateUpdated": "2022-03-23 09:08:42.947",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1746,9 +1775,26 @@
       "jobName": "paragraph_1636532228417_99296844",
       "id": "paragraph_1636532228417_99296844",
       "dateCreated": "2021-11-10 08:17:08.417",
-      "dateStarted": "2021-11-10 08:17:46.355",
-      "dateFinished": "2021-11-10 08:17:46.440",
+      "dateStarted": "2022-03-23 09:08:42.951",
+      "dateFinished": "2022-03-23 09:08:42.962",
       "status": "FINISHED"
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-23 09:08:42.945",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1648026522945_1214310927",
+      "id": "paragraph_1648026522945_1214310927",
+      "dateCreated": "2022-03-23 09:08:42.945",
+      "status": "READY"
     }
   ],
   "name": "7. Refactor data",

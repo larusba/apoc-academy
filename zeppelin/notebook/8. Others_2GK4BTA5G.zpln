@@ -3,7 +3,7 @@
     {
       "text": "%md\n# Virtual entities\n\nWe can visualize nodes, relationships and sub-graph that don’t exist in the database but only returned by a query. This could be used for:\n\n- return only a few properties of nodes/rels to the visualization, e.g. if you have huge text properties\n- visualization of data from other sources (CSV, XML, JSON) as graph without even storing it\n\nSee \u003ca href\u003d\"https://neo4j.com/labs/apoc/4.1/virtual/\" target\u003d\"_blank\"\u003ehere\u003c/a\u003e for more information.\nSome procedures are:\n- `CALL apoc.create.vNode(labels, propertyMap)`\n- `CALL apoc.graph.fromData(nodes, relationships, \"graphName\", $config)`\n- `CALL apoc.graph.fromDocument(Json, $config)`\n- `CALL apoc.nodes.collapse(nodes, $config)`\n\n\nWith `apoc.graph.*` we create a graph object with this structure: `{name: \u0027name\u0027, properties: {properties..} , nodes:[nodes], relationships:[relationships]}` .\n\nNote that, to manipulate virtual entities, you cannot use \"classic\" Neo4j statement, but you have to use these:\n- `apoc.create.setProperty` / `apoc.create.setProperties`\n- `apoc.node.id`\n- `apoc.node.labels`\n- `apoc.create.setRelProperty` / `apoc.create.setRelProperties`\n- `apoc.rel.type`\n- `apoc.rel.endNode` / `apoc.rel.startNode`\n- `apoc.rel.id`\n\nLet\u0027s see some examples:",
       "user": "anonymous",
-      "dateUpdated": "2021-11-30 16:32:45.912",
+      "dateUpdated": "2022-03-23 09:14:58.020",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -37,15 +37,15 @@
       "jobName": "paragraph_1636129873062_1526049960",
       "id": "paragraph_1636129873062_1526049960",
       "dateCreated": "2021-11-05 16:31:13.062",
-      "dateStarted": "2021-11-30 16:32:45.913",
-      "dateFinished": "2021-11-30 16:32:45.970",
+      "dateStarted": "2022-03-23 09:14:58.025",
+      "dateFinished": "2022-03-23 09:14:58.036",
       "status": "FINISHED"
     },
     {
       "title": "apoc.create.vNode",
       "text": "%neo4j\n\n/* \nvisualize a graph from this csv file:\n    persons.csv\n    ---\n    name,surname\n    Eren,Jager\n    Mikasa,Ackermann\n    Armin,Arelet  \n*/\n\n\n// we can use CALL apoc.create.vNode(labels, propertyMap)\n\nCALL apoc.load.csv(\"persons.csv\") YIELD map \n// we retrieve the csv as a row of maps, so {\"name\":\"Eren\", \"surname\": \"Jager\"}, {\"name\": \"Mikasa\", \"surname\": \"Ackermann\"}, {\"name\": \"Armin\", \"surname\": \"Arelet\"}\nWITH map\nCALL apoc.create.vNode([\u0027Person\u0027], map) // we create 2 virtual nodes from csv\nYIELD node\nRETURN node",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 15:55:39.340",
+      "dateUpdated": "2022-03-23 09:14:23.489",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -102,7 +102,9 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": true,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -131,7 +133,7 @@
       "title": "apoc.create.vRelationship",
       "text": "%neo4j\nMATCH (start:Person {name: \u0027Hugo Weaving\u0027}), (end:Movie {title: \u0027V for Vendetta\u0027})\nWITH start, end\nCALL apoc.load.csv(\"persons.csv\") YIELD map \nWITH map, start, end\nCALL apoc.create.vRelationship(start,\u0027REL_FROM_CSV\u0027, map, end)  // we create 2 virtual rels from csv\nYIELD rel\nRETURN start, end, rel",
       "user": "anonymous",
-      "dateUpdated": "2021-11-29 08:51:55.170",
+      "dateUpdated": "2022-03-23 09:14:23.507",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -141,7 +143,9 @@
           "editOnDblClick": false
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": false,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -161,7 +165,7 @@
       "title": "apoc.create.virtualPath",
       "text": "%neo4j\n\n/* \nvisualize a graph from this csv file:\n    personsRel.csv  | personsEnd\n    ---             | ---\n    since           | name,surname\n    1999            | Levi,Ackermann\n\n*/\n\nCALL apoc.load.csv(\"persons.csv\") YIELD map AS mapStart\nCALL apoc.load.csv(\"personsEnd.csv\") YIELD map AS mapEnd\nCALL apoc.load.csv(\"personsRel.csv\") YIELD map AS mapRel\nWITH mapStart, mapEnd, mapRel\nCALL apoc.create.virtualPath([\u0027Start\u0027,\u0027Person\u0027], mapStart,\u0027KNOWS\u0027, mapRel, [\u0027End\u0027,\u0027Person\u0027], mapEnd)\nYIELD from, rel, to\nRETURN from, rel, to",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 16:09:19.428",
+      "dateUpdated": "2022-03-23 09:14:23.522",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -205,7 +209,8 @@
         },
         "editorMode": "ace/mode/undefined",
         "title": true,
-        "editorHide": false
+        "editorHide": false,
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -234,7 +239,7 @@
       "title": "apoc.create.clonePathToVirtual",
       "text": "%neo4j\n\nmatch p\u003d(:Person)-[:PRODUCED]-\u003e(:Movie)\nwith p LIMIT 5\nCALL apoc.create.clonePathToVirtual(p) yield path return path",
       "user": "anonymous",
-      "dateUpdated": "2021-11-29 15:35:14.256",
+      "dateUpdated": "2022-03-23 09:14:23.536",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -281,7 +286,8 @@
         },
         "editorMode": "ace/mode/undefined",
         "title": true,
-        "editorHide": false
+        "editorHide": false,
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -307,9 +313,9 @@
       "status": "FINISHED"
     },
     {
-      "text": "%md\n### Collapse nodes\n\nTo \n`CALL apoc.nodes.collapse(nodes, $config)`\n\nwhere `$config` can have:\n- properties\n- mergeVirtualRels\n- selfRel\n- countMerge (default: true) - add a count property with number of merged nodes\n- collapsedLabel",
+      "text": "%md\n### Collapse nodes\n\nWe can use the `CALL apoc.nodes.collapse(nodes, $config)`\n\nwhere `$config` can have:\n- properties\n- mergeVirtualRels\n- selfRel\n- countMerge (default: true) - add a count property with number of merged nodes\n- collapsedLabel",
       "user": "anonymous",
-      "dateUpdated": "2021-11-29 16:01:05.030",
+      "dateUpdated": "2022-03-23 09:15:31.765",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -320,11 +326,22 @@
           "language": "markdown",
           "completionSupport": false
         },
-        "editorMode": "ace/mode/markdown"
+        "editorMode": "ace/mode/markdown",
+        "tableHide": false,
+        "editorHide": true
       },
       "settings": {
         "params": {},
         "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eCollapse nodes\u003c/h3\u003e\n\u003cp\u003eWe can use the \u003ccode\u003eCALL apoc.nodes.collapse(nodes, $config)\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003ewhere \u003ccode\u003e$config\u003c/code\u003e can have:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eproperties\u003c/li\u003e\n\u003cli\u003emergeVirtualRels\u003c/li\u003e\n\u003cli\u003eselfRel\u003c/li\u003e\n\u003cli\u003ecountMerge (default: true) - add a count property with number of merged nodes\u003c/li\u003e\n\u003cli\u003ecollapsedLabel\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -332,13 +349,15 @@
       "jobName": "paragraph_1638200165834_1229301474",
       "id": "paragraph_1638200165834_1229301474",
       "dateCreated": "2021-11-29 15:36:05.834",
-      "status": "READY"
+      "dateStarted": "2022-03-23 09:15:31.768",
+      "dateFinished": "2022-03-23 09:15:31.776",
+      "status": "FINISHED"
     },
     {
       "title": "apoc.nodes.collapse",
       "text": "%neo4j\n\nMATCH (p:Person)-[:ACTED_IN]-\u003e(c:Movie {title: \u0027The Matrix\u0027})\nWITH c, collect(p) as subgraph\nCALL apoc.nodes.collapse(subgraph, {properties:\u0027combine\u0027}) yield from, rel, to\nreturn from, rel, to",
       "user": "anonymous",
-      "dateUpdated": "2021-11-29 16:00:21.929",
+      "dateUpdated": "2022-03-23 09:14:23.572",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -386,7 +405,9 @@
           "editOnDblClick": false
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": false,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -414,7 +435,7 @@
     {
       "text": "%neo4j\nMATCH (p:Person {name: \u0027Bill Paxton\u0027})-[:ACTED_IN]-\u003e(c:Movie)\nwith collect(c) as subgraph\nCALL apoc.nodes.collapse(subgraph, {properties:\u0027discard\u0027, mergeRelsVirtual:false})\nyield to, rel, from\nreturn from, rel, to",
       "user": "anonymous",
-      "dateUpdated": "2021-11-29 16:33:20.223",
+      "dateUpdated": "2022-03-23 09:14:48.511",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -460,7 +481,9 @@
         "editorSetting": {
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -488,7 +511,7 @@
     {
       "text": "%neo4j\n\nMATCH (p:Person)-[:ACTED_IN]-\u003e(c:Movie {title: \u0027The Matrix\u0027})\nWITH c, collect(p) as subgraph\nCALL apoc.nodes.collapse(subgraph, {mergeVirtualRels: false, properties:\u0027combine\u0027}) yield from, rel, to\nreturn from, rel, to",
       "user": "anonymous",
-      "dateUpdated": "2021-11-29 16:01:50.414",
+      "dateUpdated": "2022-03-23 09:14:23.575",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -535,7 +558,9 @@
         "editorSetting": {
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -564,67 +589,7 @@
       "title": "selfRel: true",
       "text": "%neo4j\nMATCH (p:Person {name: \u0027Bill Paxton\u0027})-[:ACTED_IN]-\u003e(c:Movie {title: \u0027Apollo 13\u0027})\nwith collect(c) + p as subgraph\nCALL apoc.nodes.collapse(subgraph, {selfRel: true}) \nyield from, rel, to\nreturn apoc.node.id(from), apoc.node.id(to)",
       "user": "anonymous",
-      "dateUpdated": "2021-11-29 16:39:05.246",
-      "config": {
-        "colWidth": 6.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {
-          "0": {
-            "graph": {
-              "mode": "table",
-              "height": 300.0,
-              "optionOpen": false,
-              "setting": {
-                "table": {
-                  "tableGridState": {},
-                  "tableColumnTypeState": {
-                    "names": {
-                      "apoc.node.id(from)": "string",
-                      "apoc.node.id(to)": "string"
-                    },
-                    "updated": false
-                  },
-                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
-                  "tableOptionValue": {
-                    "useFilter": false,
-                    "showPagination": false,
-                    "showAggregationFooter": false
-                  },
-                  "updated": false,
-                  "initialized": false
-                }
-              },
-              "commonSetting": {}
-            },
-            "helium": {}
-          }
-        },
-        "editorSetting": {
-          "editOnDblClick": false
-        },
-        "editorMode": "ace/mode/undefined",
-        "title": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1638200352175_541082587",
-      "id": "paragraph_1638200352175_541082587",
-      "dateCreated": "2021-11-29 15:39:12.175",
-      "dateStarted": "2021-11-29 16:39:05.270",
-      "dateFinished": "2021-11-29 16:39:05.394",
-      "status": "FINISHED"
-    },
-    {
-      "title": "selfRel: false",
-      "text": "%neo4j\nMATCH (p:Person {name: \u0027Bill Paxton\u0027})-[:ACTED_IN]-\u003e(c:Movie {title: \u0027Apollo 13\u0027})\nwith collect(c) + p as subgraph\nCALL apoc.nodes.collapse(subgraph, {selfRel: false}) \nyield from, rel, to\nreturn apoc.node.id(from), apoc.node.id(to)",
-      "user": "anonymous",
-      "dateUpdated": "2021-11-29 16:39:19.063",
+      "dateUpdated": "2022-03-23 09:14:23.591",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -665,7 +630,70 @@
         },
         "editorMode": "ace/mode/undefined",
         "title": true,
+        "tableHide": false,
         "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1638200352175_541082587",
+      "id": "paragraph_1638200352175_541082587",
+      "dateCreated": "2021-11-29 15:39:12.175",
+      "dateStarted": "2021-11-29 16:39:05.270",
+      "dateFinished": "2021-11-29 16:39:05.394",
+      "status": "FINISHED"
+    },
+    {
+      "title": "selfRel: false",
+      "text": "%neo4j\nMATCH (p:Person {name: \u0027Bill Paxton\u0027})-[:ACTED_IN]-\u003e(c:Movie {title: \u0027Apollo 13\u0027})\nwith collect(c) + p as subgraph\nCALL apoc.nodes.collapse(subgraph, {selfRel: false}) \nyield from, rel, to\nreturn apoc.node.id(from), apoc.node.id(to)",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-23 09:14:23.606",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "apoc.node.id(from)": "string",
+                      "apoc.node.id(to)": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/undefined",
+        "title": true,
+        "editorHide": false,
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -685,7 +713,7 @@
       "title": "apoc.graph.fromData",
       "text": "%neo4j\n\nMATCH (p:Person)-[r:ACTED_IN]-\u003e(m:Movie)\nWITH collect(m) + collect(p) AS nodes, collect(r) AS relationships\nCALL apoc.graph.fromData(nodes, relationships, \"movies\", {})\nYIELD graph\nWITH graph.nodes as nodes, graph.relationships as rels\nUNWIND nodes AS node\nUNWIND rels AS rel\nRETURN DISTINCT node, rel",
       "user": "anonymous",
-      "dateUpdated": "2021-11-18 11:44:35.951",
+      "dateUpdated": "2022-03-23 09:14:23.621",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -735,7 +763,8 @@
         },
         "editorMode": "ace/mode/undefined",
         "tableHide": false,
-        "title": true
+        "title": true,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -755,7 +784,7 @@
       "title": "apoc.graph.fromDocument",
       "text": "%neo4j\n\nCALL apoc.graph.fromDocument(\"{\u0027id\u0027: 1,\u0027type\u0027: \u0027artist\u0027,\u0027name\u0027:\u0027Genesis\u0027,\u0027members\u0027: [\u0027Tony Banks\u0027,\u0027Mike Rutherford\u0027,\u0027Phil Collins\u0027],\u0027years\u0027: [1967, 1998, 1999, 2000, 2006],\u0027albums\u0027: [{\u0027type\u0027: \u0027album\u0027,\u0027id\u0027: 1,\u0027producer\u0027: \u0027Jonathan King\u0027,\u0027title\u0027: \u0027From Genesis to Revelation\u0027}]}\", {})\nYIELD graph \nWITH graph.nodes as nodes, graph.relationships as rels\nUNWIND nodes AS node\nUNWIND rels AS rel\nRETURN DISTINCT node, rel\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-17 23:37:52.869",
+      "dateUpdated": "2022-03-23 09:14:23.636",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -804,7 +833,8 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
-        "title": true
+        "title": true,
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -821,76 +851,9 @@
       "status": "FINISHED"
     },
     {
-      "text": "%neo4j\n// It takes same arguments as apoc.graph.fromDocument\nCALL apoc.graph.validateDocument(\u0027[{\"foo\": \"foo\"}, {\"bar\": \"bar\", \"id\": 1, \"type\": \"label\"}]\u0027);",
-      "user": "anonymous",
-      "dateUpdated": "2021-11-24 14:48:34.773",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "editOnDblClick": false,
-          "language": "text",
-          "completionSupport": false
-        },
-        "editorMode": "ace/mode/undefined",
-        "editorHide": false,
-        "tableHide": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eTODO\u003cbr /\u003e\nCALL apoc.graph.fromDB\u003c/p\u003e\n\n\u003c/div\u003e"
-          }
-        ]
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1637675503692_1390539466",
-      "id": "paragraph_1637675503692_1390539466",
-      "dateCreated": "2021-11-23 13:51:43.692",
-      "dateStarted": "2021-11-23 13:51:52.934",
-      "dateFinished": "2021-11-23 13:51:52.946",
-      "status": "FINISHED"
-    },
-    {
-      "text": "%neo4j\nCALL apoc.graph.fromDB(\u0027prova\u0027)",
-      "user": "anonymous",
-      "dateUpdated": "2021-11-24 15:43:36.949",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "editOnDblClick": false
-        },
-        "editorMode": "ace/mode/undefined"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1637768582648_1722557993",
-      "id": "paragraph_1637768582648_1722557993",
-      "dateCreated": "2021-11-24 15:43:02.648",
-      "status": "READY"
-    },
-    {
       "text": "%neo4j\nMATCH (n:Movie {title: \u0027Unforgiven\u0027})\nCALL apoc.graph.fromCypher(\u0027MATCH (n:Movie)-[r:ACTED_IN]-(m) WHERE n.released \u003c year RETURN *\u0027, {year: n.released}, \u0027test\u0027, {answer:42})\nYIELD graph\nUNWIND graph.nodes AS nodes\nUNWIND graph.relationships AS rels\nRETURN nodes, rels",
       "user": "anonymous",
-      "dateUpdated": "2021-11-25 10:03:24.973",
+      "dateUpdated": "2022-03-23 09:14:23.654",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1063,7 +1026,9 @@
         "editorSetting": {
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": false,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -1082,7 +1047,7 @@
     {
       "text": "%md\n\n### Group Graph\n\nWe can group virtually a graph through the procedure `CALL apoc.nodes.group(labels,properties, groupingMap, $config)`",
       "user": "anonymous",
-      "dateUpdated": "2021-11-30 15:25:23.372",
+      "dateUpdated": "2022-03-23 09:15:37.727",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1116,15 +1081,15 @@
       "jobName": "paragraph_1637831179822_289632285",
       "id": "paragraph_1637831179822_289632285",
       "dateCreated": "2021-11-25 09:06:19.822",
-      "dateStarted": "2021-11-30 15:25:23.372",
-      "dateFinished": "2021-11-30 15:25:23.386",
+      "dateStarted": "2022-03-23 09:15:37.732",
+      "dateFinished": "2022-03-23 09:15:37.740",
       "status": "FINISHED"
     },
     {
       "title": "Dataset for group.nodes",
       "text": "%neo4j\n\nmatch (n) where n:Movie or n:Person\nSET n.century \u003d toInteger(coalesce(n.born,n.released) / 100) * 100;",
       "user": "anonymous",
-      "dateUpdated": "2021-11-29 16:48:10.345",
+      "dateUpdated": "2022-03-23 09:14:23.688",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1161,7 +1126,7 @@
     {
       "text": "%neo4j\n\nCALL apoc.nodes.group([\u0027Movie\u0027, \u0027Person\u0027],[\u0027century\u0027])",
       "user": "anonymous",
-      "dateUpdated": "2021-11-29 16:52:22.558",
+      "dateUpdated": "2022-03-23 09:14:23.705",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1204,7 +1169,9 @@
           "language": "text",
           "completionSupport": false
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -1232,7 +1199,7 @@
     {
       "text": "%neo4j\nCALL apoc.nodes.group([\u0027Movie\u0027, \u0027Person\u0027],[\u0027century\u0027],\n  [{`*`:\u0027count\u0027, age:\u0027min\u0027}, {`*`:\u0027count\u0027} ])",
       "user": "anonymous",
-      "dateUpdated": "2021-11-30 15:23:25.049",
+      "dateUpdated": "2022-03-23 09:14:23.721",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1272,7 +1239,9 @@
         "editorSetting": {
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -1301,7 +1270,7 @@
       "title": "",
       "text": "%md\n\n## System database\n\nWith introduction of system database concept in neo4j 4.0, Apoc introduces a procedure to see a virtual graph visualization of system entities.\n\u003cpre\u003e\nCALL apoc.systemdb.graph\n\u003c/pre\u003e\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-23 13:46:42.180",
+      "dateUpdated": "2022-03-23 09:14:23.738",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1313,7 +1282,7 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": true,
+        "editorHide": false,
         "tableHide": false,
         "title": false
       },
@@ -1336,15 +1305,15 @@
       "jobName": "paragraph_1636110384368_1627598108",
       "id": "paragraph_1636110384368_1627598108",
       "dateCreated": "2021-11-05 11:06:24.368",
-      "dateStarted": "2021-11-23 13:46:42.177",
-      "dateFinished": "2021-11-23 13:46:42.213",
+      "dateStarted": "2022-03-23 09:09:48.227",
+      "dateFinished": "2022-03-23 09:09:48.239",
       "status": "FINISHED"
     },
     {
       "title": "Example",
       "text": "%neo4j\n\nCALL apoc.systemdb.graph() yield nodes, relationships\nUNWIND nodes AS node\nUNWIND relationships AS rel\nRETURN DISTINCT node, rel",
       "user": "anonymous",
-      "dateUpdated": "2021-11-25 09:14:44.545",
+      "dateUpdated": "2022-03-23 09:14:23.755",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1406,7 +1375,9 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": false,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -1426,7 +1397,7 @@
       "title": "Get roles",
       "text": "%neo4j\n\nCALL apoc.systemdb.graph() yield nodes, relationships\nUNWIND nodes AS node\nWITH node\nWHERE apoc.node.labels(node) \u003d [\"Role\"]\nRETURN DISTINCT node",
       "user": "anonymous",
-      "dateUpdated": "2021-11-25 09:14:54.471",
+      "dateUpdated": "2022-03-23 09:14:23.779",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1489,7 +1460,8 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
-        "title": true
+        "title": true,
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -1508,7 +1480,7 @@
     {
       "text": "",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 16:15:05.793",
+      "dateUpdated": "2022-03-23 09:14:23.801",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1521,7 +1493,7 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
-        "tableHide": true
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -1549,7 +1521,7 @@
     {
       "text": "",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 16:15:18.808",
+      "dateUpdated": "2022-03-23 09:14:31.335",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1594,7 +1566,9 @@
           "language": "text",
           "completionSupport": false
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": false,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -1622,7 +1596,7 @@
     {
       "text": "",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 16:15:48.600",
+      "dateUpdated": "2022-03-23 09:14:23.837",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1663,7 +1637,9 @@
         "editorSetting": {
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": false,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -1691,7 +1667,7 @@
     {
       "text": "",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 16:15:51.131",
+      "dateUpdated": "2022-03-23 09:14:23.855",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1734,7 +1710,9 @@
         "editorSetting": {
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": false,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -1762,7 +1740,7 @@
     {
       "text": "",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 16:15:53.050",
+      "dateUpdated": "2022-03-23 09:14:23.880",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1805,7 +1783,9 @@
         "editorSetting": {
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": false,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -1824,7 +1804,7 @@
     {
       "text": "",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 16:15:55.741",
+      "dateUpdated": "2022-03-23 09:14:23.900",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1864,7 +1844,9 @@
         "editorSetting": {
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": false,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -1892,7 +1874,7 @@
     {
       "text": "",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 16:16:04.337",
+      "dateUpdated": "2022-03-23 09:14:23.921",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1933,7 +1915,9 @@
         "editorSetting": {
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": false,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -1953,7 +1937,7 @@
       "title": "",
       "text": "%md\n\n## Automatic UUID\n\nWe can generate uuids when we create a node with specific label, through the procedure:\n\u003cpre\u003e\napoc.uuid.install(\u0027LabelName\u0027, $configMap)\n\u003c/pre\u003e\n\nSo, each new node with this label `LabelName` will have a uuid property.\n\nIn `configMap` parameter we can have the following values:\n- `addToExistingNodes` (adds the UUID to the nodes already existing in your graph),\n- `uuidProperty` (the name of the UUID field, by default is `uuid` )\n\n\nHowever, to create auto uuid we have to add the apoc config `apoc.uuid.enabled\u003dtrue`.\n\nThen, we need to create a unique constraint on label and on property to associate with the uuid (otherwise we receive a `RuntimeException`)\n`CREATE CONSTRAINT ON (person:LabelName) ASSERT person.uuid IS UNIQUE`\n\n\nOther procedures regarding auto uuid:\n\n- `CALL apoc.uuid.remove(\u0027LabelName\u0027)`: To remove a specific auto uuid\n- `CALL apoc.uuid.removeAll()`: To remove all auto uuids\n- `CALL apoc.uuid.list()`: To get the list of auto uuids\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-11 14:15:58.257",
+      "dateUpdated": "2022-03-23 09:14:23.941",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1965,7 +1949,7 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": true,
+        "editorHide": false,
         "tableHide": false,
         "title": false
       },
@@ -1996,7 +1980,7 @@
       "title": "apoc.uuid.install",
       "text": "%neo4j\n// First of all we create the constraint\nCREATE CONSTRAINT ON (node:NodeWithUnique) ASSERT node.omega IS UNIQUE;\n\nCALL apoc.uuid.install(\u0027NodeWithUnique\u0027, {uuidProperty: \u0027omega\u0027});",
       "user": "anonymous",
-      "dateUpdated": "2021-11-18 11:49:47.112",
+      "dateUpdated": "2022-03-23 09:14:24.031",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2060,7 +2044,9 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": false,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -2089,7 +2075,7 @@
       "title": "Check results",
       "text": "%neo4j\nCREATE (n:NodeWithUnique);\n\nMATCH (n:NodeWithUnique) RETURN n;",
       "user": "anonymous",
-      "dateUpdated": "2021-11-18 11:50:20.355",
+      "dateUpdated": "2022-03-23 09:14:24.051",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2129,7 +2115,9 @@
           "editOnDblClick": false
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": false,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -2157,7 +2145,7 @@
     {
       "text": "",
       "user": "anonymous",
-      "dateUpdated": "2021-11-26 15:09:49.506",
+      "dateUpdated": "2022-03-23 09:14:24.072",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2170,7 +2158,7 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
-        "tableHide": true
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -2198,7 +2186,7 @@
     {
       "text": "",
       "user": "anonymous",
-      "dateUpdated": "2021-11-26 15:09:55.193",
+      "dateUpdated": "2022-03-23 09:14:24.090",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2238,7 +2226,9 @@
           "language": "text",
           "completionSupport": false
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": false,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -2266,7 +2256,7 @@
     {
       "text": "%md\n\n# Time to leave\n\nWe can set to ttl to remove some nodes after a specified time, similar to MongoDb, Couchbase and Redis.\n\n\nTo activate it, you have to set the apoc configuration `apoc.ttl.enabled\u003dtrue`.\nOptionally, we can set the chek frequency: `apoc.ttl.schedule\u003d5`\n\n\nFor example (in a specific epoch time):\n\n`CALL apoc.ttl.expire(node,epochTime,time)`\nwhere `time` is one of these: `\u0027ms\u0027, \u0027s\u0027, \u0027m\u0027, \u0027h\u0027, \u0027d\u0027, \u0027millis\u0027, \u0027milliseconds\u0027, \u0027seconds\u0027, \u0027minutes\u0027, \u0027hours\u0027 or \u0027days\u0027`\n\nFor example:\n`MATCH (movie:Movie)\u003c-[produced:PRODUCED]-(person:Person)\n    CALL apoc.ttl.expire(person,1585176720,\u0027s\u0027)\n    RETURN movie, produced, person`\n\nMoreover, i can expire a node after a perion with `apoc.ttl.expireIn` (same syntax as above)\n\n\nHow it works:\n\n- Set the :TTL label and ttl property on the node(s) you want to expire:\n    - SET n:TTL\n    - SET n.ttl \u003d `time selected`\n- Create an index: `CREATE INDEX ON :TTL(ttl)`\n- Remove node(s) that have passed the expiration time:  `MATCH (t:TTL) where t.ttl \u003c timestamp() WITH t LIMIT 1000 DETACH DELETE t`\n\n\n\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-25 10:24:26.694",
+      "dateUpdated": "2022-03-23 09:14:24.112",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2278,7 +2268,7 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": true,
+        "editorHide": false,
         "tableHide": false
       },
       "settings": {
@@ -2307,76 +2297,7 @@
     {
       "text": "%neo4j\n\nCREATE (n:ToRemove) WITH n\nCALL apoc.ttl.expireIn(n, 5,\u0027s\u0027)\nRETURN n;",
       "user": "anonymous",
-      "dateUpdated": "2021-11-25 10:39:34.193",
-      "config": {
-        "colWidth": 6.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {
-          "0": {
-            "graph": {
-              "mode": "table",
-              "height": 300.0,
-              "optionOpen": false,
-              "setting": {
-                "table": {
-                  "tableGridState": {},
-                  "tableColumnTypeState": {
-                    "names": {
-                      "id": "string",
-                      "label": "string",
-                      "ttl": "string"
-                    },
-                    "updated": false
-                  },
-                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
-                  "tableOptionValue": {
-                    "useFilter": false,
-                    "showPagination": false,
-                    "showAggregationFooter": false
-                  },
-                  "updated": false,
-                  "initialized": false
-                }
-              },
-              "commonSetting": {}
-            }
-          }
-        },
-        "editorSetting": {
-          "editOnDblClick": false,
-          "language": "markdown",
-          "completionSupport": false
-        },
-        "editorMode": "ace/mode/undefined"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":0,\"data\":{\"ttl\":1637836779454},\"label\":\"TTL\"}],\"edges\":[],\"labels\":{\"TTL\":\"#39A61D\",\"ToRemove\":\"#0E594D\"},\"types\":[],\"directed\":true}"
-          }
-        ]
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1637769616188_1180357338",
-      "id": "paragraph_1637769616188_1180357338",
-      "dateCreated": "2021-11-24 16:00:16.188",
-      "dateStarted": "2021-11-25 10:39:34.223",
-      "dateFinished": "2021-11-25 10:39:34.679",
-      "status": "FINISHED"
-    },
-    {
-      "text": "%neo4j\n\nMATCH (n:ToRemove) RETURN n;",
-      "user": "anonymous",
-      "dateUpdated": "2021-11-25 10:39:40.535",
+      "dateUpdated": "2022-03-23 09:14:24.133",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -2418,7 +2339,79 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/undefined",
+        "tableHide": false,
         "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":0,\"data\":{\"ttl\":1637836779454},\"label\":\"TTL\"}],\"edges\":[],\"labels\":{\"TTL\":\"#39A61D\",\"ToRemove\":\"#0E594D\"},\"types\":[],\"directed\":true}"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1637769616188_1180357338",
+      "id": "paragraph_1637769616188_1180357338",
+      "dateCreated": "2021-11-24 16:00:16.188",
+      "dateStarted": "2021-11-25 10:39:34.223",
+      "dateFinished": "2021-11-25 10:39:34.679",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\n\nMATCH (n:ToRemove) RETURN n;",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-23 09:14:24.152",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "id": "string",
+                      "label": "string",
+                      "ttl": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "editOnDblClick": false,
+          "language": "markdown",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": false,
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -2441,7 +2434,7 @@
     {
       "text": "%md\n\n# Schema operations\n\nTo drop or create index or constraint, you can use the following procedure:\n\n- `apoc.schema.assert(mapIndexes, mapConstraint, dropExisting)` - To create indexes and constraint at once. With `dropExisting` true we drop existing indexes/constraints.\n- `apoc.schema.nodes` / `apoc.schema.relationships` - To get nodes / relationships indexes\n- `apoc.schema.node.constraintExists`\n- `apoc.schema.relationship.constraintExists`\n- `apoc.schema.node.indexExists`\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-10 10:23:21.319",
+      "dateUpdated": "2022-03-23 09:14:24.171",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2453,7 +2446,7 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": true,
+        "editorHide": false,
         "tableHide": false
       },
       "settings": {
@@ -2483,7 +2476,7 @@
       "title": "apoc.schema.assert",
       "text": "%neo4j\n\nCALL apoc.schema.assert({Movie: [\u0027release\u0027, \u0027tagline\u0027]}, {Movie: [\"title\"]}, true);\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-18 11:53:39.843",
+      "dateUpdated": "2022-03-23 09:14:24.195",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -2527,7 +2520,9 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": true,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -2556,7 +2551,7 @@
       "title": "apoc.schema.node.constraintExists",
       "text": "%neo4j\n\nRETURN apoc.schema.node.constraintExists(\"Movie\", [\"title\"])\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-18 11:54:33.389",
+      "dateUpdated": "2022-03-23 09:14:24.216",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -2597,7 +2592,8 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
-        "title": true
+        "title": true,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -2626,7 +2622,7 @@
       "title": "apoc.schema.nodes",
       "text": "%neo4j\nCALL apoc.schema.nodes()",
       "user": "anonymous",
-      "dateUpdated": "2021-11-18 11:55:07.032",
+      "dateUpdated": "2022-03-23 09:14:24.244",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2673,7 +2669,9 @@
           "editOnDblClick": false
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": true,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -2701,7 +2699,7 @@
     {
       "text": "%md\n\n## Database interactions\n\nWe can execute read / write operations in other database:\n\n- `Jdbc (apoc.load.jdbc)`\n- `Elastic search (apoc.load.es.*)`\n- `MongoDb (apoc.mongo.*)`\n- `Redis (apoc.redis.*)`\n- `Couchbase (apoc.couchbase.*)`\n- `Ldap (apoc.load.ldap)`\n- `Bolt (apoc.bolt.*)` - To connect to other Neo4j instances\n\nEvery procedure has oviously a different implementation to interface with databases.\nYou can see \u003ca href\u003d\"https://neo4j.com/labs/apoc/4.1/database-integration\" target\u003d\"_blank\"\u003ethis page\u003c/a\u003e for more details.\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-11 13:33:22.331",
+      "dateUpdated": "2022-03-23 09:14:24.261",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2713,7 +2711,7 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": true,
+        "editorHide": false,
         "tableHide": false
       },
       "settings": {
@@ -2743,7 +2741,7 @@
       "title": "apoc.load.jdbc",
       "text": "%neo4j\n\nCALL apoc.load.jdbc(\"jdbc:postgresql://postgres:5432/myDb\",              // connection URL\n    \u0027SELECT * FROM PERSON WHERE \"SURNAME\" \u003d ?\u0027,                          // query with param\n    [\u0027Test\u0027],                                                            // parameters\n    {schema: \"myDb\", credentials: {user: \"test\", password: \"postgres\"}}) // config with schema, credential\nYIELD row\nRETURN row",
       "user": "anonymous",
-      "dateUpdated": "2021-11-23 15:12:51.629",
+      "dateUpdated": "2022-03-23 09:14:24.283",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2787,7 +2785,9 @@
           "language": "text"
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": true,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -2815,7 +2815,7 @@
     {
       "text": "%md\n\n## Static values\n\nThe Apoc provides support for storing and retrieving static values, functionality that can be used to work with API credentials or cache query results.\n\n\nTo store a value, we can set settings into Apoc config, starting with `apoc.static` prefix. For example:\n```\napoc.static.mystore.id\u003dq123e456t\napoc.static.mystore.url\u003dhttps://api.twitter.com/1.1/search/tweets.json?count\u003d100\u0026result_type\u003drecent\u0026lang\u003den\u0026q\u003d\n```\n\nor using the following procedure:\n```\nCALL apoc.static.set(\"mystore.user\", \"asd\")\n```\n\n.The following returns the `apoc.static.twitter.bearer` value, so \u0027q123e456t\u0027:\n```\nRETURN apoc.static.get(\"twitter.bearer\") AS value\n```\n\n\nThe following returns all values with the `mystore` prefix: `RETURN apoc.static.getAll(\"twitter\")`",
       "user": "anonymous",
-      "dateUpdated": "2021-11-26 13:07:34.578",
+      "dateUpdated": "2022-03-23 09:14:24.304",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2828,7 +2828,7 @@
         },
         "editorMode": "ace/mode/markdown",
         "editorHide": false,
-        "tableHide": true
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -2849,14 +2849,14 @@
       "jobName": "paragraph_1637675404378_704878360",
       "id": "paragraph_1637675404378_704878360",
       "dateCreated": "2021-11-23 13:50:04.378",
-      "dateStarted": "2021-11-25 10:05:52.574",
-      "dateFinished": "2021-11-25 10:05:54.515",
+      "dateStarted": "2022-03-23 09:11:50.067",
+      "dateFinished": "2022-03-23 09:11:50.075",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\nreturn apoc.static.getAll(\"postgresCredentials\")",
       "user": "anonymous",
-      "dateUpdated": "2021-11-26 13:05:42.549",
+      "dateUpdated": "2022-03-23 09:14:24.324",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2894,7 +2894,9 @@
         "editorSetting": {
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -2922,7 +2924,7 @@
     {
       "text": "%neo4j\n\nCALL apoc.load.jdbc(\"jdbc:postgresql://postgres:5432/myDb\",              // connection URL\n    \u0027SELECT * FROM PERSON WHERE \"SURNAME\" \u003d ?\u0027,                          // query with param\n    [\u0027Test\u0027],                                                            // parameters\n    {schema: \"myDb\", credentials: apoc.static.getAll(\"postgresCredentials\")}) // config with schema, credential\nYIELD row\nRETURN row",
       "user": "anonymous",
-      "dateUpdated": "2021-11-24 16:09:50.848",
+      "dateUpdated": "2022-03-23 09:14:24.346",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2964,7 +2966,9 @@
         "editorSetting": {
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -2992,7 +2996,7 @@
     {
       "text": "\n%md\n\n## Virtual resource\n\nA virtual resource is an external data source that neo4j can use to query and retrieve data on demand presenting it as virtual nodes enriching the data stored in the graph. \nIt should be considered as a virtual database.\nCombine the apoc.load.* procedure with the virtual procedures.\n\n\nExecuted via: `CALL apoc.dv.catalog.add(name, $config)`\n\n`$configMap` must have:\n\n- `type` - \u0027JDBC\u0027 or \u0027CSV\u0027, to retrieve data from apoc.load.jdbc or apoc.load.csv respectively\n- `url`\n- `labels` - the virtual node\u0027s label list\n- `query` - \n- `desc` - the description\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 16:14:28.792",
+      "dateUpdated": "2022-03-23 09:14:24.367",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3004,7 +3008,7 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": true,
+        "editorHide": false,
         "tableHide": false
       },
       "settings": {
@@ -3033,7 +3037,7 @@
     {
       "text": "\n%neo4j\n\n/*\n table towns (id, code, article, name, department)\n \n 1\t001\t\tAbergement-Clémenciat\t01\n 2\t002\t\tAbergement-de-Varey\t01\n 3\t004\t\tAmbérieu-en-Bugey\t01\n 4\t005\t\tAmbérieux-en-Dombes\t01\n 5\t006\t\tAmbléon\t01\n 6\t007\t\tAmbronay\t01\n 7\t008\t\tAmbutrix\t01\n .... etc\n*/\n\n\nCALL apoc.dv.catalog.add(\"myName\", {\n  type: \"JDBC\",\n  url: \"jdbc:postgresql://postgres:5432/myDb?user\u003dtest\u0026password\u003dpostgres\",\n  labels: [\"Town\",\"PopulatedPlace\"],\n  query: \"SELECT code, name FROM towns where department \u003d $dept_no\",\n  desc: \"my incredible description\"\n})",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 16:15:25.033",
+      "dateUpdated": "2022-03-23 09:14:24.392",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3044,7 +3048,9 @@
           "language": "markdown",
           "completionSupport": false
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": false,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -3061,7 +3067,7 @@
     {
       "text": "%neo4j\nCALL apoc.dv.query(\"myName\", { dept_no: \"73\" })",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 16:16:19.395",
+      "dateUpdated": "2022-03-23 09:14:24.414",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3070,7 +3076,9 @@
         "editorSetting": {
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": false,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -3087,7 +3095,7 @@
     {
       "text": "%neo4j\nCALL apoc.dv.catalog.list()",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 16:21:03.037",
+      "dateUpdated": "2022-03-23 09:14:24.434",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3130,7 +3138,9 @@
         "editorSetting": {
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": true,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -3158,7 +3168,7 @@
     {
       "text": "%neo4j\n\nCALL apoc.dv.catalog.add(\"person-by-name\", {\n  type: \"CSV\",\n  url: \"file://persons.csv\",\n  labels: [\"ProductDetails\"],\n  query: \"map.name \u003d $name\",\n  desc: \"Product Details By ID\"\n})",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 16:16:30.448",
+      "dateUpdated": "2022-03-23 09:14:24.456",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3167,7 +3177,9 @@
         "editorSetting": {
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": false,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -3184,7 +3196,7 @@
     {
       "text": "%neo4j\n\n// equivalent to apoc.load.csv(..) yield map where map.name \u003d $name return map\nCALL apoc.dv.query(\"person-by-name\", { name: \"Eren\" })",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 16:16:45.525",
+      "dateUpdated": "2022-03-23 09:14:24.481",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3193,7 +3205,9 @@
         "editorSetting": {
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": false,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -3210,7 +3224,7 @@
     {
       "text": "%neo4j\nMATCH (p:Person { name: \"Giandomenico Fracchia\" })\nCALL apoc.dv.queryAndLink(p, \"IS_IN_LOVE_WITH\", \"person-by-name\", { name: \"Armin\" }) YIELD path\nRETURN *",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 16:16:08.851",
+      "dateUpdated": "2022-03-23 09:14:24.501",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3219,7 +3233,9 @@
         "editorSetting": {
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": false,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -3236,7 +3252,7 @@
     {
       "text": "%md\n\n## Bolt procedures\n\n- apoc.bolt.load\n- apoc.bolt.execute",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 16:15:34.222",
+      "dateUpdated": "2022-03-23 09:14:24.519",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3246,7 +3262,8 @@
           "editOnDblClick": false
         },
         "editorMode": "ace/mode/undefined",
-        "editorHide": true
+        "editorHide": false,
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -3274,7 +3291,7 @@
     {
       "text": "%neo4j\n\n// url: bolt://\u003cUSERNAME\u003e:\u003cPASSWORD\u003e@hostAddress:\u003cPORT\u003e\n\ncall apoc.bolt.load(\"bolt://neo4j:password@localhost:7687\", \"match(p:Person {name: $name}) return p\", {name:\u0027Madonna\u0027})",
       "user": "anonymous",
-      "dateUpdated": "2021-11-26 14:08:40.960",
+      "dateUpdated": "2022-03-23 09:14:24.536",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3317,7 +3334,9 @@
           "language": "text",
           "completionSupport": false
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": false,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -3345,7 +3364,7 @@
     {
       "text": "%neo4j\n\n// url: bolt://\u003cUSERNAME\u003e:\u003cPASSWORD\u003e@hostAddress:\u003cPORT\u003e\n\ncall apoc.load.json(\u0027persons.json\u0027) yield value with value\ncall apoc.bolt.execute(\"bolt://neo4j:password@localhost:7687\", \"create (p:BoltNode) set p+\u003d $props\", {props: value})\nyield row return row",
       "user": "anonymous",
-      "dateUpdated": "2021-11-26 14:06:35.924",
+      "dateUpdated": "2022-03-23 09:14:24.555",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3388,7 +3407,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/undefined",
-        "editorHide": false
+        "editorHide": false,
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -3411,7 +3431,7 @@
     {
       "text": "%neo4j\n\n// url: bolt://\u003cUSERNAME\u003e:\u003cPASSWORD\u003e@hostAddress:\u003cPORT\u003e\n\ncall apoc.load.json(\u0027otherPersons.json\u0027) yield value with value\ncall apoc.bolt.execute(\"bolt://neo4j:password@localhost:7687\", \"create (p:BoltNode) set p+\u003d $props\", {props: value}, {statistics: true})\nyield row return row",
       "user": "anonymous",
-      "dateUpdated": "2021-11-26 14:10:33.999",
+      "dateUpdated": "2022-03-23 09:14:24.574",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3461,7 +3481,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/undefined",
-        "editorHide": false
+        "editorHide": false,
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -3489,7 +3510,7 @@
     {
       "text": "%neo4j\n\ncall apoc.bolt.load(\"bolt://neo4j:password@localhost:7687\", \"match(p:BoltNode) return p\", {}, {virtual:true})\nyield row \nreturn row.p as node",
       "user": "anonymous",
-      "dateUpdated": "2021-11-26 14:06:32.397",
+      "dateUpdated": "2022-03-23 09:14:24.596",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3533,7 +3554,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/undefined",
-        "editorHide": false
+        "editorHide": false,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -3562,7 +3584,7 @@
       "title": "Logs",
       "text": "%neo4j\n\nmatch (n:Person {name: \u0027Franco e Ciccio\u0027}) \nwith n\ncall apoc.log.info(\u0027Questo qua si chiama %s\u0027, [n.name])\nCALL apoc.log.warn(\u0027Attenzione al nodo %s\u0027, [n.name])\nCALL apoc.log.debug(\u0027Il nodo con id %s si chiama %s ed è nato il %s\u0027, [id(n), n.name, n.born])\nCALL apoc.log.error(\u0027Fatal error!!!1!! %s\u0027, [n.name])\nreturn n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 16:20:01.332",
+      "dateUpdated": "2022-03-23 09:14:24.613",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3604,7 +3626,9 @@
           "editOnDblClick": false
         },
         "editorMode": "ace/mode/undefined",
-        "title": true
+        "title": true,
+        "tableHide": false,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -3632,7 +3656,7 @@
     {
       "text": "%md\n## Cypher initializer\n\nTo run cypher commands after database initialization is finished:\n\n```\napoc.initializer.\u003cdatabase_name\u003e.\u003cidentifier\u003e \u003d \u003ccypher\u003e\n```\n\nwhere `identifier` is a number (to order statements), for example `apoc.initializer.neo4j.0\u003dCREATE (:Person{name:\u0027bar\u0027})`.\n\nFor each database all initializer strings are ordered by \u003cidentifier\u003e and each of them is executed in a separate transaction. \nIf you only have one single initializer for a given database you can omit \u003cidentifier\u003e.\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-24 16:12:27.978",
+      "dateUpdated": "2022-03-23 09:14:24.627",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3645,7 +3669,7 @@
         },
         "editorMode": "ace/mode/markdown",
         "editorHide": false,
-        "tableHide": true
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -3673,8 +3697,19 @@
     {
       "text": "%md\n\n### Compress string\n\nTo store large string values into Node or Relationships, and vice-versa we can use:\n\n- apoc.util.compress(string, $configMap)\n- apoc.util.decompress(byte[], $configMap)\n\nwhere `$configMap` can have:\n- `compression`: compression mode (default: \u0027GZIP\u0027) - Can be GZIP, BZIP2, DEFLATE, BLOCK_LZ4, FRAMED_SNAPPY, NONE.\n- `charset` - default \u0027UTF-8\u0027\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-26 14:35:53.414",
-      "config": {},
+      "dateUpdated": "2022-03-23 09:14:24.642",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/undefined",
+        "tableHide": false,
+        "editorHide": false
+      },
       "settings": {
         "params": {},
         "forms": {}
@@ -3690,7 +3725,7 @@
     {
       "text": "%neo4j\n\nWith \u0027Mätrix II 哈哈😄123\u0027 as string\nwith string, apoc.util.compress(string, {charset: \u0027UTF-32\u0027}) AS compressed // compressed is a byte[]\nreturn apoc.util.decompress(compressed, {charset: \u0027UTF-32\u0027}) as decompressed, string, compressed\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-26 14:36:48.780",
+      "dateUpdated": "2022-03-23 09:14:24.656",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3778,7 +3813,7 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
-        "tableHide": false
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -3806,7 +3841,7 @@
     {
       "text": "%md\n\n## Lock nodes\n\nWe can lock one or more entities during a transaction:\n- `apoc.lock.all([nodes],[relationships])`\n- `apoc.lock.nodes([nodes])`\n- `apoc.lock.rels([relationships])`\n- `apoc.lock.read.nodes`\n- `apoc.lock.read.rels`\n\nThis can be used to prevent some not-thread safety condition.\nFor example, with a dataset like this:\n\n\u003cpre\u003e\nCREATE (:Person {name:\u0027Alex\u0027})\nCREATE (:Email {address:\u0027alex@somewhere.com\u0027});\n\u003c/pre\u003e\n\nWe may want to create exactly one HAS_EMAIL relationship between these nodes. \nWe can use the MERGE clause to help us do this, but the MERGE clause isn’t thread safe, \nso we could have a situation where two nodes write the HAS_EMAIL relationship at the same time.\nInstead, we want exactly one write.\n\nWe can ensure this condition by using the apoc.lock.nodes procedure, as shown below:\n\n\u003cpre\u003e\nMATCH (p:Person {name:\u0027Alex\u0027})\nMATCH (e:Email {address:\u0027alex@somewhere.com\u0027})\nCALL apoc.lock.nodes([p,e])\nMERGE (p)-[rel:HAS_EMAIL]-\u003e(e)\nRETURN rel;\n\u003c/pre\u003e",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 16:21:48.052",
+      "dateUpdated": "2022-03-23 09:14:24.671",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3818,7 +3853,7 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": true,
+        "editorHide": false,
         "tableHide": false
       },
       "settings": {
@@ -3847,7 +3882,7 @@
     {
       "text": "%md\n## Atomic operations\n\n- apoc.atomic.add(entity, propertyName, number, retry)\n- apoc.atomic.subtract(entity, propertyName, number, retry)\n- apoc.atomic.concat(entity, propertyName, value, retry)\n- apoc.atomic.insert(entity, propertyName, position, operation,retry)\n- apoc.atomic.remove(entity, propertyName,retry)\n- apoc.atomic.update(entity, propertyName, operation,retry)\n\nWith `retry` parameter (default 5), we retry operation N times.",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 16:22:06.502",
+      "dateUpdated": "2022-03-23 09:14:24.691",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3859,7 +3894,7 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": true,
+        "editorHide": false,
         "tableHide": false
       },
       "settings": {
@@ -3888,75 +3923,7 @@
     {
       "text": "%neo4j\n\nMATCH (p:Person {name:\u0027Carrie-Anne Moss\u0027})\nCALL apoc.atomic.insert(p, \u0027children\u0027,2,\u0027Franco\u0027,5)\nYIELD oldValue, newValue\nRETURN oldValue, newValue",
       "user": "anonymous",
-      "dateUpdated": "2021-11-30 14:14:21.844",
-      "config": {
-        "colWidth": 6.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {
-          "0": {
-            "graph": {
-              "mode": "table",
-              "height": 84.0,
-              "optionOpen": false,
-              "setting": {
-                "table": {
-                  "tableGridState": {},
-                  "tableColumnTypeState": {
-                    "names": {
-                      "oldValue": "string",
-                      "newValue": "string"
-                    },
-                    "updated": false
-                  },
-                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
-                  "tableOptionValue": {
-                    "useFilter": false,
-                    "showPagination": false,
-                    "showAggregationFooter": false
-                  },
-                  "updated": false,
-                  "initialized": false
-                }
-              },
-              "commonSetting": {}
-            }
-          }
-        },
-        "editorSetting": {
-          "editOnDblClick": false,
-          "language": "text",
-          "completionSupport": false
-        },
-        "editorMode": "ace/mode/undefined"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "oldValue\tnewValue\n[\"Al\",\"John\",\"Jack\"]\t[\"Al\",\"John\",\"Franco\",\"Jack\"]\n"
-          }
-        ]
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1638281414341_733143677",
-      "id": "paragraph_1638281414341_733143677",
-      "dateCreated": "2021-11-30 14:10:14.341",
-      "dateStarted": "2021-11-30 14:12:24.376",
-      "dateFinished": "2021-11-30 14:12:24.498",
-      "status": "FINISHED"
-    },
-    {
-      "text": "%neo4j\n\nMATCH (p:Person {name:\u0027Carrie-Anne Moss\u0027})\nCALL apoc.atomic.concat(p,\u0027name\u0027,\u0027 Super Saiyan 2\u0027,5)\nYIELD oldValue, newValue\nRETURN oldValue, newValue",
-      "user": "anonymous",
-      "dateUpdated": "2021-11-30 14:14:26.745",
+      "dateUpdated": "2022-03-23 09:14:24.712",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -3997,7 +3964,78 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/undefined",
+        "tableHide": true,
         "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "oldValue\tnewValue\n[\"Al\",\"John\",\"Jack\"]\t[\"Al\",\"John\",\"Franco\",\"Jack\"]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1638281414341_733143677",
+      "id": "paragraph_1638281414341_733143677",
+      "dateCreated": "2021-11-30 14:10:14.341",
+      "dateStarted": "2021-11-30 14:12:24.376",
+      "dateFinished": "2021-11-30 14:12:24.498",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\n\nMATCH (p:Person {name:\u0027Carrie-Anne Moss\u0027})\nCALL apoc.atomic.concat(p,\u0027name\u0027,\u0027 Super Saiyan 2\u0027,5)\nYIELD oldValue, newValue\nRETURN oldValue, newValue",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-23 09:14:24.731",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 84.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "oldValue": "string",
+                      "newValue": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "editOnDblClick": false,
+          "language": "text",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": false,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -4025,7 +4063,7 @@
     {
       "text": "%md\n## Conclusions\n\n\u003cpre\u003e\nThis guide is based on Apoc 4.3.x. In other versions some procedures / functions could be a little different\n\u003c/pre\u003e\n\nSee \u003ca href\u003d\"https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases\" target\u003d\"_blank\"\u003ehere\u003c/a\u003e to get updated about last changes.\n\nVisit the \u003ca href\u003d\"https://community.neo4j.com/\" target\u003d\"_blank\"\u003eNeo4j Community\u003c/a\u003e to get help!\n\n\n\n### Thank you for your attention!\n\n\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 16:20:43.379",
+      "dateUpdated": "2022-03-23 09:14:24.752",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -4037,7 +4075,7 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": true,
+        "editorHide": false,
         "tableHide": false
       },
       "settings": {

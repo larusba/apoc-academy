@@ -3,7 +3,6 @@ version: '3.7'
 services:
 
   zeppelin:
-    # network_mode: "host"
     hostname: zeppelin
     container_name: zeppelin
     image: larusefraudy/zeppelin:0.9.0
@@ -16,7 +15,6 @@ services:
       - ./zeppelin/notebook:/zeppelin/notebook
       - ./zeppelin/conf:/zeppelin/conf
       - ./zeppelin/interpreter/neo4j:/zeppelin/interpreter/neo4j
-      #- ./zeppelin/webapps:/zeppelin/webapps
     networks:
       - apoc_workshop
 
