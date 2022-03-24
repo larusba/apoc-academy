@@ -957,9 +957,9 @@
       "status": "FINISHED"
     },
     {
-      "text": "%md\n\n### Group Graph\n\nWe can group virtually a graph through the procedure `CALL apoc.nodes.group(labels, properties)`.\n\nIn `groupingMap` we can pass as a value min, max, sum, count or collect.",
+      "text": "%md\n\n### Group Graph\n\nWe can group virtually a graph through the procedure `CALL apoc.nodes.group(labels, properties, $groupingConfig, $otherConfig)`.\n\nBy default returns `count`s into the results. We can also return e.g min and max via `$groupingConfig` and `$otherConfig`. See \u003ca href\u003d\"https://neo4j.com/labs/apoc/4.1/virtual/graph-grouping/#_grouping_operators\"\u003ehere\u003c/a\u003e.\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 11:10:19.555",
+      "dateUpdated": "2022-03-24 16:29:21.508",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -983,7 +983,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eGroup Graph\u003c/h3\u003e\n\u003cp\u003eWe can group virtually a graph through the procedure \u003ccode\u003eCALL apoc.nodes.group(labels, properties)\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eIn \u003ccode\u003egroupingMap\u003c/code\u003e we can pass as a value min, max, sum, count or collect.\u003c/p\u003e\n\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eGroup Graph\u003c/h3\u003e\n\u003cp\u003eWe can group virtually a graph through the procedure \u003ccode\u003eCALL apoc.nodes.group(labels, properties, $groupingConfig, $otherConfig)\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eBy default returns \u003ccode\u003ecount\u003c/code\u003es into the results. We can also return e.g min and max via \u003ccode\u003e$groupingConfig\u003c/code\u003e and \u003ccode\u003e$otherConfig\u003c/code\u003e. See \u003ca href\u003d\"https://neo4j.com/labs/apoc/4.1/virtual/graph-grouping/#_grouping_operators\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n\n\u003c/div\u003e"
           }
         ]
       },
@@ -993,8 +993,8 @@
       "jobName": "paragraph_1637831179822_289632285",
       "id": "paragraph_1637831179822_289632285",
       "dateCreated": "2021-11-25 09:06:19.822",
-      "dateStarted": "2022-03-24 11:10:12.257",
-      "dateFinished": "2022-03-24 11:10:12.269",
+      "dateStarted": "2022-03-24 16:29:21.509",
+      "dateFinished": "2022-03-24 16:29:21.530",
       "status": "FINISHED"
     },
     {
@@ -1035,7 +1035,7 @@
       "title": "apoc.nodes.group",
       "text": "%neo4j\n\nCALL apoc.nodes.group([\u0027Movie\u0027, \u0027Person\u0027],[\u0027century\u0027])",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 09:17:42.948",
+      "dateUpdated": "2022-03-24 16:15:06.762",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1087,14 +1087,18 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1637833265265_1530632691",
       "id": "paragraph_1637833265265_1530632691",
       "dateCreated": "2021-11-25 09:41:05.265",
-      "dateStarted": "2022-03-24 09:17:29.751",
-      "dateFinished": "2022-03-24 09:17:29.870",
+      "dateStarted": "2022-03-24 16:15:06.790",
+      "dateFinished": "2022-03-24 16:15:06.814",
       "status": "FINISHED"
     },
     {
