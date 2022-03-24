@@ -3,7 +3,7 @@
     {
       "text": "%md\n\n# If-else statements\n\nSometimes queries require conditional execution logic that can’t be adequately expressed in Cypher. \n\nFor example, to simulate a conditional with pure Cypher we could execute for example:\n`MATCH (n:Test) FOREACH(ignoreMe IN CASE WHEN EXISTS(s.myProp) THEN [1] ELSE [] END | SET n.otherProp \u003d 0)`\n\nThe `FOREACH` clause can be used to update data, but with more complex use cases (for example a `MATCH`), we cannot use it.\n\nSo if I want to do more complex conditional executions, I can use `apoc.when` / `apoc.case` procedure.\n- `apoc.when(condition, ifQuery, elseQuery, {parameters})` - only for read queries\n- `apoc.case([listOfConditionals], elseQuery, {parameters})` - only for read queries\n- `apoc.do.when` - equals to apoc.when but we can also execute \u0027write\u0027 statements\n- `apoc.do.case` - equals to apoc.case but we can also execute \u0027write\u0027 statements\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 22:19:19.478",
+      "dateUpdated": "2022-03-24 10:57:21.786",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -38,15 +38,15 @@
       "jobName": "paragraph_1635516691436_323316003",
       "id": "paragraph_1635516691436_323316003",
       "dateCreated": "2021-10-29 14:11:31.436",
-      "dateStarted": "2022-03-23 22:18:53.446",
-      "dateFinished": "2022-03-23 22:18:53.632",
+      "dateStarted": "2022-03-24 10:57:21.784",
+      "dateFinished": "2022-03-24 10:57:21.834",
       "status": "FINISHED"
     },
     {
       "title": "apoc.when",
       "text": "%neo4j\n\nmatch (n:Person)\nwith n\ncall apoc.when(\n  n.name \u003d \u0027Giandomenico Fracchia\u0027,\n  \u0027RETURN \"yes \" + name as result\u0027,\n  \u0027RETURN \"no \" + name as result\u0027, \n  {name: n.name})\nyield value\n\nreturn value.result as result",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 22:19:19.492",
+      "dateUpdated": "2022-03-24 10:57:59.360",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -95,23 +95,14 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "result\n\"yes Giandomenico Fracchia\"\n\"no Carrie-Anne Moss\"\n\"no Laurence Fishburne\"\n\"no Hugo Weaving\"\n\"no Lilly Wachowski\"\n\"no Lana Wachowski\"\n\"no Franco e Ciccio\"\n\"no Emil Eifrem\"\n\"no Charlize Theron\"\n\"no Al Pacino\"\n\"no Taylor Hackford\"\n\"no Tom Cruise\"\n\"no Jack Nicholson\"\n\"no Demi Moore\"\n\"no Kevin Bacon\"\n\"no Kiefer Sutherland\"\n\"no Noah Wyle\"\n\"no Cuba Gooding Jr.\"\n\"no Kevin Pollak\"\n\"no J.T. Walsh\"\n\"no James Marshall\"\n\"no Christopher Guest\"\n\"no Rob Reiner\"\n\"no Aaron Sorkin\"\n\"no Kelly McGillis\"\n\"no Val Kilmer\"\n\"no Anthony Edwards\"\n\"no Tom Skerritt\"\n\"no Meg Ryan\"\n\"no Tony Scott\"\n\"no Jim Cash\"\n\"no Renee Zellweger\"\n\"no Kelly Preston\"\n\"no Jerry O\u0027Connell\"\n\"no Jay Mohr\"\n\"no Bonnie Hunt\"\n\"no Regina King\"\n\"no Jonathan Lipnicki\"\n\"no Cameron Crowe\"\n\"no River Phoenix\"\n\"no Corey Feldman\"\n\"no Wil Wheaton\"\n\"no John Cusack\"\n\"no Marshall Bell\"\n\"no Helen Hunt\"\n\"no Greg Kinnear\"\n\"no James L. Brooks\"\n\"no Annabella Sciorra\"\n\"no Max von Sydow\"\n\"no Werner Herzog\"\n\"no Robin Williams\"\n\"no Vincent Ward\"\n\"no Ethan Hawke\"\n\"no Rick Yune\"\n\"no James Cromwell\"\n\"no Scott Hicks\"\n\"no Parker Posey\"\n\"no Dave Chappelle\"\n\"no Steve Zahn\"\n\"no Tom Hanks\"\n\"no Nora Ephron\"\n\"no Rita Wilson\"\n\"no Bill Pullman\"\n\"no Victor Garber\"\n\"no Rosie O\u0027Donnell\"\n\"no John Patrick Stanley\"\n\"no Nathan Lane\"\n\"no Billy Crystal\"\n\"no Carrie Fisher\"\n\"no Bruno Kirby\"\n\"no Liv Tyler\"\n\"no Brooke Langton\"\n\"no Gene Hackman\"\n\"no Orlando Jones\"\n\"no Howard Deutch\"\n\"no Christian Bale\"\n\"no Zach Grenier\"\n\"no Mike Nichols\"\n\"no Richard Harris\"\n\"no Clint Eastwood\"\n\"no Takeshi Kitano\"\n\"no Dina Meyer\"\n\"no Ice-T\"\n\"no Robert Longo\"\n\"no Halle Berry\"\n\"no Jim Broadbent\"\n\"no Tom Tykwer\"\n\"no David Mitchell\"\n\"no Stefan Arndt\"\n\"no Ian McKellen\"\n\"no Audrey Tautou\"\n\"no Paul Bettany\"\n\"no Ron Howard\"\n\"no Natalie Portman\"\n\"no Stephen Rea\"\n\"no John Hurt\"\n\"no Ben Miles\"\n\"no Emile Hirsch\"\n\"no John Goodman\"\n\"no Susan Sarandon\"\n\"no Matthew Fox\"\n\"no Christina Ricci\"\n\"no Rain\"\n\"no Naomie Harris\"\n\"no Michael Clarke Duncan\"\n\"no David Morse\"\n\"no Sam Rockwell\"\n\"no Gary Sinise\"\n\"no Patricia Clarkson\"\n\"no Frank Darabont\"\n\"no Frank Langella\"\n\"no Michael Sheen\"\n\"no Oliver Platt\"\n\"no Danny DeVito\"\n\"no John C. Reilly\"\n\"no Ed Harris\"\n\"no Bill Paxton\"\n\"no Philip Seymour Hoffman\"\n\"no Jan de Bont\"\n\"no Robert Zemeckis\"\n\"no Milos Forman\"\n\"no Diane Keaton\"\n\"no Nancy Meyers\"\n\"no Chris Columbus\"\n\"no Julia Roberts\"\n\"no Madonna\"\n\"no Geena Davis\"\n\"no Lori Petty\"\n\"no Penny Marshall\"\n\"no Paul Blythe\"\n\"no Angela Scope\"\n\"no Jessica Thompson\"\n\"no James Thompson\"\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1635516809897_465241544",
       "id": "paragraph_1635516809897_465241544",
       "dateCreated": "2021-10-29 14:13:29.897",
-      "dateStarted": "2022-03-23 22:19:03.139",
-      "dateFinished": "2022-03-23 22:19:03.376",
+      "dateStarted": "2022-03-24 10:57:59.383",
+      "dateFinished": "2022-03-24 10:57:59.892",
       "status": "FINISHED"
     },
     {
@@ -166,15 +157,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "value.n.name\tvalue.n.born\n\"Giandomenico Fracchia\"\t1964\n\"Carrie-Anne Moss\"\t1967\n\"Laurence Fishburne\"\t1961\n\"Hugo Weaving\"\t1960\n\"Lilly Wachowski\"\t1967\n\"Lana Wachowski\"\t1965\n\"Franco e Ciccio\"\t1952\n\"Emil Eifrem\"\t1978\n\"Charlize Theron\"\t1975\n\"Al Pacino\"\t1940\n\"Taylor Hackford\"\t1944\n\"Tom Cruise\"\t1962\n\"Jack Nicholson\"\t1937\n\"Demi Moore\"\t1962\n\"Kevin Bacon\"\t1958\n\"Kiefer Sutherland\"\t1966\n\"Noah Wyle\"\t1971\n\"Cuba Gooding Jr.\"\t1968\n\"Kevin Pollak\"\t1957\n\"J.T. Walsh\"\t1943\n\"James Marshall\"\t1967\n\"Christopher Guest\"\t1948\n\"Rob Reiner\"\t1947\n\"Aaron Sorkin\"\t1961\n\"Kelly McGillis\"\t1957\n\"Val Kilmer\"\t1959\n\"Anthony Edwards\"\t1962\n\"Tom Skerritt\"\t1933\n\"Meg Ryan\"\t1961\n\"Tony Scott\"\t1944\n\"Jim Cash\"\t1941\n\"Renee Zellweger\"\t1969\n\"Kelly Preston\"\t1962\n\"Jerry O\u0027Connell\"\t1974\n\"Jay Mohr\"\t1970\n\"Bonnie Hunt\"\t1961\n\"Regina King\"\t1971\n\"Jonathan Lipnicki\"\t1996\n\"Cameron Crowe\"\t1957\n\"River Phoenix\"\t1970\n\"Corey Feldman\"\t1971\n\"Wil Wheaton\"\t1972\n\"John Cusack\"\t1966\n\"Marshall Bell\"\t1942\n\"Helen Hunt\"\t1963\n\"Greg Kinnear\"\t1963\n\"James L. Brooks\"\t1940\n\"Annabella Sciorra\"\t1960\n\"Max von Sydow\"\t1929\n\"Werner Herzog\"\t1942\n\"Robin Williams\"\t1951\n\"Vincent Ward\"\t1956\n\"Ethan Hawke\"\t1970\n\"Rick Yune\"\t1971\n\"James Cromwell\"\t1940\n\"Scott Hicks\"\t1953\n\"Parker Posey\"\t1968\n\"Dave Chappelle\"\t1973\n\"Steve Zahn\"\t1967\n\"Tom Hanks\"\t1956\n\"Nora Ephron\"\t1941\n\"Rita Wilson\"\t1956\n\"Bill Pullman\"\t1953\n\"Victor Garber\"\t1949\n\"Rosie O\u0027Donnell\"\t1962\n\"John Patrick Stanley\"\t1950\n\"Nathan Lane\"\t1956\n\"Billy Crystal\"\t1948\n\"Carrie Fisher\"\t1956\n\"Bruno Kirby\"\t1949\n\"Liv Tyler\"\t1977\n\"Brooke Langton\"\t1970\n\"Gene Hackman\"\t1929\n\"Orlando Jones\"\t1968\n\"Howard Deutch\"\t1950\n\"Christian Bale\"\t1974\n\"Zach Grenier\"\t1954\n\"Mike Nichols\"\t1931\n\"Richard Harris\"\t1930\n\"Clint Eastwood\"\t1930\n\"Takeshi Kitano\"\t1947\n\"Dina Meyer\"\t1968\n\"Ice-T\"\t1958\n\"Robert Longo\"\t1953\n\"Halle Berry\"\t1966\n\"Jim Broadbent\"\t1949\n\"Tom Tykwer\"\t1965\n\"David Mitchell\"\t1969\n\"Stefan Arndt\"\t1961\n\"Ian McKellen\"\t1939\n\"Audrey Tautou\"\t1976\n\"Paul Bettany\"\t1971\n\"Ron Howard\"\t1954\n\"Natalie Portman\"\t1981\n\"Stephen Rea\"\t1946\n\"John Hurt\"\t1940\n\"Ben Miles\"\t1967\n\"Emile Hirsch\"\t1985\n\"John Goodman\"\t1960\n\"Susan Sarandon\"\t1946\n\"Matthew Fox\"\t1966\n\"Christina Ricci\"\t1980\n\"Rain\"\t1982\n\"Naomie Harris\"\tNULL\n\"Michael Clarke Duncan\"\t1957\n\"David Morse\"\t1953\n\"Sam Rockwell\"\t1968\n\"Gary Sinise\"\t1955\n\"Patricia Clarkson\"\t1959\n\"Frank Darabont\"\t1959\n\"Frank Langella\"\t1938\n\"Michael Sheen\"\t1969\n\"Oliver Platt\"\t1960\n\"Danny DeVito\"\t1944\n\"John C. Reilly\"\t1965\n\"Ed Harris\"\t1950\n\"Bill Paxton\"\t1955\n\"Philip Seymour Hoffman\"\t1967\n\"Jan de Bont\"\t1943\n\"Robert Zemeckis\"\t1951\n\"Milos Forman\"\t1932\n\"Diane Keaton\"\t1946\n\"Nancy Meyers\"\t1949\n\"Chris Columbus\"\t1958\n\"Julia Roberts\"\t1967\n\"Madonna\"\t1954\n\"Geena Davis\"\t1956\n\"Lori Petty\"\t1963\n\"Penny Marshall\"\t1943\n\"Paul Blythe\"\tNULL\n\"Angela Scope\"\tNULL\n\"Jessica Thompson\"\tNULL\n\"James Thompson\"\tNULL\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -240,15 +222,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":256,\"data\":{\"name\":\"Halle Berry\"},\"label\":\"NotFracchia\"},{\"id\":257,\"data\":{\"name\":\"Jim Broadbent\"},\"label\":\"NotFracchia\"},{\"id\":258,\"data\":{\"name\":\"Tom Tykwer\"},\"label\":\"NotFracchia\"},{\"id\":259,\"data\":{\"name\":\"David Mitchell\"},\"label\":\"NotFracchia\"},{\"id\":260,\"data\":{\"name\":\"Stefan Arndt\"},\"label\":\"NotFracchia\"},{\"id\":261,\"data\":{\"name\":\"Ian McKellen\"},\"label\":\"NotFracchia\"},{\"id\":262,\"data\":{\"name\":\"Audrey Tautou\"},\"label\":\"NotFracchia\"},{\"id\":263,\"data\":{\"name\":\"Paul Bettany\"},\"label\":\"NotFracchia\"},{\"id\":264,\"data\":{\"name\":\"Ron Howard\"},\"label\":\"NotFracchia\"},{\"id\":265,\"data\":{\"name\":\"Natalie Portman\"},\"label\":\"NotFracchia\"},{\"id\":266,\"data\":{\"name\":\"Stephen Rea\"},\"label\":\"NotFracchia\"},{\"id\":267,\"data\":{\"name\":\"John Hurt\"},\"label\":\"NotFracchia\"},{\"id\":268,\"data\":{\"name\":\"Ben Miles\"},\"label\":\"NotFracchia\"},{\"id\":269,\"data\":{\"name\":\"Emile Hirsch\"},\"label\":\"NotFracchia\"},{\"id\":270,\"data\":{\"name\":\"John Goodman\"},\"label\":\"NotFracchia\"},{\"id\":271,\"data\":{\"name\":\"Susan Sarandon\"},\"label\":\"NotFracchia\"},{\"id\":272,\"data\":{\"name\":\"Matthew Fox\"},\"label\":\"NotFracchia\"},{\"id\":273,\"data\":{\"name\":\"Christina Ricci\"},\"label\":\"NotFracchia\"},{\"id\":274,\"data\":{\"name\":\"Rain\"},\"label\":\"NotFracchia\"},{\"id\":275,\"data\":{\"name\":\"Naomie Harris\"},\"label\":\"NotFracchia\"},{\"id\":276,\"data\":{\"name\":\"Michael Clarke Duncan\"},\"label\":\"NotFracchia\"},{\"id\":277,\"data\":{\"name\":\"David Morse\"},\"label\":\"NotFracchia\"},{\"id\":278,\"data\":{\"name\":\"Sam Rockwell\"},\"label\":\"NotFracchia\"},{\"id\":279,\"data\":{\"name\":\"Gary Sinise\"},\"label\":\"NotFracchia\"},{\"id\":280,\"data\":{\"name\":\"Patricia Clarkson\"},\"label\":\"NotFracchia\"},{\"id\":281,\"data\":{\"name\":\"Frank Darabont\"},\"label\":\"NotFracchia\"},{\"id\":282,\"data\":{\"name\":\"Frank Langella\"},\"label\":\"NotFracchia\"},{\"id\":283,\"data\":{\"name\":\"Michael Sheen\"},\"label\":\"NotFracchia\"},{\"id\":284,\"data\":{\"name\":\"Oliver Platt\"},\"label\":\"NotFracchia\"},{\"id\":285,\"data\":{\"name\":\"Danny DeVito\"},\"label\":\"NotFracchia\"},{\"id\":286,\"data\":{\"name\":\"John C. Reilly\"},\"label\":\"NotFracchia\"},{\"id\":287,\"data\":{\"name\":\"Ed Harris\"},\"label\":\"NotFracchia\"},{\"id\":288,\"data\":{\"name\":\"Bill Paxton\"},\"label\":\"NotFracchia\"},{\"id\":289,\"data\":{\"name\":\"Philip Seymour Hoffman\"},\"label\":\"NotFracchia\"},{\"id\":290,\"data\":{\"name\":\"Jan de Bont\"},\"label\":\"NotFracchia\"},{\"id\":291,\"data\":{\"name\":\"Robert Zemeckis\"},\"label\":\"NotFracchia\"},{\"id\":292,\"data\":{\"name\":\"Milos Forman\"},\"label\":\"NotFracchia\"},{\"id\":293,\"data\":{\"name\":\"Diane Keaton\"},\"label\":\"NotFracchia\"},{\"id\":294,\"data\":{\"name\":\"Nancy Meyers\"},\"label\":\"NotFracchia\"},{\"id\":295,\"data\":{\"name\":\"Chris Columbus\"},\"label\":\"NotFracchia\"},{\"id\":296,\"data\":{\"name\":\"Julia Roberts\"},\"label\":\"NotFracchia\"},{\"id\":297,\"data\":{\"name\":\"Madonna\"},\"label\":\"NotFracchia\"},{\"id\":298,\"data\":{\"name\":\"Geena Davis\"},\"label\":\"NotFracchia\"},{\"id\":299,\"data\":{\"name\":\"Lori Petty\"},\"label\":\"NotFracchia\"},{\"id\":300,\"data\":{\"name\":\"Penny Marshall\"},\"label\":\"NotFracchia\"},{\"id\":301,\"data\":{\"name\":\"Paul Blythe\"},\"label\":\"NotFracchia\"},{\"id\":302,\"data\":{\"name\":\"Angela Scope\"},\"label\":\"NotFracchia\"},{\"id\":303,\"data\":{\"name\":\"Jessica Thompson\"},\"label\":\"NotFracchia\"},{\"id\":304,\"data\":{\"name\":\"James Thompson\"},\"label\":\"NotFracchia\"},{\"id\":173,\"data\":{\"name\":\"Carrie-Anne Moss\"},\"label\":\"NotFracchia\"},{\"id\":174,\"data\":{\"name\":\"Laurence Fishburne\"},\"label\":\"NotFracchia\"},{\"id\":175,\"data\":{\"name\":\"Hugo Weaving\"},\"label\":\"NotFracchia\"},{\"id\":176,\"data\":{\"name\":\"Lilly Wachowski\"},\"label\":\"NotFracchia\"},{\"id\":177,\"data\":{\"name\":\"Lana Wachowski\"},\"label\":\"NotFracchia\"},{\"id\":178,\"data\":{\"name\":\"Franco e Ciccio\"},\"label\":\"NotFracchia\"},{\"id\":179,\"data\":{\"name\":\"Emil Eifrem\"},\"label\":\"NotFracchia\"},{\"id\":180,\"data\":{\"name\":\"Charlize Theron\"},\"label\":\"NotFracchia\"},{\"id\":181,\"data\":{\"name\":\"Al Pacino\"},\"label\":\"NotFracchia\"},{\"id\":182,\"data\":{\"name\":\"Taylor Hackford\"},\"label\":\"NotFracchia\"},{\"id\":183,\"data\":{\"name\":\"Tom Cruise\"},\"label\":\"NotFracchia\"},{\"id\":184,\"data\":{\"name\":\"Jack Nicholson\"},\"label\":\"NotFracchia\"},{\"id\":185,\"data\":{\"name\":\"Demi Moore\"},\"label\":\"NotFracchia\"},{\"id\":186,\"data\":{\"name\":\"Kevin Bacon\"},\"label\":\"NotFracchia\"},{\"id\":187,\"data\":{\"name\":\"Kiefer Sutherland\"},\"label\":\"NotFracchia\"},{\"id\":188,\"data\":{\"name\":\"Noah Wyle\"},\"label\":\"NotFracchia\"},{\"id\":189,\"data\":{\"name\":\"Cuba Gooding Jr.\"},\"label\":\"NotFracchia\"},{\"id\":190,\"data\":{\"name\":\"Kevin Pollak\"},\"label\":\"NotFracchia\"},{\"id\":191,\"data\":{\"name\":\"J.T. Walsh\"},\"label\":\"NotFracchia\"},{\"id\":192,\"data\":{\"name\":\"James Marshall\"},\"label\":\"NotFracchia\"},{\"id\":193,\"data\":{\"name\":\"Christopher Guest\"},\"label\":\"NotFracchia\"},{\"id\":194,\"data\":{\"name\":\"Rob Reiner\"},\"label\":\"NotFracchia\"},{\"id\":195,\"data\":{\"name\":\"Aaron Sorkin\"},\"label\":\"NotFracchia\"},{\"id\":196,\"data\":{\"name\":\"Kelly McGillis\"},\"label\":\"NotFracchia\"},{\"id\":197,\"data\":{\"name\":\"Val Kilmer\"},\"label\":\"NotFracchia\"},{\"id\":198,\"data\":{\"name\":\"Anthony Edwards\"},\"label\":\"NotFracchia\"},{\"id\":199,\"data\":{\"name\":\"Tom Skerritt\"},\"label\":\"NotFracchia\"},{\"id\":200,\"data\":{\"name\":\"Meg Ryan\"},\"label\":\"NotFracchia\"},{\"id\":201,\"data\":{\"name\":\"Tony Scott\"},\"label\":\"NotFracchia\"},{\"id\":202,\"data\":{\"name\":\"Jim Cash\"},\"label\":\"NotFracchia\"},{\"id\":203,\"data\":{\"name\":\"Renee Zellweger\"},\"label\":\"NotFracchia\"},{\"id\":204,\"data\":{\"name\":\"Kelly Preston\"},\"label\":\"NotFracchia\"},{\"id\":205,\"data\":{\"name\":\"Jerry O\\u0027Connell\"},\"label\":\"NotFracchia\"},{\"id\":206,\"data\":{\"name\":\"Jay Mohr\"},\"label\":\"NotFracchia\"},{\"id\":207,\"data\":{\"name\":\"Bonnie Hunt\"},\"label\":\"NotFracchia\"},{\"id\":208,\"data\":{\"name\":\"Regina King\"},\"label\":\"NotFracchia\"},{\"id\":209,\"data\":{\"name\":\"Jonathan Lipnicki\"},\"label\":\"NotFracchia\"},{\"id\":210,\"data\":{\"name\":\"Cameron Crowe\"},\"label\":\"NotFracchia\"},{\"id\":211,\"data\":{\"name\":\"River Phoenix\"},\"label\":\"NotFracchia\"},{\"id\":212,\"data\":{\"name\":\"Corey Feldman\"},\"label\":\"NotFracchia\"},{\"id\":213,\"data\":{\"name\":\"Wil Wheaton\"},\"label\":\"NotFracchia\"},{\"id\":214,\"data\":{\"name\":\"John Cusack\"},\"label\":\"NotFracchia\"},{\"id\":215,\"data\":{\"name\":\"Marshall Bell\"},\"label\":\"NotFracchia\"},{\"id\":216,\"data\":{\"name\":\"Helen Hunt\"},\"label\":\"NotFracchia\"},{\"id\":217,\"data\":{\"name\":\"Greg Kinnear\"},\"label\":\"NotFracchia\"},{\"id\":218,\"data\":{\"name\":\"James L. Brooks\"},\"label\":\"NotFracchia\"},{\"id\":219,\"data\":{\"name\":\"Annabella Sciorra\"},\"label\":\"NotFracchia\"},{\"id\":220,\"data\":{\"name\":\"Max von Sydow\"},\"label\":\"NotFracchia\"},{\"id\":221,\"data\":{\"name\":\"Werner Herzog\"},\"label\":\"NotFracchia\"},{\"id\":222,\"data\":{\"name\":\"Robin Williams\"},\"label\":\"NotFracchia\"},{\"id\":223,\"data\":{\"name\":\"Vincent Ward\"},\"label\":\"NotFracchia\"},{\"id\":224,\"data\":{\"name\":\"Ethan Hawke\"},\"label\":\"NotFracchia\"},{\"id\":225,\"data\":{\"name\":\"Rick Yune\"},\"label\":\"NotFracchia\"},{\"id\":226,\"data\":{\"name\":\"James Cromwell\"},\"label\":\"NotFracchia\"},{\"id\":227,\"data\":{\"name\":\"Scott Hicks\"},\"label\":\"NotFracchia\"},{\"id\":228,\"data\":{\"name\":\"Parker Posey\"},\"label\":\"NotFracchia\"},{\"id\":229,\"data\":{\"name\":\"Dave Chappelle\"},\"label\":\"NotFracchia\"},{\"id\":230,\"data\":{\"name\":\"Steve Zahn\"},\"label\":\"NotFracchia\"},{\"id\":231,\"data\":{\"name\":\"Tom Hanks\"},\"label\":\"NotFracchia\"},{\"id\":232,\"data\":{\"name\":\"Nora Ephron\"},\"label\":\"NotFracchia\"},{\"id\":233,\"data\":{\"name\":\"Rita Wilson\"},\"label\":\"NotFracchia\"},{\"id\":234,\"data\":{\"name\":\"Bill Pullman\"},\"label\":\"NotFracchia\"},{\"id\":235,\"data\":{\"name\":\"Victor Garber\"},\"label\":\"NotFracchia\"},{\"id\":236,\"data\":{\"name\":\"Rosie O\\u0027Donnell\"},\"label\":\"NotFracchia\"},{\"id\":237,\"data\":{\"name\":\"John Patrick Stanley\"},\"label\":\"NotFracchia\"},{\"id\":238,\"data\":{\"name\":\"Nathan Lane\"},\"label\":\"NotFracchia\"},{\"id\":239,\"data\":{\"name\":\"Billy Crystal\"},\"label\":\"NotFracchia\"},{\"id\":240,\"data\":{\"name\":\"Carrie Fisher\"},\"label\":\"NotFracchia\"},{\"id\":241,\"data\":{\"name\":\"Bruno Kirby\"},\"label\":\"NotFracchia\"},{\"id\":242,\"data\":{\"name\":\"Liv Tyler\"},\"label\":\"NotFracchia\"},{\"id\":243,\"data\":{\"name\":\"Brooke Langton\"},\"label\":\"NotFracchia\"},{\"id\":244,\"data\":{\"name\":\"Gene Hackman\"},\"label\":\"NotFracchia\"},{\"id\":245,\"data\":{\"name\":\"Orlando Jones\"},\"label\":\"NotFracchia\"},{\"id\":246,\"data\":{\"name\":\"Howard Deutch\"},\"label\":\"NotFracchia\"},{\"id\":247,\"data\":{\"name\":\"Christian Bale\"},\"label\":\"NotFracchia\"},{\"id\":248,\"data\":{\"name\":\"Zach Grenier\"},\"label\":\"NotFracchia\"},{\"id\":249,\"data\":{\"name\":\"Mike Nichols\"},\"label\":\"NotFracchia\"},{\"id\":250,\"data\":{\"name\":\"Richard Harris\"},\"label\":\"NotFracchia\"},{\"id\":251,\"data\":{\"name\":\"Clint Eastwood\"},\"label\":\"NotFracchia\"},{\"id\":252,\"data\":{\"name\":\"Takeshi Kitano\"},\"label\":\"NotFracchia\"},{\"id\":253,\"data\":{\"name\":\"Dina Meyer\"},\"label\":\"NotFracchia\"},{\"id\":254,\"data\":{\"name\":\"Ice-T\"},\"label\":\"NotFracchia\"},{\"id\":255,\"data\":{\"name\":\"Robert Longo\"},\"label\":\"NotFracchia\"}],\"edges\":[],\"labels\":{\"Movie\":\"#692318\",\"Person\":\"#DCE2ED\",\"NotFracchia\":\"#784E0A\"},\"types\":[\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"PRODUCED\",\"WROTE\",\"FOLLOWS\",\"DIRECTED\"],\"directed\":true}"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -313,15 +286,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":172,\"data\":{\"name\":\"The movie about Giandomenico Fracchia\"},\"label\":\"Movie\"}],\"edges\":[],\"labels\":{\"Movie\":\"#692318\",\"Person\":\"#DCE2ED\",\"NotFracchia\":\"#784E0A\"},\"types\":[\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"PRODUCED\",\"WROTE\",\"FOLLOWS\",\"DIRECTED\"],\"directed\":true}"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -421,15 +385,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "n.name\tselection\n\"Giandomenico Fracchia\"\t[null,\"Something\u0027s Gotta Give\",\"The Replacements\",\"Johnny Mnemonic\",\"The Devil\u0027s Advocate\",\"The Matrix Revolutions\",\"The Matrix Reloaded\",\"The Matrix\"]\n\"Carrie-Anne Moss\"\t[\"title: The Matrix Revolutions, tagline: Everything that has a beginning has an end\",\"title: The Matrix Reloaded, tagline: Free your mind\",\"title: The Matrix, tagline: Welcome to the Real World\"]\n\"Laurence Fishburne\"\t[2003,2003,1999]\n\"Hugo Weaving\"\t[2012,2006,2003,2003,1999]\n\"Lilly Wachowski\"\t[2008,2006,2008,2006,2009,2012,2003,2003,1999]\n\"Lana Wachowski\"\t[2008,2006,2006,2008,2012,2009,2003,2003,1999]\n\"Franco e Ciccio\"\t[2008,2006,2009,2003,2003,1999]\n\"Emil Eifrem\"\t[1999]\n\"Charlize Theron\"\t[1996,1997]\n\"Al Pacino\"\t[1997]\n\"Taylor Hackford\"\t[1997]\n\"Tom Cruise\"\t[2000,1986,1992]\n\"Jack Nicholson\"\t[1997,1975,2003,1992,1992]\n\"Demi Moore\"\t[1992]\n\"Kevin Bacon\"\t[1995,2008,1992]\n\"Kiefer Sutherland\"\t[1986,1992]\n\"Noah Wyle\"\t[1992]\n\"Cuba Gooding Jr.\"\t[1998,2000,1997,1992]\n\"Kevin Pollak\"\t[1992]\n\"J.T. Walsh\"\t[1992,1992]\n\"James Marshall\"\t[1992,2009,2006]\n\"Christopher Guest\"\t[1992]\n\"Rob Reiner\"\t[1986,1998,1998,1992]\n\"Aaron Sorkin\"\t[1992,1992]\n\"Kelly McGillis\"\t[1986]\n\"Val Kilmer\"\t[1986]\n\"Anthony Edwards\"\t[1986]\n\"Tom Skerritt\"\t[1986]\n\"Meg Ryan\"\t[1993,1998,1986,1998,1990]\n\"Tony Scott\"\t[1986]\n\"Jim Cash\"\t[1986]\n\"Renee Zellweger\"\t[2000]\n\"Kelly Preston\"\t[2000]\n\"Jerry O\u0027Connell\"\t[2000,1986]\n\"Jay Mohr\"\t[2000]\n\"Bonnie Hunt\"\t[1999,2000]\n\"Regina King\"\t[2000]\n\"Jonathan Lipnicki\"\t[2000]\n\"Cameron Crowe\"\t[2000,2000,2000]\n\"River Phoenix\"\t[1986]\n\"Corey Feldman\"\t[1986]\n\"Wil Wheaton\"\t[1986]\n\"John Cusack\"\t[1986]\n\"Marshall Bell\"\t[1986,2006]\n\"Helen Hunt\"\t[1997,2000,1996]\n\"Greg Kinnear\"\t[1998,1997]\n\"James L. Brooks\"\t[1997]\n\"Annabella Sciorra\"\t[1998]\n\"Max von Sydow\"\t[1998,1999]\n\"Werner Herzog\"\t[2006,1998]\n\"Robin Williams\"\t[1998,1999,1996]\n\"Vincent Ward\"\t[1998]\n\"Ethan Hawke\"\t[1999]\n\"Rick Yune\"\t[2009,1999]\n\"James Cromwell\"\t[1999,1999]\n\"Scott Hicks\"\t[1999]\n\"Parker Posey\"\t[1998]\n\"Dave Chappelle\"\t[1998]\n\"Steve Zahn\"\t[2006,1998]\n\"Tom Hanks\"\t[1995,1998,1992,1990,1996,2006,2012,2000,1999,1993,2004,2007,1996]\n\"Nora Ephron\"\t[1998,1998,1993,1998]\n\"Rita Wilson\"\t[1993]\n\"Bill Pullman\"\t[1993]\n\"Victor Garber\"\t[1993]\n\"Rosie O\u0027Donnell\"\t[1992,1993]\n\"John Patrick Stanley\"\t[1990]\n\"Nathan Lane\"\t[1990,1996]\n\"Billy Crystal\"\t[1998]\n\"Carrie Fisher\"\t[\"title: When Herry Met Sally, tagline: Can two friends sleep together and still love each other in the morning?\"]\n\"Bruno Kirby\"\t[1998]\n\"Liv Tyler\"\t[1996]\n\"Brooke Langton\"\t[2000]\n\"Gene Hackman\"\t[1992,1996,2000]\n\"Orlando Jones\"\t[2000]\n\"Howard Deutch\"\t[2000]\n\"Christian Bale\"\t[2006]\n\"Zach Grenier\"\t[2006,1996]\n\"Mike Nichols\"\t[1996,2007]\n\"Richard Harris\"\t[1992]\n\"Clint Eastwood\"\t[1992,1992]\n\"Takeshi Kitano\"\t[1995]\n\"Dina Meyer\"\t[1995]\n\"Ice-T\"\t[1995]\n\"Robert Longo\"\t[1995]\n\"Halle Berry\"\t[2012]\n\"Jim Broadbent\"\t[2012]\n\"Tom Tykwer\"\t[2012]\n\"David Mitchell\"\t[2012]\n\"Stefan Arndt\"\t[2012]\n\"Ian McKellen\"\t[2006]\n\"Audrey Tautou\"\t[2006]\n\"Paul Bettany\"\t[2006]\n\"Ron Howard\"\t[1995,2008,2006]\n\"Natalie Portman\"\t[2006]\n\"Stephen Rea\"\t[2006]\n\"John Hurt\"\t[2006]\n\"Ben Miles\"\t[2008,2009,2006]\n\"Emile Hirsch\"\t[2008]\n\"John Goodman\"\t[2008]\n\"Susan Sarandon\"\t[2008]\n\"Matthew Fox\"\t[2008]\n\"Christina Ricci\"\t[2008]\n\"Rain\"\t[2008,2009]\n\"Naomie Harris\"\t[2009]\n\"Michael Clarke Duncan\"\t[1999]\n\"David Morse\"\t[1999]\n\"Sam Rockwell\"\t[1999,2008]\n\"Gary Sinise\"\t[1995,1999]\n\"Patricia Clarkson\"\t[1999]\n\"Frank Darabont\"\t[1999]\n\"Frank Langella\"\t[2008]\n\"Michael Sheen\"\t[2008]\n\"Oliver Platt\"\t[2008,1999]\n\"Danny DeVito\"\t[1992,1992,1975]\n\"John C. Reilly\"\t[1992]\n\"Ed Harris\"\t[1995]\n\"Bill Paxton\"\t[1996,1992,1995]\n\"Philip Seymour Hoffman\"\t[1996,2007]\n\"Jan de Bont\"\t[1996]\n\"Robert Zemeckis\"\t[2000,2004]\n\"Milos Forman\"\t[1975]\n\"Diane Keaton\"\t[2003]\n\"Nancy Meyers\"\t[2003,2003,2003]\n\"Chris Columbus\"\t[1999]\n\"Julia Roberts\"\t[2007]\n\"Madonna\"\t[1992]\n\"Geena Davis\"\t[1992]\n\"Lori Petty\"\t[1992]\n\"Penny Marshall\"\t[1992]\n\"Paul Blythe\"\t[]\n\"Angela Scope\"\t[2000]\n\"Jessica Thompson\"\t[2006,2000,2000,2012,1996,1992]\n\"James Thompson\"\t[2000,2006]\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -491,15 +446,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "n.name\n\"Laurence Fishburne\"\n\"Hugo Weaving\"\n\"Lilly Wachowski\"\n\"Lana Wachowski\"\n\"Franco e Ciccio\"\n\"Emil Eifrem\"\n\"Charlize Theron\"\n\"Al Pacino\"\n\"Taylor Hackford\"\n\"Tom Cruise\"\n\"Jack Nicholson\"\n\"Demi Moore\"\n\"Kevin Bacon\"\n\"Kiefer Sutherland\"\n\"Noah Wyle\"\n\"Cuba Gooding Jr.\"\n\"Kevin Pollak\"\n\"J.T. Walsh\"\n\"James Marshall\"\n\"Christopher Guest\"\n\"Rob Reiner\"\n\"Aaron Sorkin\"\n\"Kelly McGillis\"\n\"Val Kilmer\"\n\"Anthony Edwards\"\n\"Tom Skerritt\"\n\"Meg Ryan\"\n\"Tony Scott\"\n\"Jim Cash\"\n\"Renee Zellweger\"\n\"Kelly Preston\"\n\"Jerry O\u0027Connell\"\n\"Jay Mohr\"\n\"Bonnie Hunt\"\n\"Regina King\"\n\"Jonathan Lipnicki\"\n\"Cameron Crowe\"\n\"River Phoenix\"\n\"Corey Feldman\"\n\"Wil Wheaton\"\n\"John Cusack\"\n\"Marshall Bell\"\n\"Helen Hunt\"\n\"Greg Kinnear\"\n\"James L. Brooks\"\n\"Annabella Sciorra\"\n\"Max von Sydow\"\n\"Werner Herzog\"\n\"Robin Williams\"\n\"Vincent Ward\"\n\"Ethan Hawke\"\n\"Rick Yune\"\n\"James Cromwell\"\n\"Scott Hicks\"\n\"Parker Posey\"\n\"Dave Chappelle\"\n\"Steve Zahn\"\n\"Tom Hanks\"\n\"Nora Ephron\"\n\"Rita Wilson\"\n\"Bill Pullman\"\n\"Victor Garber\"\n\"Rosie O\u0027Donnell\"\n\"John Patrick Stanley\"\n\"Nathan Lane\"\n\"Billy Crystal\"\n\"Bruno Kirby\"\n\"Liv Tyler\"\n\"Brooke Langton\"\n\"Gene Hackman\"\n\"Orlando Jones\"\n\"Howard Deutch\"\n\"Christian Bale\"\n\"Zach Grenier\"\n\"Mike Nichols\"\n\"Richard Harris\"\n\"Clint Eastwood\"\n\"Takeshi Kitano\"\n\"Dina Meyer\"\n\"Ice-T\"\n\"Robert Longo\"\n\"Halle Berry\"\n\"Jim Broadbent\"\n\"Tom Tykwer\"\n\"David Mitchell\"\n\"Stefan Arndt\"\n\"Ian McKellen\"\n\"Audrey Tautou\"\n\"Paul Bettany\"\n\"Ron Howard\"\n\"Natalie Portman\"\n\"Stephen Rea\"\n\"John Hurt\"\n\"Ben Miles\"\n\"Emile Hirsch\"\n\"John Goodman\"\n\"Susan Sarandon\"\n\"Matthew Fox\"\n\"Christina Ricci\"\n\"Rain\"\n\"Naomie Harris\"\n\"Michael Clarke Duncan\"\n\"David Morse\"\n\"Sam Rockwell\"\n\"Gary Sinise\"\n\"Patricia Clarkson\"\n\"Frank Darabont\"\n\"Frank Langella\"\n\"Michael Sheen\"\n\"Oliver Platt\"\n\"Danny DeVito\"\n\"John C. Reilly\"\n\"Ed Harris\"\n\"Bill Paxton\"\n\"Philip Seymour Hoffman\"\n\"Jan de Bont\"\n\"Robert Zemeckis\"\n\"Milos Forman\"\n\"Diane Keaton\"\n\"Nancy Meyers\"\n\"Chris Columbus\"\n\"Julia Roberts\"\n\"Madonna\"\n\"Geena Davis\"\n\"Lori Petty\"\n\"Penny Marshall\"\n\"Paul Blythe\"\n\"Angela Scope\"\n\"Jessica Thompson\"\n\"James Thompson\"\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -565,15 +511,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "n.name\tm.myId\n\"Giandomenico Fracchia\"\t1\n\"Carrie-Anne Moss\"\t2\n\"Carrie Fisher\"\t2\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -587,7 +524,7 @@
     {
       "text": "%md\n\n\n## Conditional exception\n\nApoc also provide a procedure to raise an exception with a specific message when predicate is false.\n\n\u003cpre\u003e\napoc.util.validate(predicate, message, params) - if the `predicate` is true raise an exception with `message`.\n\u003c/pre\u003e\n\n\nWe have also `apoc.util.validatePredicate(predicate, message, params)`, equivalent but it\u0027s a function.\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 22:19:19.601",
+      "dateUpdated": "2022-03-24 10:58:18.299",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -622,8 +559,8 @@
       "jobName": "paragraph_1635865337623_10689460",
       "id": "paragraph_1635865337623_10689460",
       "dateCreated": "2021-11-02 15:02:17.623",
-      "dateStarted": "2022-03-23 08:27:42.733",
-      "dateFinished": "2022-03-23 08:27:42.746",
+      "dateStarted": "2022-03-24 10:58:18.299",
+      "dateFinished": "2022-03-24 10:58:18.316",
       "status": "FINISHED"
     },
     {
@@ -678,15 +615,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "ERROR",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "Failed to invoke procedure `apoc.util.validate`: Caused by: java.lang.RuntimeException: Person with name Giandomenico Fracchia found"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -751,15 +679,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "count(*)\n133\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -774,7 +693,7 @@
       "title": "apoc.util.validatePredicate",
       "text": "%md\n\nEquivalent to apoc.util.validate but is a function\n\n```\nMATCH (a:Person)\nWHERE apoc.util.validatePredicate(true,\u0027Person with name %s found\u0027,[n.name])\nRETURN a\n```",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 22:19:19.692",
+      "dateUpdated": "2022-03-24 10:58:21.695",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -841,14 +760,14 @@
       "jobName": "paragraph_1636043895936_231881876",
       "id": "paragraph_1636043895936_231881876",
       "dateCreated": "2021-11-04 16:38:15.936",
-      "dateStarted": "2022-03-23 08:27:48.085",
-      "dateFinished": "2022-03-23 08:27:48.095",
+      "dateStarted": "2022-03-24 10:58:21.695",
+      "dateFinished": "2022-03-24 10:58:21.713",
       "status": "FINISHED"
     },
     {
       "text": "%md\n\n# Batching data\n\nApoc provides some procedures to split the data in batches to handle performance and memory issues:\n- `apoc.periodic.iterate`\n- `apoc.periodic.commit`\n- `apoc.periodic.truncate`\n\nThe `apoc.periodic.iterate(data-driven, operation, $config)` procedure is helpful when you need to handle large amounts of data for import, refactoring, and other cases that require large transactions. \n\nIt provides a way to batch the data by dividing the workload into two parts:\n\n- a `data-driven` statement: This defines how you select what data needs handled. You can provide a Cypher statement to select from existing graph data, read external data from a file or API, or retrieve data from another datastore.\n- an `operation` statement: This defines what you want done to the selected data. You can do things like execute Cypher for updating or creating/deleting the data or run other procedures to manipulate and transform values before loading.\n\nThe data-driven statement is provided as the first statement that results in a stream of values to be processed. \nThe results of the data-driven statement are passed to the operation statement as parameters and the operation statement is provided as the second statement to process one element at a time or a batch at a time\n\nWe can use the following configurations as 3rd parameter:\n\n- `batchSize (default: 10000)` - run the specified number of operation statements in a single transaction\n- `parallel (default: false)` - run operation statements in paralle\n- `retries (default: 0)` - if the operation statement fails with an error, sleep 100ms and retry until retries-count is reached\n- `batchMode (default: \"BATCH\")` - how data-driven statements should be processed by operation statement. See below\n- `params (default: EmtpyMap)` - externally pass in map of params\n- `concurrency (default: 50)` - number of concurrent tasks are generated when using `parallel:true`\n\n\u003cpre\u003e\nFor complex operations like updating or removing relationships, \neither do not use `parallel: true` or make sure that you batch the work in a way that each subgraph of data is updated in one operation,\notherwise might deadlock due to conflicts [same relationship updated twice]\n\u003c/pre\u003e\n\n`batchMode` can have 3 values. \n`SINGLE` to perform one operation at a time. \nBoth `BATCH` and `BATCH_SINGLE` execute operation statement once per batchSize and the results of data-driven statement will be grouped in a `$_batch`. For example, in this case:\n\n| first      | second |\n| ----------- | ----------- | \n| alpha      | beta       | \n| gamma   | delta        |\n| ...        | ... |\n\n`$_batch` will be a list of maps: `[{first: \u0027alpha\u0027, second: \u0027beta\u0027} , {first: \u0027gamma\u0027, second: \u0027delta\u0027}  .....]`\n\n\nBut with `BATCH` will be executed an unpacking of batch, that is:\n\n\u003cpre\u003e\nUNWIND $_batch AS _batch\nWITH _batch.field1 AS field1, _batch.field2 AS field2\n\u003c/pre\u003e\n\nInstead with `BATCH_SINGLE` the unpacking have to be executed into the operation statement.\nThe operation query can access the batched values via the `$_batch` parameter.\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 22:19:19.716",
+      "dateUpdated": "2022-03-24 10:58:24.046",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -883,15 +802,15 @@
       "jobName": "paragraph_1635518181245_851865146",
       "id": "paragraph_1635518181245_851865146",
       "dateCreated": "2021-10-29 14:36:21.246",
-      "dateStarted": "2022-03-23 08:27:45.511",
-      "dateFinished": "2022-03-23 08:27:45.529",
+      "dateStarted": "2022-03-24 10:58:24.045",
+      "dateFinished": "2022-03-24 10:58:24.095",
       "status": "FINISHED"
     },
     {
       "title": "BATCH mode",
       "text": "%neo4j\n\ncall apoc.periodic.iterate(\n  \"UNWIND range(1,9999) as id RETURN id\",\n  \"CREATE (:NodePeriodic {id: id, time: timestamp()})-[rel:MY_PERIODIC_REL]-\u003e(:End {id: id})\", // this is a single element of batch UNWINDed\n  {batchMode: \u0027BATCH\u0027,batchSize:10, parallel:false})\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 22:23:19.067",
+      "dateUpdated": "2022-03-24 10:53:10.522",
       "config": {
         "colWidth": 9.0,
         "fontSize": 9.0,
@@ -960,23 +879,14 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "batches\ttotal\ttimeTaken\tcommittedOperations\tfailedOperations\tfailedBatches\tretries\tbatch.total\tbatch.committed\tbatch.failed\toperations.total\toperations.committed\toperations.failed\twasTerminated\tupdateStatistics.nodesDeleted\tupdateStatistics.labelsAdded\tupdateStatistics.relationshipsCreated\tupdateStatistics.nodesCreated\tupdateStatistics.propertiesSet\tupdateStatistics.relationshipsDeleted\tupdateStatistics.labelsRemoved\n1000\t9999\t3\t9999\t0\t0\t0\t1000\t1000\t0\t9999\t9999\t0\tFALSE\t0\t19998\t9999\t19998\t29997\t0\t0\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1635847089976_739455528",
       "id": "paragraph_1635847089976_739455528",
       "dateCreated": "2021-11-02 09:58:09.976",
-      "dateStarted": "2022-03-23 22:23:19.084",
-      "dateFinished": "2022-03-23 22:23:23.264",
+      "dateStarted": "2022-03-24 10:53:10.558",
+      "dateFinished": "2022-03-24 10:53:15.617",
       "status": "FINISHED"
     },
     {
@@ -1030,15 +940,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "count(s)\n9999\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -1121,15 +1022,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "batches\ttotal\ttimeTaken\tcommittedOperations\tfailedOperations\tfailedBatches\tretries\tbatch.total\tbatch.committed\tbatch.failed\toperations.total\toperations.committed\toperations.failed\twasTerminated\tupdateStatistics.nodesDeleted\tupdateStatistics.labelsAdded\tupdateStatistics.relationshipsCreated\tupdateStatistics.nodesCreated\tupdateStatistics.propertiesSet\tupdateStatistics.relationshipsDeleted\tupdateStatistics.labelsRemoved\n100\t1000\t0\t1000\t0\t0\t0\t100\t100\t0\t1000\t1000\t0\tFALSE\t0\t100\t0\t100\t100\t0\t0\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -1241,15 +1133,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":21303,\"data\":{\"prop\":[1,2,3,4,5,6,7,8,9,10]},\"label\":\"Batch\"},{\"id\":21304,\"data\":{\"prop\":[11,12,13,14,15,16,17,18,19,20]},\"label\":\"Batch\"},{\"id\":21305,\"data\":{\"prop\":[21,22,23,24,25,26,27,28,29,30]},\"label\":\"Batch\"},{\"id\":21306,\"data\":{\"prop\":[31,32,33,34,35,36,37,38,39,40]},\"label\":\"Batch\"},{\"id\":21307,\"data\":{\"prop\":[41,42,43,44,45,46,47,48,49,50]},\"label\":\"Batch\"},{\"id\":21308,\"data\":{\"prop\":[51,52,53,54,55,56,57,58,59,60]},\"label\":\"Batch\"},{\"id\":21309,\"data\":{\"prop\":[61,62,63,64,65,66,67,68,69,70]},\"label\":\"Batch\"},{\"id\":21310,\"data\":{\"prop\":[71,72,73,74,75,76,77,78,79,80]},\"label\":\"Batch\"},{\"id\":21311,\"data\":{\"prop\":[81,82,83,84,85,86,87,88,89,90]},\"label\":\"Batch\"},{\"id\":21312,\"data\":{\"prop\":[91,92,93,94,95,96,97,98,99,100]},\"label\":\"Batch\"},{\"id\":21313,\"data\":{\"prop\":[101,102,103,104,105,106,107,108,109,110]},\"label\":\"Batch\"},{\"id\":21314,\"data\":{\"prop\":[111,112,113,114,115,116,117,118,119,120]},\"label\":\"Batch\"},{\"id\":21315,\"data\":{\"prop\":[121,122,123,124,125,126,127,128,129,130]},\"label\":\"Batch\"},{\"id\":21316,\"data\":{\"prop\":[131,132,133,134,135,136,137,138,139,140]},\"label\":\"Batch\"},{\"id\":21317,\"data\":{\"prop\":[141,142,143,144,145,146,147,148,149,150]},\"label\":\"Batch\"},{\"id\":21318,\"data\":{\"prop\":[151,152,153,154,155,156,157,158,159,160]},\"label\":\"Batch\"},{\"id\":21319,\"data\":{\"prop\":[161,162,163,164,165,166,167,168,169,170]},\"label\":\"Batch\"},{\"id\":21320,\"data\":{\"prop\":[171,172,173,174,175,176,177,178,179,180]},\"label\":\"Batch\"},{\"id\":21321,\"data\":{\"prop\":[181,182,183,184,185,186,187,188,189,190]},\"label\":\"Batch\"},{\"id\":21322,\"data\":{\"prop\":[191,192,193,194,195,196,197,198,199,200]},\"label\":\"Batch\"},{\"id\":21323,\"data\":{\"prop\":[201,202,203,204,205,206,207,208,209,210]},\"label\":\"Batch\"},{\"id\":21324,\"data\":{\"prop\":[211,212,213,214,215,216,217,218,219,220]},\"label\":\"Batch\"},{\"id\":21325,\"data\":{\"prop\":[221,222,223,224,225,226,227,228,229,230]},\"label\":\"Batch\"},{\"id\":21326,\"data\":{\"prop\":[231,232,233,234,235,236,237,238,239,240]},\"label\":\"Batch\"},{\"id\":21327,\"data\":{\"prop\":[241,242,243,244,245,246,247,248,249,250]},\"label\":\"Batch\"},{\"id\":21328,\"data\":{\"prop\":[251,252,253,254,255,256,257,258,259,260]},\"label\":\"Batch\"},{\"id\":21329,\"data\":{\"prop\":[261,262,263,264,265,266,267,268,269,270]},\"label\":\"Batch\"},{\"id\":21330,\"data\":{\"prop\":[271,272,273,274,275,276,277,278,279,280]},\"label\":\"Batch\"},{\"id\":21331,\"data\":{\"prop\":[281,282,283,284,285,286,287,288,289,290]},\"label\":\"Batch\"},{\"id\":21332,\"data\":{\"prop\":[291,292,293,294,295,296,297,298,299,300]},\"label\":\"Batch\"},{\"id\":21333,\"data\":{\"prop\":[301,302,303,304,305,306,307,308,309,310]},\"label\":\"Batch\"},{\"id\":21334,\"data\":{\"prop\":[311,312,313,314,315,316,317,318,319,320]},\"label\":\"Batch\"},{\"id\":21335,\"data\":{\"prop\":[321,322,323,324,325,326,327,328,329,330]},\"label\":\"Batch\"},{\"id\":21336,\"data\":{\"prop\":[331,332,333,334,335,336,337,338,339,340]},\"label\":\"Batch\"},{\"id\":21337,\"data\":{\"prop\":[341,342,343,344,345,346,347,348,349,350]},\"label\":\"Batch\"},{\"id\":21338,\"data\":{\"prop\":[351,352,353,354,355,356,357,358,359,360]},\"label\":\"Batch\"},{\"id\":21339,\"data\":{\"prop\":[361,362,363,364,365,366,367,368,369,370]},\"label\":\"Batch\"},{\"id\":21340,\"data\":{\"prop\":[371,372,373,374,375,376,377,378,379,380]},\"label\":\"Batch\"},{\"id\":21341,\"data\":{\"prop\":[381,382,383,384,385,386,387,388,389,390]},\"label\":\"Batch\"},{\"id\":21342,\"data\":{\"prop\":[391,392,393,394,395,396,397,398,399,400]},\"label\":\"Batch\"},{\"id\":21343,\"data\":{\"prop\":[401,402,403,404,405,406,407,408,409,410]},\"label\":\"Batch\"},{\"id\":21344,\"data\":{\"prop\":[411,412,413,414,415,416,417,418,419,420]},\"label\":\"Batch\"},{\"id\":21345,\"data\":{\"prop\":[421,422,423,424,425,426,427,428,429,430]},\"label\":\"Batch\"},{\"id\":21346,\"data\":{\"prop\":[431,432,433,434,435,436,437,438,439,440]},\"label\":\"Batch\"},{\"id\":21347,\"data\":{\"prop\":[441,442,443,444,445,446,447,448,449,450]},\"label\":\"Batch\"},{\"id\":21348,\"data\":{\"prop\":[451,452,453,454,455,456,457,458,459,460]},\"label\":\"Batch\"},{\"id\":21349,\"data\":{\"prop\":[461,462,463,464,465,466,467,468,469,470]},\"label\":\"Batch\"},{\"id\":21350,\"data\":{\"prop\":[471,472,473,474,475,476,477,478,479,480]},\"label\":\"Batch\"},{\"id\":21351,\"data\":{\"prop\":[481,482,483,484,485,486,487,488,489,490]},\"label\":\"Batch\"},{\"id\":21352,\"data\":{\"prop\":[491,492,493,494,495,496,497,498,499,500]},\"label\":\"Batch\"},{\"id\":21353,\"data\":{\"prop\":[501,502,503,504,505,506,507,508,509,510]},\"label\":\"Batch\"},{\"id\":21354,\"data\":{\"prop\":[511,512,513,514,515,516,517,518,519,520]},\"label\":\"Batch\"},{\"id\":21355,\"data\":{\"prop\":[521,522,523,524,525,526,527,528,529,530]},\"label\":\"Batch\"},{\"id\":21356,\"data\":{\"prop\":[531,532,533,534,535,536,537,538,539,540]},\"label\":\"Batch\"},{\"id\":21357,\"data\":{\"prop\":[541,542,543,544,545,546,547,548,549,550]},\"label\":\"Batch\"},{\"id\":21358,\"data\":{\"prop\":[551,552,553,554,555,556,557,558,559,560]},\"label\":\"Batch\"},{\"id\":21359,\"data\":{\"prop\":[561,562,563,564,565,566,567,568,569,570]},\"label\":\"Batch\"},{\"id\":21360,\"data\":{\"prop\":[571,572,573,574,575,576,577,578,579,580]},\"label\":\"Batch\"},{\"id\":21361,\"data\":{\"prop\":[581,582,583,584,585,586,587,588,589,590]},\"label\":\"Batch\"},{\"id\":21362,\"data\":{\"prop\":[591,592,593,594,595,596,597,598,599,600]},\"label\":\"Batch\"},{\"id\":21363,\"data\":{\"prop\":[601,602,603,604,605,606,607,608,609,610]},\"label\":\"Batch\"},{\"id\":21364,\"data\":{\"prop\":[611,612,613,614,615,616,617,618,619,620]},\"label\":\"Batch\"},{\"id\":21365,\"data\":{\"prop\":[621,622,623,624,625,626,627,628,629,630]},\"label\":\"Batch\"},{\"id\":21366,\"data\":{\"prop\":[631,632,633,634,635,636,637,638,639,640]},\"label\":\"Batch\"},{\"id\":21367,\"data\":{\"prop\":[641,642,643,644,645,646,647,648,649,650]},\"label\":\"Batch\"},{\"id\":21368,\"data\":{\"prop\":[651,652,653,654,655,656,657,658,659,660]},\"label\":\"Batch\"},{\"id\":21369,\"data\":{\"prop\":[661,662,663,664,665,666,667,668,669,670]},\"label\":\"Batch\"},{\"id\":21370,\"data\":{\"prop\":[671,672,673,674,675,676,677,678,679,680]},\"label\":\"Batch\"},{\"id\":21371,\"data\":{\"prop\":[681,682,683,684,685,686,687,688,689,690]},\"label\":\"Batch\"},{\"id\":21372,\"data\":{\"prop\":[691,692,693,694,695,696,697,698,699,700]},\"label\":\"Batch\"},{\"id\":21373,\"data\":{\"prop\":[701,702,703,704,705,706,707,708,709,710]},\"label\":\"Batch\"},{\"id\":21374,\"data\":{\"prop\":[711,712,713,714,715,716,717,718,719,720]},\"label\":\"Batch\"},{\"id\":21375,\"data\":{\"prop\":[721,722,723,724,725,726,727,728,729,730]},\"label\":\"Batch\"},{\"id\":21376,\"data\":{\"prop\":[731,732,733,734,735,736,737,738,739,740]},\"label\":\"Batch\"},{\"id\":21377,\"data\":{\"prop\":[741,742,743,744,745,746,747,748,749,750]},\"label\":\"Batch\"},{\"id\":21378,\"data\":{\"prop\":[751,752,753,754,755,756,757,758,759,760]},\"label\":\"Batch\"},{\"id\":21379,\"data\":{\"prop\":[761,762,763,764,765,766,767,768,769,770]},\"label\":\"Batch\"},{\"id\":21380,\"data\":{\"prop\":[771,772,773,774,775,776,777,778,779,780]},\"label\":\"Batch\"},{\"id\":21381,\"data\":{\"prop\":[781,782,783,784,785,786,787,788,789,790]},\"label\":\"Batch\"},{\"id\":21382,\"data\":{\"prop\":[791,792,793,794,795,796,797,798,799,800]},\"label\":\"Batch\"},{\"id\":21383,\"data\":{\"prop\":[801,802,803,804,805,806,807,808,809,810]},\"label\":\"Batch\"},{\"id\":21384,\"data\":{\"prop\":[811,812,813,814,815,816,817,818,819,820]},\"label\":\"Batch\"},{\"id\":21385,\"data\":{\"prop\":[821,822,823,824,825,826,827,828,829,830]},\"label\":\"Batch\"},{\"id\":21386,\"data\":{\"prop\":[831,832,833,834,835,836,837,838,839,840]},\"label\":\"Batch\"},{\"id\":21387,\"data\":{\"prop\":[841,842,843,844,845,846,847,848,849,850]},\"label\":\"Batch\"},{\"id\":21388,\"data\":{\"prop\":[851,852,853,854,855,856,857,858,859,860]},\"label\":\"Batch\"},{\"id\":21389,\"data\":{\"prop\":[861,862,863,864,865,866,867,868,869,870]},\"label\":\"Batch\"},{\"id\":21390,\"data\":{\"prop\":[871,872,873,874,875,876,877,878,879,880]},\"label\":\"Batch\"},{\"id\":21391,\"data\":{\"prop\":[881,882,883,884,885,886,887,888,889,890]},\"label\":\"Batch\"},{\"id\":21392,\"data\":{\"prop\":[891,892,893,894,895,896,897,898,899,900]},\"label\":\"Batch\"},{\"id\":21393,\"data\":{\"prop\":[901,902,903,904,905,906,907,908,909,910]},\"label\":\"Batch\"},{\"id\":21394,\"data\":{\"prop\":[911,912,913,914,915,916,917,918,919,920]},\"label\":\"Batch\"},{\"id\":21395,\"data\":{\"prop\":[921,922,923,924,925,926,927,928,929,930]},\"label\":\"Batch\"},{\"id\":21396,\"data\":{\"prop\":[931,932,933,934,935,936,937,938,939,940]},\"label\":\"Batch\"},{\"id\":21397,\"data\":{\"prop\":[941,942,943,944,945,946,947,948,949,950]},\"label\":\"Batch\"},{\"id\":21398,\"data\":{\"prop\":[951,952,953,954,955,956,957,958,959,960]},\"label\":\"Batch\"},{\"id\":21399,\"data\":{\"prop\":[961,962,963,964,965,966,967,968,969,970]},\"label\":\"Batch\"},{\"id\":21400,\"data\":{\"prop\":[971,972,973,974,975,976,977,978,979,980]},\"label\":\"Batch\"},{\"id\":21401,\"data\":{\"prop\":[981,982,983,984,985,986,987,988,989,990]},\"label\":\"Batch\"},{\"id\":21402,\"data\":{\"prop\":[991,992,993,994,995,996,997,998,999,1000]},\"label\":\"Batch\"}],\"edges\":[],\"labels\":{\"Movie\":\"#692318\",\"Person\":\"#DCE2ED\",\"NotFracchia\":\"#784E0A\",\"NodePeriodic\":\"#F716EF\",\"End\":\"#22F177\",\"Start\":\"#71FD73\",\"Batch\":\"#B5DC62\"},\"types\":[\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"DIRECTED\"],\"directed\":true}"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -1263,7 +1146,7 @@
     {
       "text": "%md\n\n### Periodic commit\n\nEspecially for graph processing it is useful to run a query repeatedly in separate transactions until it doesn’t generates any results anymore. \n\nIn this case, we can use `apoc.periodic.commit(query, $param)`, \nwith which the query is executed in separate transactions until it returns `0`.\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 22:19:19.812",
+      "dateUpdated": "2022-03-24 10:58:28.878",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1298,8 +1181,8 @@
       "jobName": "paragraph_1635518388146_1831838883",
       "id": "paragraph_1635518388146_1831838883",
       "dateCreated": "2021-10-29 14:39:48.146",
-      "dateStarted": "2022-03-23 08:27:52.164",
-      "dateFinished": "2022-03-23 08:27:52.175",
+      "dateStarted": "2022-03-24 10:58:28.878",
+      "dateFinished": "2022-03-24 10:58:28.892",
       "status": "FINISHED"
     },
     {
@@ -1359,15 +1242,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "updates\texecutions\truntime\tbatches\tfailedBatches\tfailedCommits\twasTerminated\n133\t14\t0\t15\t0\t0\tFALSE\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -1501,15 +1375,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":2,\"data\":{\"name\":\"Giandomenico Fracchia\",\"uuid\":\"3b29c7bd-6865-410a-82da-5a32f9aba9df\",\"born\":1964},\"label\":\"Person\"},{\"id\":3,\"data\":{\"name\":\"Carrie-Anne Moss\",\"children\":[\"Al\",\"John\",\"Jack\"],\"uuid\":\"fa3a8445-d3cc-491c-8429-1f9859fdf480\",\"born\":1967},\"label\":\"Person\"},{\"id\":4,\"data\":{\"name\":\"Laurence Fishburne\",\"children\":[\"Naruto\",\"Sasuke\",\"Sakura\"],\"uuid\":\"0d534a21-4e5e-40db-9c9f-c3a18d99a98c\",\"born\":1961},\"label\":\"Person\"},{\"id\":5,\"data\":{\"name\":\"Hugo Weaving\",\"uuid\":\"ad6fa028-5365-48ca-8965-c08568cd9f2b\",\"born\":1960},\"label\":\"Person\"},{\"id\":6,\"data\":{\"name\":\"Lilly Wachowski\",\"uuid\":\"0009eb03-04bb-4126-b4dc-623d638c6567\",\"born\":1967},\"label\":\"Person\"},{\"id\":7,\"data\":{\"name\":\"Lana Wachowski\",\"uuid\":\"1e827541-adcb-4cc0-b1af-aabe0187694e\",\"born\":1965},\"label\":\"Person\"},{\"id\":8,\"data\":{\"name\":\"Franco e Ciccio\",\"uuid\":\"56284274-c776-4a08-93f2-ae15cb67175d\",\"born\":1952},\"label\":\"Person\"},{\"id\":9,\"data\":{\"name\":\"Emil Eifrem\",\"uuid\":\"31ab2535-a2ab-4554-baab-f1b4f987b7d4\",\"born\":1978},\"label\":\"Person\"},{\"id\":13,\"data\":{\"name\":\"Charlize Theron\",\"uuid\":\"492ed0fb-96b7-4b56-83d4-cbda8e743196\",\"born\":1975},\"label\":\"Person\"},{\"id\":14,\"data\":{\"name\":\"Al Pacino\",\"uuid\":\"67c8a856-def1-46a9-acd7-631437084bf4\",\"born\":1940},\"label\":\"Person\"},{\"id\":15,\"data\":{\"name\":\"Taylor Hackford\",\"uuid\":\"26739623-40f7-4fa9-8a70-8904d2eb8e15\",\"born\":1944},\"label\":\"Person\"},{\"id\":17,\"data\":{\"name\":\"Tom Cruise\",\"uuid\":\"a9b4a2d9-2834-422a-ab4c-5822d43094ea\",\"born\":1962},\"label\":\"Person\"},{\"id\":18,\"data\":{\"name\":\"Jack Nicholson\",\"uuid\":\"f67f82c3-f18a-497d-9690-c65b06864679\",\"born\":1937},\"label\":\"Person\"},{\"id\":19,\"data\":{\"name\":\"Demi Moore\",\"uuid\":\"7d061970-aae5-4e2b-8d82-7519572aee22\",\"born\":1962},\"label\":\"Person\"},{\"id\":20,\"data\":{\"name\":\"Kevin Bacon\",\"uuid\":\"501c65ea-1eae-4d81-8fc4-7e64754953a2\",\"born\":1958},\"label\":\"Person\"},{\"id\":21,\"data\":{\"name\":\"Kiefer Sutherland\",\"uuid\":\"aaa0f73b-974f-483d-811f-809c5cce5105\",\"born\":1966},\"label\":\"Person\"},{\"id\":22,\"data\":{\"name\":\"Noah Wyle\",\"uuid\":\"d012222a-05c4-4ebd-9e12-4410db3fc664\",\"born\":1971},\"label\":\"Person\"},{\"id\":23,\"data\":{\"name\":\"Cuba Gooding Jr.\",\"uuid\":\"2e75e635-c2e1-4201-96f5-1089fc354645\",\"born\":1968},\"label\":\"Person\"},{\"id\":24,\"data\":{\"name\":\"Kevin Pollak\",\"uuid\":\"cb1f2992-91af-4ce2-811b-bd67558d5396\",\"born\":1957},\"label\":\"Person\"},{\"id\":25,\"data\":{\"name\":\"J.T. Walsh\",\"uuid\":\"8b06cde5-c8b6-4c9d-a5a4-6be7a7d128e1\",\"born\":1943},\"label\":\"Person\"},{\"id\":26,\"data\":{\"name\":\"James Marshall\",\"uuid\":\"c90dcf16-1b2d-4236-bc09-83c72a33e727\",\"born\":1967},\"label\":\"Person\"},{\"id\":27,\"data\":{\"name\":\"Christopher Guest\",\"uuid\":\"b85ac800-7a98-4473-9e14-f90ef60a2a08\",\"born\":1948},\"label\":\"Person\"},{\"id\":28,\"data\":{\"name\":\"Rob Reiner\",\"uuid\":\"c2ad340d-ce64-4ef0-be16-3a7f42a34166\",\"born\":1947},\"label\":\"Person\"},{\"id\":29,\"data\":{\"name\":\"Aaron Sorkin\",\"uuid\":\"416f396e-b164-4290-ac51-69574ce82026\",\"born\":1961},\"label\":\"Person\"},{\"id\":31,\"data\":{\"name\":\"Kelly McGillis\",\"uuid\":\"0da8a330-38c5-4346-8274-76ed45956f7f\",\"born\":1957},\"label\":\"Person\"},{\"id\":32,\"data\":{\"name\":\"Val Kilmer\",\"uuid\":\"69042bd6-714b-456e-bb32-4dfd838cb2a4\",\"born\":1959},\"label\":\"Person\"},{\"id\":33,\"data\":{\"name\":\"Anthony Edwards\",\"uuid\":\"9d5b2a26-25f2-4487-96ab-fc53a6e4bab2\",\"born\":1962},\"label\":\"Person\"},{\"id\":34,\"data\":{\"name\":\"Tom Skerritt\",\"uuid\":\"86592913-3844-4c4c-9ee5-7003930d8e4a\",\"born\":1933},\"label\":\"Person\"},{\"id\":35,\"data\":{\"name\":\"Meg Ryan\",\"uuid\":\"6b8e3a50-600a-43a2-b87e-861aca2c5cc7\",\"born\":1961},\"label\":\"Person\"},{\"id\":36,\"data\":{\"name\":\"Tony Scott\",\"uuid\":\"38cf1a23-aead-4669-bc8f-c90c5a7d4169\",\"born\":1944},\"label\":\"Person\"},{\"id\":37,\"data\":{\"name\":\"Jim Cash\",\"uuid\":\"d2b06b8a-0955-4915-80f4-487826599e08\",\"born\":1941},\"label\":\"Person\"},{\"id\":39,\"data\":{\"name\":\"Renee Zellweger\",\"uuid\":\"d3172e92-7d53-4eb4-b788-95dc94ee0e30\",\"born\":1969},\"label\":\"Person\"},{\"id\":40,\"data\":{\"name\":\"Kelly Preston\",\"uuid\":\"4c94efae-b61d-414c-83c0-6e5b57e0780d\",\"born\":1962},\"label\":\"Person\"},{\"id\":41,\"data\":{\"name\":\"Jerry O\\u0027Connell\",\"uuid\":\"de87b4fe-62be-4a45-89d5-26cdbbc87709\",\"born\":1974},\"label\":\"Person\"},{\"id\":42,\"data\":{\"name\":\"Jay Mohr\",\"uuid\":\"808f2d08-36e0-48e6-b112-78439149dfaf\",\"born\":1970},\"label\":\"Person\"},{\"id\":43,\"data\":{\"name\":\"Bonnie Hunt\",\"uuid\":\"534576a8-cef6-46ca-bf2f-eb759e639f4f\",\"born\":1961},\"label\":\"Person\"},{\"id\":44,\"data\":{\"name\":\"Regina King\",\"uuid\":\"8214aeae-3fcb-459a-9d1e-8c89ba77239f\",\"born\":1971},\"label\":\"Person\"},{\"id\":45,\"data\":{\"name\":\"Jonathan Lipnicki\",\"uuid\":\"268af54d-3bf7-478a-9aaa-72cfd7de40fd\",\"born\":1996},\"label\":\"Person\"},{\"id\":46,\"data\":{\"name\":\"Cameron Crowe\",\"uuid\":\"7591c1a5-9559-4edc-911f-64fdfeeedb4d\",\"born\":1957},\"label\":\"Person\"},{\"id\":48,\"data\":{\"name\":\"River Phoenix\",\"uuid\":\"dd0f0ed2-f593-4302-89f6-9053251139d4\",\"born\":1970},\"label\":\"Person\"},{\"id\":49,\"data\":{\"name\":\"Corey Feldman\",\"uuid\":\"9432520f-a659-469f-ac8d-d4846cd2682f\",\"born\":1971},\"label\":\"Person\"},{\"id\":50,\"data\":{\"name\":\"Wil Wheaton\",\"uuid\":\"53fec9b3-00ac-47cb-bfa9-1d5155030e2e\",\"born\":1972},\"label\":\"Person\"},{\"id\":51,\"data\":{\"name\":\"John Cusack\",\"uuid\":\"3f89b0fa-239d-490b-b30d-937ac86ef469\",\"born\":1966},\"label\":\"Person\"},{\"id\":52,\"data\":{\"name\":\"Marshall Bell\",\"uuid\":\"69127c82-952e-4cfd-b96e-f6363a90b1ea\",\"born\":1942},\"label\":\"Person\"},{\"id\":54,\"data\":{\"name\":\"Helen Hunt\",\"uuid\":\"4fa141c1-aa76-43f1-a6b7-bd553032b720\",\"born\":1963},\"label\":\"Person\"},{\"id\":55,\"data\":{\"name\":\"Greg Kinnear\",\"uuid\":\"d2b66d6a-c22b-420e-b6a6-06f68ed91c4f\",\"born\":1963},\"label\":\"Person\"},{\"id\":56,\"data\":{\"name\":\"James L. Brooks\",\"uuid\":\"d053d3c6-18a9-4716-b804-1299a02df525\",\"born\":1940},\"label\":\"Person\"},{\"id\":58,\"data\":{\"name\":\"Annabella Sciorra\",\"uuid\":\"2e500e07-3cb1-4dba-b418-6f03dbe0a178\",\"born\":1960},\"label\":\"Person\"},{\"id\":59,\"data\":{\"name\":\"Max von Sydow\",\"uuid\":\"b542b45c-2183-4d30-9b0f-b503f2551298\",\"born\":1929},\"label\":\"Person\"},{\"id\":60,\"data\":{\"name\":\"Werner Herzog\",\"uuid\":\"810443fe-8cee-4e1a-a9d5-16365b2d835c\",\"born\":1942},\"label\":\"Person\"},{\"id\":61,\"data\":{\"name\":\"Robin Williams\",\"uuid\":\"ba395628-63c4-410b-b809-70cfa5db824d\",\"born\":1951},\"label\":\"Person\"},{\"id\":62,\"data\":{\"name\":\"Vincent Ward\",\"uuid\":\"a0c4f043-cacc-48b7-ab69-a44ff23c611e\",\"born\":1956},\"label\":\"Person\"},{\"id\":64,\"data\":{\"name\":\"Ethan Hawke\",\"uuid\":\"4ed32d9d-345f-41ef-8352-08159ad65eab\",\"born\":1970},\"label\":\"Person\"},{\"id\":65,\"data\":{\"name\":\"Rick Yune\",\"uuid\":\"6d75c455-f813-41f9-80fe-224d6e0e148a\",\"born\":1971},\"label\":\"Person\"},{\"id\":66,\"data\":{\"name\":\"James Cromwell\",\"uuid\":\"72c7916d-4bfb-42a2-a8d6-80f42478ede4\",\"born\":1940},\"label\":\"Person\"},{\"id\":67,\"data\":{\"name\":\"Scott Hicks\",\"uuid\":\"cc455aea-5c59-4134-b183-19952ff78273\",\"born\":1953},\"label\":\"Person\"},{\"id\":69,\"data\":{\"name\":\"Parker Posey\",\"uuid\":\"e076e4ac-1c68-4fa4-876c-a259f9b1b2bf\",\"born\":1968},\"label\":\"Person\"},{\"id\":70,\"data\":{\"name\":\"Dave Chappelle\",\"uuid\":\"c96172d1-a83e-431c-8516-9d42e067b429\",\"born\":1973},\"label\":\"Person\"},{\"id\":71,\"data\":{\"name\":\"Steve Zahn\",\"uuid\":\"692813c1-1ee2-4598-ac70-536ebe3c8cb5\",\"born\":1967},\"label\":\"Person\"},{\"id\":72,\"data\":{\"name\":\"Tom Hanks\",\"uuid\":\"b0c7ec29-e756-4a59-8ec7-de9ed0997add\",\"born\":1956},\"label\":\"Person\"},{\"id\":73,\"data\":{\"name\":\"Nora Ephron\",\"uuid\":\"c8b25f92-125d-40ff-9ded-6b6afc1365b3\",\"born\":1941},\"label\":\"Person\"},{\"id\":75,\"data\":{\"name\":\"Rita Wilson\",\"uuid\":\"9746a418-c0e0-47dd-b735-347bbc7cfac8\",\"born\":1956},\"label\":\"Person\"},{\"id\":76,\"data\":{\"name\":\"Bill Pullman\",\"uuid\":\"f1051f30-4e26-42d5-aee7-e65748b0148a\",\"born\":1953},\"label\":\"Person\"},{\"id\":77,\"data\":{\"name\":\"Victor Garber\",\"uuid\":\"3cb6510b-e916-47a7-b8bd-aa0f157b5f9f\",\"born\":1949},\"label\":\"Person\"},{\"id\":78,\"data\":{\"name\":\"Rosie O\\u0027Donnell\",\"uuid\":\"372f257d-f8d6-4926-9d35-57a6fc13eaf5\",\"born\":1962},\"label\":\"Person\"},{\"id\":80,\"data\":{\"name\":\"John Patrick Stanley\",\"uuid\":\"78c3a64b-1da4-4acf-8b95-31aee74e1ea4\",\"born\":1950},\"label\":\"Person\"},{\"id\":81,\"data\":{\"name\":\"Nathan Lane\",\"uuid\":\"6f2aebcf-20bd-454c-b9e7-126b7f3b627d\",\"born\":1956},\"label\":\"Person\"},{\"id\":83,\"data\":{\"name\":\"Billy Crystal\",\"uuid\":\"ce5713c8-3df8-4ff2-a406-79c8e607ab4f\",\"born\":1948},\"label\":\"Person\"},{\"id\":84,\"data\":{\"name\":\"Carrie Fisher\",\"uuid\":\"0da044c5-a42a-47d6-bd8a-24c9f0041e91\",\"born\":1956},\"label\":\"Person\"},{\"id\":85,\"data\":{\"name\":\"Bruno Kirby\",\"uuid\":\"798487ce-eb97-43c7-ab24-2d3df279fcd3\",\"born\":1949},\"label\":\"Person\"},{\"id\":87,\"data\":{\"name\":\"Liv Tyler\",\"uuid\":\"5301789f-9782-4b92-9650-3702123db21f\",\"born\":1977},\"label\":\"Person\"},{\"id\":89,\"data\":{\"name\":\"Brooke Langton\",\"uuid\":\"3287cec9-05e0-4dae-af86-2b788efb6c54\",\"born\":1970},\"label\":\"Person\"},{\"id\":90,\"data\":{\"name\":\"Gene Hackman\",\"uuid\":\"72cdd227-a615-4c39-a6aa-c7ee899b884a\",\"born\":1929},\"label\":\"Person\"},{\"id\":91,\"data\":{\"name\":\"Orlando Jones\",\"uuid\":\"9ec4d7e1-3caa-4d8c-aa01-6ce7120fc3af\",\"born\":1968},\"label\":\"Person\"},{\"id\":92,\"data\":{\"name\":\"Howard Deutch\",\"uuid\":\"07578678-3444-4a7d-9f00-b4464ffc193e\",\"born\":1950},\"label\":\"Person\"},{\"id\":94,\"data\":{\"name\":\"Christian Bale\",\"uuid\":\"231dbe90-def5-49e8-8784-7788154be91e\",\"born\":1974},\"label\":\"Person\"},{\"id\":95,\"data\":{\"name\":\"Zach Grenier\",\"uuid\":\"3852548b-d368-44ae-84a5-e28a35b4b8d4\",\"born\":1954},\"label\":\"Person\"},{\"id\":97,\"data\":{\"name\":\"Mike Nichols\",\"uuid\":\"6695ef4a-8986-4ca6-a108-8f9d906456ee\",\"born\":1931},\"label\":\"Person\"},{\"id\":99,\"data\":{\"name\":\"Richard Harris\",\"uuid\":\"a6a12fc3-d0b9-46b7-819c-1fae7318dfd8\",\"born\":1930},\"label\":\"Person\"},{\"id\":100,\"data\":{\"name\":\"Clint Eastwood\",\"uuid\":\"3b8fe0bf-353f-4a96-ae3e-a0529d860209\",\"born\":1930},\"label\":\"Person\"},{\"id\":102,\"data\":{\"name\":\"Takeshi Kitano\",\"uuid\":\"f9df36cb-aacb-44c6-8bb3-9730f626aa27\",\"born\":1947},\"label\":\"Person\"},{\"id\":103,\"data\":{\"name\":\"Dina Meyer\",\"uuid\":\"863e4c17-5fa8-4d34-bbbb-29e893aba3c2\",\"born\":1968},\"label\":\"Person\"},{\"id\":104,\"data\":{\"name\":\"Ice-T\",\"uuid\":\"d4bbc203-4fc4-413d-8cc5-b4522a402200\",\"born\":1958},\"label\":\"Person\"},{\"id\":105,\"data\":{\"name\":\"Robert Longo\",\"uuid\":\"1319f842-4662-4f38-88c3-1bd718a571ac\",\"born\":1953},\"label\":\"Person\"},{\"id\":107,\"data\":{\"name\":\"Halle Berry\",\"uuid\":\"1f51ffd1-1c2d-48fc-86c8-4f8ec43e3366\",\"born\":1966},\"label\":\"Person\"},{\"id\":108,\"data\":{\"name\":\"Jim Broadbent\",\"uuid\":\"c614ef9c-c24c-48bf-957f-256ec673fb7d\",\"born\":1949},\"label\":\"Person\"},{\"id\":109,\"data\":{\"name\":\"Tom Tykwer\",\"uuid\":\"059995de-2ee0-4dba-86dd-27cb2f47f23e\",\"born\":1965},\"label\":\"Person\"},{\"id\":110,\"data\":{\"name\":\"David Mitchell\",\"uuid\":\"a3e7272f-e1ba-4bbd-9f56-cac1d60ad300\",\"born\":1969},\"label\":\"Person\"},{\"id\":111,\"data\":{\"name\":\"Stefan Arndt\",\"uuid\":\"7ec7eef5-06af-47e4-9ce8-398f5be174c2\",\"born\":1961},\"label\":\"Person\"},{\"id\":113,\"data\":{\"name\":\"Ian McKellen\",\"uuid\":\"ffb86f6c-6b69-4d58-b37e-bc969d61af6f\",\"born\":1939},\"label\":\"Person\"},{\"id\":114,\"data\":{\"name\":\"Audrey Tautou\",\"uuid\":\"bb197c1f-8c46-4a3b-9f9b-54c2662347e0\",\"born\":1976},\"label\":\"Person\"},{\"id\":115,\"data\":{\"name\":\"Paul Bettany\",\"uuid\":\"c956ea75-9a91-4e21-831c-3da41f8d9aa4\",\"born\":1971},\"label\":\"Person\"},{\"id\":116,\"data\":{\"name\":\"Ron Howard\",\"uuid\":\"ff758876-0f1b-4632-9b0e-a6e6799488b0\",\"born\":1954},\"label\":\"Person\"},{\"id\":118,\"data\":{\"name\":\"Natalie Portman\",\"uuid\":\"6072c27b-ab2a-4429-8b51-9ec0ab7721c4\",\"born\":1981},\"label\":\"Person\"},{\"id\":119,\"data\":{\"name\":\"Stephen Rea\",\"uuid\":\"b7c6285d-796e-4d82-9962-3498f37bda4a\",\"born\":1946},\"label\":\"Person\"},{\"id\":120,\"data\":{\"name\":\"John Hurt\",\"uuid\":\"bc2b77d3-b60a-4772-8550-5726dada83db\",\"born\":1940},\"label\":\"Person\"},{\"id\":121,\"data\":{\"name\":\"Ben Miles\",\"uuid\":\"5c146b9e-0e7f-4f80-bcd6-a14ac04aa838\",\"born\":1967},\"label\":\"Person\"},{\"id\":123,\"data\":{\"name\":\"Emile Hirsch\",\"uuid\":\"9080b407-bac0-47f0-9198-ccc48e940562\",\"born\":1985},\"label\":\"Person\"},{\"id\":124,\"data\":{\"name\":\"John Goodman\",\"uuid\":\"4c130d02-f620-4594-832b-3fbe4fe3c0d1\",\"born\":1960},\"label\":\"Person\"},{\"id\":125,\"data\":{\"name\":\"Susan Sarandon\",\"uuid\":\"6523200b-40a9-4f7a-b564-8f3889236d7f\",\"born\":1946},\"label\":\"Person\"},{\"id\":126,\"data\":{\"name\":\"Matthew Fox\",\"uuid\":\"985415a2-6d84-44c2-8382-03e0390ba865\",\"born\":1966},\"label\":\"Person\"},{\"id\":127,\"data\":{\"name\":\"Christina Ricci\",\"uuid\":\"278bd32b-1bbc-4d20-8e4d-114350e400fd\",\"born\":1980},\"label\":\"Person\"},{\"id\":128,\"data\":{\"name\":\"Rain\",\"uuid\":\"8faa0c9f-9224-4959-9a30-98af5996ae55\",\"born\":1982},\"label\":\"Person\"},{\"id\":130,\"data\":{\"name\":\"Naomie Harris\",\"uuid\":\"69c3ad12-8443-40ab-84cd-b9f32c3bd1aa\"},\"label\":\"Person\"},{\"id\":132,\"data\":{\"name\":\"Michael Clarke Duncan\",\"uuid\":\"61adf99a-7ba4-4e89-9e0b-eb5108998e0a\",\"born\":1957},\"label\":\"Person\"},{\"id\":133,\"data\":{\"name\":\"David Morse\",\"uuid\":\"2cf0edad-6ded-4556-a965-797d7cb7b2c2\",\"born\":1953},\"label\":\"Person\"},{\"id\":134,\"data\":{\"name\":\"Sam Rockwell\",\"uuid\":\"d4d08c5d-65b6-4749-a6b0-17dc9d3a8b57\",\"born\":1968},\"label\":\"Person\"},{\"id\":135,\"data\":{\"name\":\"Gary Sinise\",\"uuid\":\"1ed71021-9e60-4e9b-b8ef-12999923b79d\",\"born\":1955},\"label\":\"Person\"},{\"id\":136,\"data\":{\"name\":\"Patricia Clarkson\",\"uuid\":\"fec62da9-40b3-4c8b-a462-db7d3222e04e\",\"born\":1959},\"label\":\"Person\"},{\"id\":137,\"data\":{\"name\":\"Frank Darabont\",\"uuid\":\"264b883c-ed5a-40cb-af58-b39254bcd69c\",\"born\":1959},\"label\":\"Person\"},{\"id\":139,\"data\":{\"name\":\"Frank Langella\",\"uuid\":\"979e96ee-cbe1-4084-94c1-cc7b83be2404\",\"born\":1938},\"label\":\"Person\"},{\"id\":140,\"data\":{\"name\":\"Michael Sheen\",\"uuid\":\"5353100b-445a-437f-bb5f-31f5a1762f9a\",\"born\":1969},\"label\":\"Person\"},{\"id\":141,\"data\":{\"name\":\"Oliver Platt\",\"uuid\":\"9ad2e58b-0a5b-48c0-93d8-9128e71dbd2e\",\"born\":1960},\"label\":\"Person\"},{\"id\":143,\"data\":{\"name\":\"Danny DeVito\",\"uuid\":\"5c20de79-c0c6-47c8-83b6-2a43576fdf0c\",\"born\":1944},\"label\":\"Person\"},{\"id\":144,\"data\":{\"name\":\"John C. Reilly\",\"uuid\":\"54ed38f0-90b7-4349-a784-ec1a6e451307\",\"born\":1965},\"label\":\"Person\"},{\"id\":146,\"data\":{\"name\":\"Ed Harris\",\"uuid\":\"f057c323-8491-4fca-88d6-3b980f794a9a\",\"born\":1950},\"label\":\"Person\"},{\"id\":147,\"data\":{\"name\":\"Bill Paxton\",\"uuid\":\"ea81bb92-0f5c-4214-b5c3-9fc982773b82\",\"born\":1955},\"label\":\"Person\"},{\"id\":149,\"data\":{\"name\":\"Philip Seymour Hoffman\",\"uuid\":\"d562025e-963a-4490-833f-bbf18117a3de\",\"born\":1967},\"label\":\"Person\"},{\"id\":150,\"data\":{\"name\":\"Jan de Bont\",\"uuid\":\"3b7d053c-1460-44ff-a10c-f5606a31a358\",\"born\":1943},\"label\":\"Person\"},{\"id\":152,\"data\":{\"name\":\"Robert Zemeckis\",\"uuid\":\"4f854d57-3e58-43a2-ad67-da7eb11961ce\",\"born\":1951},\"label\":\"Person\"},{\"id\":154,\"data\":{\"name\":\"Milos Forman\",\"uuid\":\"a2af2671-73ae-4181-89f3-e2ce85fbe6eb\",\"born\":1932},\"label\":\"Person\"},{\"id\":156,\"data\":{\"name\":\"Diane Keaton\",\"uuid\":\"99b864bc-6441-461e-b3d5-8076ea59fb68\",\"born\":1946},\"label\":\"Person\"},{\"id\":157,\"data\":{\"name\":\"Nancy Meyers\",\"uuid\":\"b1f1bd7c-92a8-4f22-bf14-2bd5ae57dc2b\",\"born\":1949},\"label\":\"Person\"},{\"id\":159,\"data\":{\"name\":\"Chris Columbus\",\"uuid\":\"724aafe7-532a-4ab5-947a-a3544b1f6b91\",\"born\":1958},\"label\":\"Person\"},{\"id\":161,\"data\":{\"name\":\"Julia Roberts\",\"uuid\":\"0f7b70dd-0fe1-4e13-a462-160f9f6d9aa6\",\"born\":1967},\"label\":\"Person\"},{\"id\":164,\"data\":{\"name\":\"Madonna\",\"uuid\":\"d9817e7c-5ad7-42dd-917d-3c29271ae649\",\"born\":1954},\"label\":\"Person\"},{\"id\":165,\"data\":{\"name\":\"Geena Davis\",\"uuid\":\"4f3451e4-82e2-44b7-b13d-a80dc350e9e8\",\"born\":1956},\"label\":\"Person\"},{\"id\":166,\"data\":{\"name\":\"Lori Petty\",\"uuid\":\"d5ceaaec-edb9-40ae-832e-b32eedc62d31\",\"born\":1963},\"label\":\"Person\"},{\"id\":167,\"data\":{\"name\":\"Penny Marshall\",\"uuid\":\"238fb023-c1c9-48ed-954f-6a2e5f843fa6\",\"born\":1943},\"label\":\"Person\"},{\"id\":168,\"data\":{\"name\":\"Paul Blythe\",\"uuid\":\"120fa608-c7b6-435b-9e53-566d4cb4c65d\"},\"label\":\"Person\"},{\"id\":169,\"data\":{\"name\":\"Angela Scope\",\"uuid\":\"53a739c2-8801-4113-a969-7354eeb379cf\"},\"label\":\"Person\"},{\"id\":170,\"data\":{\"name\":\"Jessica Thompson\",\"uuid\":\"924745cd-fd6f-48b8-9718-0865b930aae3\"},\"label\":\"Person\"},{\"id\":171,\"data\":{\"name\":\"James Thompson\",\"uuid\":\"bf743a6b-f69c-4d4f-b595-f0c1424e52d0\"},\"label\":\"Person\"}],\"edges\":[],\"labels\":{\"Movie\":\"#692318\",\"Person\":\"#DCE2ED\",\"NotFracchia\":\"#784E0A\",\"NodePeriodic\":\"#F716EF\",\"End\":\"#22F177\",\"Start\":\"#71FD73\",\"Batch\":\"#B5DC62\"},\"types\":[\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"DIRECTED\"],\"directed\":true}"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -1523,7 +1388,7 @@
     {
       "text": "%md\n\n### Delete the entire database\n\nWe can use the `apoc.periodic.truncate` to delete periodically the entire database. This procedure uses the `apoc.periodic.iterate` under the hood.\nThe procedure is useful when you’re in the prototyping phase and you’re defining your graph model or your ingestion strategies.\n\n\u003cpre\u003e\nCALL apoc.periodic.truncate({dropSchema: true})\n\u003c/pre\u003e\nWith dropSchema\u003dtrue/false that eventually drops indexes and constraints.\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 22:25:43.633",
+      "dateUpdated": "2022-03-24 10:58:32.649",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1558,14 +1423,14 @@
       "jobName": "paragraph_1635848145239_975766747",
       "id": "paragraph_1635848145239_975766747",
       "dateCreated": "2021-11-02 10:15:45.240",
-      "dateStarted": "2022-03-23 22:25:43.632",
-      "dateFinished": "2022-03-23 22:25:43.646",
+      "dateStarted": "2022-03-24 10:58:32.647",
+      "dateFinished": "2022-03-24 10:58:32.666",
       "status": "FINISHED"
     },
     {
       "text": "%md\n\n## [Statistics and analysis](http://localhost:8080/#/notebook/2GKUM18D6)",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 22:19:19.898",
+      "dateUpdated": "2022-03-24 10:58:35.355",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1600,9 +1465,26 @@
       "jobName": "paragraph_1635518678615_1647023307",
       "id": "paragraph_1635518678615_1647023307",
       "dateCreated": "2021-10-29 14:44:38.615",
-      "dateStarted": "2022-03-23 08:27:55.149",
-      "dateFinished": "2022-03-23 08:27:55.157",
+      "dateStarted": "2022-03-24 10:58:35.347",
+      "dateFinished": "2022-03-24 10:58:35.359",
       "status": "FINISHED"
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-24 10:58:35.347",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1648119515347_88665939",
+      "id": "paragraph_1648119515347_88665939",
+      "dateCreated": "2022-03-24 10:58:35.347",
+      "status": "READY"
     }
   ],
   "name": "1. Conditional and batch data",

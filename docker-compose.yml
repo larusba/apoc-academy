@@ -36,6 +36,7 @@ services:
       NEO4J_dbms_security_procedures_unrestricted: "apoc.*"
       NEO4J_dbms_security_procedures_whitelist: "apoc.*"
       apoc.export.file.enabled: "true"
+      apoc.import.file.enabled: "true"
       apoc.trigger.enabled: "true"
       apoc.uuid.enabled: "true"
       apoc.ttl.enabled: "true"

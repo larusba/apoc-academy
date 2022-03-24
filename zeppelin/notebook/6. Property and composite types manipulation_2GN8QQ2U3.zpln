@@ -3,7 +3,7 @@
     {
       "text": "%md\n\n# Collection and map functions\n\n\u003ca href\u003d\"https://neo4j.com/labs/apoc/4.1/data-structures/collection-list-functions/\" target\u003d\"_blank\"\u003eHere\u003c/a\u003e is the list of all collection functions.\n\nLet\u0027s see some examples:",
       "user": "anonymous",
-      "dateUpdated": "2021-11-11 10:30:49.680",
+      "dateUpdated": "2022-03-24 11:03:00.985",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -38,8 +38,8 @@
       "jobName": "paragraph_1635349487755_663980320",
       "id": "paragraph_1635349487755_663980320",
       "dateCreated": "2021-10-27 15:44:47.756",
-      "dateStarted": "2021-11-11 10:30:49.681",
-      "dateFinished": "2021-11-11 10:30:49.709",
+      "dateStarted": "2022-03-24 11:03:00.985",
+      "dateFinished": "2022-03-24 11:03:00.994",
       "status": "FINISHED"
     },
     {
@@ -94,15 +94,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "output\n15.0\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -166,15 +157,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "output\n[3,4,5]\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -236,15 +218,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "output\n[9,3,5,7,1]\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -312,15 +285,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":16,\"data\":{\"tagline\":\"In the heart of the nation\\u0027s capital, in a courthouse of the U.S. government, one man will stop at nothing to keep his honor, and one will stop at nothing to find the truth.\",\"title\":\"A Few Good Men\",\"released\":1992},\"label\":\"Movie\"}],\"edges\":[],\"labels\":{\"Movie\":\"#692318\",\"Person\":\"#DCE2ED\",\"NotFracchia\":\"#784E0A\",\"NodePeriodic\":\"#F716EF\",\"End\":\"#22F177\",\"Start\":\"#71FD73\",\"Batch\":\"#B5DC62\",\"Article\":\"#0A9A45\",\"Module\":\"#59D0C0\",\"CsvPerson\":\"#E93A8F\",\"Trigger\":\"#580E99\",\"NodeWithTime\":\"#8A3BA3\",\"Node\":\"#D46A12\",\"Test\":\"#D5FB0F\",\"Finished\":\"#B79448\",\"CurrentTime\":\"#7BB5EE\",\"Counter\":\"#3421B3\"},\"types\":[\"MY_REL\",\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"DIRECTED\",\"DEPENDS_ON\",\"ANOTHER\",\"KNOWS\"],\"directed\":true}"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -334,7 +298,7 @@
     {
       "text": "%md\n\n## Map function\n\n\u003ca href\u003d\"https://neo4j.com/labs/apoc/4.1/overview/apoc.map/\" target\u003d\"_blank\"\u003eThis\u003c/a\u003e is the list of the map function availables.",
       "user": "anonymous",
-      "dateUpdated": "2021-11-11 13:14:40.398",
+      "dateUpdated": "2022-03-24 11:03:10.792",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -369,8 +333,8 @@
       "jobName": "paragraph_1635509480064_1011363535",
       "id": "paragraph_1635509480064_1011363535",
       "dateCreated": "2021-10-29 12:11:20.064",
-      "dateStarted": "2021-11-11 13:14:40.398",
-      "dateFinished": "2021-11-11 13:14:40.411",
+      "dateStarted": "2022-03-24 11:03:10.790",
+      "dateFinished": "2022-03-24 11:03:10.799",
       "status": "FINISHED"
     },
     {
@@ -425,15 +389,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "output.name\toutput.job\toutput.dob\nGiorno Giovanna\tDreamer\t1985-04-16\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -498,15 +453,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "output.name\toutput.country\toutput.dob\nEscanor\tSomewhere\t1985-02-05\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -568,15 +514,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "output\n[[\"country\",\"Japan\"],[\"date\",\"First Jan\"],[\"name\",\"Gai Maito\"]]\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -590,7 +527,7 @@
     {
       "text": "%md\n\n## Text Functions\n\n\u003ca href\u003d\"https://neo4j.com/labs/apoc/4.1/misc/text-functions/\" target\u003d\"_blank\"\u003eHere\u003c/a\u003e is the list of all Apoc text functions.\n\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-09 08:48:07.469",
+      "dateUpdated": "2022-03-24 11:03:19.247",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -625,15 +562,15 @@
       "jobName": "paragraph_1635349483128_1944019862",
       "id": "paragraph_1635349483128_1944019862",
       "dateCreated": "2021-10-27 15:44:43.128",
-      "dateStarted": "2021-11-09 08:48:07.470",
-      "dateFinished": "2021-11-09 08:48:07.500",
+      "dateStarted": "2022-03-24 11:03:19.248",
+      "dateFinished": "2022-03-24 11:03:19.259",
       "status": "FINISHED"
     },
     {
       "title": "apoc.text.snakeCase",
-      "text": "%neo4j\nreturn apoc.text.snakeCase(\"test Snake Case\")",
+      "text": "%neo4j\nreturn apoc.text.snakeCase(\"Pdor figlio di Kmer\")",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:37:54.539",
+      "dateUpdated": "2022-03-24 10:50:41.301",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -649,7 +586,7 @@
                   "tableGridState": {},
                   "tableColumnTypeState": {
                     "names": {
-                      "apoc.text.snakeCase(\"test Snake Case\")": "string"
+                      "apoc.text.snakeCase(\"Pdor figlio di Kmer\")": "string"
                     },
                     "updated": false
                   },
@@ -680,30 +617,21 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "apoc.text.snakeCase(\"test Snake Case\")\n\"test-snake-case\"\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1635929316180_1022830283",
       "id": "paragraph_1635929316180_1022830283",
       "dateCreated": "2021-11-03 08:48:36.180",
-      "dateStarted": "2022-03-24 08:37:54.562",
-      "dateFinished": "2022-03-24 08:37:54.613",
+      "dateStarted": "2022-03-24 10:50:40.654",
+      "dateFinished": "2022-03-24 10:50:40.703",
       "status": "FINISHED"
     },
     {
       "title": "apoc.text.toUpperCase",
-      "text": "%neo4j\nreturn apoc.text.toUpperCase(\"test upper case\")",
+      "text": "%neo4j\nreturn apoc.text.toUpperCase(\"Pdor figlio di Kmer\")",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:37:57.806",
+      "dateUpdated": "2022-03-24 10:50:43.570",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -719,7 +647,7 @@
                   "tableGridState": {},
                   "tableColumnTypeState": {
                     "names": {
-                      "apoc.text.toUpperCase(\"test upper case\")": "string"
+                      "apoc.text.toUpperCase(\"Pdor figlio di Kmer\")": "string"
                     },
                     "updated": false
                   },
@@ -750,23 +678,14 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "apoc.text.toUpperCase(\"test upper case\")\n\"TEST_UPPER_CASE\"\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1635929298323_387798574",
       "id": "paragraph_1635929298323_387798574",
       "dateCreated": "2021-11-03 08:48:18.323",
-      "dateStarted": "2022-03-24 08:37:57.825",
-      "dateFinished": "2022-03-24 08:37:57.868",
+      "dateStarted": "2022-03-24 10:50:42.867",
+      "dateFinished": "2022-03-24 10:50:42.915",
       "status": "FINISHED"
     },
     {
@@ -819,15 +738,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "apoc.text.random(10, \"A-Z0-9.$\")\n\"14RVYECL76\"\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -890,15 +800,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "apoc.text.base64UrlEncode(\"http://neo4j.com/?test\u003dtest\")\n\"aHR0cDovL25lbzRqLmNvbS8_dGVzdD10ZXN0\"\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -960,15 +861,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "apoc.text.base64UrlDecode(\"aHR0cDovL25lbzRqLmNvbS8_dGVzdD10ZXN0\")\n\"http://neo4j.com/?test\u003dtest\"\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -982,7 +874,7 @@
     {
       "text": "%md\n### Other examples\n\n`RETURN apoc.text.capitalize(\"neo4j\")` - returns \"Neo4j\"\n\n`RETURN apoc.text.capitalizeAll(\"graph database\")` - returns \"Graph Database\"\n\n`RETURN apoc.text.decapitalize(\"Graph Database\")` - returns \"graph Database\"\n\n`RETURN apoc.text.decapitalizeAll(\"Graph Databases\")` - returns \"graph databases\"\n\n`RETURN apoc.text.swapCase(\"Neo4j\")` - returns \"nEO4J\"\n\n`RETURN apoc.text.camelCase(\"FOO_BAR\")` - returns \"fooBar\"\n\n`RETURN apoc.text.replace(\u0027Hello World!\u0027, \u0027[^a-zA-Z]\u0027, \u0027\u0027)`  ||  returns \u0027HelloWorld\u0027\n\n\n\nFormat the string with the params given, and optional param language (\u0027it\u0027 in this case)\n`RETURN apoc.text.format(\u0027ab%s %d %.1f %s%n\u0027,[\u0027cd\u0027,42,3.14,true]) AS value` || returns \u0027abcd 42 3.1 true\u0027\n`RETURN apoc.text.format(\u0027ab%s %d %.1f %s%n\u0027,[\u0027cd\u0027,42,3.14,true],\u0027it\u0027) AS value` || returns abcd 42 3,1 true\n\n\n`RETURN apoc.text.indexOf(\u0027Hello World!\u0027, \u0027World\u0027)` || returns 6\n\n\nThe `indexesOf` function, provides all occurrences of the given lookup string within the text, or empty list if not found.\nIt can optionally take `from` (inclusive) and `to` (exclusive) parameters.\n\nThe `indexesOf` function, provides all occurrences of the given lookup string within the text, or empty list if not found.\n`RETURN apoc.text.indexesOf(\u0027Hello World!\u0027, \u0027o\u0027,2,9)` || returns [4,7]\n\n\n`RETURN apoc.text.replace(\u0027Hello World!\u0027, \u0027[^a-zA-Z]\u0027, \u0027\u0027)` || returns \u0027HelloWorld\u0027\n\n\n`RETURN apoc.text.split(\u0027Hello   World\u0027, \u0027 +\u0027)` || splits with the given regular expression and returns [\u0027Hello\u0027, \u0027World\u0027]\n\n`RETURN apoc.text.join([\u0027Hello\u0027, \u0027World\u0027], \u0027 \u0027)` || returns \u0027Hello World\u0027\n\n\n`RETURN apoc.text.clean(\u0027Hello World!\u0027)` || return \u0027helloworld\u0027\n\n\n`RETURN apoc.text.compareCleaned(\u0027Hello World!\u0027, \u0027_hello-world_\u0027)` || return `true`",
       "user": "anonymous",
-      "dateUpdated": "2021-11-24 11:47:53.482",
+      "dateUpdated": "2022-03-24 11:03:25.948",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1017,14 +909,14 @@
       "jobName": "paragraph_1635930016248_1420921282",
       "id": "paragraph_1635930016248_1420921282",
       "dateCreated": "2021-11-03 09:00:16.248",
-      "dateStarted": "2021-11-24 11:47:53.480",
-      "dateFinished": "2021-11-24 11:47:53.501",
+      "dateStarted": "2022-03-24 11:03:25.948",
+      "dateFinished": "2022-03-24 11:03:25.962",
       "status": "FINISHED"
     },
     {
       "text": "%md\n\n### Text Similarity\n\nWe can compare `text1` with `text2`. Useful, for example, to data clean purpose, with several algorithms:\n\n- `apoc.text.levenshteinDistance(text1, text2)`\n- `apoc.text.levenshteinSimilarity(text1, text2)`\n- `apoc.text.hammingDistance(text1, text2)`\n- `apoc.text.jaroWinklerDistance(text1, text2)`\n- `apoc.text.sorensenDiceSimilarity(text1, text2)`\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 17:03:20.957",
+      "dateUpdated": "2022-03-24 11:03:30.698",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1059,8 +951,8 @@
       "jobName": "paragraph_1635928302510_764079613",
       "id": "paragraph_1635928302510_764079613",
       "dateCreated": "2021-11-03 08:31:42.510",
-      "dateStarted": "2022-03-23 17:03:20.961",
-      "dateFinished": "2022-03-23 17:03:23.053",
+      "dateStarted": "2022-03-24 11:03:30.699",
+      "dateFinished": "2022-03-24 11:03:30.712",
       "status": "FINISHED"
     },
     {
@@ -1114,15 +1006,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "first\tsecond\tthird\n1.0\t0.7272727272727273\t0.0\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -1136,7 +1019,7 @@
     {
       "text": "%md\n\n## Point values\n\nTo manipulate `Point` values, we can use:\n\n* `geocodeOnce(address)`\n* `geocode(address,maxResults)`\n* `reverseGeocode(latitude,longitude)`\n* `apoc.spatial.sortByDistance(paths)`\n\nThe `geocode` and `geocodeOnce` procedure converts a textual address into a location containing _latitude_, _longitude_ and _description_.\n`GeocodeOnce()` is designed to return the first, or highest ranking result.\nThis is because the backing geocoding service (OSM, Google, OpenCage...) might return multiple results for the same query.\n\nThe third procedure `reverseGeocode` will convert a location containing `latitude` and `longitude` into a textual address.\n\n\nThere are a few options that can be set in the `apoc.conf` file, see \u003ca href\u003d\"https://neo4j.com/labs/apoc/4.1/misc/spatial/\" target\u003d\"_blank\"\u003ehere\u003c/a\u003e for more info:\n\n\u003cpre\u003e\napoc.spatial.geocode.provider\u003dosm (osm, google, opencage, ...)\napoc.spatial.geocode.osm.key\u003dxxxx (API key for google geocode access)\napoc.spatial.geocode.google.key\u003dxxxx (API key for google geocode access)\napoc.spatial.geocode.google.client\u003dxxxx (client code for google geocode access)\napoc.spatial.geocode.google.signature\u003dxxxx (client signature for google geocode access)\n\u003c/pre\u003e",
       "user": "anonymous",
-      "dateUpdated": "2021-11-17 23:28:58.210",
+      "dateUpdated": "2022-03-24 11:03:35.306",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1171,15 +1054,15 @@
       "jobName": "paragraph_1635931448998_2028143042",
       "id": "paragraph_1635931448998_2028143042",
       "dateCreated": "2021-11-03 09:24:08.998",
-      "dateStarted": "2021-11-17 23:28:58.208",
-      "dateFinished": "2021-11-17 23:28:58.224",
+      "dateStarted": "2022-03-24 11:03:35.304",
+      "dateFinished": "2022-03-24 11:03:35.317",
       "status": "FINISHED"
     },
     {
       "title": "apoc.spatial.geocodeOnce",
       "text": "%neo4j\nwith \u0027Via Bruno Maderna 7, 30174 Venezia VE\u0027 as address\ncall apoc.spatial.geocodeOnce(address)\nyield location\nreturn location, address;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:38:33.101",
+      "dateUpdated": "2022-03-24 10:46:57.951",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1195,6 +1078,7 @@
                   "tableGridState": {},
                   "tableColumnTypeState": {
                     "names": {
+                      "location.description": "string",
                       "location.latitude": "string",
                       "location.longitude": "string",
                       "address": "string"
@@ -1259,7 +1143,8 @@
                     "aggr": "sum"
                   }
                 }
-              }
+              },
+              "commonSetting": {}
             },
             "helium": {}
           }
@@ -1277,23 +1162,14 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "location.description\tlocation.latitude\tlocation.longitude\taddress\nVia Bruno Maderna, Sant\u0027Anna, Chioggia, Venezia, Veneto, Italia\t45.1462503\t12.2639604\t\"Via Bruno Maderna 7, 30174 Venezia VE\"\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1635931999762_721699628",
       "id": "paragraph_1635931999762_721699628",
       "dateCreated": "2021-11-03 09:33:19.762",
-      "dateStarted": "2022-03-24 08:38:33.125",
-      "dateFinished": "2022-03-24 08:38:33.912",
+      "dateStarted": "2022-03-24 10:46:46.245",
+      "dateFinished": "2022-03-24 10:46:48.116",
       "status": "FINISHED"
     },
     {
@@ -1361,15 +1237,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "location.description\tlocation.latitude\tlocation.longitude\tdata.country\tdata.country_code\tdata.road\tdata.city\tdata.state_district\tdata.postcode\tdata.state\tdata.city_district\tlatitude\tlongitude\tdescription\nCrossway, London Borough of Bexley, London, Greater London, England, SE28 8NH, United Kingdom\t51.50743369498096\t0.1274535888695359\tUnited Kingdom\tgb\tCrossway\tLondon\tGreater London\tSE28 8NH\tEngland\tLondon Borough of Bexley\t51.50743369498096\t0.1274535888695359\t\"Crossway, London Borough of Bexley, London, Greater London, England, SE28 8NH, United Kingdom\"\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -1402,10 +1269,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": []
       },
       "apps": [],
       "runtimeInfos": {},
@@ -1491,15 +1354,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "distance\treduce(i \u003d [], n in nodes(path) | i + n.name)\n749.8210570020021\t[\"bruges\",\"brussels\",\"dresden\"]\n1120.8512195180913\t[\"bruges\",\"paris\",\"dresden\"]\n1209.661314133324\t[\"bruges\",\"brussels\",\"paris\",\"dresden\"]\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -1513,7 +1367,7 @@
     {
       "text": "%md\n\n## Date and time functions\n\nNeo4j supports date and temporal values, but often, we are dealing with differing date formats between systems or files. These can be difficult to express and translate without a few flexible procedures to handle converting one value formatting to another.\n\nAPOC has \u003ca href\u003d\"https://neo4j.com/labs/apoc/4.1/temporal/datetime-conversions/\" target\u003d\"_blank\"\u003eseveral procedures\u003c/a\u003e for converting and formatting various date, time, and temporal values.\nhere are some of them:\n\n- `apoc.date.add(timestamp, \u0027time\u0027, value, \u0027time\u0027)` - given a `timestamp` in one time unit, adds a `value` of the specified time unit\n- `apoc.date.fields(\u00272012-12-23\u0027,(\u0027yyyy-MM-dd\u0027))` - return columns and a map representation of date parsed\n- `apoc.date.parse(\u00272012-12-23\u0027,time,format)` - parse date string using the specified `format` into the specified time unit\n- `apoc.date.format(12345,time,format,\u0027timezone\u0027)` - get string representation of time value optionally using the specified `unit` (default ms) using specified `format` (default ISO) and specified `timezone` (default `TZ`)\n\nwhere `time` parameter is one of these: `\u0027ms\u0027, \u0027s\u0027, \u0027m\u0027, \u0027h\u0027, \u0027d\u0027, \u0027millis\u0027, \u0027milliseconds\u0027, \u0027seconds\u0027, \u0027minutes\u0027, \u0027hours\u0027 or \u0027days\u0027`,\nand `format` is the date format (e.g `\"yyyy-MM-dd\"`, `\"yyyy-MM-dd HH:mm:ss zzz\"`)\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 15:30:48.779",
+      "dateUpdated": "2022-03-24 11:03:42.452",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1548,8 +1402,8 @@
       "jobName": "paragraph_1635349592486_1411303387",
       "id": "paragraph_1635349592486_1411303387",
       "dateCreated": "2021-10-27 15:46:32.486",
-      "dateStarted": "2022-03-22 15:30:48.776",
-      "dateFinished": "2022-03-22 15:30:48.800",
+      "dateStarted": "2022-03-24 11:03:42.452",
+      "dateFinished": "2022-03-24 11:03:42.465",
       "status": "FINISHED"
     },
     {
@@ -1608,15 +1462,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "date.hours\tdate.seconds\tdate.months\tdate.minutes\tdate.days\tdate.zoneid\n10\t21\t11\t30\t4\tUTC\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -1631,7 +1476,7 @@
       "title": "apoc.date.format",
       "text": "%neo4j\nwith 891388800 as startDate\nwith startDate, apoc.date.add(startDate, \u0027s\u0027, 31, \u0027d\u0027) as endDate\nreturn apoc.date.format(startDate,\u0027s\u0027,\u0027yyyy-MM-dd\u0027) as startDate, \napoc.date.format(endDate,\u0027s\u0027,\u0027yyyy-MM-dd\u0027) as endDate",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:45:18.581",
+      "dateUpdated": "2022-03-24 10:47:50.913",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1681,23 +1526,14 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "startDate\tendDate\n\"1998-04-01\"\t\"1998-05-02\"\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1635409495647_893356114",
       "id": "paragraph_1635409495647_893356114",
       "dateCreated": "2021-10-28 08:24:55.647",
-      "dateStarted": "2022-03-24 08:45:18.608",
-      "dateFinished": "2022-03-24 08:45:18.670",
+      "dateStarted": "2022-03-24 10:47:50.949",
+      "dateFinished": "2022-03-24 10:47:51.042",
       "status": "FINISHED"
     },
     {
@@ -1750,15 +1586,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "output\n\"2020-11-04\"\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -1819,15 +1646,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "output\n\"2020-11-04\"\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -1887,15 +1705,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "output\n\"1991-10-11\"\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -1909,7 +1718,7 @@
     {
       "text": "%md\n\nWith `apoc.date.convertFormat` and apoc.temporal.format\nYou can also pass a ISO DATE TIME pattern, the list is available here https://www.elastic.co/guide/en/elasticsearch/reference/5.5/mapping-date-format.html#built-in-date-formats\nhttps://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:35:45.839",
+      "dateUpdated": "2022-03-24 11:03:46.920",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1944,8 +1753,8 @@
       "jobName": "paragraph_1637858624917_33417433",
       "id": "paragraph_1637858624917_33417433",
       "dateCreated": "2021-11-25 16:43:44.917",
-      "dateStarted": "2022-03-21 14:35:45.839",
-      "dateFinished": "2022-03-21 14:35:45.851",
+      "dateStarted": "2022-03-24 11:03:46.919",
+      "dateFinished": "2022-03-24 11:03:46.929",
       "status": "FINISHED"
     },
     {
@@ -1996,15 +1805,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "output\n\"2022-03-24T08:45:29.876Z\"\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -2072,15 +1872,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":1,\"data\":{\"tagline\":\"Welcome to the Real World\",\"title\":\"The Matrix\",\"released\":1999},\"label\":\"Movie\"},{\"id\":131,\"data\":{\"tagline\":\"Walk a mile you\\u0027ll never forget.\",\"title\":\"The Green Mile\",\"released\":1999},\"label\":\"Movie\"},{\"id\":158,\"data\":{\"tagline\":\"One robot\\u0027s 200 year journey to become an ordinary man.\",\"title\":\"Bicentennial Man\",\"released\":1999},\"label\":\"Movie\"},{\"id\":63,\"data\":{\"tagline\":\"First loves last. Forever.\",\"title\":\"Snow Falling on Cedars\",\"released\":1999},\"label\":\"Movie\"}],\"edges\":[],\"labels\":{\"Movie\":\"#692318\",\"Person\":\"#DCE2ED\",\"NotFracchia\":\"#784E0A\",\"NodePeriodic\":\"#F716EF\",\"End\":\"#22F177\",\"Start\":\"#71FD73\",\"Batch\":\"#B5DC62\",\"Article\":\"#0A9A45\",\"Module\":\"#59D0C0\",\"CsvPerson\":\"#E93A8F\",\"Trigger\":\"#580E99\",\"NodeWithTime\":\"#8A3BA3\",\"Node\":\"#D46A12\",\"Test\":\"#D5FB0F\",\"Finished\":\"#B79448\",\"CurrentTime\":\"#7BB5EE\",\"Counter\":\"#3421B3\",\"City\":\"#2F3C8E\"},\"types\":[\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"DEPENDS_ON\",\"ANOTHER\",\"KNOWS\",\"MY_REL\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\"],\"directed\":true}"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -2145,15 +1936,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "timeBeforeAPOC\ttimeBefore\ttimeAfterAPOC\ttimeAfter\n\"45:36\"\t\"45:36\"\t\"45:39\"\t\"45:36\"\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -2167,7 +1949,7 @@
     {
       "text": "%md\n\n## Conversion functions\n\n\u003ca href\u003d\"https://neo4j.com/labs/apoc/4.1/overview/apoc.convert/\" target\u003d\"_blank\"\u003eHere\u003c/a\u003e are the conversion functions/procedures.\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-09 09:05:22.577",
+      "dateUpdated": "2022-03-24 11:03:53.307",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2202,8 +1984,8 @@
       "jobName": "paragraph_1635410629828_1292976084",
       "id": "paragraph_1635410629828_1292976084",
       "dateCreated": "2021-10-28 08:43:49.828",
-      "dateStarted": "2021-11-09 09:05:22.578",
-      "dateFinished": "2021-11-09 09:05:22.594",
+      "dateStarted": "2022-03-24 11:03:53.307",
+      "dateFinished": "2022-03-24 11:03:53.316",
       "status": "FINISHED"
     },
     {
@@ -2255,15 +2037,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "output\n[1,2,3]\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -2352,15 +2125,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "id(node)\n172\n155\n157\n156\n18\n88\n89\n171\n169\n170\n92\n91\n90\n101\n104\n103\n102\n105\n12\n15\n14\n13\n11\n8\n7\n6\n5\n4\n3\n10\n1\n9\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -2451,15 +2215,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "id(node)\n172\n155\n157\n157\n156\n18\n157\n88\n89\n171\n169\n170\n92\n91\n90\n101\n104\n103\n102\n105\n12\n15\n14\n13\n11\n8\n7\n6\n5\n4\n3\n10\n8\n7\n6\n5\n4\n3\n1\n9\n8\n7\n6\n5\n4\n3\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -2518,15 +2273,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "apoc.convert.toJson(p)\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"172\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"name\\\":\\\"The movie about Giandomenico Fracchia\\\"},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"253\\\",\\\"label\\\":\\\"HAS_MOVIE\\\",\\\"type\\\":\\\"relationship\\\"},{\\\"id\\\":\\\"172\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"name\\\":\\\"The movie about Giandomenico Fracchia\\\"},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"155\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"title\\\":\\\"Something\u0027s Gotta Give\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"221\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Julian Mercer\\\"]}},{\\\"id\\\":\\\"155\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"title\\\":\\\"Something\u0027s Gotta Give\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"88\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Pain heals, Chicks dig scars... Glory lasts forever\\\",\\\"title\\\":\\\"The Replacements\\\",\\\"released\\\":2000},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"114\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Shane Falco\\\"]}},{\\\"id\\\":\\\"88\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Pain heals, Chicks dig scars... Glory lasts forever\\\",\\\"title\\\":\\\"The Replacements\\\",\\\"released\\\":2000},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"101\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"The hottest data on earth. In the coolest head in town\\\",\\\"title\\\":\\\"Johnny Mnemonic\\\",\\\"released\\\":1995},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"132\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Johnny Mnemonic\\\"]}},{\\\"id\\\":\\\"101\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"The hottest data on earth. In the coolest head in town\\\",\\\"title\\\":\\\"Johnny Mnemonic\\\",\\\"released\\\":1995},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"12\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Evil has its winning ways\\\",\\\"title\\\":\\\"The Devil\u0027s Advocate\\\",\\\"released\\\":1997},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"22\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Kevin Lomax\\\"]}},{\\\"id\\\":\\\"12\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Evil has its winning ways\\\",\\\"title\\\":\\\"The Devil\u0027s Advocate\\\",\\\"released\\\":1997},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"11\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Everything that has a beginning has an end\\\",\\\"title\\\":\\\"The Matrix Revolutions\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"15\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Neo\\\"]}},{\\\"id\\\":\\\"11\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Everything that has a beginning has an end\\\",\\\"title\\\":\\\"The Matrix Revolutions\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"10\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Free your mind\\\",\\\"title\\\":\\\"The Matrix Reloaded\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"8\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Neo\\\"]}},{\\\"id\\\":\\\"10\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Free your mind\\\",\\\"title\\\":\\\"The Matrix Reloaded\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"1\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Welcome to the Real World\\\",\\\"title\\\":\\\"The Matrix\\\",\\\"released\\\":1999},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"0\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Neo\\\"]}},{\\\"id\\\":\\\"1\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Welcome to the Real World\\\",\\\"title\\\":\\\"The Matrix\\\",\\\"released\\\":1999},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -2656,15 +2402,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "output.columns.col2\toutput.columns.row.poiType\toutput.columns.row.poi\n1\tGovernorate\t772\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -2752,15 +2489,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "output\n[{\"b\":\"1\"},null,null,{\"ajeje\":1},null]\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -2851,15 +2579,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "path\n[{\"b\":\"1\"},{\"ajeje\":1}]\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -2954,15 +2673,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "path.alfa.a\tpath.columns.b\tpath.beta.columns.ajeje\tpath.gamma\n1\t1\t1\t666\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -3055,15 +2765,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "ERROR",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "Failed to invoke function `apoc.convert.fromJsonMap`: Caused by: com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.util.LinkedHashMap\u003cjava.lang.Object,java.lang.Object\u003e` out of START_ARRAY token\n at [Source: UNKNOWN; line: -1, column: -1]"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -3158,15 +2859,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "ERROR",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "Failed to invoke function `apoc.convert.fromJsonList`: Caused by: com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.util.ArrayList\u003cjava.lang.Object\u003e` out of START_OBJECT token\n at [Source: (String)\"{  \"columns\": {\"b\": \"1\"}, \"alfa\": {\"a\": 1}, \"beta\": {\"columns\": {\"ajeje\": 1}}, \"gamma\": 666    }\"; line: 1, column: 1]"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -3257,15 +2949,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "path\n[{\"b\":\"1\"},null,null,{\"ajeje\":1},null]\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -3279,7 +2962,7 @@
     {
       "text": "%md\n\n## [Refactor data](http://localhost:8080/#/notebook/2GKZNUE99)\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-10 10:08:34.863",
+      "dateUpdated": "2022-03-24 11:04:01.369",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3314,8 +2997,8 @@
       "jobName": "paragraph_1635869719574_1755877996",
       "id": "paragraph_1635869719574_1755877996",
       "dateCreated": "2021-11-02 16:15:19.574",
-      "dateStarted": "2021-11-10 10:08:34.860",
-      "dateFinished": "2021-11-10 10:08:34.874",
+      "dateStarted": "2022-03-24 11:04:01.369",
+      "dateFinished": "2022-03-24 11:04:01.380",
       "status": "FINISHED"
     },
     {

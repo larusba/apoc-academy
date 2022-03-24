@@ -3,7 +3,7 @@
     {
       "text": "%md\n\n# Refactor data\n\nThe APOC library has a set of procedures that can be used to adjust data structure and values across parts or the entirety of the graph. \nWe will look at some of these of these procedures.\n\nThe complete list is \u003ca href\u003d\"https://neo4j.com/labs/apoc/4.1/overview/apoc.refactor/\" target\u003d\"_blank\"\u003ehere\u003c/a\u003e.\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 09:08:14.126",
+      "dateUpdated": "2022-03-24 11:04:14.432",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -38,14 +38,14 @@
       "jobName": "paragraph_1635348036359_2131776212",
       "id": "paragraph_1635348036359_2131776212",
       "dateCreated": "2021-10-27 15:20:36.359",
-      "dateStarted": "2022-03-23 09:08:14.136",
-      "dateFinished": "2022-03-23 09:08:14.153",
+      "dateStarted": "2022-03-24 11:04:14.432",
+      "dateFinished": "2022-03-24 11:04:14.442",
       "status": "FINISHED"
     },
     {
       "text": "%md\n### Clone nodes\n\n`CALL apoc.refactor.cloneNodes(nodes, withRelationships\u003dfalse, skipProperties\u003d[])`\n`withRelationships` if true connect rels if presents.\n`skipProperties` list of properties to skip.",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 09:08:15.930",
+      "dateUpdated": "2022-03-24 11:04:21.673",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -80,8 +80,8 @@
       "jobName": "paragraph_1637853586583_827481307",
       "id": "paragraph_1637853586583_827481307",
       "dateCreated": "2021-11-25 15:19:46.583",
-      "dateStarted": "2022-03-23 09:08:15.938",
-      "dateFinished": "2022-03-23 09:08:15.947",
+      "dateStarted": "2022-03-24 11:04:21.674",
+      "dateFinished": "2022-03-24 11:04:21.685",
       "status": "FINISHED"
     },
     {
@@ -142,15 +142,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":21440,\"data\":{\"uuid\":\"231dbe90-def5-49e8-8784-7788154be91e\",\"born\":1974},\"label\":\"Person\"},{\"id\":93,\"data\":{\"tagline\":\"Based on the extraordinary true story of one man\\u0027s fight for freedom\",\"title\":\"RescueDawn\",\"released\":2006},\"label\":\"Movie\"},{\"id\":94,\"data\":{\"name\":\"Christian Bale\",\"uuid\":\"231dbe90-def5-49e8-8784-7788154be91e\",\"born\":1974},\"label\":\"Person\"}],\"edges\":[{\"source\":21440,\"target\":93,\"id\":10272,\"data\":{\"roles\":[\"Dieter Dengler\"]},\"label\":\"ACTED_IN\"},{\"source\":94,\"target\":93,\"id\":120,\"data\":{\"roles\":[\"Dieter Dengler\"]},\"label\":\"ACTED_IN\"}],\"labels\":{\"Movie\":\"#692318\",\"Person\":\"#DCE2ED\",\"NotFracchia\":\"#784E0A\",\"NodePeriodic\":\"#F716EF\",\"End\":\"#22F177\",\"Start\":\"#71FD73\",\"Batch\":\"#B5DC62\",\"Article\":\"#0A9A45\",\"Module\":\"#59D0C0\",\"CsvPerson\":\"#E93A8F\",\"Trigger\":\"#580E99\",\"NodeWithTime\":\"#8A3BA3\",\"Node\":\"#D46A12\",\"Test\":\"#D5FB0F\",\"Finished\":\"#B79448\",\"CurrentTime\":\"#7BB5EE\",\"Counter\":\"#3421B3\",\"City\":\"#2F3C8E\"},\"types\":[\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"DEPENDS_ON\",\"ANOTHER\",\"KNOWS\",\"MY_REL\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\"],\"directed\":true}"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -164,7 +155,7 @@
     {
       "text": "%md\n\n### Invert relationships\n\nWe can quickly invert a relationship with a `CALL apoc.refactor.invert(rel)`, where `rel` is the relationship to be inverted.\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 09:08:18.296",
+      "dateUpdated": "2022-03-24 11:04:27.598",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -199,8 +190,8 @@
       "jobName": "paragraph_1635348071412_1417491836",
       "id": "paragraph_1635348071412_1417491836",
       "dateCreated": "2021-10-27 15:21:11.413",
-      "dateStarted": "2022-03-23 09:08:18.328",
-      "dateFinished": "2022-03-23 09:08:18.358",
+      "dateStarted": "2022-03-24 11:04:27.598",
+      "dateFinished": "2022-03-24 11:04:27.608",
       "status": "FINISHED"
     },
     {
@@ -260,15 +251,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":12,\"data\":{\"tagline\":\"Evil has its winning ways\",\"title\":\"The Devil\\u0027s Advocate\",\"released\":1997},\"label\":\"Movie\"},{\"id\":14,\"data\":{\"name\":\"Al Pacino\",\"uuid\":\"67c8a856-def1-46a9-acd7-631437084bf4\",\"born\":1940},\"label\":\"Person\"}],\"edges\":[{\"source\":12,\"target\":14,\"id\":10273,\"data\":{\"roles\":[\"John Milton\"]},\"label\":\"ACTED_IN\"}],\"labels\":{\"Movie\":\"#692318\",\"Person\":\"#DCE2ED\",\"NotFracchia\":\"#784E0A\",\"NodePeriodic\":\"#F716EF\",\"End\":\"#22F177\",\"Start\":\"#71FD73\",\"Batch\":\"#B5DC62\",\"Article\":\"#0A9A45\",\"Module\":\"#59D0C0\",\"CsvPerson\":\"#E93A8F\",\"Trigger\":\"#580E99\",\"NodeWithTime\":\"#8A3BA3\",\"Node\":\"#D46A12\",\"Test\":\"#D5FB0F\",\"Finished\":\"#B79448\",\"CurrentTime\":\"#7BB5EE\",\"Counter\":\"#3421B3\",\"City\":\"#2F3C8E\"},\"types\":[\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"DEPENDS_ON\",\"ANOTHER\",\"KNOWS\",\"MY_REL\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\"],\"directed\":true}"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -282,7 +264,7 @@
     {
       "text": "%md\n\n### Renaming\n\nWe can rename relationships with the `apoc.refactor.rename.type(oldType, newType, [rels])`,\nto rename all relationships with type `oldType` to `newType`. `rels` is optional, can be a list of relationships to apply the refactor to.\n\nFormat: apoc.refactor.rename.type(oldType, newType, `[rels]`)\n\n\nWith the same logic we have:\n- `CALL apoc.refactor.rename.label(oldLabel, newLabel, [nodes])`\n- `CALL apoc.refactor.rename.nodeProperty(oldName, newName, [nodes])`\n- `CALL apoc.refactor.rename.typeProperty(oldName, newName, [rels])`\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 09:08:20.368",
+      "dateUpdated": "2022-03-24 11:04:32.387",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -317,8 +299,8 @@
       "jobName": "paragraph_1635348082297_1111714116",
       "id": "paragraph_1635348082297_1111714116",
       "dateCreated": "2021-10-27 15:21:22.297",
-      "dateStarted": "2022-03-23 09:08:20.375",
-      "dateFinished": "2022-03-23 09:08:20.387",
+      "dateStarted": "2022-03-24 11:04:32.387",
+      "dateFinished": "2022-03-24 11:04:32.399",
       "status": "FINISHED"
     },
     {
@@ -382,15 +364,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":12,\"data\":{\"tagline\":\"Evil has its winning ways\",\"title\":\"The Devil\\u0027s Advocate\",\"released\":1997},\"label\":\"Movie\"},{\"id\":14,\"data\":{\"name\":\"Al Pacino\",\"uuid\":\"67c8a856-def1-46a9-acd7-631437084bf4\",\"born\":1940},\"label\":\"Person\"}],\"edges\":[{\"source\":12,\"target\":14,\"id\":24,\"data\":{\"roles\":[\"John Milton\"]},\"label\":\"NEW_REL\"}],\"labels\":{\"Movie\":\"#692318\",\"Person\":\"#DCE2ED\",\"NotFracchia\":\"#784E0A\",\"NodePeriodic\":\"#F716EF\",\"End\":\"#22F177\",\"Start\":\"#71FD73\",\"Batch\":\"#B5DC62\",\"Article\":\"#0A9A45\",\"Module\":\"#59D0C0\",\"CsvPerson\":\"#E93A8F\",\"Trigger\":\"#580E99\",\"NodeWithTime\":\"#8A3BA3\",\"Node\":\"#D46A12\",\"Test\":\"#D5FB0F\",\"Finished\":\"#B79448\",\"CurrentTime\":\"#7BB5EE\",\"Counter\":\"#3421B3\",\"City\":\"#2F3C8E\"},\"types\":[\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"DEPENDS_ON\",\"ANOTHER\",\"KNOWS\",\"MY_REL\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\"],\"directed\":true}"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -404,7 +377,7 @@
     {
       "text": "%md\n\n### Grouping nodes into categories\n\nTo transform a unique property key of a target node into a new node and connect target and new node.\n\n\n`CALL apoc.refactor.categorize(sourceKey, type, outgoing, label, targetKey, copiedKeys, batchSize)`\n\n\nThe parameters are:\n\n- `sourceKey`: the property on the existing node we want to use to create the new node\n- `type`: the type for the new relationship for connecting the existing node to the new node\n- `outgoing`: whether the relationship is outgoing or not\n- `label`: the label for the new node\n- `targetKey`: the key property name we want on the new node\n- `copiedKeys`: any additional properties we’d like copied from the old node to the new\n- `batchSize`\n\n\u003cpre\u003e\nBefore we can execute this procedure, we need to put a constraint on the new node and property key.\n\u003c/pre\u003e\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 09:08:23.306",
+      "dateUpdated": "2022-03-24 11:04:36.679",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -439,8 +412,8 @@
       "jobName": "paragraph_1635348112816_1621294288",
       "id": "paragraph_1635348112816_1621294288",
       "dateCreated": "2021-10-27 15:21:52.816",
-      "dateStarted": "2022-03-23 09:08:23.313",
-      "dateFinished": "2022-03-23 09:08:23.333",
+      "dateStarted": "2022-03-24 11:04:36.679",
+      "dateFinished": "2022-03-24 11:04:36.691",
       "status": "FINISHED"
     },
     {
@@ -466,10 +439,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": []
       },
       "apps": [],
       "runtimeInfos": {},
@@ -539,15 +508,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":0,\"data\":{\"title\":\"3 men and 1 leg\"},\"label\":\"Movie\"},{\"id\":1,\"data\":{\"title\":\"The Matrix\"},\"label\":\"Movie\"},{\"id\":129,\"data\":{\"title\":\"Ninja Assassin\"},\"label\":\"Movie\"},{\"id\":131,\"data\":{\"title\":\"The Green Mile\"},\"label\":\"Movie\"},{\"id\":10,\"data\":{\"title\":\"The Matrix Reloaded\"},\"label\":\"Movie\"},{\"id\":138,\"data\":{\"title\":\"Frost/Nixon\"},\"label\":\"Movie\"},{\"id\":11,\"data\":{\"title\":\"The Matrix Revolutions\"},\"label\":\"Movie\"},{\"id\":12,\"data\":{\"title\":\"The Devil\\u0027s Advocate\"},\"label\":\"Movie\"},{\"id\":142,\"data\":{\"title\":\"Hoffa\"},\"label\":\"Movie\"},{\"id\":16,\"data\":{\"title\":\"A Few Good Men\"},\"label\":\"Movie\"},{\"id\":145,\"data\":{\"title\":\"Apollo 13\"},\"label\":\"Movie\"},{\"id\":148,\"data\":{\"title\":\"Twister\"},\"label\":\"Movie\"},{\"id\":151,\"data\":{\"title\":\"Cast Away\"},\"label\":\"Movie\"},{\"id\":153,\"data\":{\"title\":\"One Flew Over the Cuckoo\\u0027s Nest\"},\"label\":\"Movie\"},{\"id\":30,\"data\":{\"title\":\"Top Gun\"},\"label\":\"Movie\"},{\"id\":158,\"data\":{\"title\":\"Bicentennial Man\"},\"label\":\"Movie\"},{\"id\":160,\"data\":{\"title\":\"Charlie Wilson\\u0027s War\"},\"label\":\"Movie\"},{\"id\":162,\"data\":{\"title\":\"The Polar Express\"},\"label\":\"Movie\"},{\"id\":163,\"data\":{\"title\":\"A League of Their Own\"},\"label\":\"Movie\"},{\"id\":38,\"data\":{\"title\":\"Jerry Maguire\"},\"label\":\"Movie\"},{\"id\":47,\"data\":{\"title\":\"Stand By Me\"},\"label\":\"Movie\"},{\"id\":53,\"data\":{\"title\":\"As Good as It Gets\"},\"label\":\"Movie\"},{\"id\":57,\"data\":{\"title\":\"What Dreams May Come\"},\"label\":\"Movie\"},{\"id\":63,\"data\":{\"title\":\"Snow Falling on Cedars\"},\"label\":\"Movie\"},{\"id\":21441,\"data\":{\"name\":\"My carpenter with 30 thousand lire did it better\",\"released\":0},\"label\":\"TagLine\"},{\"id\":21442,\"data\":{\"name\":\"The hottest data on earth. In the coolest head in town\",\"released\":1995},\"label\":\"TagLine\"},{\"id\":21443,\"data\":{\"name\":\"Welcome to the Real World\",\"released\":1999},\"label\":\"TagLine\"},{\"id\":21444,\"data\":{\"name\":\"Everything is connected\",\"released\":2012},\"label\":\"TagLine\"},{\"id\":68,\"data\":{\"title\":\"You\\u0027ve Got Mail\"},\"label\":\"Movie\"},{\"id\":21445,\"data\":{\"name\":\"Free your mind\",\"released\":2003},\"label\":\"TagLine\"},{\"id\":21446,\"data\":{\"name\":\"Break The Codes\",\"released\":2006},\"label\":\"TagLine\"},{\"id\":21447,\"data\":{\"name\":\"Everything that has a beginning has an end\",\"released\":2003},\"label\":\"TagLine\"},{\"id\":21448,\"data\":{\"name\":\"Freedom! Forever!\",\"released\":2006},\"label\":\"TagLine\"},{\"id\":21449,\"data\":{\"name\":\"Evil has its winning ways\",\"released\":1997},\"label\":\"TagLine\"},{\"id\":21450,\"data\":{\"name\":\"Speed has no limits\",\"released\":2008},\"label\":\"TagLine\"},{\"id\":74,\"data\":{\"title\":\"Sleepless in Seattle\"},\"label\":\"Movie\"},{\"id\":21451,\"data\":{\"name\":\"In the heart of the nation\\u0027s capital, in a courthouse of the U.S. government, one man will stop at nothing to keep his honor, and one will stop at nothing to find the truth.\",\"released\":1992},\"label\":\"TagLine\"},{\"id\":21452,\"data\":{\"name\":\"I feel the need, the need for speed.\",\"released\":1986},\"label\":\"TagLine\"},{\"id\":21453,\"data\":{\"name\":\"Prepare to enter a secret world of assassins\",\"released\":2009},\"label\":\"TagLine\"},{\"id\":21454,\"data\":{\"name\":\"The rest of his life begins now.\",\"released\":2000},\"label\":\"TagLine\"},{\"id\":21455,\"data\":{\"name\":\"Walk a mile you\\u0027ll never forget.\",\"released\":1999},\"label\":\"TagLine\"},{\"id\":79,\"data\":{\"title\":\"Joe Versus the Volcano\"},\"label\":\"Movie\"},{\"id\":21456,\"data\":{\"name\":\"For some, it\\u0027s the last real taste of innocence, and the first real taste of life. But for everyone, it\\u0027s the time that memories are made of.\",\"released\":1986},\"label\":\"TagLine\"},{\"id\":21457,\"data\":{\"name\":\"400 million people were waiting for the truth.\",\"released\":2008},\"label\":\"TagLine\"},{\"id\":21458,\"data\":{\"name\":\"A comedy from the heart that goes for the throat.\",\"released\":1997},\"label\":\"TagLine\"},{\"id\":82,\"data\":{\"title\":\"When herry Met Sally\"},\"label\":\"Movie\"},{\"id\":21459,\"data\":{\"name\":\"He didn\\u0027t want law. He wanted justice.\",\"released\":1992},\"label\":\"TagLine\"},{\"id\":21460,\"data\":{\"name\":\"After life there is more. The end is just the beginning.\",\"released\":1998},\"label\":\"TagLine\"},{\"id\":21461,\"data\":{\"name\":\"Houston, we have a problem.\",\"released\":1995},\"label\":\"TagLine\"},{\"id\":21462,\"data\":{\"name\":\"First loves last. Forever.\",\"released\":1999},\"label\":\"TagLine\"},{\"id\":86,\"data\":{\"title\":\"That Thing You Do\"},\"label\":\"Movie\"},{\"id\":21463,\"data\":{\"name\":\"Don\\u0027t Breathe. Don\\u0027t Look Back.\",\"released\":1996},\"label\":\"TagLine\"},{\"id\":21464,\"data\":{\"name\":\"At odds in life... in love on-line.\",\"released\":1998},\"label\":\"TagLine\"},{\"id\":88,\"data\":{\"title\":\"The Replacements\"},\"label\":\"Movie\"},{\"id\":21465,\"data\":{\"name\":\"At the edge of the world, his journey begins.\",\"released\":2000},\"label\":\"TagLine\"},{\"id\":21466,\"data\":{\"name\":\"What if someone you never met, someone you never saw, someone you never knew was the only someone for you?\",\"released\":1993},\"label\":\"TagLine\"},{\"id\":21467,\"data\":{\"name\":\"If he\\u0027s crazy, what does that make you?\",\"released\":1975},\"label\":\"TagLine\"},{\"id\":21468,\"data\":{\"name\":\"A story of love, lava and burning desire.\",\"released\":1990},\"label\":\"TagLine\"},{\"id\":21469,\"data\":{\"name\":\"One robot\\u0027s 200 year journey to become an ordinary man.\",\"released\":1999},\"label\":\"TagLine\"},{\"id\":93,\"data\":{\"title\":\"RescueDawn\"},\"label\":\"Movie\"},{\"id\":21470,\"data\":{\"name\":\"A stiff drink. A little mascara. A lot of nerve. Who said they couldn\\u0027t bring down the Soviet empire.\",\"released\":2007},\"label\":\"TagLine\"},{\"id\":21471,\"data\":{\"name\":\"Can two friends sleep together and still love each other in the morning?\",\"released\":1998},\"label\":\"TagLine\"},{\"id\":21472,\"data\":{\"name\":\"This Holiday Season... Believe\",\"released\":2004},\"label\":\"TagLine\"},{\"id\":96,\"data\":{\"title\":\"The Birdcage\"},\"label\":\"Movie\"},{\"id\":21473,\"data\":{\"name\":\"In every life there comes a time when that thing you dream becomes that thing you do\",\"released\":1996},\"label\":\"TagLine\"},{\"id\":21474,\"data\":{\"name\":\"Once in a lifetime you get a chance to do something different.\",\"released\":1992},\"label\":\"TagLine\"},{\"id\":98,\"data\":{\"title\":\"Unforgiven\"},\"label\":\"Movie\"},{\"id\":21475,\"data\":{\"name\":\"Pain heals, Chicks dig scars... Glory lasts forever\",\"released\":2000},\"label\":\"TagLine\"},{\"id\":21476,\"data\":{\"name\":\"Based on the extraordinary true story of one man\\u0027s fight for freedom\",\"released\":2006},\"label\":\"TagLine\"},{\"id\":101,\"data\":{\"title\":\"Johnny Mnemonic\"},\"label\":\"Movie\"},{\"id\":21477,\"data\":{\"name\":\"Come as you are\",\"released\":1996},\"label\":\"TagLine\"},{\"id\":21478,\"data\":{\"name\":\"It\\u0027s a hell of a thing, killing a man\",\"released\":1992},\"label\":\"TagLine\"},{\"id\":106,\"data\":{\"title\":\"Cloud Atlas\"},\"label\":\"Movie\"},{\"id\":112,\"data\":{\"title\":\"The Da Vinci Code\"},\"label\":\"Movie\"},{\"id\":117,\"data\":{\"title\":\"V for Vendetta\"},\"label\":\"Movie\"},{\"id\":122,\"data\":{\"title\":\"Speed Racer\"},\"label\":\"Movie\"}],\"edges\":[{\"source\":162,\"target\":21472,\"id\":10304,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":86,\"target\":21473,\"id\":10305,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":163,\"target\":21474,\"id\":10306,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":88,\"target\":21475,\"id\":10307,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":93,\"target\":21476,\"id\":10308,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":96,\"target\":21477,\"id\":10309,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":98,\"target\":21478,\"id\":10310,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":0,\"target\":21441,\"id\":10273,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":101,\"target\":21442,\"id\":10274,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":1,\"target\":21443,\"id\":10275,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":106,\"target\":21444,\"id\":10276,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":10,\"target\":21445,\"id\":10277,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":11,\"target\":21447,\"id\":10278,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":112,\"target\":21446,\"id\":10279,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":117,\"target\":21448,\"id\":10280,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":12,\"target\":21449,\"id\":10281,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":16,\"target\":21451,\"id\":10282,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":122,\"target\":21450,\"id\":10283,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":30,\"target\":21452,\"id\":10284,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":129,\"target\":21453,\"id\":10285,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":38,\"target\":21454,\"id\":10286,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":131,\"target\":21455,\"id\":10287,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":47,\"target\":21456,\"id\":10288,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":138,\"target\":21457,\"id\":10289,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":53,\"target\":21458,\"id\":10290,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":142,\"target\":21459,\"id\":10291,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":57,\"target\":21460,\"id\":10292,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":145,\"target\":21461,\"id\":10293,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":63,\"target\":21462,\"id\":10294,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":148,\"target\":21463,\"id\":10295,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":68,\"target\":21464,\"id\":10296,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":151,\"target\":21465,\"id\":10297,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":74,\"target\":21466,\"id\":10298,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":153,\"target\":21467,\"id\":10299,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":79,\"target\":21468,\"id\":10300,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":158,\"target\":21469,\"id\":10301,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":160,\"target\":21470,\"id\":10302,\"data\":{},\"label\":\"HAS_TAGLINE\"},{\"source\":82,\"target\":21471,\"id\":10303,\"data\":{},\"label\":\"HAS_TAGLINE\"}],\"labels\":{\"Movie\":\"#692318\",\"Person\":\"#DCE2ED\",\"NotFracchia\":\"#784E0A\",\"NodePeriodic\":\"#F716EF\",\"End\":\"#22F177\",\"Start\":\"#71FD73\",\"Batch\":\"#B5DC62\",\"Article\":\"#0A9A45\",\"Module\":\"#59D0C0\",\"CsvPerson\":\"#E93A8F\",\"Trigger\":\"#580E99\",\"NodeWithTime\":\"#8A3BA3\",\"Node\":\"#D46A12\",\"Test\":\"#D5FB0F\",\"Finished\":\"#B79448\",\"CurrentTime\":\"#7BB5EE\",\"Counter\":\"#3421B3\",\"City\":\"#2F3C8E\",\"TagLine\":\"#534051\"},\"types\":[\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"DEPENDS_ON\",\"ANOTHER\",\"KNOWS\",\"MY_REL\",\"HAS_TAGLINE\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\"],\"directed\":true}"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -579,10 +539,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": []
       },
       "apps": [],
       "runtimeInfos": {},
@@ -645,15 +601,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "input\n21479\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -685,10 +632,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": []
       },
       "apps": [],
       "runtimeInfos": {},
@@ -752,15 +695,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":21483,\"data\":{\"number\":\"BA001\"},\"label\":\"Flight\"}],\"edges\":[],\"labels\":{\"Movie\":\"#692318\",\"Person\":\"#DCE2ED\",\"NotFracchia\":\"#784E0A\",\"NodePeriodic\":\"#F716EF\",\"End\":\"#22F177\",\"Start\":\"#71FD73\",\"Batch\":\"#B5DC62\",\"Article\":\"#0A9A45\",\"Module\":\"#59D0C0\",\"CsvPerson\":\"#E93A8F\",\"Trigger\":\"#580E99\",\"NodeWithTime\":\"#8A3BA3\",\"Node\":\"#D46A12\",\"Test\":\"#D5FB0F\",\"Finished\":\"#B79448\",\"CurrentTime\":\"#7BB5EE\",\"Counter\":\"#3421B3\",\"City\":\"#2F3C8E\",\"TagLine\":\"#534051\",\"Flight\":\"#B16D15\",\"Airport\":\"#1EFCB0\"},\"types\":[\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"IN\",\"DEPENDS_ON\",\"ANOTHER\",\"KNOWS\",\"OUT\",\"MY_REL\",\"HAS_TAGLINE\",\"CONNECTED_TO\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\"],\"directed\":true}"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -774,7 +708,7 @@
     {
       "text": "%md\n### Move relationships to other nodes\n\nI can move a `rel` to another `endNode` using the `apoc.refactor.to(rel, endNode)` procedure.\n\nOtherwise, we can use the analogue procedure `apoc.refactor.from(rel, startNode)`.\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 10:31:26.456",
+      "dateUpdated": "2022-03-24 11:04:41.919",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -809,8 +743,8 @@
       "jobName": "paragraph_1635348117637_648932751",
       "id": "paragraph_1635348117637_648932751",
       "dateCreated": "2021-10-27 15:21:57.637",
-      "dateStarted": "2022-03-23 10:31:26.458",
-      "dateFinished": "2022-03-23 10:31:26.479",
+      "dateStarted": "2022-03-24 11:04:41.919",
+      "dateFinished": "2022-03-24 11:04:41.929",
       "status": "FINISHED"
     },
     {
@@ -836,10 +770,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": []
       },
       "apps": [],
       "runtimeInfos": {},
@@ -907,15 +837,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":21484,\"data\":{\"name\":\"Ryu\"},\"label\":\"Person\"},{\"id\":21486,\"data\":{\"name\":\"Vega\"},\"label\":\"Person\"}],\"edges\":[{\"source\":21484,\"target\":21486,\"id\":10315,\"data\":{},\"label\":\"FRIENDS\"}],\"labels\":{\"Movie\":\"#692318\",\"Person\":\"#DCE2ED\",\"NotFracchia\":\"#784E0A\",\"NodePeriodic\":\"#F716EF\",\"End\":\"#22F177\",\"Start\":\"#71FD73\",\"Batch\":\"#B5DC62\",\"Article\":\"#0A9A45\",\"Module\":\"#59D0C0\",\"CsvPerson\":\"#E93A8F\",\"Trigger\":\"#580E99\",\"NodeWithTime\":\"#8A3BA3\",\"Node\":\"#D46A12\",\"Test\":\"#D5FB0F\",\"Finished\":\"#B79448\",\"CurrentTime\":\"#7BB5EE\",\"Counter\":\"#3421B3\",\"City\":\"#2F3C8E\",\"TagLine\":\"#534051\",\"Flight\":\"#B16D15\",\"Airport\":\"#1EFCB0\"},\"types\":[\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"IN\",\"DEPENDS_ON\",\"ANOTHER\",\"KNOWS\",\"OUT\",\"MY_REL\",\"HAS_TAGLINE\",\"CONNECTED_TO\",\"FRIENDS\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\"],\"directed\":true}"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -929,7 +850,7 @@
     {
       "text": "%md\n\n### Merge multiple relationships / nodes\n\nWe can join multiple entities through the procedures\n\n- `apoc.refactor.mergeRelationships([rels], $config)`\n- `apoc.refactor.mergeNodes([nodes], $config)`\n\nWhere `$config` can have:\n- properties (default: \u0027combine\u0027): Map\u003cprop, type\u003e or type, where type can be `discard` (to take 1st property value found with the same name), `overwrite` (to pick last prop value), `combine` (to join properties in an array)\n- mergeRels (default: false) - only for `apoc.refactor.mergeNodes`\n- singleElementAsArray (default: false)\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 09:08:28.573",
+      "dateUpdated": "2022-03-24 11:04:46.834",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -964,8 +885,8 @@
       "jobName": "paragraph_1636459119756_823886620",
       "id": "paragraph_1636459119756_823886620",
       "dateCreated": "2021-11-09 11:58:39.756",
-      "dateStarted": "2022-03-23 09:08:28.577",
-      "dateFinished": "2022-03-23 09:08:28.590",
+      "dateStarted": "2022-03-24 11:04:46.833",
+      "dateFinished": "2022-03-24 11:04:46.847",
       "status": "FINISHED"
     },
     {
@@ -1024,15 +945,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":21488,\"data\":{\"name\":\"John\",\"surname\":\"Jack\"},\"label\":\"MergeOne\"},{\"id\":21489,\"data\":{\"name\":\"Company1\"},\"label\":\"Company\"},{\"id\":21490,\"data\":{\"brand\":\"Ferrari\"},\"label\":\"Car\"},{\"id\":21491,\"data\":{\"name\":\"Derby\"},\"label\":\"Animal\"},{\"id\":21492,\"data\":{\"name\":\"London\"},\"label\":\"City\"},{\"id\":21487,\"data\":{\"name\":\"Tom\",\"surname\":\"Jerry\"},\"label\":\"MergeOne\"}],\"edges\":[{\"source\":21487,\"target\":21489,\"id\":10311,\"data\":{\"since\":2015},\"label\":\"WORKS_FOR\"},{\"source\":21488,\"target\":21489,\"id\":10316,\"data\":{\"since\":2018},\"label\":\"WORKS_FOR\"},{\"source\":21489,\"target\":21492,\"id\":10317,\"data\":{\"since\":2004},\"label\":\"HAS_HQ\"},{\"source\":21487,\"target\":21490,\"id\":10318,\"data\":{\"since\":2017},\"label\":\"DRIVE\"},{\"source\":21488,\"target\":21491,\"id\":10319,\"data\":{\"since\":2013},\"label\":\"HAS\"}],\"labels\":{\"Movie\":\"#692318\",\"Person\":\"#DCE2ED\",\"NotFracchia\":\"#784E0A\",\"NodePeriodic\":\"#F716EF\",\"End\":\"#22F177\",\"Start\":\"#71FD73\",\"Batch\":\"#B5DC62\",\"Article\":\"#0A9A45\",\"Module\":\"#59D0C0\",\"CsvPerson\":\"#E93A8F\",\"Trigger\":\"#580E99\",\"NodeWithTime\":\"#8A3BA3\",\"Node\":\"#D46A12\",\"Test\":\"#D5FB0F\",\"Finished\":\"#B79448\",\"CurrentTime\":\"#7BB5EE\",\"Counter\":\"#3421B3\",\"City\":\"#2F3C8E\",\"TagLine\":\"#534051\",\"Flight\":\"#B16D15\",\"Airport\":\"#1EFCB0\",\"MergeOne\":\"#F6399F\",\"Company\":\"#A43F6E\",\"Car\":\"#F82E1E\",\"Animal\":\"#B901B5\",\"Cat\":\"#6E758C\"},\"types\":[\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"IN\",\"DEPENDS_ON\",\"ANOTHER\",\"KNOWS\",\"DRIVE\",\"OUT\",\"MY_REL\",\"HAS_TAGLINE\",\"CONNECTED_TO\",\"FRIENDS\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"HAS_HQ\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\",\"WORKS_FOR\",\"HAS\"],\"directed\":true}"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -1099,15 +1011,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "null\nNULL\nNULL\nNULL\nNULL\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -1178,15 +1081,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":21488,\"data\":{\"name\":[\"John\",\"Tom\"],\"surname\":[\"Jack\",\"Jerry\"]},\"label\":\"MergeOne\"},{\"id\":21489,\"data\":{\"name\":\"Company1\"},\"label\":\"Company\"},{\"id\":21490,\"data\":{\"brand\":\"Ferrari\"},\"label\":\"Car\"},{\"id\":21491,\"data\":{\"name\":\"Derby\"},\"label\":\"Animal\"}],\"edges\":[{\"source\":21488,\"target\":21490,\"id\":10320,\"data\":{\"since\":2017},\"label\":\"DRIVE\"},{\"source\":21488,\"target\":21489,\"id\":10321,\"data\":{\"since\":2015},\"label\":\"WORKS_FOR\"},{\"source\":21488,\"target\":21489,\"id\":10316,\"data\":{\"since\":2018},\"label\":\"WORKS_FOR\"},{\"source\":21488,\"target\":21491,\"id\":10319,\"data\":{\"since\":2013},\"label\":\"HAS\"}],\"labels\":{\"Movie\":\"#692318\",\"Person\":\"#DCE2ED\",\"NotFracchia\":\"#784E0A\",\"NodePeriodic\":\"#F716EF\",\"End\":\"#22F177\",\"Start\":\"#71FD73\",\"Batch\":\"#B5DC62\",\"Article\":\"#0A9A45\",\"Module\":\"#59D0C0\",\"CsvPerson\":\"#E93A8F\",\"Trigger\":\"#580E99\",\"NodeWithTime\":\"#8A3BA3\",\"Node\":\"#D46A12\",\"Test\":\"#D5FB0F\",\"Finished\":\"#B79448\",\"CurrentTime\":\"#7BB5EE\",\"Counter\":\"#3421B3\",\"City\":\"#2F3C8E\",\"TagLine\":\"#534051\",\"Flight\":\"#B16D15\",\"Airport\":\"#1EFCB0\",\"MergeOne\":\"#F6399F\",\"Company\":\"#A43F6E\",\"Car\":\"#F82E1E\",\"Animal\":\"#B901B5\",\"Cat\":\"#6E758C\"},\"types\":[\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"IN\",\"DEPENDS_ON\",\"ANOTHER\",\"KNOWS\",\"DRIVE\",\"OUT\",\"MY_REL\",\"HAS_TAGLINE\",\"CONNECTED_TO\",\"FRIENDS\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"HAS_HQ\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\",\"WORKS_FOR\",\"HAS\"],\"directed\":true}"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -1255,15 +1149,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":21493,\"data\":{\"name\":\"John\",\"surname\":\"Jack\"},\"label\":\"MergeTwo\"},{\"id\":21494,\"data\":{\"name\":\"Company1\"},\"label\":\"Company\"},{\"id\":21495,\"data\":{\"brand\":\"Ferrari\"},\"label\":\"Car\"},{\"id\":21496,\"data\":{\"name\":\"Derby\"},\"label\":\"Animal\"},{\"id\":21497,\"data\":{\"name\":\"London\"},\"label\":\"City\"},{\"id\":21487,\"data\":{\"name\":\"Tom\",\"surname\":\"Jerry\"},\"label\":\"MergeTwo\"}],\"edges\":[{\"source\":21494,\"target\":21497,\"id\":10322,\"data\":{\"since\":2004},\"label\":\"HAS_HQ\"},{\"source\":21487,\"target\":21495,\"id\":10323,\"data\":{\"since\":2017},\"label\":\"DRIVE\"},{\"source\":21493,\"target\":21496,\"id\":10324,\"data\":{\"since\":2013},\"label\":\"HAS\"},{\"source\":21487,\"target\":21494,\"id\":10311,\"data\":{\"since\":2015},\"label\":\"WORKS_FOR\"},{\"source\":21493,\"target\":21494,\"id\":10318,\"data\":{\"since\":2018},\"label\":\"WORKS_FOR\"}],\"labels\":{\"Movie\":\"#692318\",\"Person\":\"#DCE2ED\",\"NotFracchia\":\"#784E0A\",\"NodePeriodic\":\"#F716EF\",\"End\":\"#22F177\",\"Start\":\"#71FD73\",\"Batch\":\"#B5DC62\",\"Article\":\"#0A9A45\",\"Module\":\"#59D0C0\",\"CsvPerson\":\"#E93A8F\",\"Trigger\":\"#580E99\",\"NodeWithTime\":\"#8A3BA3\",\"Node\":\"#D46A12\",\"Test\":\"#D5FB0F\",\"Finished\":\"#B79448\",\"CurrentTime\":\"#7BB5EE\",\"Counter\":\"#3421B3\",\"City\":\"#2F3C8E\",\"TagLine\":\"#534051\",\"Flight\":\"#B16D15\",\"Airport\":\"#1EFCB0\",\"MergeOne\":\"#F6399F\",\"Company\":\"#A43F6E\",\"Car\":\"#F82E1E\",\"Animal\":\"#B901B5\",\"Cat\":\"#6E758C\",\"MergeTwo\":\"#8A986B\"},\"types\":[\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"IN\",\"DEPENDS_ON\",\"ANOTHER\",\"KNOWS\",\"DRIVE\",\"OUT\",\"MY_REL\",\"HAS_TAGLINE\",\"CONNECTED_TO\",\"FRIENDS\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"HAS_HQ\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\",\"WORKS_FOR\",\"HAS\"],\"directed\":true}"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -1326,15 +1211,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "null\nNULL\nNULL\nNULL\nNULL\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -1405,15 +1281,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":21493,\"data\":{\"name\":\"John\",\"surname\":\"Jerry\"},\"label\":\"MergeTwo\"},{\"id\":21494,\"data\":{\"name\":\"Company1\"},\"label\":\"Company\"},{\"id\":21495,\"data\":{\"brand\":\"Ferrari\"},\"label\":\"Car\"},{\"id\":21496,\"data\":{\"name\":\"Derby\"},\"label\":\"Animal\"}],\"edges\":[{\"source\":21493,\"target\":21496,\"id\":10324,\"data\":{\"since\":2013},\"label\":\"HAS\"},{\"source\":21493,\"target\":21495,\"id\":10325,\"data\":{\"since\":2017},\"label\":\"DRIVE\"},{\"source\":21493,\"target\":21494,\"id\":10326,\"data\":{\"since\":2018},\"label\":\"WORKS_FOR\"}],\"labels\":{\"Movie\":\"#692318\",\"Person\":\"#DCE2ED\",\"NotFracchia\":\"#784E0A\",\"NodePeriodic\":\"#F716EF\",\"End\":\"#22F177\",\"Start\":\"#71FD73\",\"Batch\":\"#B5DC62\",\"Article\":\"#0A9A45\",\"Module\":\"#59D0C0\",\"CsvPerson\":\"#E93A8F\",\"Trigger\":\"#580E99\",\"NodeWithTime\":\"#8A3BA3\",\"Node\":\"#D46A12\",\"Test\":\"#D5FB0F\",\"Finished\":\"#B79448\",\"CurrentTime\":\"#7BB5EE\",\"Counter\":\"#3421B3\",\"City\":\"#2F3C8E\",\"TagLine\":\"#534051\",\"Flight\":\"#B16D15\",\"Airport\":\"#1EFCB0\",\"MergeOne\":\"#F6399F\",\"Company\":\"#A43F6E\",\"Car\":\"#F82E1E\",\"Animal\":\"#B901B5\",\"Cat\":\"#6E758C\",\"MergeTwo\":\"#8A986B\"},\"types\":[\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"IN\",\"DEPENDS_ON\",\"ANOTHER\",\"KNOWS\",\"DRIVE\",\"OUT\",\"MY_REL\",\"HAS_TAGLINE\",\"CONNECTED_TO\",\"FRIENDS\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"HAS_HQ\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\",\"WORKS_FOR\",\"HAS\"],\"directed\":true}"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -1425,21 +1292,21 @@
       "status": "FINISHED"
     },
     {
-      "text": "%md\n\n### Remove nodes from a path\n\n- `CALL apoc.refactor.deleteAndReconnect(path, nodes, $configMap)`\n\n`nodes` is the list of nodes to be removed\n\n`$config` can have:\n- `relationshipSelectionStrategy`\n- `properties` - override (default), discard, combine\n\n\nhttps://neo4j.com/labs/apoc/4.1/overview/apoc.refactor/apoc.refactor.deleteAndReconnect/\n\n",
+      "text": "%md\n\n### Remove nodes from a path\n\n- `CALL apoc.refactor.deleteAndReconnect(path, nodes, $configMap)`\n\n`nodes` is the list of nodes to be removed\n\n`$config` can have:\n- `relationshipSelectionStrategy` - type name of new relationships. incoming, outgoing, merge\n- `properties` - override (default), discard, combine\n\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 09:08:36.721",
+      "dateUpdated": "2022-03-24 11:08:07.062",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "markdown",
-          "editOnDblClick": true,
+          "language": "scala",
+          "editOnDblClick": false,
           "completionKey": "TAB",
-          "completionSupport": false
+          "completionSupport": true
         },
-        "editorMode": "ace/mode/markdown",
+        "editorMode": "ace/mode/scala",
         "tableHide": false,
         "editorHide": true
       },
@@ -1452,7 +1319,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eRemove nodes from a path\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eCALL apoc.refactor.deleteAndReconnect(path, nodes, $configMap)\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003ccode\u003enodes\u003c/code\u003e is the list of nodes to be removed\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e$config\u003c/code\u003e can have:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003erelationshipSelectionStrategy\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eproperties\u003c/code\u003e - override (default), discard, combine\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003ca href\u003d\"https://neo4j.com/labs/apoc/4.1/overview/apoc.refactor/apoc.refactor.deleteAndReconnect/\"\u003ehttps://neo4j.com/labs/apoc/4.1/overview/apoc.refactor/apoc.refactor.deleteAndReconnect/\u003c/a\u003e\u003c/p\u003e\n\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eRemove nodes from a path\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eCALL apoc.refactor.deleteAndReconnect(path, nodes, $configMap)\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003ccode\u003enodes\u003c/code\u003e is the list of nodes to be removed\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e$config\u003c/code\u003e can have:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003erelationshipSelectionStrategy\u003c/code\u003e - type name of new relationships. incoming, outgoing, merge\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eproperties\u003c/code\u003e - override (default), discard, combine\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
           }
         ]
       },
@@ -1462,14 +1329,14 @@
       "jobName": "paragraph_1637924333098_1006344045",
       "id": "paragraph_1637924333098_1006344045",
       "dateCreated": "2021-11-26 10:58:53.100",
-      "dateStarted": "2022-03-23 09:08:36.725",
-      "dateFinished": "2022-03-23 09:08:36.735",
+      "dateStarted": "2022-03-24 11:07:58.643",
+      "dateFinished": "2022-03-24 11:07:58.653",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\n\ncreate p1\u003d(f:One)-[:ALPHA {a:\u0027b\u0027}]-\u003e(b:Two)-[:BETA {a: \u0027d\u0027, e:\u0027f\u0027, g: \u0027h\u0027}]-\u003e(c:Three)-[:GAMMA {aa: \u0027one\u0027}]-\u003e(d:Four)-[:DELTA {aa: \u0027bb\u0027, cc: \u0027dd\u0027, ee: \u0027ff\u0027}]-\u003e(e:Five {foo: \u0027bar\u0027, baz: \u0027baa\u0027}), \n  p2\u003d(:Other)-[:Pippo {goku: \u0027gohan\u0027, vegeta: \u0027trunks\u0027}]-\u003e(:Other2), \n  p3\u003d(:Other)-[:Pippo2 {krilin: \u0027maron\u0027}]-\u003e(:Other2)\nreturn p1, p2, p3",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:55:03.315",
+      "dateUpdated": "2022-03-24 11:08:14.716",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1525,15 +1392,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":21504,\"data\":{},\"label\":\"Other\"},{\"id\":21505,\"data\":{},\"label\":\"Other2\"},{\"id\":21498,\"data\":{},\"label\":\"Two\"},{\"id\":21499,\"data\":{},\"label\":\"Three\"},{\"id\":21500,\"data\":{},\"label\":\"Four\"},{\"id\":21501,\"data\":{\"baz\":\"baa\",\"foo\":\"bar\"},\"label\":\"Five\"},{\"id\":21502,\"data\":{},\"label\":\"Other\"},{\"id\":21487,\"data\":{},\"label\":\"One\"},{\"id\":21503,\"data\":{},\"label\":\"Other2\"}],\"edges\":[{\"source\":21499,\"target\":21500,\"id\":10323,\"data\":{\"aa\":\"one\"},\"label\":\"GAMMA\"},{\"source\":21487,\"target\":21498,\"id\":10311,\"data\":{\"a\":\"b\"},\"label\":\"ALPHA\"},{\"source\":21500,\"target\":21501,\"id\":10327,\"data\":{\"aa\":\"bb\",\"cc\":\"dd\",\"ee\":\"ff\"},\"label\":\"DELTA\"},{\"source\":21502,\"target\":21503,\"id\":10328,\"data\":{\"vegeta\":\"trunks\",\"goku\":\"gohan\"},\"label\":\"Pippo\"},{\"source\":21504,\"target\":21505,\"id\":10329,\"data\":{\"krilin\":\"maron\"},\"label\":\"Pippo2\"},{\"source\":21498,\"target\":21499,\"id\":10318,\"data\":{\"a\":\"d\",\"e\":\"f\",\"g\":\"h\"},\"label\":\"BETA\"}],\"labels\":{\"Movie\":\"#692318\",\"Person\":\"#DCE2ED\",\"NotFracchia\":\"#784E0A\",\"NodePeriodic\":\"#F716EF\",\"End\":\"#22F177\",\"Start\":\"#71FD73\",\"Batch\":\"#B5DC62\",\"Article\":\"#0A9A45\",\"Module\":\"#59D0C0\",\"CsvPerson\":\"#E93A8F\",\"Trigger\":\"#580E99\",\"NodeWithTime\":\"#8A3BA3\",\"Node\":\"#D46A12\",\"Test\":\"#D5FB0F\",\"Finished\":\"#B79448\",\"CurrentTime\":\"#7BB5EE\",\"Counter\":\"#3421B3\",\"City\":\"#2F3C8E\",\"TagLine\":\"#534051\",\"Flight\":\"#B16D15\",\"Airport\":\"#1EFCB0\",\"MergeOne\":\"#F6399F\",\"Company\":\"#A43F6E\",\"Car\":\"#F82E1E\",\"Animal\":\"#B901B5\",\"Cat\":\"#6E758C\",\"MergeTwo\":\"#8A986B\",\"One\":\"#7303ED\",\"Two\":\"#781352\",\"Three\":\"#E7A81D\",\"Four\":\"#6C86DF\",\"Five\":\"#915A22\",\"Other\":\"#F0DADB\",\"Other2\":\"#4B0EA0\"},\"types\":[\"GAMMA\",\"Pippo2\",\"HAS_MOVIE\",\"DELTA\",\"ALPHA\",\"DRIVE\",\"MY_REL\",\"HAS_TAGLINE\",\"CONNECTED_TO\",\"PRODUCED\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\",\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"IN\",\"DEPENDS_ON\",\"ANOTHER\",\"KNOWS\",\"Pippo\",\"OUT\",\"BETA\",\"FRIENDS\",\"WROTE\",\"MY_PERIODIC_REL\",\"HAS_HQ\",\"WORKS_FOR\",\"HAS\"],\"directed\":true}"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -1541,14 +1399,14 @@
       "jobName": "paragraph_1637924534937_553213513",
       "id": "paragraph_1637924534937_553213513",
       "dateCreated": "2021-11-26 11:02:14.937",
-      "dateStarted": "2022-03-24 08:55:03.333",
-      "dateFinished": "2022-03-24 08:55:03.454",
+      "dateStarted": "2022-03-24 11:08:14.733",
+      "dateFinished": "2022-03-24 11:08:15.215",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\nmatch p\u003d(f:One)--\u003e(b:Two)--\u003e(c:Three)--\u003e(d:Four)--\u003e(e:Five) \nwith p, [b,d] as list \ncall apoc.refactor.deleteAndReconnect(p, list, {relationshipSelectionStrategy: \u0027merge\u0027})\nyield nodes, relationships \nunwind nodes as node\nunwind relationships as rel\nreturn node, rel;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:55:09.194",
+      "dateUpdated": "2022-03-24 11:08:19.477",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1604,15 +1462,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":21499,\"data\":{},\"label\":\"Three\"},{\"id\":21501,\"data\":{\"baz\":\"baa\",\"foo\":\"bar\"},\"label\":\"Five\"},{\"id\":21487,\"data\":{},\"label\":\"One\"}],\"edges\":[{\"source\":21487,\"target\":21499,\"id\":10330,\"data\":{\"a\":\"d\",\"e\":\"f\",\"g\":\"h\"},\"label\":\"ALPHA_BETA\"},{\"source\":21499,\"target\":21501,\"id\":10331,\"data\":{\"aa\":\"bb\",\"cc\":\"dd\",\"ee\":\"ff\"},\"label\":\"GAMMA_DELTA\"}],\"labels\":{\"Movie\":\"#692318\",\"Person\":\"#DCE2ED\",\"NotFracchia\":\"#784E0A\",\"NodePeriodic\":\"#F716EF\",\"End\":\"#22F177\",\"Start\":\"#71FD73\",\"Batch\":\"#B5DC62\",\"Article\":\"#0A9A45\",\"Module\":\"#59D0C0\",\"CsvPerson\":\"#E93A8F\",\"Trigger\":\"#580E99\",\"NodeWithTime\":\"#8A3BA3\",\"Node\":\"#D46A12\",\"Test\":\"#D5FB0F\",\"Finished\":\"#B79448\",\"CurrentTime\":\"#7BB5EE\",\"Counter\":\"#3421B3\",\"City\":\"#2F3C8E\",\"TagLine\":\"#534051\",\"Flight\":\"#B16D15\",\"Airport\":\"#1EFCB0\",\"MergeOne\":\"#F6399F\",\"Company\":\"#A43F6E\",\"Car\":\"#F82E1E\",\"Animal\":\"#B901B5\",\"Cat\":\"#6E758C\",\"MergeTwo\":\"#8A986B\",\"One\":\"#7303ED\",\"Three\":\"#E7A81D\",\"Five\":\"#915A22\",\"Other\":\"#F0DADB\",\"Other2\":\"#4B0EA0\"},\"types\":[\"Pippo2\",\"HAS_MOVIE\",\"ALPHA_BETA\",\"DRIVE\",\"MY_REL\",\"HAS_TAGLINE\",\"CONNECTED_TO\",\"PRODUCED\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\",\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"IN\",\"DEPENDS_ON\",\"ANOTHER\",\"KNOWS\",\"Pippo\",\"OUT\",\"FRIENDS\",\"GAMMA_DELTA\",\"WROTE\",\"MY_PERIODIC_REL\",\"HAS_HQ\",\"WORKS_FOR\",\"HAS\"],\"directed\":true}"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -1620,14 +1469,14 @@
       "jobName": "paragraph_1637924649630_1703562238",
       "id": "paragraph_1637924649630_1703562238",
       "dateCreated": "2021-11-26 11:04:09.630",
-      "dateStarted": "2022-03-24 08:55:09.212",
-      "dateFinished": "2022-03-24 08:55:09.490",
+      "dateStarted": "2022-03-24 11:08:19.494",
+      "dateFinished": "2022-03-24 11:08:20.159",
       "status": "FINISHED"
     },
     {
-      "text": "%neo4j\nmatch p\u003d(f:One)--\u003e(c:Three)--\u003e(e:Five) \nwith p, [c] as list \ncall apoc.refactor.deleteAndReconnect(p, list, {properties: \u0027combine\u0027, relationshipSelectionStrategy: \u0027merge\u0027}) \nyield nodes, relationships \nunwind nodes as node\nunwind relationships as rel\nreturn node, rel;",
+      "text": "%neo4j\nmatch p\u003d(f:One)--\u003e(c:Three)--\u003e(e:Five) \nwith p, [c] as list \ncall apoc.refactor.deleteAndReconnect(p, list, {properties: \u0027combine\u0027, relationshipSelectionStrategy: \u0027incoming\u0027}) \nyield nodes, relationships \nunwind nodes as node\nunwind relationships as rel\nreturn node, rel;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:56:52.353",
+      "dateUpdated": "2022-03-24 11:08:54.770",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1684,29 +1533,20 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":21501,\"data\":{\"baz\":\"baa\",\"foo\":\"bar\"},\"label\":\"Five\"},{\"id\":21487,\"data\":{},\"label\":\"One\"}],\"edges\":[{\"source\":21487,\"target\":21501,\"id\":10311,\"data\":{\"aa\":\"bb\",\"cc\":\"dd\",\"ee\":\"ff\",\"a\":\"d\",\"e\":\"f\",\"g\":\"h\"},\"label\":\"ALPHA_BETA_GAMMA_DELTA\"}],\"labels\":{\"Movie\":\"#692318\",\"Person\":\"#DCE2ED\",\"NotFracchia\":\"#784E0A\",\"NodePeriodic\":\"#F716EF\",\"End\":\"#22F177\",\"Start\":\"#71FD73\",\"Batch\":\"#B5DC62\",\"Article\":\"#0A9A45\",\"Module\":\"#59D0C0\",\"CsvPerson\":\"#E93A8F\",\"Trigger\":\"#580E99\",\"NodeWithTime\":\"#8A3BA3\",\"Node\":\"#D46A12\",\"Test\":\"#D5FB0F\",\"Finished\":\"#B79448\",\"CurrentTime\":\"#7BB5EE\",\"Counter\":\"#3421B3\",\"City\":\"#2F3C8E\",\"TagLine\":\"#534051\",\"Flight\":\"#B16D15\",\"Airport\":\"#1EFCB0\",\"MergeOne\":\"#F6399F\",\"Company\":\"#A43F6E\",\"Car\":\"#F82E1E\",\"Animal\":\"#B901B5\",\"Cat\":\"#6E758C\",\"MergeTwo\":\"#8A986B\",\"One\":\"#7303ED\",\"Five\":\"#915A22\",\"Other\":\"#F0DADB\",\"Other2\":\"#4B0EA0\"},\"types\":[\"Pippo2\",\"HAS_MOVIE\",\"ALPHA_BETA_GAMMA_DELTA\",\"DRIVE\",\"MY_REL\",\"HAS_TAGLINE\",\"CONNECTED_TO\",\"PRODUCED\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\",\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"IN\",\"DEPENDS_ON\",\"ANOTHER\",\"KNOWS\",\"Pippo\",\"OUT\",\"FRIENDS\",\"WROTE\",\"MY_PERIODIC_REL\",\"HAS_HQ\",\"WORKS_FOR\",\"HAS\"],\"directed\":true}"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1637925014225_1764871655",
       "id": "paragraph_1637925014225_1764871655",
       "dateCreated": "2021-11-26 11:10:14.225",
-      "dateStarted": "2022-03-24 08:56:52.370",
-      "dateFinished": "2022-03-24 08:56:52.471",
+      "dateStarted": "2022-03-24 11:08:54.785",
+      "dateFinished": "2022-03-24 11:08:54.888",
       "status": "FINISHED"
     },
     {
       "text": "%md\n## Path manipulation\n\n\u003ca href\u003d\"https://neo4j.com/labs/apoc/4.3/graph-querying/path-querying/\"\u003ehttps://neo4j.com/labs/apoc/4.3/graph-querying/path-querying\u003c/a\u003e\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:54:48.076",
+      "dateUpdated": "2022-03-24 11:09:14.476",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1741,14 +1581,14 @@
       "jobName": "paragraph_1638278654821_685111087",
       "id": "paragraph_1638278654821_685111087",
       "dateCreated": "2021-11-30 13:24:14.821",
-      "dateStarted": "2022-03-24 08:54:48.077",
-      "dateFinished": "2022-03-24 08:54:48.101",
+      "dateStarted": "2022-03-24 11:09:14.476",
+      "dateFinished": "2022-03-24 11:09:14.490",
       "status": "FINISHED"
     },
     {
       "text": "%md\n\n## [Others](http://localhost:8080/#/notebook/2GK4BTA5G)",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 09:08:42.947",
+      "dateUpdated": "2022-03-24 11:09:20.124",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1783,8 +1623,8 @@
       "jobName": "paragraph_1636532228417_99296844",
       "id": "paragraph_1636532228417_99296844",
       "dateCreated": "2021-11-10 08:17:08.417",
-      "dateStarted": "2022-03-23 09:08:42.951",
-      "dateFinished": "2022-03-23 09:08:42.962",
+      "dateStarted": "2022-03-24 11:09:20.125",
+      "dateFinished": "2022-03-24 11:09:20.136",
       "status": "FINISHED"
     },
     {

@@ -3,7 +3,7 @@
     {
       "text": "%md\n# Triggers\n\nIn a trigger you register Cypher statements that are called when data in Neo4j is changed (created, updated, deleted).\nYou can run them before or after commit.\n\n\u003cpre\u003e\nYou have to enable trigger through the config `apoc.trigger.enabled\u003dtrue` to use it.\n\u003c/pre\u003e\n\n\nTo add a trigger you can execute this query:\n`CALL apoc.trigger.add(triggerName, statement, selector, params)`\n\nSecond param is the statement, in which you can put these parameters: `$createdNodes`, `$deletedNodes` etc.,\n\n- `transactionId` - the id of the transaction\n- `commitTime` - the date of the transaction in milliseconds\n- `createdNodes` - list of created nodes\n- `createdRelationships` - list of created relationships\n- `deletedNodes` - list of deleted nodes\n- `deletedRelationships` - list of deleted relationships\n- `removedLabels` - map of label - list of nodes\n- `assignedLabels` - map of label - list of nodes\n- `removedNodeProperties` - Map\u003cString, List\u003e, see below\n- `removedRelationshipProperties` - Map\u003cString, List\u003e, see below\n- `assignedNodeProperties` - Map\u003cString, List\u003e, see below\n- `assignedRelationshipProperties` - Map\u003cString, List\u003e, see below\n\nIf I have 2 nodes `(:Test {a: 1})`, `(:Test {b:1})`,\nif I execute `MATCH (n:Test) SET n.a\u003d2, n.b\u003d3` in a trigger\nthe `$assignedNodeProperties` will be this one (where map keys are property names):\n```\n{\n   a: [{\n         node : NODE(1),\n         new: 2,\n         old: 1,\n         key: \"a\"\n      },\n      {\n         node: NODE(2),\n         new: 2,\n         old: null,\n         key: \"a\"\n      }],\n   \n   b: [{\n         node: NODE(1),\n         new: 3,\n         old: null,\n         key: \"b\"\n      },\n      {\n         node: NODE(2),\n         new: 3,\n         old: 1,\n         key: \"b\"\n      }]\n}\n```\nSame structure for `removedNodeProperties`. \nThe `removedRelationshipProperties` and `assignedRelationshipProperties` have `relationship : REL` instead of `node : NODE`.\n\n\nYou can use these helper functions to extract nodes or relationships by label/relationship-type or updated property key.\n\n- `apoc.trigger.nodesByLabel($assignedLabels/$assignedNodeProperties,\u0027Label\u0027)` - function to filter entries by label, to be used within a trigger statement with `$assignedLabels`\n- `apoc.trigger.propertiesByKey($assignedNodeProperties,\u0027key\u0027)` - function to filter propertyEntries by property-key, to be used within a trigger statement with `$assignedNodeProperties`, `$assignedRelationshipProperties`, `$removedNodeProperties` and `$removedRelationshipProperties` .\n    So in previous case `apoc.trigger.propertiesByKey($assignedNodeProperties,\u0027b\u0027)` return only second array, \n    that is `[{node:NODE(1), new:3, old:null, key:\"b\"}, {node:NODE(2), new:3, old:1, key:\"b\"}]`\n\n\n\nThe `selector` parameter could be `{phase:PHASENAME\u0027}`\nwhere `PHASENAME` is:\n\n- `before (default)` - The trigger will be activate right `before` the commit\n- `rollback` - The trigger will be activate right after the  `rollback`\n- `after` - The trigger will be activate right after the `commit`\n- `afterAsync` - The trigger will be activate right after the commit and inside a new transaction and thread so that will not\nimpact the original one. Useful for heavy operations without to not blocking the original transaction.\n\n\nInto the 4th argument, you can put additional parameters: `{params: {paramMap}}` \n\n\n## Other trigger procedures:\n\nIn addition to `trigger.add` there are:\n\n- `CALL apoc.trigger.remove(name)`\n- `CALL apoc.trigger.removeAll()`\n- `CALL apoc.trigger.list()`\n- `CALL apoc.trigger.pause(name)`\n- `CALL apoc.trigger.resume(name)`\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 16:53:58.722",
+      "dateUpdated": "2022-03-24 11:02:06.149",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -38,8 +38,8 @@
       "jobName": "paragraph_1635375648253_1121247002",
       "id": "paragraph_1635375648253_1121247002",
       "dateCreated": "2021-10-27 23:00:48.253",
-      "dateStarted": "2022-03-23 16:53:58.725",
-      "dateFinished": "2022-03-23 16:54:01.039",
+      "dateStarted": "2022-03-24 11:02:06.150",
+      "dateFinished": "2022-03-24 11:02:06.183",
       "status": "FINISHED"
     },
     {
@@ -97,15 +97,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "name\tquery\tselector.phase\tparams.datetime\tinstalled\tpaused\n\"setlabels\"\t\"UNWIND apoc.trigger.nodesByLabel($assignedLabels,\\\"Trigger\\\") AS n SET n.datetime \u003d $datetime\"\tafterAsync\t2022-03-24T08:20:58.302Z\tTRUE\tFALSE\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -171,15 +162,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":2,\"data\":{\"name\":\"Giandomenico Fracchia\",\"uuid\":\"3b29c7bd-6865-410a-82da-5a32f9aba9df\",\"born\":1964},\"label\":\"Person\"}],\"edges\":[],\"labels\":{\"Movie\":\"#692318\",\"Person\":\"#DCE2ED\",\"NotFracchia\":\"#784E0A\",\"NodePeriodic\":\"#F716EF\",\"End\":\"#22F177\",\"Start\":\"#71FD73\",\"Batch\":\"#B5DC62\",\"Article\":\"#0A9A45\",\"Module\":\"#59D0C0\",\"CsvPerson\":\"#E93A8F\",\"Trigger\":\"#580E99\"},\"types\":[\"MY_REL\",\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"DIRECTED\",\"DEPENDS_ON\",\"ANOTHER\",\"KNOWS\"],\"directed\":true}"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -247,15 +229,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":2,\"data\":{\"name\":\"Giandomenico Fracchia\",\"datetime\":\"2022-03-24T08:20:58.302Z\",\"uuid\":\"3b29c7bd-6865-410a-82da-5a32f9aba9df\",\"born\":1964},\"label\":\"Person\"}],\"edges\":[],\"labels\":{\"Movie\":\"#692318\",\"Person\":\"#DCE2ED\",\"NotFracchia\":\"#784E0A\",\"NodePeriodic\":\"#F716EF\",\"End\":\"#22F177\",\"Start\":\"#71FD73\",\"Batch\":\"#B5DC62\",\"Article\":\"#0A9A45\",\"Module\":\"#59D0C0\",\"CsvPerson\":\"#E93A8F\",\"Trigger\":\"#580E99\"},\"types\":[\"MY_REL\",\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"DIRECTED\",\"DEPENDS_ON\",\"ANOTHER\",\"KNOWS\"],\"directed\":true}"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -322,15 +295,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "name\tquery\tselector\tparams.datetime\tinstalled\tpaused\n\"unique\"\t\"UNWIND $createdNodes AS n SET n.datetime \u003d $datetime\"\tNULL\t2022-03-24T08:23:12.594Z\tTRUE\tFALSE\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -393,15 +357,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":21415,\"data\":{\"datetime\":\"2022-03-24T08:23:12.594Z\"},\"label\":\"NodeWithTime\"}],\"edges\":[],\"labels\":{\"Movie\":\"#692318\",\"Person\":\"#DCE2ED\",\"NotFracchia\":\"#784E0A\",\"NodePeriodic\":\"#F716EF\",\"End\":\"#22F177\",\"Start\":\"#71FD73\",\"Batch\":\"#B5DC62\",\"Article\":\"#0A9A45\",\"Module\":\"#59D0C0\",\"CsvPerson\":\"#E93A8F\",\"Trigger\":\"#580E99\",\"NodeWithTime\":\"#8A3BA3\"},\"types\":[\"MY_REL\",\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"DIRECTED\",\"DEPENDS_ON\",\"ANOTHER\",\"KNOWS\"],\"directed\":true}"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -533,15 +488,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "name\tquery\tselector.phase\tinstalled\tpaused\n\"forceStringType\"\t\"unwind apoc.trigger.propertiesByKey($assignedNodeProperties, \u0027reference\u0027) AS props WITH props.new as prop\nCALL apoc.util.validate(apoc.meta.type(prop) \u003c\u003e \u0027STRING\u0027, \u0027expected string property type, got %s\u0027, [apoc.meta.type(prop)]) RETURN null\"\tbefore\tTRUE\tFALSE\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -574,15 +520,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "ERROR",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "Error executing triggers {forceStringType\u003dFailed to invoke procedure `apoc.util.validate`: Caused by: java.lang.RuntimeException: expected string property type, got INTEGER}"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -651,15 +588,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "name\tquery\tselector.phase\tparams.datetime\tinstalled\tpaused\tselector\n\"setlabels\"\t\"UNWIND apoc.trigger.nodesByLabel($assignedLabels,\\\"Trigger\\\") AS n SET n.datetime \u003d $datetime\"\tafterAsync\t2022-03-24T08:20:58.302Z\tTRUE\tFALSE\t\n\"unique\"\t\"UNWIND $createdNodes AS n SET n.datetime \u003d $datetime\"\t\t2022-03-24T08:23:12.594Z\tTRUE\tFALSE\tNULL\n\"forceStringType\"\t\"unwind apoc.trigger.propertiesByKey($assignedNodeProperties, \u0027reference\u0027) AS props WITH props.new as prop\nCALL apoc.util.validate(apoc.meta.type(prop) \u003c\u003e \u0027STRING\u0027, \u0027expected string property type, got %s\u0027, [apoc.meta.type(prop)]) RETURN null\"\tbefore\t\tTRUE\tFALSE\t\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -727,15 +655,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "name\tquery\tselector.phase\tparams.datetime\tinstalled\tpaused\tselector\n\"setlabels\"\t\"UNWIND apoc.trigger.nodesByLabel($assignedLabels,\\\"Trigger\\\") AS n SET n.datetime \u003d $datetime\"\tafterAsync\t2022-03-24T08:20:58.302Z\tFALSE\tFALSE\t\n\"unique\"\t\"UNWIND $createdNodes AS n SET n.datetime \u003d $datetime\"\t\t2022-03-24T08:23:12.594Z\tFALSE\tFALSE\tNULL\n\"forceStringType\"\t\"unwind apoc.trigger.propertiesByKey($assignedNodeProperties, \u0027reference\u0027) AS props WITH props.new as prop\nCALL apoc.util.validate(apoc.meta.type(prop) \u003c\u003e \u0027STRING\u0027, \u0027expected string property type, got %s\u0027, [apoc.meta.type(prop)]) RETURN null\"\tbefore\t\tFALSE\tFALSE\t\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -749,7 +668,7 @@
     {
       "text": "%md\n\n## Load directory async\n\nAdd a directory listener to handle changes in it.\n\n`apoc.load.directory.async.add(name, cypher, pattern, urlDir, $config)`\nAdd (or replace) a folder listener with a specific `name`, pattern and url directory that execute the specified cypher query when an event is triggered and return listener list\n\nThe first parameter is the name of our custom watch listener.\nIf we use an already existing listener name, that listener will be overwritten.\nThe second parameter is the cypher query that will be executed.\nThe `cypher` can have the following parameters:\n\n* `$fileName`: the name of the file which triggered the event\n* `$filePath`: the absolute path of the file which triggered the event if `apoc.import.file.use_neo4j_config\u003dfalse`, otherwise the relative path starting from `$IMPORT_DIR`\n* `$fileDirectory`: the absolute path directory of the file which triggered the event if `apoc.import.file.use_neo4j_config\u003dfalse`, otherwise the relative path starting from `$IMPORT_DIR`\n* `$listenEventType`: the triggered event (\"CREATE\", \"DELETE\" or \"MODIFY\"). The event `\"CREATE\"` happens when a file is inserted in the folder,\n`\"DELETE\"` when a file is removed from the folder and `\"MODIFY\"` when a file in the folder is changed.\nPlease note that if a file is renamed, will be triggered 2 event, that is first \"DELETE\" and then\"CREATE\"\n\nThe third parameter is the pattern of file to search for. By default is \u0027*\u0027, that is, search all files. The fourth is the search path of directory. By default is an empty string, that is, search file in import directory.\nThe 4th parameter is the directory url.\n\nIn `config` whe can put:\n- `listenEventType`: List of types of event that execute the cypher query, `CREATE`, `DELETE` or `MODIFY`\n- `interval` (default: 1000): Interval in ms after re-watch for directory changes\n\n\n\nOther procedures:\n- `CALL apoc.load.directory.async.list()`\n- `CALL apoc.load.directory.async.remove(name)`\n- `CALL apoc.load.directory.async.removeAll()`\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 09:43:04.561",
+      "dateUpdated": "2022-03-24 11:02:18.269",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -784,8 +703,8 @@
       "jobName": "paragraph_1635375754840_2020527960",
       "id": "paragraph_1635375754840_2020527960",
       "dateCreated": "2021-10-27 23:02:34.840",
-      "dateStarted": "2022-03-23 09:43:04.563",
-      "dateFinished": "2022-03-23 09:43:04.576",
+      "dateStarted": "2022-03-24 11:02:18.269",
+      "dateFinished": "2022-03-24 11:02:18.285",
       "status": "FINISHED"
     },
     {
@@ -845,15 +764,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "name\tstatus\tpattern\tcypher\turlDir\tconfig.interval\tconfig.listenEventType\terror\n\"myTrigger\"\t\"CREATED\"\t\"*.csv\"\t\"CALL apoc.load.csv($filePath) YIELD map with map create (n:Test) set n.fileName \u003d $fileName, n.event \u003d $listenEventType, n +\u003d map\"\t\"file:///var/lib/neo4j/import/csvImport/\"\t1000\t[\"CREATE\"]\t\"\"\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -920,15 +830,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "prop.name\tprop.fileName\tprop.event\tprop.age\tprop.beverage\nSelma\tload1.csv\tCREATE\t9\tSoda\nRana\tload1.csv\tCREATE\t12\tTea;Milk\nSelina\tload1.csv\tCREATE\t19\tCola\nAlpha\tload1.csv\tCREATE\t55\tGamma\nBeta\tload1.csv\tCREATE\t66\tDelta\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -997,15 +898,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "name\tstatus\tpattern\tcypher\turlDir\tconfig.interval\tconfig.listenEventType\terror\n\"myTrigger\"\t\"RUNNING\"\t\"*.csv\"\t\"CALL apoc.load.csv($filePath) YIELD map with map create (n:Test) set n.fileName \u003d $fileName, n.event \u003d $listenEventType, n +\u003d map\"\t\"file:///var/lib/neo4j/import/csvImport/\"\t1000\t[\"CREATE\"]\t\"\"\n\"another\"\t\"CREATED\"\t\"*.csv\"\t\"CREATE (:Stuff)\"\t\"file:///var/lib/neo4j/import/notExistentPath\"\t1000\t[\"MODIFY\",\"DELETE\",\"CREATE\"]\t\"\"\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -1076,15 +968,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "name\tstatus\tpattern\tcypher\turlDir\tconfig.interval\tconfig.listenEventType\terror\n\"myTrigger\"\t\"RUNNING\"\t\"*.csv\"\t\"CALL apoc.load.csv($filePath) YIELD map with map create (n:Test) set n.fileName \u003d $fileName, n.event \u003d $listenEventType, n +\u003d map\"\t\"file:///var/lib/neo4j/import/csvImport/\"\t1000\t[\"CREATE\"]\t\"\"\n\"another\"\t\"ERROR\"\t\"*.csv\"\t\"CREATE (:Stuff)\"\t\"file:///var/lib/neo4j/import/notExistentPath\"\t1000\t[\"MODIFY\",\"DELETE\",\"CREATE\"]\t\"java.nio.file.NoSuchFileException: /var/lib/neo4j/import/notExistentPath\n\tat java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:92)\n\tat java.base/sun.nio.fs.UnixException.asIOException(UnixException.java:120)\n\tat java.base/sun.nio.fs.LinuxWatchService$Poller.implRegister(LinuxWatchService.java:248)\n\tat java.base/sun.nio.fs.AbstractPoller.processRequests(AbstractPoller.java:265)\n\tat java.base/sun.nio.fs.LinuxWatchService$Poller.run(LinuxWatchService.java:366)\n\tat java.base/java.lang.Thread.run(Thread.java:829)\n\"\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -1118,10 +1001,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": []
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -1136,7 +1015,7 @@
       "title": "Periodic jobs",
       "text": "%md\n\n- `CALL apoc.periodic.list()` - list all jobs\n\n- `CALL apoc.periodic.remove(name)` - remove a job\n\n- `CALL apoc.periodic.submit(\u0027name\u0027,statement)` - submit a one-off background and asynchronously (non-blocking) statement . Under-the-hood execute an `java.util.concurrent.ExecutorService.submit(Runnable)`\n\n- `CALL apoc.periodic.repeat(\u0027name\u0027,statement,repeat-time-in-seconds)` - submit a repeatedly-called background statement (via the `ExecutorService.scheduleWithFixedDelay(Runnable)`)\n\n- `CALL apoc.periodic.countdown(\u0027name\u0027,statement,delay-in-seconds)` - submit a repeatedly-called background statement (via the `ExecutorService.submit(Runnable)`) until it returns 0",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:31:45.984",
+      "dateUpdated": "2022-03-24 11:02:24.720",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1172,14 +1051,14 @@
       "jobName": "paragraph_1637859766962_30874579",
       "id": "paragraph_1637859766962_30874579",
       "dateCreated": "2021-11-25 17:02:46.962",
-      "dateStarted": "2022-03-24 08:31:45.989",
-      "dateFinished": "2022-03-24 08:31:46.007",
+      "dateStarted": "2022-03-24 11:02:24.721",
+      "dateFinished": "2022-03-24 11:02:24.735",
       "status": "FINISHED"
     },
     {
       "text": "%md\n\n### Block the query for a while\n\nWe can sleep the query execution through the:\n\u003cpre\u003e\napoc.util.sleep(\u0027duration in milliseconds\u0027)\n\u003c/pre\u003e\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 09:43:12.813",
+      "dateUpdated": "2022-03-24 11:02:29.520",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1214,8 +1093,8 @@
       "jobName": "paragraph_1637939076662_1723523791",
       "id": "paragraph_1637939076662_1723523791",
       "dateCreated": "2021-11-26 15:04:36.663",
-      "dateStarted": "2022-03-23 09:43:12.816",
-      "dateFinished": "2022-03-23 09:43:12.825",
+      "dateStarted": "2022-03-24 11:02:29.517",
+      "dateFinished": "2022-03-24 11:02:29.530",
       "status": "FINISHED"
     },
     {
@@ -1266,15 +1145,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "done\nFALSE\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -1335,15 +1205,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":21423,\"data\":{},\"label\":\"Finished\"}],\"edges\":[],\"labels\":{\"Movie\":\"#692318\",\"Person\":\"#DCE2ED\",\"NotFracchia\":\"#784E0A\",\"NodePeriodic\":\"#F716EF\",\"End\":\"#22F177\",\"Start\":\"#71FD73\",\"Batch\":\"#B5DC62\",\"Article\":\"#0A9A45\",\"Module\":\"#59D0C0\",\"CsvPerson\":\"#E93A8F\",\"Trigger\":\"#580E99\",\"NodeWithTime\":\"#8A3BA3\",\"Node\":\"#D46A12\",\"Test\":\"#D5FB0F\",\"Finished\":\"#B79448\"},\"types\":[\"MY_REL\",\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"DIRECTED\",\"DEPENDS_ON\",\"ANOTHER\",\"KNOWS\"],\"directed\":true}"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -1410,15 +1271,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "name\tdelay\trate\tdone\tcancelled\n\"repeat-name\"\t0\t5\tFALSE\tFALSE\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -1483,15 +1335,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "name\tdelay\trate\tdone\tcancelled\n\"repeat-name\"\t0\t5\tFALSE\tFALSE\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -1554,15 +1397,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":21424,\"data\":{\"time\":{\"time\":{\"hour\":8,\"minute\":33,\"second\":24,\"nano\":219000000},\"offset\":{\"totalSeconds\":0}}},\"label\":\"CurrentTime\"},{\"id\":21425,\"data\":{\"time\":{\"time\":{\"hour\":8,\"minute\":33,\"second\":24,\"nano\":219000000},\"offset\":{\"totalSeconds\":0}}},\"label\":\"CurrentTime\"},{\"id\":21426,\"data\":{\"time\":{\"time\":{\"hour\":8,\"minute\":33,\"second\":24,\"nano\":219000000},\"offset\":{\"totalSeconds\":0}}},\"label\":\"CurrentTime\"},{\"id\":21427,\"data\":{\"time\":{\"time\":{\"hour\":8,\"minute\":33,\"second\":24,\"nano\":219000000},\"offset\":{\"totalSeconds\":0}}},\"label\":\"CurrentTime\"},{\"id\":21428,\"data\":{\"time\":{\"time\":{\"hour\":8,\"minute\":33,\"second\":24,\"nano\":219000000},\"offset\":{\"totalSeconds\":0}}},\"label\":\"CurrentTime\"},{\"id\":21429,\"data\":{\"time\":{\"time\":{\"hour\":8,\"minute\":33,\"second\":24,\"nano\":219000000},\"offset\":{\"totalSeconds\":0}}},\"label\":\"CurrentTime\"},{\"id\":21430,\"data\":{\"time\":{\"time\":{\"hour\":8,\"minute\":33,\"second\":24,\"nano\":219000000},\"offset\":{\"totalSeconds\":0}}},\"label\":\"CurrentTime\"},{\"id\":21431,\"data\":{\"time\":{\"time\":{\"hour\":8,\"minute\":33,\"second\":24,\"nano\":219000000},\"offset\":{\"totalSeconds\":0}}},\"label\":\"CurrentTime\"},{\"id\":21432,\"data\":{\"time\":{\"time\":{\"hour\":8,\"minute\":33,\"second\":24,\"nano\":219000000},\"offset\":{\"totalSeconds\":0}}},\"label\":\"CurrentTime\"},{\"id\":21433,\"data\":{\"time\":{\"time\":{\"hour\":8,\"minute\":33,\"second\":24,\"nano\":219000000},\"offset\":{\"totalSeconds\":0}}},\"label\":\"CurrentTime\"}],\"edges\":[],\"labels\":{\"Movie\":\"#692318\",\"Person\":\"#DCE2ED\",\"NotFracchia\":\"#784E0A\",\"NodePeriodic\":\"#F716EF\",\"End\":\"#22F177\",\"Start\":\"#71FD73\",\"Batch\":\"#B5DC62\",\"Article\":\"#0A9A45\",\"Module\":\"#59D0C0\",\"CsvPerson\":\"#E93A8F\",\"Trigger\":\"#580E99\",\"NodeWithTime\":\"#8A3BA3\",\"Node\":\"#D46A12\",\"Test\":\"#D5FB0F\",\"Finished\":\"#B79448\",\"CurrentTime\":\"#7BB5EE\"},\"types\":[\"MY_REL\",\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"DIRECTED\",\"DEPENDS_ON\",\"ANOTHER\",\"KNOWS\"],\"directed\":true}"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -1629,15 +1463,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "name\tdelay\trate\tdone\tcancelled\n\"repeat-name\"\t0\t0\tTRUE\tTRUE\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -1701,15 +1526,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "name\tdelay\trate\tdone\tcancelled\n\"countdown\"\t0\t1\tFALSE\tFALSE\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -1770,15 +1586,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "n.value\n17\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -1792,7 +1599,7 @@
     {
       "text": "%md\n\n## Exercise\n\n- Create a nodes `(Schedule {name: \u0027123\u0027})` ;\n- Create a apoc.periodic.repeat every 3 second to create a node `(:Found {name: name)` if `size()` of property `Schedule` name \u003e 5 or else `(:NotFound {name: name}` via apoc.\n- Set name of Schedule --\u003e \u002712345\u0027\n- Check results\n- Cancel the repeat procedure\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 09:43:16.391",
+      "dateUpdated": "2022-03-24 11:02:35.635",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1827,8 +1634,8 @@
       "jobName": "paragraph_1647958773245_2145023811",
       "id": "paragraph_1647958773245_2145023811",
       "dateCreated": "2022-03-22 14:19:33.245",
-      "dateStarted": "2022-03-23 09:43:16.390",
-      "dateFinished": "2022-03-23 09:43:16.402",
+      "dateStarted": "2022-03-24 11:02:35.635",
+      "dateFinished": "2022-03-24 11:02:35.647",
       "status": "FINISHED"
     },
     {
@@ -2084,7 +1891,7 @@
     {
       "text": "%md\n\n## [Property types manipulations](http://localhost:8080/#/notebook/2GN8QQ2U3)",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 09:43:20.405",
+      "dateUpdated": "2022-03-24 11:02:43.145",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2119,9 +1926,26 @@
       "jobName": "paragraph_1636537568290_841176267",
       "id": "paragraph_1636537568290_841176267",
       "dateCreated": "2021-11-10 09:46:08.290",
-      "dateStarted": "2022-03-23 09:43:20.402",
-      "dateFinished": "2022-03-23 09:43:20.410",
+      "dateStarted": "2022-03-24 11:02:43.141",
+      "dateFinished": "2022-03-24 11:02:43.152",
       "status": "FINISHED"
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-24 11:02:43.140",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1648119763140_1887948469",
+      "id": "paragraph_1648119763140_1887948469",
+      "dateCreated": "2022-03-24 11:02:43.140",
+      "status": "READY"
     }
   ],
   "name": "5. Event listener - scheduler",
