@@ -872,9 +872,9 @@
       "status": "FINISHED"
     },
     {
-      "text": "%md\n### Other examples\n\n`RETURN apoc.text.capitalize(\"neo4j\")` - returns \"Neo4j\"\n\n`RETURN apoc.text.capitalizeAll(\"graph database\")` - returns \"Graph Database\"\n\n`RETURN apoc.text.decapitalize(\"Graph Database\")` - returns \"graph Database\"\n\n`RETURN apoc.text.decapitalizeAll(\"Graph Databases\")` - returns \"graph databases\"\n\n`RETURN apoc.text.swapCase(\"Neo4j\")` - returns \"nEO4J\"\n\n`RETURN apoc.text.camelCase(\"FOO_BAR\")` - returns \"fooBar\"\n\n`RETURN apoc.text.replace(\u0027Hello World!\u0027, \u0027[^a-zA-Z]\u0027, \u0027\u0027)`  ||  returns \u0027HelloWorld\u0027\n\n\n\nFormat the string with the params given, and optional param language (\u0027it\u0027 in this case)\n`RETURN apoc.text.format(\u0027ab%s %d %.1f %s%n\u0027,[\u0027cd\u0027,42,3.14,true]) AS value` || returns \u0027abcd 42 3.1 true\u0027\n`RETURN apoc.text.format(\u0027ab%s %d %.1f %s%n\u0027,[\u0027cd\u0027,42,3.14,true],\u0027it\u0027) AS value` || returns abcd 42 3,1 true\n\n\n`RETURN apoc.text.indexOf(\u0027Hello World!\u0027, \u0027World\u0027)` || returns 6\n\n\nThe `indexesOf` function, provides all occurrences of the given lookup string within the text, or empty list if not found.\nIt can optionally take `from` (inclusive) and `to` (exclusive) parameters.\n\nThe `indexesOf` function, provides all occurrences of the given lookup string within the text, or empty list if not found.\n`RETURN apoc.text.indexesOf(\u0027Hello World!\u0027, \u0027o\u0027,2,9)` || returns [4,7]\n\n\n`RETURN apoc.text.replace(\u0027Hello World!\u0027, \u0027[^a-zA-Z]\u0027, \u0027\u0027)` || returns \u0027HelloWorld\u0027\n\n\n`RETURN apoc.text.split(\u0027Hello   World\u0027, \u0027 +\u0027)` || splits with the given regular expression and returns [\u0027Hello\u0027, \u0027World\u0027]\n\n`RETURN apoc.text.join([\u0027Hello\u0027, \u0027World\u0027], \u0027 \u0027)` || returns \u0027Hello World\u0027\n\n\n`RETURN apoc.text.clean(\u0027Hello World!\u0027)` || return \u0027helloworld\u0027\n\n\n`RETURN apoc.text.compareCleaned(\u0027Hello World!\u0027, \u0027_hello-world_\u0027)` || return `true`",
+      "text": "%md\n### Other examples\n\n`RETURN apoc.text.capitalize(\"neo4j\")` - returns \"Neo4j\"\n\n`RETURN apoc.text.capitalizeAll(\"graph database\")` - returns \"Graph Database\"\n\n`RETURN apoc.text.decapitalize(\"Graph Database\")` - returns \"graph Database\"\n\n`RETURN apoc.text.decapitalizeAll(\"Graph Databases\")` - returns \"graph databases\"\n\n`RETURN apoc.text.swapCase(\"Neo4j\")` - returns \"nEO4J\"\n\n`RETURN apoc.text.camelCase(\"FOO_BAR\")` - returns \"fooBar\"\n\n`RETURN apoc.text.replace(\u0027Hello World!\u0027, \u0027[^a-zA-Z]\u0027, \u0027\u0027)`  -  returns \u0027HelloWorld\u0027\n\n\n\nFormat the string with the params given, and optional param language (\u0027it\u0027 in this case)\n`RETURN apoc.text.format(\u0027ab%s %d %.1f %s%n\u0027,[\u0027cd\u0027,42,3.14,true]) AS value` - returns \u0027abcd 42 3.1 true\u0027\n`RETURN apoc.text.format(\u0027ab%s %d %.1f %s%n\u0027,[\u0027cd\u0027,42,3.14,true],\u0027it\u0027) AS value` - returns abcd 42 3,1 true\n\n\n`RETURN apoc.text.indexOf(\u0027Hello World!\u0027, \u0027World\u0027)` - returns 6\n\n\nThe `indexesOf` function, provides all occurrences of the given lookup string within the text, or empty list if not found.\nIt can optionally take `from` (inclusive) and `to` (exclusive) parameters.\n\nThe `indexesOf` function, provides all occurrences of the given lookup string within the text, or empty list if not found.\n`RETURN apoc.text.indexesOf(\u0027Hello World!\u0027, \u0027o\u0027,2,9)` - returns [4,7]\n\n\n`RETURN apoc.text.replace(\u0027Hello World!\u0027, \u0027[^a-zA-Z]\u0027, \u0027\u0027)` - returns \u0027HelloWorld\u0027\n\n\n`RETURN apoc.text.split(\u0027Hello   World\u0027, \u0027 +\u0027)` - splits with the given regular expression and returns [\u0027Hello\u0027, \u0027World\u0027]\n\n`RETURN apoc.text.join([\u0027Hello\u0027, \u0027World\u0027], \u0027 \u0027)` - returns \u0027Hello World\u0027\n\n\n`RETURN apoc.text.clean(\u0027Hello World!\u0027)` - return \u0027helloworld\u0027\n\n\n`RETURN apoc.text.compareCleaned(\u0027Hello World!\u0027, \u0027_hello-world_\u0027)` - return `true`",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 11:03:25.948",
+      "dateUpdated": "2022-03-24 21:19:06.203",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -899,7 +899,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eOther examples\u003c/h3\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.text.capitalize(\u0026quot;neo4j\u0026quot;)\u003c/code\u003e - returns \u0026ldquo;Neo4j\u0026rdquo;\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.text.capitalizeAll(\u0026quot;graph database\u0026quot;)\u003c/code\u003e - returns \u0026ldquo;Graph Database\u0026rdquo;\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.text.decapitalize(\u0026quot;Graph Database\u0026quot;)\u003c/code\u003e - returns \u0026ldquo;graph Database\u0026rdquo;\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.text.decapitalizeAll(\u0026quot;Graph Databases\u0026quot;)\u003c/code\u003e - returns \u0026ldquo;graph databases\u0026rdquo;\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.text.swapCase(\u0026quot;Neo4j\u0026quot;)\u003c/code\u003e - returns \u0026ldquo;nEO4J\u0026rdquo;\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.text.camelCase(\u0026quot;FOO_BAR\u0026quot;)\u003c/code\u003e - returns \u0026ldquo;fooBar\u0026rdquo;\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.text.replace(\u0027Hello World!\u0027, \u0027[^a-zA-Z]\u0027, \u0027\u0027)\u003c/code\u003e  ||  returns \u0026lsquo;HelloWorld\u0026rsquo;\u003c/p\u003e\n\u003cp\u003eFormat the string with the params given, and optional param language (\u0026lsquo;it\u0026rsquo; in this case)\u003cbr /\u003e\n\u003ccode\u003eRETURN apoc.text.format(\u0027ab%s %d %.1f %s%n\u0027,[\u0027cd\u0027,42,3.14,true]) AS value\u003c/code\u003e || returns \u0026lsquo;abcd 42 3.1 true\u0026rsquo;\u003cbr /\u003e\n\u003ccode\u003eRETURN apoc.text.format(\u0027ab%s %d %.1f %s%n\u0027,[\u0027cd\u0027,42,3.14,true],\u0027it\u0027) AS value\u003c/code\u003e || returns abcd 42 3,1 true\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.text.indexOf(\u0027Hello World!\u0027, \u0027World\u0027)\u003c/code\u003e || returns 6\u003c/p\u003e\n\u003cp\u003eThe \u003ccode\u003eindexesOf\u003c/code\u003e function, provides all occurrences of the given lookup string within the text, or empty list if not found.\u003cbr /\u003e\nIt can optionally take \u003ccode\u003efrom\u003c/code\u003e (inclusive) and \u003ccode\u003eto\u003c/code\u003e (exclusive) parameters.\u003c/p\u003e\n\u003cp\u003eThe \u003ccode\u003eindexesOf\u003c/code\u003e function, provides all occurrences of the given lookup string within the text, or empty list if not found.\u003cbr /\u003e\n\u003ccode\u003eRETURN apoc.text.indexesOf(\u0027Hello World!\u0027, \u0027o\u0027,2,9)\u003c/code\u003e || returns [4,7]\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.text.replace(\u0027Hello World!\u0027, \u0027[^a-zA-Z]\u0027, \u0027\u0027)\u003c/code\u003e || returns \u0026lsquo;HelloWorld\u0026rsquo;\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.text.split(\u0027Hello World\u0027, \u0027 +\u0027)\u003c/code\u003e || splits with the given regular expression and returns [\u0026lsquo;Hello\u0026rsquo;, \u0026lsquo;World\u0026rsquo;]\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.text.join([\u0027Hello\u0027, \u0027World\u0027], \u0027 \u0027)\u003c/code\u003e || returns \u0026lsquo;Hello World\u0026rsquo;\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.text.clean(\u0027Hello World!\u0027)\u003c/code\u003e || return \u0026lsquo;helloworld\u0026rsquo;\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.text.compareCleaned(\u0027Hello World!\u0027, \u0027_hello-world_\u0027)\u003c/code\u003e || return \u003ccode\u003etrue\u003c/code\u003e\u003c/p\u003e\n\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eOther examples\u003c/h3\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.text.capitalize(\u0026quot;neo4j\u0026quot;)\u003c/code\u003e - returns \u0026ldquo;Neo4j\u0026rdquo;\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.text.capitalizeAll(\u0026quot;graph database\u0026quot;)\u003c/code\u003e - returns \u0026ldquo;Graph Database\u0026rdquo;\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.text.decapitalize(\u0026quot;Graph Database\u0026quot;)\u003c/code\u003e - returns \u0026ldquo;graph Database\u0026rdquo;\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.text.decapitalizeAll(\u0026quot;Graph Databases\u0026quot;)\u003c/code\u003e - returns \u0026ldquo;graph databases\u0026rdquo;\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.text.swapCase(\u0026quot;Neo4j\u0026quot;)\u003c/code\u003e - returns \u0026ldquo;nEO4J\u0026rdquo;\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.text.camelCase(\u0026quot;FOO_BAR\u0026quot;)\u003c/code\u003e - returns \u0026ldquo;fooBar\u0026rdquo;\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.text.replace(\u0027Hello World!\u0027, \u0027[^a-zA-Z]\u0027, \u0027\u0027)\u003c/code\u003e  -  returns \u0026lsquo;HelloWorld\u0026rsquo;\u003c/p\u003e\n\u003cp\u003eFormat the string with the params given, and optional param language (\u0026lsquo;it\u0026rsquo; in this case)\u003cbr /\u003e\n\u003ccode\u003eRETURN apoc.text.format(\u0027ab%s %d %.1f %s%n\u0027,[\u0027cd\u0027,42,3.14,true]) AS value\u003c/code\u003e - returns \u0026lsquo;abcd 42 3.1 true\u0026rsquo;\u003cbr /\u003e\n\u003ccode\u003eRETURN apoc.text.format(\u0027ab%s %d %.1f %s%n\u0027,[\u0027cd\u0027,42,3.14,true],\u0027it\u0027) AS value\u003c/code\u003e - returns abcd 42 3,1 true\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.text.indexOf(\u0027Hello World!\u0027, \u0027World\u0027)\u003c/code\u003e - returns 6\u003c/p\u003e\n\u003cp\u003eThe \u003ccode\u003eindexesOf\u003c/code\u003e function, provides all occurrences of the given lookup string within the text, or empty list if not found.\u003cbr /\u003e\nIt can optionally take \u003ccode\u003efrom\u003c/code\u003e (inclusive) and \u003ccode\u003eto\u003c/code\u003e (exclusive) parameters.\u003c/p\u003e\n\u003cp\u003eThe \u003ccode\u003eindexesOf\u003c/code\u003e function, provides all occurrences of the given lookup string within the text, or empty list if not found.\u003cbr /\u003e\n\u003ccode\u003eRETURN apoc.text.indexesOf(\u0027Hello World!\u0027, \u0027o\u0027,2,9)\u003c/code\u003e - returns [4,7]\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.text.replace(\u0027Hello World!\u0027, \u0027[^a-zA-Z]\u0027, \u0027\u0027)\u003c/code\u003e - returns \u0026lsquo;HelloWorld\u0026rsquo;\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.text.split(\u0027Hello World\u0027, \u0027 +\u0027)\u003c/code\u003e - splits with the given regular expression and returns [\u0026lsquo;Hello\u0026rsquo;, \u0026lsquo;World\u0026rsquo;]\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.text.join([\u0027Hello\u0027, \u0027World\u0027], \u0027 \u0027)\u003c/code\u003e - returns \u0026lsquo;Hello World\u0026rsquo;\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.text.clean(\u0027Hello World!\u0027)\u003c/code\u003e - return \u0026lsquo;helloworld\u0026rsquo;\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.text.compareCleaned(\u0027Hello World!\u0027, \u0027_hello-world_\u0027)\u003c/code\u003e - return \u003ccode\u003etrue\u003c/code\u003e\u003c/p\u003e\n\n\u003c/div\u003e"
           }
         ]
       },
@@ -909,8 +909,8 @@
       "jobName": "paragraph_1635930016248_1420921282",
       "id": "paragraph_1635930016248_1420921282",
       "dateCreated": "2021-11-03 09:00:16.248",
-      "dateStarted": "2022-03-24 11:03:25.948",
-      "dateFinished": "2022-03-24 11:03:25.962",
+      "dateStarted": "2022-03-24 21:19:06.204",
+      "dateFinished": "2022-03-24 21:19:06.234",
       "status": "FINISHED"
     },
     {
@@ -1062,7 +1062,7 @@
       "title": "apoc.spatial.geocodeOnce",
       "text": "%neo4j\nwith \u0027Via Bruno Maderna 7, 30174 Venezia VE\u0027 as address\ncall apoc.spatial.geocodeOnce(address)\nyield location\nreturn location, address;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 10:46:57.951",
+      "dateUpdated": "2022-03-24 11:25:26.864",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1168,8 +1168,8 @@
       "jobName": "paragraph_1635931999762_721699628",
       "id": "paragraph_1635931999762_721699628",
       "dateCreated": "2021-11-03 09:33:19.762",
-      "dateStarted": "2022-03-24 10:46:46.245",
-      "dateFinished": "2022-03-24 10:46:48.116",
+      "dateStarted": "2022-03-24 11:25:26.907",
+      "dateFinished": "2022-03-24 11:25:27.343",
       "status": "FINISHED"
     },
     {
@@ -3004,7 +3004,7 @@
     {
       "text": "%md\n",
       "user": "anonymous",
-      "dateUpdated": "2021-10-29 12:08:56.709",
+      "dateUpdated": "2022-03-24 21:22:00.247",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3017,7 +3017,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": true
+        "editorHide": true,
+        "tableHide": false
       },
       "settings": {
         "params": {},

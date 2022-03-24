@@ -262,9 +262,9 @@
       "status": "FINISHED"
     },
     {
-      "text": "%md\n\n### Renaming\n\nWe can rename relationships with the `apoc.refactor.rename.type(oldType, newType, [rels])`,\nto rename all relationships with type `oldType` to `newType`. `rels` is optional, can be a list of relationships to apply the refactor to.\n\nFormat: apoc.refactor.rename.type(oldType, newType, `[rels]`)\n\n\nWith the same logic we have:\n- `CALL apoc.refactor.rename.label(oldLabel, newLabel, [nodes])`\n- `CALL apoc.refactor.rename.nodeProperty(oldName, newName, [nodes])`\n- `CALL apoc.refactor.rename.typeProperty(oldName, newName, [rels])`\n",
+      "text": "%md\n\n### Renaming\n\nWe can rename relationships with the `apoc.refactor.rename.type(oldType, newType, [rels])`,\nto rename all relationships with type `oldType` to `newType`. `rels` is optional, can be a list of relationships to apply the refactor to.\n\n\nWith the same logic we have:\n- `CALL apoc.refactor.rename.label(oldLabel, newLabel, [nodes])`\n- `CALL apoc.refactor.rename.nodeProperty(oldName, newName, [nodes])`\n- `CALL apoc.refactor.rename.typeProperty(oldName, newName, [rels])`\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 11:04:32.387",
+      "dateUpdated": "2022-03-24 21:26:20.144",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -289,7 +289,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eRenaming\u003c/h3\u003e\n\u003cp\u003eWe can rename relationships with the \u003ccode\u003eapoc.refactor.rename.type(oldType, newType, [rels])\u003c/code\u003e,\u003cbr /\u003e\nto rename all relationships with type \u003ccode\u003eoldType\u003c/code\u003e to \u003ccode\u003enewType\u003c/code\u003e. \u003ccode\u003erels\u003c/code\u003e is optional, can be a list of relationships to apply the refactor to.\u003c/p\u003e\n\u003cp\u003eFormat: apoc.refactor.rename.type(oldType, newType, \u003ccode\u003e[rels]\u003c/code\u003e)\u003c/p\u003e\n\u003cp\u003eWith the same logic we have:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eCALL apoc.refactor.rename.label(oldLabel, newLabel, [nodes])\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eCALL apoc.refactor.rename.nodeProperty(oldName, newName, [nodes])\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eCALL apoc.refactor.rename.typeProperty(oldName, newName, [rels])\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eRenaming\u003c/h3\u003e\n\u003cp\u003eWe can rename relationships with the \u003ccode\u003eapoc.refactor.rename.type(oldType, newType, [rels])\u003c/code\u003e,\u003cbr /\u003e\nto rename all relationships with type \u003ccode\u003eoldType\u003c/code\u003e to \u003ccode\u003enewType\u003c/code\u003e. \u003ccode\u003erels\u003c/code\u003e is optional, can be a list of relationships to apply the refactor to.\u003c/p\u003e\n\u003cp\u003eWith the same logic we have:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eCALL apoc.refactor.rename.label(oldLabel, newLabel, [nodes])\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eCALL apoc.refactor.rename.nodeProperty(oldName, newName, [nodes])\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eCALL apoc.refactor.rename.typeProperty(oldName, newName, [rels])\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
           }
         ]
       },
@@ -299,8 +299,8 @@
       "jobName": "paragraph_1635348082297_1111714116",
       "id": "paragraph_1635348082297_1111714116",
       "dateCreated": "2021-10-27 15:21:22.297",
-      "dateStarted": "2022-03-24 11:04:32.387",
-      "dateFinished": "2022-03-24 11:04:32.399",
+      "dateStarted": "2022-03-24 21:26:20.144",
+      "dateFinished": "2022-03-24 21:26:20.159",
       "status": "FINISHED"
     },
     {

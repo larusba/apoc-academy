@@ -2116,7 +2116,7 @@
     {
       "text": "%neo4j\n\nCALL apoc.load.jdbc(\"jdbc:postgresql://postgres:5432/myDb\",              // connection URL\n    \u0027SELECT * FROM PERSON WHERE \"SURNAME\" \u003d ?\u0027,                          // query with param\n    [\u0027Test\u0027],                                                            // parameters\n    {schema: \"myDb\", credentials: apoc.static.getAll(\"postgresCredentials\")}) // config with schema, credential\nYIELD row\nRETURN row",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 10:18:26.153",
+      "dateUpdated": "2022-03-24 16:32:12.205",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2166,14 +2166,23 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "row.SURNAME\trow.EFFECTIVE_FROM_DATE\trow.HIRE_DATE\trow.NULL_DATE\trow.TEST_TIME\trow.NAME\nTest\t2016-06-22T17:10:25\t1999-05-25\t\t15:37\tAl\nTest\t2016-06-22T17:10:25\t2017-05-25\t\t15:37\tJohn\nTest\t2016-06-22T17:10:25\t2018-05-25\t\t15:37\tJack\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1637769895170_1367827034",
       "id": "paragraph_1637769895170_1367827034",
       "dateCreated": "2021-11-24 16:04:55.170",
-      "dateStarted": "2022-03-24 10:18:26.205",
-      "dateFinished": "2022-03-24 10:18:26.564",
+      "dateStarted": "2022-03-24 16:32:12.236",
+      "dateFinished": "2022-03-24 16:32:13.091",
       "status": "FINISHED"
     },
     {

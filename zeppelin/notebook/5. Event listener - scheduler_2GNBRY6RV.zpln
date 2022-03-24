@@ -1597,9 +1597,9 @@
       "status": "FINISHED"
     },
     {
-      "text": "%md\n\n## Exercise\n\n- Create a nodes `(Schedule {name: \u0027123\u0027})` ;\n- Create a apoc.periodic.repeat every 3 second to create a node `(:Found {name: name)` if `size()` of property `Schedule` name \u003e 5 or else `(:NotFound {name: name}` via apoc.\n- Set name of Schedule --\u003e \u002712345\u0027\n- Check results\n- Cancel the repeat procedure\n",
+      "text": "%md\n\n## Exercise\n\n- Create a nodes `(:Schedule {name: \u0027123\u0027})` ;\n- Create a apoc.periodic.repeat every 3 second to create a node `(:Found {name: name})` if `size()` of property `Schedule` name \u003e 5 or else `(:NotFound {name: name})` via apoc.\n- Set name of Schedule --\u003e \u002712345\u0027\n- Check results\n- Cancel the repeat procedure\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 11:02:35.635",
+      "dateUpdated": "2022-03-24 21:15:07.595",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1624,7 +1624,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eExercise\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eCreate a nodes \u003ccode\u003e(Schedule {name: \u0027123\u0027})\u003c/code\u003e ;\u003c/li\u003e\n\u003cli\u003eCreate a apoc.periodic.repeat every 3 second to create a node \u003ccode\u003e(:Found {name: name)\u003c/code\u003e if \u003ccode\u003esize()\u003c/code\u003e of property \u003ccode\u003eSchedule\u003c/code\u003e name \u0026gt; 5 or else \u003ccode\u003e(:NotFound {name: name}\u003c/code\u003e via apoc.\u003c/li\u003e\n\u003cli\u003eSet name of Schedule \u0026ndash;\u0026gt; \u0026lsquo;12345\u0026rsquo;\u003c/li\u003e\n\u003cli\u003eCheck results\u003c/li\u003e\n\u003cli\u003eCancel the repeat procedure\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eExercise\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eCreate a nodes \u003ccode\u003e(:Schedule {name: \u0027123\u0027})\u003c/code\u003e ;\u003c/li\u003e\n\u003cli\u003eCreate a apoc.periodic.repeat every 3 second to create a node \u003ccode\u003e(:Found {name: name})\u003c/code\u003e if \u003ccode\u003esize()\u003c/code\u003e of property \u003ccode\u003eSchedule\u003c/code\u003e name \u0026gt; 5 or else \u003ccode\u003e(:NotFound {name: name})\u003c/code\u003e via apoc.\u003c/li\u003e\n\u003cli\u003eSet name of Schedule \u0026ndash;\u0026gt; \u0026lsquo;12345\u0026rsquo;\u003c/li\u003e\n\u003cli\u003eCheck results\u003c/li\u003e\n\u003cli\u003eCancel the repeat procedure\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
           }
         ]
       },
@@ -1634,8 +1634,8 @@
       "jobName": "paragraph_1647958773245_2145023811",
       "id": "paragraph_1647958773245_2145023811",
       "dateCreated": "2022-03-22 14:19:33.245",
-      "dateStarted": "2022-03-24 11:02:35.635",
-      "dateFinished": "2022-03-24 11:02:35.647",
+      "dateStarted": "2022-03-24 21:15:07.596",
+      "dateFinished": "2022-03-24 21:15:07.608",
       "status": "FINISHED"
     },
     {
