@@ -46,7 +46,7 @@
       "title": "apoc.coll.sum",
       "text": "%neo4j\n\nreturn apoc.coll.sum([1,2,3,4,5]) AS output;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:30:33.777",
+      "dateUpdated": "2022-03-24 08:36:03.912",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -88,7 +88,8 @@
         },
         "editorMode": "ace/mode/undefined",
         "editorHide": false,
-        "title": true
+        "title": true,
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -109,15 +110,15 @@
       "jobName": "paragraph_1635509218886_1080836149",
       "id": "paragraph_1635509218886_1080836149",
       "dateCreated": "2021-10-29 12:06:58.887",
-      "dateStarted": "2022-03-21 14:30:33.801",
-      "dateFinished": "2022-03-21 14:30:33.844",
+      "dateStarted": "2022-03-24 08:36:03.935",
+      "dateFinished": "2022-03-24 08:36:03.950",
       "status": "FINISHED"
     },
     {
       "title": "apoc.coll.intersection",
       "text": "%neo4j\n\nreturn apoc.coll.intersection([1,2,3,4,5], [3,4,5]) AS output;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:31:39.545",
+      "dateUpdated": "2022-03-24 08:36:11.155",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -180,15 +181,15 @@
       "jobName": "paragraph_1635509250859_2058648590",
       "id": "paragraph_1635509250859_2058648590",
       "dateCreated": "2021-10-29 12:07:30.860",
-      "dateStarted": "2022-03-21 14:31:39.564",
-      "dateFinished": "2022-03-21 14:31:39.605",
+      "dateStarted": "2022-03-24 08:36:11.175",
+      "dateFinished": "2022-03-24 08:36:11.222",
       "status": "FINISHED"
     },
     {
       "title": "apoc.coll.shuffle",
       "text": "%neo4j\n\nreturn apoc.coll.shuffle([1,3,5,7,9]) AS output;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:31:38.358",
+      "dateUpdated": "2022-03-24 08:36:15.813",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -241,7 +242,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "output\n[1,7,5,3,9]\n"
+            "data": "output\n[9,3,5,7,1]\n"
           }
         ]
       },
@@ -251,15 +252,15 @@
       "jobName": "paragraph_1635509267603_1766584627",
       "id": "paragraph_1635509267603_1766584627",
       "dateCreated": "2021-10-29 12:07:47.603",
-      "dateStarted": "2021-11-18 11:16:32.975",
-      "dateFinished": "2021-11-18 11:16:32.991",
+      "dateStarted": "2022-03-24 08:36:15.837",
+      "dateFinished": "2022-03-24 08:36:15.885",
       "status": "FINISHED"
     },
     {
       "title": "apoc.coll.randomItem",
-      "text": "%neo4j\n\n// get a random node\nmatch (n) RETURN apoc.coll.randomItem(collect(n)) AS output;",
+      "text": "%neo4j\n\n// get a random node\nmatch (n:Movie) RETURN apoc.coll.randomItem(collect(n)) AS output;",
       "user": "anonymous",
-      "dateUpdated": "2021-11-18 11:16:54.572",
+      "dateUpdated": "2022-03-24 08:36:46.183",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -276,7 +277,10 @@
                   "tableColumnTypeState": {
                     "names": {
                       "id": "string",
-                      "label": "string"
+                      "label": "string",
+                      "tagline": "string",
+                      "title": "string",
+                      "released": "string"
                     },
                     "updated": false
                   },
@@ -313,7 +317,7 @@
         "msg": [
           {
             "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":15748,\"data\":{\"id\":7721},\"label\":\"End\"}],\"edges\":[],\"labels\":{\"Movie\":\"#4FF400\",\"Person\":\"#94ABF6\",\"NotFracchia\":\"#4F9641\",\"MyCaseNode\":\"#C9E51B\",\"NodePeriodic\":\"#97A58B\",\"End\":\"#1E8E19\",\"Start\":\"#7A9C1E\",\"Batch\":\"#01AE6A\",\"Alert\":\"#73B17A\",\"Node\":\"#FCC978\",\"Actor\":\"#F1EA15\",\"TimeoutTest\":\"#FFD2E6\",\"CsvPerson\":\"#26DE24\",\"Trigger\":\"#2553C2\",\"NodeWithTime\":\"#87F334\"},\"types\":[\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"DIRECTED\",\"MY_CASE_REL\",\"KNOWS\"],\"directed\":true}"
+            "data": "{\"nodes\":[{\"id\":16,\"data\":{\"tagline\":\"In the heart of the nation\\u0027s capital, in a courthouse of the U.S. government, one man will stop at nothing to keep his honor, and one will stop at nothing to find the truth.\",\"title\":\"A Few Good Men\",\"released\":1992},\"label\":\"Movie\"}],\"edges\":[],\"labels\":{\"Movie\":\"#692318\",\"Person\":\"#DCE2ED\",\"NotFracchia\":\"#784E0A\",\"NodePeriodic\":\"#F716EF\",\"End\":\"#22F177\",\"Start\":\"#71FD73\",\"Batch\":\"#B5DC62\",\"Article\":\"#0A9A45\",\"Module\":\"#59D0C0\",\"CsvPerson\":\"#E93A8F\",\"Trigger\":\"#580E99\",\"NodeWithTime\":\"#8A3BA3\",\"Node\":\"#D46A12\",\"Test\":\"#D5FB0F\",\"Finished\":\"#B79448\",\"CurrentTime\":\"#7BB5EE\",\"Counter\":\"#3421B3\"},\"types\":[\"MY_REL\",\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"DIRECTED\",\"DEPENDS_ON\",\"ANOTHER\",\"KNOWS\"],\"directed\":true}"
           }
         ]
       },
@@ -323,8 +327,8 @@
       "jobName": "paragraph_1635509285098_1819157902",
       "id": "paragraph_1635509285098_1819157902",
       "dateCreated": "2021-10-29 12:08:05.098",
-      "dateStarted": "2021-11-18 11:16:54.583",
-      "dateFinished": "2021-11-18 11:16:54.628",
+      "dateStarted": "2022-03-24 08:36:45.521",
+      "dateFinished": "2022-03-24 08:36:45.560",
       "status": "FINISHED"
     },
     {
@@ -373,7 +377,7 @@
       "title": "apoc.map.fromLists",
       "text": "%neo4j\n\n// convert 2 list (first list representing keys, second list representig values) in maps.\nreturn apoc.map.fromLists([\"name\", \"dob\", \"job\"], [\"Giorno Giovanna\", date(\"1985-04-16\"), \"Dreamer\"]) AS output;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 15:28:57.981",
+      "dateUpdated": "2022-03-24 08:37:26.561",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -437,15 +441,15 @@
       "jobName": "paragraph_1635509532909_971464630",
       "id": "paragraph_1635509532909_971464630",
       "dateCreated": "2021-10-29 12:12:12.909",
-      "dateStarted": "2022-03-22 15:28:57.443",
-      "dateFinished": "2022-03-22 15:28:57.515",
+      "dateStarted": "2022-03-24 08:37:04.165",
+      "dateFinished": "2022-03-24 08:37:04.233",
       "status": "FINISHED"
     },
     {
       "title": "apoc.map.merge",
       "text": "%neo4j\n\nreturn apoc.map.merge({name: \"Escanor\", dob: date(\"1985-02-05\")}, {country: \"Somewhere\"}) AS output;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:32:06.727",
+      "dateUpdated": "2022-03-24 08:37:47.412",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -509,15 +513,15 @@
       "jobName": "paragraph_1635509615873_1036558899",
       "id": "paragraph_1635509615873_1036558899",
       "dateCreated": "2021-10-29 12:13:35.873",
-      "dateStarted": "2021-11-18 11:17:55.060",
-      "dateFinished": "2021-11-18 11:17:55.105",
+      "dateStarted": "2022-03-24 08:37:47.433",
+      "dateFinished": "2022-03-24 08:37:47.476",
       "status": "FINISHED"
     },
     {
       "title": "apoc.map.sortedProperties",
       "text": "%neo4j\n\nwith {name:\"Gai Maito\",country:\"Japan\", date: \"First Jan\"} AS map\nreturn apoc.map.sortedProperties(map) AS output;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:32:27.898",
+      "dateUpdated": "2022-03-24 08:37:49.922",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -579,8 +583,8 @@
       "jobName": "paragraph_1635509642996_603828793",
       "id": "paragraph_1635509642996_603828793",
       "dateCreated": "2021-10-29 12:14:02.996",
-      "dateStarted": "2022-03-21 14:32:15.650",
-      "dateFinished": "2022-03-21 14:32:15.699",
+      "dateStarted": "2022-03-24 08:37:49.943",
+      "dateFinished": "2022-03-24 08:37:49.988",
       "status": "FINISHED"
     },
     {
@@ -629,7 +633,7 @@
       "title": "apoc.text.snakeCase",
       "text": "%neo4j\nreturn apoc.text.snakeCase(\"test Snake Case\")",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:32:33.966",
+      "dateUpdated": "2022-03-24 08:37:54.539",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -691,15 +695,15 @@
       "jobName": "paragraph_1635929316180_1022830283",
       "id": "paragraph_1635929316180_1022830283",
       "dateCreated": "2021-11-03 08:48:36.180",
-      "dateStarted": "2021-11-18 11:18:46.735",
-      "dateFinished": "2021-11-18 11:18:46.769",
+      "dateStarted": "2022-03-24 08:37:54.562",
+      "dateFinished": "2022-03-24 08:37:54.613",
       "status": "FINISHED"
     },
     {
       "title": "apoc.text.toUpperCase",
       "text": "%neo4j\nreturn apoc.text.toUpperCase(\"test upper case\")",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:33:03.796",
+      "dateUpdated": "2022-03-24 08:37:57.806",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -761,15 +765,15 @@
       "jobName": "paragraph_1635929298323_387798574",
       "id": "paragraph_1635929298323_387798574",
       "dateCreated": "2021-11-03 08:48:18.323",
-      "dateStarted": "2021-11-18 11:18:55.291",
-      "dateFinished": "2021-11-18 11:18:55.327",
+      "dateStarted": "2022-03-24 08:37:57.825",
+      "dateFinished": "2022-03-24 08:37:57.868",
       "status": "FINISHED"
     },
     {
       "title": "apoc.text.random",
       "text": "%neo4j\n// | Pattern | Description\n// | A-Z | A-Z in uppercase\n// | a-z | A-Z in lowercase\n// | 0-9 | Numbers 0-9 inclusive\n\nreturn apoc.text.random(10, \"A-Z0-9.$\")",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:33:08.301",
+      "dateUpdated": "2022-03-24 08:38:00.246",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -821,7 +825,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "apoc.text.random(10, \"A-Z0-9.$\")\n\"2XNZIC026P\"\n"
+            "data": "apoc.text.random(10, \"A-Z0-9.$\")\n\"14RVYECL76\"\n"
           }
         ]
       },
@@ -831,15 +835,15 @@
       "jobName": "paragraph_1635929249112_198078275",
       "id": "paragraph_1635929249112_198078275",
       "dateCreated": "2021-11-03 08:47:29.112",
-      "dateStarted": "2022-03-21 14:33:08.318",
-      "dateFinished": "2022-03-21 14:33:08.375",
+      "dateStarted": "2022-03-24 08:38:00.273",
+      "dateFinished": "2022-03-24 08:38:00.314",
       "status": "FINISHED"
     },
     {
       "title": "apoc.text.base64UrlEncode",
       "text": "%neo4j\nreturn apoc.text.base64UrlEncode(\"http://neo4j.com/?test\u003dtest\")",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:33:12.222",
+      "dateUpdated": "2022-03-24 08:38:03.612",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -879,7 +883,7 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/scala",
+        "editorMode": "ace/mode/undefined",
         "title": true
       },
       "settings": {
@@ -901,15 +905,15 @@
       "jobName": "paragraph_1635927214543_164452942",
       "id": "paragraph_1635927214543_164452942",
       "dateCreated": "2021-11-03 08:13:34.545",
-      "dateStarted": "2021-11-17 23:26:34.609",
-      "dateFinished": "2021-11-17 23:26:34.647",
+      "dateStarted": "2022-03-24 08:38:03.634",
+      "dateFinished": "2022-03-24 08:38:03.669",
       "status": "FINISHED"
     },
     {
       "title": "apoc.text.base64UrlDecode",
       "text": "%neo4j\nreturn apoc.text.base64UrlDecode(\"aHR0cDovL25lbzRqLmNvbS8_dGVzdD10ZXN0\")",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:33:17.394",
+      "dateUpdated": "2022-03-24 08:38:07.553",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -971,8 +975,8 @@
       "jobName": "paragraph_1635928351596_93292989",
       "id": "paragraph_1635928351596_93292989",
       "dateCreated": "2021-11-03 08:32:31.596",
-      "dateStarted": "2021-11-17 23:26:39.273",
-      "dateFinished": "2021-11-17 23:26:39.307",
+      "dateStarted": "2022-03-24 08:38:07.575",
+      "dateFinished": "2022-03-24 08:38:07.611",
       "status": "FINISHED"
     },
     {
@@ -1018,9 +1022,9 @@
       "status": "FINISHED"
     },
     {
-      "text": "%md\n\n### Text Similarity\n\nWe can compare `text1` with `text2`. Useful, for example, to data clean purpose, with several algorithms:\n\n- apoc.text.levenshteinDistance(text1, text2)\n- apoc.text.levenshteinSimilarity(text1, text2)\n- apoc.text.hammingDistance(text1, text2)\n- apoc.text.jaroWinklerDistance(text1, text2)\n- apoc.text.sorensenDiceSimilarity(text1, text2)\n",
+      "text": "%md\n\n### Text Similarity\n\nWe can compare `text1` with `text2`. Useful, for example, to data clean purpose, with several algorithms:\n\n- `apoc.text.levenshteinDistance(text1, text2)`\n- `apoc.text.levenshteinSimilarity(text1, text2)`\n- `apoc.text.hammingDistance(text1, text2)`\n- `apoc.text.jaroWinklerDistance(text1, text2)`\n- `apoc.text.sorensenDiceSimilarity(text1, text2)`\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-11 13:18:40.567",
+      "dateUpdated": "2022-03-23 17:03:20.957",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1045,7 +1049,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eText Similarity\u003c/h3\u003e\n\u003cp\u003eWe can compare \u003ccode\u003etext1\u003c/code\u003e with \u003ccode\u003etext2\u003c/code\u003e. Useful, for example, to data clean purpose, with several algorithms:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eapoc.text.levenshteinDistance(text1, text2)\u003c/li\u003e\n\u003cli\u003eapoc.text.levenshteinSimilarity(text1, text2)\u003c/li\u003e\n\u003cli\u003eapoc.text.hammingDistance(text1, text2)\u003c/li\u003e\n\u003cli\u003eapoc.text.jaroWinklerDistance(text1, text2)\u003c/li\u003e\n\u003cli\u003eapoc.text.sorensenDiceSimilarity(text1, text2)\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eText Similarity\u003c/h3\u003e\n\u003cp\u003eWe can compare \u003ccode\u003etext1\u003c/code\u003e with \u003ccode\u003etext2\u003c/code\u003e. Useful, for example, to data clean purpose, with several algorithms:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eapoc.text.levenshteinDistance(text1, text2)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.text.levenshteinSimilarity(text1, text2)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.text.hammingDistance(text1, text2)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.text.jaroWinklerDistance(text1, text2)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.text.sorensenDiceSimilarity(text1, text2)\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
           }
         ]
       },
@@ -1055,14 +1059,14 @@
       "jobName": "paragraph_1635928302510_764079613",
       "id": "paragraph_1635928302510_764079613",
       "dateCreated": "2021-11-03 08:31:42.510",
-      "dateStarted": "2021-11-11 13:18:40.568",
-      "dateFinished": "2021-11-11 13:18:40.578",
+      "dateStarted": "2022-03-23 17:03:20.961",
+      "dateFinished": "2022-03-23 17:03:23.053",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\n\nreturn apoc.text.sorensenDiceSimilarity(\"Franco\", \"Franco\") as first, \n    apoc.text.sorensenDiceSimilarity(\"Franco\", \"Franchi\") as second, \n    apoc.text.sorensenDiceSimilarity(\"Franco\", \"Ciccio\") as third",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 15:29:28.147",
+      "dateUpdated": "2022-03-24 08:38:17.050",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1125,8 +1129,8 @@
       "jobName": "paragraph_1635928763794_1002626739",
       "id": "paragraph_1635928763794_1002626739",
       "dateCreated": "2021-11-03 08:39:23.794",
-      "dateStarted": "2022-03-22 15:29:28.175",
-      "dateFinished": "2022-03-22 15:29:28.277",
+      "dateStarted": "2022-03-24 08:38:17.073",
+      "dateFinished": "2022-03-24 08:38:17.130",
       "status": "FINISHED"
     },
     {
@@ -1173,9 +1177,9 @@
     },
     {
       "title": "apoc.spatial.geocodeOnce",
-      "text": "%neo4j\n\ncall apoc.spatial.geocodeOnce(\u002721 rue Paul Bellamy 44000 NANTES FRANCE\u0027)\nyield location\nreturn location.latitude, location.longitude",
+      "text": "%neo4j\nwith \u0027Via Bruno Maderna 7, 30174 Venezia VE\u0027 as address\ncall apoc.spatial.geocodeOnce(address)\nyield location\nreturn location, address;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 15:29:51.459",
+      "dateUpdated": "2022-03-24 08:38:33.101",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1183,16 +1187,17 @@
         "results": {
           "0": {
             "graph": {
-              "mode": "table",
-              "height": 300.0,
-              "optionOpen": false,
+              "mode": "zeppelin-leaflet",
+              "height": 414.0,
+              "optionOpen": true,
               "setting": {
                 "table": {
                   "tableGridState": {},
                   "tableColumnTypeState": {
                     "names": {
                       "location.latitude": "string",
-                      "location.longitude": "string"
+                      "location.longitude": "string",
+                      "address": "string"
                     },
                     "updated": false
                   },
@@ -1204,10 +1209,59 @@
                   },
                   "updated": false,
                   "initialized": false
+                },
+                "zeppelin-leaflet": {
+                  "latitude": {
+                    "name": "location.latitude",
+                    "index": 1.0,
+                    "aggr": "sum"
+                  },
+                  "longitude": {
+                    "name": "location.longitude",
+                    "index": 2.0,
+                    "aggr": "sum"
+                  },
+                  "tooltip": {
+                    "name": "address",
+                    "index": 3.0,
+                    "aggr": "sum"
+                  },
+                  "popup": {
+                    "name": "address",
+                    "index": 3.0,
+                    "aggr": "sum"
+                  }
+                },
+                "sogou-map-vis": {
+                  "Kind": {
+                    "name": "address",
+                    "index": 3.0,
+                    "aggr": "sum"
+                  },
+                  "MapTip": {
+                    "name": "address",
+                    "index": 3.0,
+                    "aggr": "sum"
+                  },
+                  "HeatMap-Val": {
+                    "name": "address",
+                    "index": 3.0,
+                    "aggr": "sum"
+                  },
+                  "Coordinates-X": {
+                    "name": "location.latitude",
+                    "index": 1.0,
+                    "aggr": "sum"
+                  },
+                  "Coordinates-Y": {
+                    "name": "location.longitude",
+                    "index": 2.0,
+                    "aggr": "sum"
+                  }
                 }
-              },
-              "commonSetting": {}
-            }
+              }
+            },
+            "helium": {}
           }
         },
         "editorSetting": {
@@ -1228,7 +1282,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "location.latitude\tlocation.longitude\n47.2221667\t-1.5566625\n"
+            "data": "location.description\tlocation.latitude\tlocation.longitude\taddress\nVia Bruno Maderna, Sant\u0027Anna, Chioggia, Venezia, Veneto, Italia\t45.1462503\t12.2639604\t\"Via Bruno Maderna 7, 30174 Venezia VE\"\n"
           }
         ]
       },
@@ -1238,15 +1292,15 @@
       "jobName": "paragraph_1635931999762_721699628",
       "id": "paragraph_1635931999762_721699628",
       "dateCreated": "2021-11-03 09:33:19.762",
-      "dateStarted": "2022-03-22 15:29:51.488",
-      "dateFinished": "2022-03-22 15:29:53.823",
+      "dateStarted": "2022-03-24 08:38:33.125",
+      "dateFinished": "2022-03-24 08:38:33.912",
       "status": "FINISHED"
     },
     {
       "title": "apoc.spatial.reverseGeocode",
       "text": "%neo4j\n\nCALL apoc.spatial.reverseGeocode(51.5074, 0.1277);",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 15:29:59.198",
+      "dateUpdated": "2022-03-24 08:39:06.360",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1322,15 +1376,15 @@
       "jobName": "paragraph_1636632099388_152531742",
       "id": "paragraph_1636632099388_152531742",
       "dateCreated": "2021-11-11 12:01:39.390",
-      "dateStarted": "2022-03-22 15:29:59.233",
-      "dateFinished": "2022-03-22 15:29:59.502",
+      "dateStarted": "2022-03-24 08:39:06.386",
+      "dateFinished": "2022-03-24 08:39:06.739",
       "status": "FINISHED"
     },
     {
       "title": "Dataset with coords",
       "text": "%neo4j\n\nCREATE (bruges:City {name:\"bruges\", latitude: 51.2605829, longitude: 3.0817189})\nCREATE (brussels:City {name:\"brussels\", latitude: 50.854954, longitude: 4.3051786})\nCREATE (paris:City {name:\"paris\", latitude: 48.8588376, longitude: 2.2773455})\nCREATE (dresden:City {name:\"dresden\", latitude: 51.0767496, longitude: 13.6321595})\nMERGE (bruges)-[:NEXT]-\u003e(brussels)\nMERGE (brussels)-[:NEXT]-\u003e(dresden)\nMERGE (brussels)-[:NEXT]-\u003e(paris)\nMERGE (bruges)-[:NEXT]-\u003e(paris)\nMERGE (paris)-[:NEXT]-\u003e(dresden)",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 15:30:09.948",
+      "dateUpdated": "2022-03-24 08:39:28.877",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1359,15 +1413,15 @@
       "jobName": "paragraph_1636448570271_192343414",
       "id": "paragraph_1636448570271_192343414",
       "dateCreated": "2021-11-09 09:02:50.271",
-      "dateStarted": "2022-03-22 15:30:09.972",
-      "dateFinished": "2022-03-22 15:30:10.413",
+      "dateStarted": "2022-03-24 08:39:28.899",
+      "dateFinished": "2022-03-24 08:39:29.157",
       "status": "FINISHED"
     },
     {
       "title": "apoc.spatial.sortByDistance",
-      "text": "%neo4j\n\nMATCH (a:City {name:\u0027bruges\u0027}), (b:City {name:\u0027dresden\u0027})\nMATCH p\u003d(a)-[*]-\u003e(b)\nWITH collect(p) as paths\nCALL apoc.spatial.sortByDistance(paths) YIELD path, distance\nRETURN path, distance\n",
+      "text": "%neo4j\n\nMATCH (a:City {name:\u0027bruges\u0027}), (b:City {name:\u0027dresden\u0027})\nMATCH p\u003d(a)-[*]-\u003e(b)\nWITH collect(p) as paths\nCALL apoc.spatial.sortByDistance(paths) \nYIELD distance, path\nRETURN distance, reduce(i \u003d [], n in nodes(path) | i + n.name)\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 15:30:21.344",
+      "dateUpdated": "2022-03-24 08:44:53.227",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1383,11 +1437,8 @@
                   "tableGridState": {},
                   "tableColumnTypeState": {
                     "names": {
-                      "id": "string",
-                      "label": "string",
-                      "name": "string",
-                      "latitude": "string",
-                      "longitude": "string"
+                      "distance": "string",
+                      "reduce(i \u003d [], n in nodes(path) | i + n.name)": "string"
                     },
                     "updated": false
                   },
@@ -1399,10 +1450,32 @@
                   },
                   "updated": false,
                   "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
                 }
               },
-              "commonSetting": {}
-            }
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "id",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "label",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
           }
         },
         "editorSetting": {
@@ -1422,8 +1495,8 @@
         "code": "SUCCESS",
         "msg": [
           {
-            "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":21692,\"data\":{\"name\":\"bruges\",\"latitude\":51.2605829,\"longitude\":3.0817189},\"label\":\"City\"},{\"id\":21693,\"data\":{\"name\":\"brussels\",\"latitude\":50.854954,\"longitude\":4.3051786},\"label\":\"City\"},{\"id\":21694,\"data\":{\"name\":\"paris\",\"latitude\":48.8588376,\"longitude\":2.2773455},\"label\":\"City\"},{\"id\":21695,\"data\":{\"name\":\"dresden\",\"latitude\":51.0767496,\"longitude\":13.6321595},\"label\":\"City\"}],\"edges\":[{\"source\":21692,\"target\":21693,\"id\":10256,\"data\":{},\"label\":\"NEXT\"},{\"source\":21693,\"target\":21695,\"id\":10257,\"data\":{},\"label\":\"NEXT\"},{\"source\":21693,\"target\":21694,\"id\":10258,\"data\":{},\"label\":\"NEXT\"},{\"source\":21692,\"target\":21694,\"id\":10259,\"data\":{},\"label\":\"NEXT\"},{\"source\":21694,\"target\":21695,\"id\":10260,\"data\":{},\"label\":\"NEXT\"}],\"labels\":{\"Movie\":\"#522A50\",\"Person\":\"#4907F5\",\"NotFracchia\":\"#E86E21\",\"MyCaseNode\":\"#325DC5\",\"NodePeriodic\":\"#23F440\",\"End\":\"#0C644A\",\"Start\":\"#77B986\",\"Batch\":\"#9A6C66\",\"MyLabel\":\"#20BEB9\",\"Trigger\":\"#64AFCD\",\"NodeWithTime\":\"#BA77B5\",\"Node\":\"#0EB7DC\",\"Test\":\"#ECA19E\",\"Finished\":\"#F16A7D\",\"Schedule\":\"#6D9CBF\",\"NotFound\":\"#A672B5\",\"Found\":\"#AF2B38\",\"City\":\"#5ED975\"},\"types\":[\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\",\"MY_CASE_REL\"],\"directed\":true}"
+            "type": "TABLE",
+            "data": "distance\treduce(i \u003d [], n in nodes(path) | i + n.name)\n749.8210570020021\t[\"bruges\",\"brussels\",\"dresden\"]\n1120.8512195180913\t[\"bruges\",\"paris\",\"dresden\"]\n1209.661314133324\t[\"bruges\",\"brussels\",\"paris\",\"dresden\"]\n"
           }
         ]
       },
@@ -1433,8 +1506,8 @@
       "jobName": "paragraph_1635931344375_2143164700",
       "id": "paragraph_1635931344375_2143164700",
       "dateCreated": "2021-11-03 09:22:24.375",
-      "dateStarted": "2022-03-22 15:30:21.372",
-      "dateFinished": "2022-03-22 15:30:21.792",
+      "dateStarted": "2022-03-24 08:44:53.260",
+      "dateFinished": "2022-03-24 08:44:53.274",
       "status": "FINISHED"
     },
     {
@@ -1483,7 +1556,7 @@
       "title": " apoc.date.fields",
       "text": "%neo4j\nreturn apoc.date.fields(\"2020-11-04T10:30:21\", \"YYYY-MM-dd\u0027T\u0027HH:mm:ss\") AS date;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:34:51.746",
+      "dateUpdated": "2022-03-24 08:45:15.589",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1550,15 +1623,15 @@
       "jobName": "paragraph_1635934975631_616193110",
       "id": "paragraph_1635934975631_616193110",
       "dateCreated": "2021-11-03 10:22:55.631",
-      "dateStarted": "2021-11-18 11:25:21.959",
-      "dateFinished": "2021-11-18 11:25:22.014",
+      "dateStarted": "2022-03-24 08:45:15.624",
+      "dateFinished": "2022-03-24 08:45:15.720",
       "status": "FINISHED"
     },
     {
       "title": "apoc.date.format",
       "text": "%neo4j\nwith 891388800 as startDate\nwith startDate, apoc.date.add(startDate, \u0027s\u0027, 31, \u0027d\u0027) as endDate\nreturn apoc.date.format(startDate,\u0027s\u0027,\u0027yyyy-MM-dd\u0027) as startDate, \napoc.date.format(endDate,\u0027s\u0027,\u0027yyyy-MM-dd\u0027) as endDate",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:35:01.575",
+      "dateUpdated": "2022-03-24 08:45:18.581",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1623,15 +1696,15 @@
       "jobName": "paragraph_1635409495647_893356114",
       "id": "paragraph_1635409495647_893356114",
       "dateCreated": "2021-10-28 08:24:55.647",
-      "dateStarted": "2022-03-21 14:35:01.593",
-      "dateFinished": "2022-03-21 14:35:01.653",
+      "dateStarted": "2022-03-24 08:45:18.608",
+      "dateFinished": "2022-03-24 08:45:18.670",
       "status": "FINISHED"
     },
     {
       "title": "apoc.date.format",
       "text": "%neo4j\nwith datetime(\"2020-11-04T11:23:22\").epochMillis AS datetime      \n// convert in epoch milliseconds\n\nreturn apoc.date.format(datetime, \"ms\", \"yyyy-MM-dd\") AS output",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:35:13.095",
+      "dateUpdated": "2022-03-24 08:45:20.639",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1693,14 +1766,14 @@
       "jobName": "paragraph_1635933349161_134025564",
       "id": "paragraph_1635933349161_134025564",
       "dateCreated": "2021-11-03 09:55:49.161",
-      "dateStarted": "2022-03-21 14:35:13.113",
-      "dateFinished": "2022-03-21 14:35:13.171",
+      "dateStarted": "2022-03-24 08:45:20.665",
+      "dateFinished": "2022-03-24 08:45:20.716",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\n// from temporal value to string\nreturn apoc.temporal.format( datetime(\"2020-11-04T11:23:22\"), \u0027YYYY-MM-dd\u0027) AS output;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:35:21.483",
+      "dateUpdated": "2022-03-24 08:45:23.200",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1761,14 +1834,14 @@
       "jobName": "paragraph_1637857485481_303425577",
       "id": "paragraph_1637857485481_303425577",
       "dateCreated": "2021-11-25 16:24:45.481",
-      "dateStarted": "2021-11-25 16:33:36.196",
-      "dateFinished": "2021-11-25 16:33:36.272",
+      "dateStarted": "2022-03-24 08:45:23.221",
+      "dateFinished": "2022-03-24 08:45:23.263",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\n\n// You can also pass a ISO DATE TIME pattern, the list is available here https://www.elastic.co/guide/en/elasticsearch/reference/5.5/mapping-date-format.html#built-in-date-formats\n// https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html\n\nreturn apoc.date.convertFormat( \"11/10/1991\", \u0027dd/MM/yyyy\u0027, \u0027YYYY-MM-dd\u0027) AS output\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:35:26.849",
+      "dateUpdated": "2022-03-24 08:45:25.882",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1829,8 +1902,8 @@
       "jobName": "paragraph_1637856754928_1936025272",
       "id": "paragraph_1637856754928_1936025272",
       "dateCreated": "2021-11-25 16:12:34.928",
-      "dateStarted": "2022-03-21 14:35:26.866",
-      "dateFinished": "2022-03-21 14:35:26.917",
+      "dateStarted": "2022-03-24 08:45:25.905",
+      "dateFinished": "2022-03-24 08:45:25.942",
       "status": "FINISHED"
     },
     {
@@ -1878,7 +1951,7 @@
     {
       "text": "%neo4j\n\n// with apoc.temporal.format \nRETURN apoc.temporal.format( datetime(), \u0027iso_date_time\u0027) AS output;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:36:06.082",
+      "dateUpdated": "2022-03-24 08:45:29.835",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1929,7 +2002,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "output\n\"2021-11-25T16:46:54.672Z\"\n"
+            "data": "output\n\"2022-03-24T08:45:29.876Z\"\n"
           }
         ]
       },
@@ -1939,15 +2012,15 @@
       "jobName": "paragraph_1637858568521_1194499501",
       "id": "paragraph_1637858568521_1194499501",
       "dateCreated": "2021-11-25 16:42:48.521",
-      "dateStarted": "2021-11-25 16:46:54.644",
-      "dateFinished": "2021-11-25 16:46:54.689",
+      "dateStarted": "2022-03-24 08:45:29.859",
+      "dateFinished": "2022-03-24 08:45:29.903",
       "status": "FINISHED"
     },
     {
       "title": "apoc.date.parse",
       "text": "%neo4j\n\n// the Movie Graph has only integer year values, so we have to convert them in string\nwith 915148800 as matrixDate //1 January 1999 00:00:00 in epoch seconds\nmatch (m:Movie)\nwhere apoc.date.parse(toString(m.released), \u0027s\u0027, \u0027yyyy\u0027) \u003d matrixDate // 1999 movies\nreturn m",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:36:16.296",
+      "dateUpdated": "2022-03-24 08:45:33.669",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2004,7 +2077,7 @@
         "msg": [
           {
             "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":1,\"data\":{\"tagline\":\"Welcome to the Real World\",\"title\":\"The Matrix\",\"released\":1999},\"label\":\"Movie\"},{\"id\":131,\"data\":{\"tagline\":\"Walk a mile you\\u0027ll never forget.\",\"title\":\"The Green Mile\",\"released\":1999},\"label\":\"Movie\"},{\"id\":158,\"data\":{\"tagline\":\"One robot\\u0027s 200 year journey to become an ordinary man.\",\"title\":\"Bicentennial Man\",\"released\":1999},\"label\":\"Movie\"},{\"id\":63,\"data\":{\"tagline\":\"First loves last. Forever.\",\"title\":\"Snow Falling on Cedars\",\"released\":1999},\"label\":\"Movie\"}],\"edges\":[],\"labels\":{\"Movie\":\"#696141\",\"Person\":\"#FECBDC\",\"Article\":\"#374237\",\"NotFracchia\":\"#8E9687\",\"MyCaseNode\":\"#A4AD16\",\"Node\":\"#EF3C18\",\"Actor\":\"#76B62C\",\"TimeoutTest\":\"#A13D5E\",\"Trigger\":\"#94FB0E\",\"NodeWithTime\":\"#439922\",\"Finished\":\"#F20E47\",\"CurrentTime\":\"#6149FC\",\"Counter\":\"#7BF6D3\"},\"types\":[\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"PRODUCED\",\"WROTE\",\"FOLLOWS\",\"DIRECTED\",\"MY_CASE_REL\"],\"directed\":true}"
+            "data": "{\"nodes\":[{\"id\":1,\"data\":{\"tagline\":\"Welcome to the Real World\",\"title\":\"The Matrix\",\"released\":1999},\"label\":\"Movie\"},{\"id\":131,\"data\":{\"tagline\":\"Walk a mile you\\u0027ll never forget.\",\"title\":\"The Green Mile\",\"released\":1999},\"label\":\"Movie\"},{\"id\":158,\"data\":{\"tagline\":\"One robot\\u0027s 200 year journey to become an ordinary man.\",\"title\":\"Bicentennial Man\",\"released\":1999},\"label\":\"Movie\"},{\"id\":63,\"data\":{\"tagline\":\"First loves last. Forever.\",\"title\":\"Snow Falling on Cedars\",\"released\":1999},\"label\":\"Movie\"}],\"edges\":[],\"labels\":{\"Movie\":\"#692318\",\"Person\":\"#DCE2ED\",\"NotFracchia\":\"#784E0A\",\"NodePeriodic\":\"#F716EF\",\"End\":\"#22F177\",\"Start\":\"#71FD73\",\"Batch\":\"#B5DC62\",\"Article\":\"#0A9A45\",\"Module\":\"#59D0C0\",\"CsvPerson\":\"#E93A8F\",\"Trigger\":\"#580E99\",\"NodeWithTime\":\"#8A3BA3\",\"Node\":\"#D46A12\",\"Test\":\"#D5FB0F\",\"Finished\":\"#B79448\",\"CurrentTime\":\"#7BB5EE\",\"Counter\":\"#3421B3\",\"City\":\"#2F3C8E\"},\"types\":[\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"DEPENDS_ON\",\"ANOTHER\",\"KNOWS\",\"MY_REL\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\"],\"directed\":true}"
           }
         ]
       },
@@ -2014,15 +2087,15 @@
       "jobName": "paragraph_1635933561109_1996402939",
       "id": "paragraph_1635933561109_1996402939",
       "dateCreated": "2021-11-03 09:59:21.109",
-      "dateStarted": "2022-03-21 14:36:16.313",
-      "dateFinished": "2022-03-21 14:36:16.424",
+      "dateStarted": "2022-03-24 08:45:33.693",
+      "dateFinished": "2022-03-24 08:45:33.813",
       "status": "FINISHED"
     },
     {
       "title": "apoc.date.currentTimestamp",
       "text": "%neo4j\n\n// we use `apoc.date.format` to get only minutes and seconds from a query \n//        and apoc.date.currentTimestamp() instead of timestamp() because the last one doesn\u0027t change during transaction\n\nwith apoc.date.currentTimestamp() as currentTimeAPOC, timestamp() as currentTime\ncall apoc.util.sleep(3000)\nreturn apoc.date.format(currentTimeAPOC, \u0027ms\u0027,\u0027mm:ss\u0027) as timeBeforeAPOC, \n    apoc.date.format(currentTime, \u0027ms\u0027,\u0027mm:ss\u0027) as timeBefore, \n    apoc.date.format(apoc.date.currentTimestamp(), \u0027ms\u0027,\u0027mm:ss\u0027) as timeAfterAPOC, \n    apoc.date.format(timestamp(), \u0027ms\u0027,\u0027mm:ss\u0027) as timeAfter",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 15:31:02.409",
+      "dateUpdated": "2022-03-24 08:45:36.890",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2077,7 +2150,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "timeBeforeAPOC\ttimeBefore\ttimeAfterAPOC\ttimeAfter\n\"31:02\"\t\"31:02\"\t\"31:05\"\t\"31:02\"\n"
+            "data": "timeBeforeAPOC\ttimeBefore\ttimeAfterAPOC\ttimeAfter\n\"45:36\"\t\"45:36\"\t\"45:39\"\t\"45:36\"\n"
           }
         ]
       },
@@ -2087,8 +2160,8 @@
       "jobName": "paragraph_1637939954270_62829114",
       "id": "paragraph_1637939954270_62829114",
       "dateCreated": "2021-11-26 15:19:14.270",
-      "dateStarted": "2022-03-22 15:31:02.468",
-      "dateFinished": "2022-03-22 15:31:05.569",
+      "dateStarted": "2022-03-24 08:45:36.913",
+      "dateFinished": "2022-03-24 08:45:39.994",
       "status": "FINISHED"
     },
     {
@@ -2136,7 +2209,7 @@
     {
       "text": "%neo4j\nreturn apoc.convert.toSet([1,2,3,2]) AS output;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:37:17.480",
+      "dateUpdated": "2022-03-24 08:46:11.891",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2198,14 +2271,14 @@
       "jobName": "paragraph_1636448703213_956391912",
       "id": "paragraph_1636448703213_956391912",
       "dateCreated": "2021-11-09 09:05:03.213",
-      "dateStarted": "2022-03-21 14:37:17.498",
-      "dateFinished": "2022-03-21 14:37:17.526",
+      "dateStarted": "2022-03-24 08:46:11.913",
+      "dateFinished": "2022-03-24 08:46:11.961",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\n\nmatch path \u003d (k:Person {name:\u0027Giandomenico Fracchia\u0027})-[*..2]-(x)\nwith collect(x) as nodes   // e.g. from an external API\n\nunwind apoc.coll.toSet(nodes) as node\nreturn id(node)",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:37:21.770",
+      "dateUpdated": "2022-03-24 08:46:15.717",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -2285,7 +2358,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "id(node)\n306\n173\n155\n157\n156\n18\n88\n89\n171\n169\n170\n92\n91\n90\n101\n104\n103\n102\n105\n12\n15\n14\n13\n11\n8\n7\n6\n5\n4\n3\n10\n1\n9\n"
+            "data": "id(node)\n172\n155\n157\n156\n18\n88\n89\n171\n169\n170\n92\n91\n90\n101\n104\n103\n102\n105\n12\n15\n14\n13\n11\n8\n7\n6\n5\n4\n3\n10\n1\n9\n"
           }
         ]
       },
@@ -2295,14 +2368,14 @@
       "jobName": "paragraph_1637838812272_1424893307",
       "id": "paragraph_1637838812272_1424893307",
       "dateCreated": "2021-11-25 11:13:32.272",
-      "dateStarted": "2022-03-21 14:37:21.787",
-      "dateFinished": "2022-03-21 14:37:21.892",
+      "dateStarted": "2022-03-24 08:46:15.761",
+      "dateFinished": "2022-03-24 08:46:15.911",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\n\nmatch path \u003d (k:Person {name:\u0027Giandomenico Fracchia\u0027})-[*..2]-(x)\nwith collect(x) as nodes   // e.g. from an external API\n\nunwind nodes as node\nreturn id(node)",
       "user": "anonymous",
-      "dateUpdated": "2021-11-25 11:40:24.201",
+      "dateUpdated": "2022-03-24 08:46:18.419",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -2383,7 +2456,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "id(node)\n156\n158\n158\n157\n19\n158\n89\n90\n172\n170\n171\n93\n92\n91\n102\n105\n104\n103\n106\n13\n16\n15\n14\n12\n9\n8\n7\n6\n5\n4\n11\n9\n8\n7\n6\n5\n4\n2\n10\n9\n8\n7\n6\n5\n4\n"
+            "data": "id(node)\n172\n155\n157\n157\n156\n18\n157\n88\n89\n171\n169\n170\n92\n91\n90\n101\n104\n103\n102\n105\n12\n15\n14\n13\n11\n8\n7\n6\n5\n4\n3\n10\n8\n7\n6\n5\n4\n3\n1\n9\n8\n7\n6\n5\n4\n3\n"
           }
         ]
       },
@@ -2393,14 +2466,14 @@
       "jobName": "paragraph_1637840258580_294116374",
       "id": "paragraph_1637840258580_294116374",
       "dateCreated": "2021-11-25 11:37:38.581",
-      "dateStarted": "2021-11-25 11:40:23.792",
-      "dateFinished": "2021-11-25 11:40:23.820",
+      "dateStarted": "2022-03-24 08:46:18.436",
+      "dateFinished": "2022-03-24 08:46:18.502",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\nmatch p\u003d(a:Person {name: \u0027Giandomenico Fracchia\u0027})-[]-\u003e()\nreturn apoc.convert.toJson(p)",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:38:47.985",
+      "dateUpdated": "2022-03-24 08:47:06.722",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2451,7 +2524,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "apoc.convert.toJson(p)\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"306\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"myId\\\":1},\\\"labels\\\":[\\\"MyCaseNode\\\"]},\\\"id\\\":\\\"254\\\",\\\"label\\\":\\\"MY_CASE_REL\\\",\\\"type\\\":\\\"relationship\\\"},{\\\"id\\\":\\\"306\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"myId\\\":1},\\\"labels\\\":[\\\"MyCaseNode\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"173\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"name\\\":\\\"The movie about Giandomenico Fracchia\\\"},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"253\\\",\\\"label\\\":\\\"HAS_MOVIE\\\",\\\"type\\\":\\\"relationship\\\"},{\\\"id\\\":\\\"173\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"name\\\":\\\"The movie about Giandomenico Fracchia\\\"},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"155\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"title\\\":\\\"Something\u0027s Gotta Give\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"221\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Julian Mercer\\\"]}},{\\\"id\\\":\\\"155\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"title\\\":\\\"Something\u0027s Gotta Give\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"88\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Pain heals, Chicks dig scars... Glory lasts forever\\\",\\\"title\\\":\\\"The Replacements\\\",\\\"released\\\":2000},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"114\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Shane Falco\\\"]}},{\\\"id\\\":\\\"88\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Pain heals, Chicks dig scars... Glory lasts forever\\\",\\\"title\\\":\\\"The Replacements\\\",\\\"released\\\":2000},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"101\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"The hottest data on earth. In the coolest head in town\\\",\\\"title\\\":\\\"Johnny Mnemonic\\\",\\\"released\\\":1995},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"132\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Johnny Mnemonic\\\"]}},{\\\"id\\\":\\\"101\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"The hottest data on earth. In the coolest head in town\\\",\\\"title\\\":\\\"Johnny Mnemonic\\\",\\\"released\\\":1995},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"12\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Evil has its winning ways\\\",\\\"title\\\":\\\"The Devil\u0027s Advocate\\\",\\\"released\\\":1997},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"22\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Kevin Lomax\\\"]}},{\\\"id\\\":\\\"12\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Evil has its winning ways\\\",\\\"title\\\":\\\"The Devil\u0027s Advocate\\\",\\\"released\\\":1997},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"11\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Everything that has a beginning has an end\\\",\\\"title\\\":\\\"The Matrix Revolutions\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"15\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Neo\\\"]}},{\\\"id\\\":\\\"11\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Everything that has a beginning has an end\\\",\\\"title\\\":\\\"The Matrix Revolutions\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"10\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Free your mind\\\",\\\"title\\\":\\\"The Matrix Reloaded\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"8\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Neo\\\"]}},{\\\"id\\\":\\\"10\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Free your mind\\\",\\\"title\\\":\\\"The Matrix Reloaded\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-21T14:16:26.827Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"021bdae9-8bcf-4025-b5b5-49a71bba5e84\\\",\\\"something\\\":\\\"3dc35665-93cf-44c9-854c-039770d34c44\\\",\\\"stuff\\\":0.606969994890772},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"1\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Welcome to the Real World\\\",\\\"title\\\":\\\"The Matrix\\\",\\\"released\\\":1999},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"0\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Neo\\\"]}},{\\\"id\\\":\\\"1\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Welcome to the Real World\\\",\\\"title\\\":\\\"The Matrix\\\",\\\"released\\\":1999},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n"
+            "data": "apoc.convert.toJson(p)\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"172\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"name\\\":\\\"The movie about Giandomenico Fracchia\\\"},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"253\\\",\\\"label\\\":\\\"HAS_MOVIE\\\",\\\"type\\\":\\\"relationship\\\"},{\\\"id\\\":\\\"172\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"name\\\":\\\"The movie about Giandomenico Fracchia\\\"},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"155\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"title\\\":\\\"Something\u0027s Gotta Give\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"221\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Julian Mercer\\\"]}},{\\\"id\\\":\\\"155\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"title\\\":\\\"Something\u0027s Gotta Give\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"88\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Pain heals, Chicks dig scars... Glory lasts forever\\\",\\\"title\\\":\\\"The Replacements\\\",\\\"released\\\":2000},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"114\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Shane Falco\\\"]}},{\\\"id\\\":\\\"88\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Pain heals, Chicks dig scars... Glory lasts forever\\\",\\\"title\\\":\\\"The Replacements\\\",\\\"released\\\":2000},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"101\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"The hottest data on earth. In the coolest head in town\\\",\\\"title\\\":\\\"Johnny Mnemonic\\\",\\\"released\\\":1995},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"132\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Johnny Mnemonic\\\"]}},{\\\"id\\\":\\\"101\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"The hottest data on earth. In the coolest head in town\\\",\\\"title\\\":\\\"Johnny Mnemonic\\\",\\\"released\\\":1995},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"12\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Evil has its winning ways\\\",\\\"title\\\":\\\"The Devil\u0027s Advocate\\\",\\\"released\\\":1997},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"22\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Kevin Lomax\\\"]}},{\\\"id\\\":\\\"12\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Evil has its winning ways\\\",\\\"title\\\":\\\"The Devil\u0027s Advocate\\\",\\\"released\\\":1997},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"11\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Everything that has a beginning has an end\\\",\\\"title\\\":\\\"The Matrix Revolutions\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"15\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Neo\\\"]}},{\\\"id\\\":\\\"11\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Everything that has a beginning has an end\\\",\\\"title\\\":\\\"The Matrix Revolutions\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"10\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Free your mind\\\",\\\"title\\\":\\\"The Matrix Reloaded\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"8\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Neo\\\"]}},{\\\"id\\\":\\\"10\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Free your mind\\\",\\\"title\\\":\\\"The Matrix Reloaded\\\",\\\"released\\\":2003},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n\"[{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},{\\\"start\\\":{\\\"id\\\":\\\"2\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"datetime\\\":\\\"2022-03-24T08:20:58.302Z\\\",\\\"born\\\":1964,\\\"name\\\":\\\"Giandomenico Fracchia\\\",\\\"uuid\\\":\\\"3b29c7bd-6865-410a-82da-5a32f9aba9df\\\"},\\\"labels\\\":[\\\"Person\\\",\\\"Trigger\\\"]},\\\"end\\\":{\\\"id\\\":\\\"1\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Welcome to the Real World\\\",\\\"title\\\":\\\"The Matrix\\\",\\\"released\\\":1999},\\\"labels\\\":[\\\"Movie\\\"]},\\\"id\\\":\\\"0\\\",\\\"label\\\":\\\"ACTED_IN\\\",\\\"type\\\":\\\"relationship\\\",\\\"properties\\\":{\\\"roles\\\":[\\\"Neo\\\"]}},{\\\"id\\\":\\\"1\\\",\\\"type\\\":\\\"node\\\",\\\"properties\\\":{\\\"tagline\\\":\\\"Welcome to the Real World\\\",\\\"title\\\":\\\"The Matrix\\\",\\\"released\\\":1999},\\\"labels\\\":[\\\"Movie\\\"]}]\"\n"
           }
         ]
       },
@@ -2461,14 +2534,14 @@
       "jobName": "paragraph_1637840672986_1022987935",
       "id": "paragraph_1637840672986_1022987935",
       "dateCreated": "2021-11-25 11:44:32.987",
-      "dateStarted": "2022-03-21 14:38:48.010",
-      "dateFinished": "2022-03-21 14:38:48.107",
+      "dateStarted": "2022-03-24 08:47:06.747",
+      "dateFinished": "2022-03-24 08:47:06.842",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\n\n/*\n{\n  \"columns\": {\n\"col2\": {\n\"_id\": \"772col2\"\n    },\n\"row\": {\n\"poiType\": \"Governorate\",\n\"poi\": 772\n    }\n  }\n}\n*/\n\nWITH \u0027{\"columns\":{\"row\":{\"poiType\":\"Governorate\",\"poi\":772},\"col2\": 1}}\u0027 AS json // string\nWITH apoc.json.path(json) AS output // map\nRETURN output",
       "user": "anonymous",
-      "dateUpdated": "2021-11-25 14:27:32.751",
+      "dateUpdated": "2022-03-24 08:47:15.406",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -2598,14 +2671,14 @@
       "jobName": "paragraph_1637845997531_503415903",
       "id": "paragraph_1637845997531_503415903",
       "dateCreated": "2021-11-25 13:13:17.531",
-      "dateStarted": "2021-11-25 14:27:13.541",
-      "dateFinished": "2021-11-25 14:27:13.587",
+      "dateStarted": "2022-03-24 08:47:15.427",
+      "dateFinished": "2022-03-24 08:47:15.494",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\n\n// https://github.com/json-path/JsonPath\n\n// $..columns\n// search column key, get result if present (or null if not present, because of \u0027DEFAULT_PATH_LEAF_TO_NULL\u0027)\n// then if one or more values are maps, search inside them and do same above thing,\n// and so on.. \n// finally, list all results\n\n\n\nWITH \u0027{  \"columns\": {\"b\": \"1\"}, \"alfa\": {\"a\": 1}, \"beta\": {\"columns\": {\"ajeje\": 1}}, \"gamma\": 666    }\u0027 AS json\nRETURN apoc.json.path(json, \n\u0027$..columns\u0027,  // json-path rule\nnull // default options --\u003e [\u0027DEFAULT_PATH_LEAF_TO_NULL\u0027, \u0027SUPPRESS_EXCEPTIONS\u0027]\n) AS output\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-21 14:40:35.364",
+      "dateUpdated": "2022-03-24 08:47:18.194",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -2695,14 +2768,15 @@
       "jobName": "paragraph_1637846040688_293915662",
       "id": "paragraph_1637846040688_293915662",
       "dateCreated": "2021-11-25 13:14:00.688",
-      "dateStarted": "2021-11-25 14:14:57.043",
-      "dateFinished": "2021-11-25 14:14:57.078",
+      "dateStarted": "2022-03-24 08:47:18.220",
+      "dateFinished": "2022-03-24 08:47:18.299",
       "status": "FINISHED"
     },
     {
+      "title": "apoc.json.path",
       "text": "%neo4j\n\nWITH \u0027{  \"columns\": {\"b\": \"1\"}, \"alfa\": {\"a\": 1}, \"beta\": {\"columns\": {\"ajeje\": 1}}, \"gamma\": 666    }\u0027 AS json\nRETURN apoc.json.path(json, \u0027$..columns\u0027, []) AS path\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 15:51:51.166",
+      "dateUpdated": "2022-03-24 08:49:37.992",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2771,7 +2845,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "editorHide": false
+        "editorHide": false,
+        "title": true
       },
       "settings": {
         "params": {},
@@ -2792,14 +2867,15 @@
       "jobName": "paragraph_1637846776216_1872553051",
       "id": "paragraph_1637846776216_1872553051",
       "dateCreated": "2021-11-25 13:26:16.216",
-      "dateStarted": "2022-03-22 15:51:51.190",
-      "dateFinished": "2022-03-22 15:51:51.207",
+      "dateStarted": "2022-03-24 08:47:56.346",
+      "dateFinished": "2022-03-24 08:47:56.397",
       "status": "FINISHED"
     },
     {
+      "title": "apoc.convert.fromJsonMap",
       "text": "%neo4j\n\n// with default \u0027$\u0027\nWITH \u0027{  \"columns\": {\"b\": \"1\"}, \"alfa\": {\"a\": 1}, \"beta\": {\"columns\": {\"ajeje\": 1}}, \"gamma\": 666    }\u0027 AS json\nRETURN apoc.convert.fromJsonMap(json) AS path\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-25 14:18:04.721",
+      "dateUpdated": "2022-03-24 08:49:41.425",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -2871,7 +2947,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "editorHide": false
+        "editorHide": false,
+        "title": true
       },
       "settings": {
         "params": {},
@@ -2892,14 +2969,15 @@
       "jobName": "paragraph_1637849783451_917880953",
       "id": "paragraph_1637849783451_917880953",
       "dateCreated": "2021-11-25 14:16:23.452",
-      "dateStarted": "2021-11-25 14:18:04.742",
-      "dateFinished": "2021-11-25 14:18:04.787",
+      "dateStarted": "2022-03-24 08:47:52.748",
+      "dateFinished": "2022-03-24 08:47:52.781",
       "status": "FINISHED"
     },
     {
-      "text": "%neo4j\n\n\nWITH \u0027{  \"columns\": {\"b\": \"1\"}, \"alfa\": {\"a\": 1}, \"beta\": {\"columns\": {\"ajeje\": 1}}, \"gamma\": 666    }\u0027 AS json\nRETURN apoc.convert.fromJsonMap(json, \u0027$..columns\u0027) AS path\n\n\n\n\n\n",
+      "title": "Fails due to $..columns: returns a list",
+      "text": "%neo4j\n\n\n\nWITH \u0027{  \"columns\": {\"b\": \"1\"}, \"alfa\": {\"a\": 1}, \"beta\": {\"columns\": {\"ajeje\": 1}}, \"gamma\": 666    }\u0027 AS json\nRETURN apoc.convert.fromJsonMap(json, \u0027$..columns\u0027) AS path\n\n\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-25 14:43:37.503",
+      "dateUpdated": "2022-03-24 08:49:17.766",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -2971,7 +3049,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "editorHide": false
+        "editorHide": false,
+        "title": true
       },
       "settings": {
         "params": {},
@@ -2982,7 +3061,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "Failed to invoke function `apoc.convert.fromJsonMap`: Caused by: com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.util.LinkedHashMap` out of START_ARRAY token\n at [Source: UNKNOWN; line: -1, column: -1]"
+            "data": "Failed to invoke function `apoc.convert.fromJsonMap`: Caused by: com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.util.LinkedHashMap\u003cjava.lang.Object,java.lang.Object\u003e` out of START_ARRAY token\n at [Source: UNKNOWN; line: -1, column: -1]"
           }
         ]
       },
@@ -2992,14 +3071,15 @@
       "jobName": "paragraph_1637849934818_1507926710",
       "id": "paragraph_1637849934818_1507926710",
       "dateCreated": "2021-11-25 14:18:54.818",
-      "dateStarted": "2021-11-25 14:19:05.741",
-      "dateFinished": "2021-11-25 14:19:05.782",
+      "dateStarted": "2022-03-24 08:47:46.581",
+      "dateFinished": "2022-03-24 08:47:46.626",
       "status": "ERROR"
     },
     {
+      "title": "Fails: returns a map",
       "text": "%neo4j\n\n// with default \u0027$\u0027\nWITH \u0027{  \"columns\": {\"b\": \"1\"}, \"alfa\": {\"a\": 1}, \"beta\": {\"columns\": {\"ajeje\": 1}}, \"gamma\": 666    }\u0027 AS json\nRETURN apoc.convert.fromJsonList(json) AS path\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-25 14:18:26.316",
+      "dateUpdated": "2022-03-24 08:49:06.525",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -3071,7 +3151,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "editorHide": false
+        "editorHide": false,
+        "title": true
       },
       "settings": {
         "params": {},
@@ -3082,7 +3163,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "Failed to invoke function `apoc.convert.fromJsonList`: Caused by: com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.util.ArrayList` out of START_OBJECT token\n at [Source: (String)\"{  \"columns\": {\"b\": \"1\"}, \"alfa\": {\"a\": 1}, \"beta\": {\"columns\": {\"ajeje\": 1}}, \"gamma\": 666    }\"; line: 1, column: 1]"
+            "data": "Failed to invoke function `apoc.convert.fromJsonList`: Caused by: com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize instance of `java.util.ArrayList\u003cjava.lang.Object\u003e` out of START_OBJECT token\n at [Source: (String)\"{  \"columns\": {\"b\": \"1\"}, \"alfa\": {\"a\": 1}, \"beta\": {\"columns\": {\"ajeje\": 1}}, \"gamma\": 666    }\"; line: 1, column: 1]"
           }
         ]
       },
@@ -3092,14 +3173,15 @@
       "jobName": "paragraph_1637849901801_798273809",
       "id": "paragraph_1637849901801_798273809",
       "dateCreated": "2021-11-25 14:18:21.801",
-      "dateStarted": "2021-11-25 14:18:26.330",
-      "dateFinished": "2021-11-25 14:18:26.430",
+      "dateStarted": "2022-03-24 08:48:45.162",
+      "dateFinished": "2022-03-24 08:48:45.204",
       "status": "ERROR"
     },
     {
+      "title": "apoc.convert.fromJsonList",
       "text": "%neo4j\n\n// with default \u0027$\u0027\nWITH \u0027{  \"columns\": {\"b\": \"1\"}, \"alfa\": {\"a\": 1}, \"beta\": {\"columns\": {\"ajeje\": 1}}, \"gamma\": 666    }\u0027 AS json\nRETURN apoc.convert.fromJsonList(json, \u0027$..columns\u0027) AS path\n",
       "user": "anonymous",
-      "dateUpdated": "2021-11-25 14:18:44.273",
+      "dateUpdated": "2022-03-24 08:49:46.679",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -3168,7 +3250,8 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/undefined",
-        "editorHide": false
+        "editorHide": false,
+        "title": true
       },
       "settings": {
         "params": {},
@@ -3189,8 +3272,8 @@
       "jobName": "paragraph_1637849913429_1614748099",
       "id": "paragraph_1637849913429_1614748099",
       "dateCreated": "2021-11-25 14:18:33.429",
-      "dateStarted": "2021-11-25 14:18:43.864",
-      "dateFinished": "2021-11-25 14:18:43.909",
+      "dateStarted": "2022-03-24 08:48:42.558",
+      "dateFinished": "2022-03-24 08:48:42.603",
       "status": "FINISHED"
     },
     {

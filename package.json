@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "zeppelin-leaflet": "^1.0.5"
+  }
+}
