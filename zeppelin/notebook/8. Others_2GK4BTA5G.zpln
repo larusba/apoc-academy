@@ -45,7 +45,7 @@
       "title": "apoc.create.vNode",
       "text": "%neo4j\n\n/* \nvisualize a graph from this csv file:\n    persons.csv\n    ---\n    name,surname\n    Eren,Jager\n    Mikasa,Ackermann\n    Armin,Arelet  \n*/\n\n\n// we can use CALL apoc.create.vNode(labels, propertyMap)\n\nCALL apoc.load.csv(\"persons.csv\") YIELD map \n// we retrieve the csv as a row of maps, so {\"name\":\"Eren\", \"surname\": \"Jager\"}, {\"name\": \"Mikasa\", \"surname\": \"Ackermann\"}, {\"name\": \"Armin\", \"surname\": \"Arelet\"}\nWITH map\nCALL apoc.create.vNode([\u0027Person\u0027], map) // we create 2 virtual nodes from csv\nYIELD node\nRETURN node",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:58:39.337",
+      "dateUpdated": "2022-03-25 11:35:11.416",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -110,21 +110,30 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":-3,\"data\":{\"name\":\"Eren\",\"surname\":\"Jager\"},\"label\":\"Person\"},{\"id\":-4,\"data\":{\"name\":\"Mikasa\",\"surname\":\"Ackermann\"},\"label\":\"Person\"},{\"id\":-5,\"data\":{\"name\":\"Armin\",\"surname\":\"Arelet \"},\"label\":\"Person\"}],\"edges\":[],\"labels\":{\"TTL\":\"#8721DB\",\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"Actor\":\"#9E008D\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\",\"NodeWithTime\":\"#161DEF\",\"Test\":\"#615488\",\"Finished\":\"#5A5A63\",\"CurrentTime\":\"#1FBD07\",\"Counter\":\"#73DCBB\",\"Schedule\":\"#D6870E\",\"NotFound\":\"#C84E0C\",\"Found\":\"#5C71C6\",\"City\":\"#EE1B85\",\"TagLine\":\"#785865\",\"Flight\":\"#D6E11D\",\"Airport\":\"#FBC242\",\"MergeOne\":\"#54D41D\",\"Company\":\"#79377F\",\"Car\":\"#35437F\",\"Animal\":\"#3FCE6B\",\"Cat\":\"#0FDDE6\",\"MergeTwo\":\"#3E6FCA\",\"One\":\"#FEC55E\",\"Five\":\"#A55202\",\"Other\":\"#E86A47\",\"Other2\":\"#A25512\"},\"types\":[\"Pippo2\",\"HAS_MOVIE\",\"ALPHA_BETA\",\"DRIVE\",\"MY_REL\",\"HAS_TAGLINE\",\"CONNECTED_TO\",\"PRODUCED\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\",\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"IN\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"Pippo\",\"OUT\",\"FRIENDS\",\"WROTE\",\"MY_PERIODIC_REL\",\"HAS_HQ\",\"WORKS_FOR\",\"HAS\"],\"directed\":true}"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1636293811647_1694047595",
       "id": "paragraph_1636293811647_1694047595",
       "dateCreated": "2021-11-07 14:03:31.647",
-      "dateStarted": "2022-03-24 08:58:39.361",
-      "dateFinished": "2022-03-24 08:58:39.494",
+      "dateStarted": "2022-03-25 11:35:11.445",
+      "dateFinished": "2022-03-25 11:35:11.535",
       "status": "FINISHED"
     },
     {
       "title": "apoc.create.vRelationship",
       "text": "%neo4j\nMATCH (start:Person {name: \u0027Hugo Weaving\u0027}), (end:Movie {title: \u0027V for Vendetta\u0027})\nWITH start, end\nCALL apoc.load.csv(\"persons.csv\") YIELD map \nWITH map, start, end\nCALL apoc.create.vRelationship(start,\u0027REL_FROM_CSV\u0027, map, end)  // we create 2 virtual rels from csv\nYIELD rel\nRETURN start, end, rel",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:58:46.287",
+      "dateUpdated": "2022-03-25 11:35:42.127",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -177,21 +186,30 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":5,\"data\":{\"name\":\"Hugo Weaving\",\"uuid\":\"0671dc7e-46f5-4f7b-aff6-75ec5f46341f\",\"born\":1960},\"label\":\"Person\"},{\"id\":117,\"data\":{\"title\":\"V for Vendetta\"},\"label\":\"Movie\"}],\"edges\":[{\"source\":5,\"target\":117,\"id\":-3,\"data\":{\"name\":\"Eren\",\"surname\":\"Jager\"},\"label\":\"REL_FROM_CSV\"},{\"source\":5,\"target\":117,\"id\":-4,\"data\":{\"name\":\"Mikasa\",\"surname\":\"Ackermann\"},\"label\":\"REL_FROM_CSV\"},{\"source\":5,\"target\":117,\"id\":-5,\"data\":{\"name\":\"Armin\",\"surname\":\"Arelet \"},\"label\":\"REL_FROM_CSV\"}],\"labels\":{\"TTL\":\"#8721DB\",\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"Actor\":\"#9E008D\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\",\"NodeWithTime\":\"#161DEF\",\"Test\":\"#615488\",\"Finished\":\"#5A5A63\",\"CurrentTime\":\"#1FBD07\",\"Counter\":\"#73DCBB\",\"Schedule\":\"#D6870E\",\"NotFound\":\"#C84E0C\",\"Found\":\"#5C71C6\",\"City\":\"#EE1B85\",\"TagLine\":\"#785865\",\"Flight\":\"#D6E11D\",\"Airport\":\"#FBC242\",\"MergeOne\":\"#54D41D\",\"Company\":\"#79377F\",\"Car\":\"#35437F\",\"Animal\":\"#3FCE6B\",\"Cat\":\"#0FDDE6\",\"MergeTwo\":\"#3E6FCA\",\"One\":\"#FEC55E\",\"Five\":\"#A55202\",\"Other\":\"#E86A47\",\"Other2\":\"#A25512\"},\"types\":[\"Pippo2\",\"HAS_MOVIE\",\"ALPHA_BETA\",\"DRIVE\",\"MY_REL\",\"HAS_TAGLINE\",\"CONNECTED_TO\",\"PRODUCED\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\",\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"IN\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"Pippo\",\"OUT\",\"FRIENDS\",\"WROTE\",\"MY_PERIODIC_REL\",\"HAS_HQ\",\"WORKS_FOR\",\"HAS\"],\"directed\":true}"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1637828421240_1049896205",
       "id": "paragraph_1637828421240_1049896205",
       "dateCreated": "2021-11-25 08:20:21.240",
-      "dateStarted": "2022-03-24 08:58:42.418",
-      "dateFinished": "2022-03-24 08:58:42.609",
+      "dateStarted": "2022-03-25 11:35:42.149",
+      "dateFinished": "2022-03-25 11:35:42.246",
       "status": "FINISHED"
     },
     {
       "title": "apoc.create.virtualPath",
       "text": "%neo4j\n\n/* \nvisualize a graph from this csv file:\n    personsRel.csv  | personsEnd\n    ---             | ---\n    since           | name,surname\n    1999            | Levi,Ackermann\n\n*/\n\nCALL apoc.load.csv(\"persons.csv\") YIELD map AS mapStart\nCALL apoc.load.csv(\"personsEnd.csv\") YIELD map AS mapEnd\nCALL apoc.load.csv(\"personsRel.csv\") YIELD map AS mapRel\nWITH mapStart, mapEnd, mapRel\nCALL apoc.create.virtualPath([\u0027Start\u0027,\u0027Person\u0027], mapStart,\u0027KNOWS\u0027, mapRel, [\u0027End\u0027,\u0027Person\u0027], mapEnd)\nYIELD from, rel, to\nRETURN from, rel, to",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:59:06.418",
+      "dateUpdated": "2022-03-25 11:36:43.149",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -242,21 +260,30 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":-6,\"data\":{\"name\":\"Eren\",\"surname\":\"Jager\"},\"label\":\"Start\"},{\"id\":-7,\"data\":{\"name\":\"Levi\",\"surname\":\"Ackermann\"},\"label\":\"End\"},{\"id\":-8,\"data\":{\"name\":\"Mikasa\",\"surname\":\"Ackermann\"},\"label\":\"Start\"},{\"id\":-9,\"data\":{\"name\":\"Levi\",\"surname\":\"Ackermann\"},\"label\":\"End\"},{\"id\":-10,\"data\":{\"name\":\"Armin\",\"surname\":\"Arelet \"},\"label\":\"Start\"},{\"id\":-11,\"data\":{\"name\":\"Levi\",\"surname\":\"Ackermann\"},\"label\":\"End\"}],\"edges\":[{\"source\":-6,\"target\":-7,\"id\":-6,\"data\":{\"since\":\"1999\"},\"label\":\"KNOWS\"},{\"source\":-8,\"target\":-9,\"id\":-7,\"data\":{\"since\":\"1999\"},\"label\":\"KNOWS\"},{\"source\":-10,\"target\":-11,\"id\":-8,\"data\":{\"since\":\"1999\"},\"label\":\"KNOWS\"}],\"labels\":{\"TTL\":\"#8721DB\",\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"Actor\":\"#9E008D\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\",\"NodeWithTime\":\"#161DEF\",\"Test\":\"#615488\",\"Finished\":\"#5A5A63\",\"CurrentTime\":\"#1FBD07\",\"Counter\":\"#73DCBB\",\"Schedule\":\"#D6870E\",\"NotFound\":\"#C84E0C\",\"Found\":\"#5C71C6\",\"City\":\"#EE1B85\",\"TagLine\":\"#785865\",\"Flight\":\"#D6E11D\",\"Airport\":\"#FBC242\",\"MergeOne\":\"#54D41D\",\"Company\":\"#79377F\",\"Car\":\"#35437F\",\"Animal\":\"#3FCE6B\",\"Cat\":\"#0FDDE6\",\"MergeTwo\":\"#3E6FCA\",\"One\":\"#FEC55E\",\"Five\":\"#A55202\",\"Other\":\"#E86A47\",\"Other2\":\"#A25512\"},\"types\":[\"Pippo2\",\"HAS_MOVIE\",\"ALPHA_BETA\",\"DRIVE\",\"MY_REL\",\"HAS_TAGLINE\",\"CONNECTED_TO\",\"PRODUCED\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\",\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"IN\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"Pippo\",\"OUT\",\"FRIENDS\",\"WROTE\",\"MY_PERIODIC_REL\",\"HAS_HQ\",\"WORKS_FOR\",\"HAS\"],\"directed\":true}"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1637828437700_380092887",
       "id": "paragraph_1637828437700_380092887",
       "dateCreated": "2021-11-25 08:20:37.700",
-      "dateStarted": "2022-03-24 08:59:06.439",
-      "dateFinished": "2022-03-24 08:59:06.793",
+      "dateStarted": "2022-03-25 11:36:43.178",
+      "dateFinished": "2022-03-25 11:36:43.464",
       "status": "FINISHED"
     },
     {
       "title": "apoc.create.clonePathToVirtual",
       "text": "%neo4j\n\nmatch p\u003d(:Person)-[:PRODUCED]-\u003e(:Movie)\nwith p LIMIT 5\nCALL apoc.create.clonePathToVirtual(p) yield path return path",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:59:16.154",
+      "dateUpdated": "2022-03-25 11:37:22.771",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -310,14 +337,23 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":1,\"data\":{\"title\":\"The Matrix\"},\"label\":\"Movie\"},{\"id\":82,\"data\":{\"title\":\"When Herry Met Sally\"},\"label\":\"Movie\"},{\"id\":38,\"data\":{\"title\":\"Jerry Maguire\"},\"label\":\"Movie\"},{\"id\":8,\"data\":{\"name\":\"Franco e Ciccio\",\"uuid\":\"4aa69d17-d3d8-4812-961a-694b3ca084d3\",\"born\":1952},\"label\":\"Person\"},{\"id\":73,\"data\":{\"name\":\"Nora Ephron\",\"uuid\":\"0b939ca8-2797-4fff-a249-987e979a38f3\",\"born\":1941},\"label\":\"Person\"},{\"id\":10,\"data\":{\"title\":\"The Matrix Reloaded\"},\"label\":\"Movie\"},{\"id\":11,\"data\":{\"title\":\"The Matrix Revolutions\"},\"label\":\"Movie\"},{\"id\":46,\"data\":{\"name\":\"Cameron Crowe\",\"uuid\":\"07ffaad7-a860-4b26-9af8-f1a2544880cc\",\"born\":1957},\"label\":\"Person\"}],\"edges\":[{\"source\":8,\"target\":1,\"id\":-9,\"data\":{},\"label\":\"PRODUCED\"},{\"source\":8,\"target\":10,\"id\":-10,\"data\":{},\"label\":\"PRODUCED\"},{\"source\":8,\"target\":11,\"id\":-11,\"data\":{},\"label\":\"PRODUCED\"},{\"source\":46,\"target\":38,\"id\":-12,\"data\":{},\"label\":\"PRODUCED\"},{\"source\":73,\"target\":82,\"id\":-13,\"data\":{},\"label\":\"PRODUCED\"}],\"labels\":{\"TTL\":\"#8721DB\",\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"Actor\":\"#9E008D\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\",\"NodeWithTime\":\"#161DEF\",\"Test\":\"#615488\",\"Finished\":\"#5A5A63\",\"CurrentTime\":\"#1FBD07\",\"Counter\":\"#73DCBB\",\"Schedule\":\"#D6870E\",\"NotFound\":\"#C84E0C\",\"Found\":\"#5C71C6\",\"City\":\"#EE1B85\",\"TagLine\":\"#785865\",\"Flight\":\"#D6E11D\",\"Airport\":\"#FBC242\",\"MergeOne\":\"#54D41D\",\"Company\":\"#79377F\",\"Car\":\"#35437F\",\"Animal\":\"#3FCE6B\",\"Cat\":\"#0FDDE6\",\"MergeTwo\":\"#3E6FCA\",\"One\":\"#FEC55E\",\"Five\":\"#A55202\",\"Other\":\"#E86A47\",\"Other2\":\"#A25512\"},\"types\":[\"Pippo2\",\"HAS_MOVIE\",\"ALPHA_BETA\",\"DRIVE\",\"MY_REL\",\"HAS_TAGLINE\",\"CONNECTED_TO\",\"PRODUCED\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\",\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"IN\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"Pippo\",\"OUT\",\"FRIENDS\",\"WROTE\",\"MY_PERIODIC_REL\",\"HAS_HQ\",\"WORKS_FOR\",\"HAS\"],\"directed\":true}"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1637828775796_2088344224",
       "id": "paragraph_1637828775796_2088344224",
       "dateCreated": "2021-11-25 08:26:15.796",
-      "dateStarted": "2022-03-24 08:59:16.177",
-      "dateFinished": "2022-03-24 08:59:16.305",
+      "dateStarted": "2022-03-25 11:37:22.796",
+      "dateFinished": "2022-03-25 11:37:22.870",
       "status": "FINISHED"
     },
     {
@@ -365,7 +401,7 @@
       "title": "apoc.nodes.collapse",
       "text": "%neo4j\n\nMATCH (p:Person)-[:ACTED_IN]-\u003e(c:Movie {title: \u0027The Matrix\u0027})\nWITH c, collect(p) as subgraph\nCALL apoc.nodes.collapse(subgraph, {properties:\u0027combine\u0027}) yield from, rel, to\nreturn from, rel, to",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 10:33:28.924",
+      "dateUpdated": "2022-03-25 11:38:06.600",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -421,20 +457,29 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":1,\"data\":{\"title\":\"The Matrix\"},\"label\":\"Movie\"},{\"id\":101,\"data\":{\"title\":\"Johnny Mnemonic\"},\"label\":\"Movie\"},{\"id\":106,\"data\":{\"title\":\"Cloud Atlas\"},\"label\":\"Movie\"},{\"id\":10,\"data\":{\"title\":\"The Matrix Reloaded\"},\"label\":\"Movie\"},{\"id\":-12,\"data\":{\"datetime\":\"2022-03-25T10:47:01.843Z\",\"other\":444,\"children\":[\"Naruto\",\"Sasuke\",\"Sakura\",\"Al\",\"John\",\"Jack\"],\"born\":[1978,1960,1961,1967,1964],\"name\":[\"Emil Eifrem\",\"Hugo Weaving\",\"Laurence Fishburne\",\"Carrie-Anne Moss\",\"Giandomenico Fracchia\"],\"count\":5,\"uuid\":[\"fe7de34e-6078-43df-acb1-eef562cc5fad\",\"0671dc7e-46f5-4f7b-aff6-75ec5f46341f\",\"3570039c-983d-4d75-914a-9dba0293cc18\",\"3d82dddf-be90-410d-9b43-52d359344ceb\",\"65965404-4fc3-451a-afca-190371d9145b\"],\"something\":\"8d91382c-372c-4952-b8db-b0b417c39fa2\",\"timestamp\":1648200777563,\"stuff\":0.46906873841357555},\"label\":\"Person\"},{\"id\":11,\"data\":{\"title\":\"The Matrix Revolutions\"},\"label\":\"Movie\"},{\"id\":172,\"data\":{\"name\":\"The movie about Giandomenico Fracchia\"},\"label\":\"Movie\"},{\"id\":12,\"data\":{\"title\":\"The Devil\\u0027s Advocate\"},\"label\":\"Movie\"},{\"id\":305,\"data\":{\"myId\":1},\"label\":\"MyCaseNode\"},{\"id\":306,\"data\":{\"myId\":2},\"label\":\"MyCaseNode\"},{\"id\":117,\"data\":{\"title\":\"V for Vendetta\"},\"label\":\"Movie\"},{\"id\":88,\"data\":{\"title\":\"The Replacements\"},\"label\":\"Movie\"},{\"id\":155,\"data\":{\"title\":\"Something\\u0027s Gotta Give\",\"released\":2003},\"label\":\"Movie\"}],\"edges\":[{\"source\":-12,\"target\":11,\"id\":-17,\"data\":{\"count\":3,\"roles\":[\"Agent Smith\",\"Morpheus\",\"Trinity\",\"Neo\"]},\"label\":\"ACTED_IN\"},{\"source\":-12,\"target\":10,\"id\":-18,\"data\":{\"count\":3,\"roles\":[\"Agent Smith\",\"Morpheus\",\"Trinity\",\"Neo\"]},\"label\":\"ACTED_IN\"},{\"source\":-12,\"target\":306,\"id\":-19,\"data\":{},\"label\":\"MY_CASE_REL\"},{\"source\":-12,\"target\":305,\"id\":-20,\"data\":{},\"label\":\"MY_CASE_REL\"},{\"source\":-12,\"target\":172,\"id\":-21,\"data\":{},\"label\":\"HAS_MOVIE\"},{\"source\":-12,\"target\":155,\"id\":-22,\"data\":{\"roles\":[\"Julian Mercer\"]},\"label\":\"ACTED_IN\"},{\"source\":-12,\"target\":88,\"id\":-23,\"data\":{\"roles\":[\"Shane Falco\"]},\"label\":\"ACTED_IN\"},{\"source\":-12,\"target\":101,\"id\":-24,\"data\":{\"roles\":[\"Johnny Mnemonic\"]},\"label\":\"ACTED_IN\"},{\"source\":-12,\"target\":12,\"id\":-25,\"data\":{\"roles\":[\"Kevin Lomax\"]},\"label\":\"ACTED_IN\"},{\"source\":-12,\"target\":1,\"id\":-14,\"data\":{\"count\":4,\"roles\":[\"Emil\",\"Agent Smith\",\"Morpheus\",\"Trinity\",\"Neo\"]},\"label\":\"ACTED_IN\"},{\"source\":-12,\"target\":106,\"id\":-15,\"data\":{\"roles\":[\"Bill Smoke\",\"Haskell Moore\",\"Tadeusz Kesselring\",\"Nurse Noakes\",\"Boardman Mephi\",\"Old Georgie\"]},\"label\":\"ACTED_IN\"},{\"source\":-12,\"target\":117,\"id\":-16,\"data\":{\"roles\":[\"V\"]},\"label\":\"ACTED_IN\"}],\"labels\":{\"TTL\":\"#8721DB\",\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"Actor\":\"#9E008D\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\",\"NodeWithTime\":\"#161DEF\",\"Test\":\"#615488\",\"Finished\":\"#5A5A63\",\"CurrentTime\":\"#1FBD07\",\"Counter\":\"#73DCBB\",\"Schedule\":\"#D6870E\",\"NotFound\":\"#C84E0C\",\"Found\":\"#5C71C6\",\"City\":\"#EE1B85\",\"TagLine\":\"#785865\",\"Flight\":\"#D6E11D\",\"Airport\":\"#FBC242\",\"MergeOne\":\"#54D41D\",\"Company\":\"#79377F\",\"Car\":\"#35437F\",\"Animal\":\"#3FCE6B\",\"Cat\":\"#0FDDE6\",\"MergeTwo\":\"#3E6FCA\",\"One\":\"#FEC55E\",\"Five\":\"#A55202\",\"Other\":\"#E86A47\",\"Other2\":\"#A25512\"},\"types\":[\"Pippo2\",\"HAS_MOVIE\",\"ALPHA_BETA\",\"DRIVE\",\"MY_REL\",\"HAS_TAGLINE\",\"CONNECTED_TO\",\"PRODUCED\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\",\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"IN\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"Pippo\",\"OUT\",\"FRIENDS\",\"WROTE\",\"MY_PERIODIC_REL\",\"HAS_HQ\",\"WORKS_FOR\",\"HAS\"],\"directed\":true}"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1637829082791_100227700",
       "id": "paragraph_1637829082791_100227700",
       "dateCreated": "2021-11-25 08:31:22.791",
-      "dateStarted": "2022-03-23 10:33:28.951",
-      "dateFinished": "2022-03-23 10:33:29.244",
+      "dateStarted": "2022-03-25 11:38:06.627",
+      "dateFinished": "2022-03-25 11:38:06.784",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\n\nMATCH (p:Person)-[:ACTED_IN]-\u003e(c:Movie {title: \u0027The Matrix\u0027})\nWITH c, collect(p) as subgraph\nCALL apoc.nodes.collapse(subgraph, {mergeVirtualRels: false, properties:\u0027combine\u0027}) yield from, rel, to\nreturn from, rel, to",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 09:02:03.546",
+      "dateUpdated": "2022-03-25 11:38:28.840",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -489,21 +534,30 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":1,\"data\":{\"title\":\"The Matrix\"},\"label\":\"Movie\"},{\"id\":101,\"data\":{\"title\":\"Johnny Mnemonic\"},\"label\":\"Movie\"},{\"id\":106,\"data\":{\"title\":\"Cloud Atlas\"},\"label\":\"Movie\"},{\"id\":10,\"data\":{\"title\":\"The Matrix Reloaded\"},\"label\":\"Movie\"},{\"id\":11,\"data\":{\"title\":\"The Matrix Revolutions\"},\"label\":\"Movie\"},{\"id\":-13,\"data\":{\"datetime\":\"2022-03-25T10:47:01.843Z\",\"other\":444,\"children\":[\"Naruto\",\"Sasuke\",\"Sakura\",\"Al\",\"John\",\"Jack\"],\"born\":[1978,1960,1961,1967,1964],\"name\":[\"Emil Eifrem\",\"Hugo Weaving\",\"Laurence Fishburne\",\"Carrie-Anne Moss\",\"Giandomenico Fracchia\"],\"count\":5,\"uuid\":[\"fe7de34e-6078-43df-acb1-eef562cc5fad\",\"0671dc7e-46f5-4f7b-aff6-75ec5f46341f\",\"3570039c-983d-4d75-914a-9dba0293cc18\",\"3d82dddf-be90-410d-9b43-52d359344ceb\",\"65965404-4fc3-451a-afca-190371d9145b\"],\"something\":\"8d91382c-372c-4952-b8db-b0b417c39fa2\",\"timestamp\":1648200777563,\"stuff\":0.46906873841357555},\"label\":\"Person\"},{\"id\":172,\"data\":{\"name\":\"The movie about Giandomenico Fracchia\"},\"label\":\"Movie\"},{\"id\":12,\"data\":{\"title\":\"The Devil\\u0027s Advocate\"},\"label\":\"Movie\"},{\"id\":305,\"data\":{\"myId\":1},\"label\":\"MyCaseNode\"},{\"id\":306,\"data\":{\"myId\":2},\"label\":\"MyCaseNode\"},{\"id\":117,\"data\":{\"title\":\"V for Vendetta\"},\"label\":\"Movie\"},{\"id\":88,\"data\":{\"title\":\"The Replacements\"},\"label\":\"Movie\"},{\"id\":155,\"data\":{\"title\":\"Something\\u0027s Gotta Give\",\"released\":2003},\"label\":\"Movie\"}],\"edges\":[{\"source\":-13,\"target\":172,\"id\":-33,\"data\":{},\"label\":\"HAS_MOVIE\"},{\"source\":-13,\"target\":155,\"id\":-34,\"data\":{\"roles\":[\"Julian Mercer\"]},\"label\":\"ACTED_IN\"},{\"source\":-13,\"target\":88,\"id\":-35,\"data\":{\"roles\":[\"Shane Falco\"]},\"label\":\"ACTED_IN\"},{\"source\":-13,\"target\":101,\"id\":-36,\"data\":{\"roles\":[\"Johnny Mnemonic\"]},\"label\":\"ACTED_IN\"},{\"source\":-13,\"target\":12,\"id\":-37,\"data\":{\"roles\":[\"Kevin Lomax\"]},\"label\":\"ACTED_IN\"},{\"source\":-13,\"target\":1,\"id\":-26,\"data\":{\"count\":4,\"roles\":[\"Emil\",\"Agent Smith\",\"Morpheus\",\"Trinity\",\"Neo\"]},\"label\":\"ACTED_IN\"},{\"source\":-13,\"target\":106,\"id\":-27,\"data\":{\"roles\":[\"Bill Smoke\",\"Haskell Moore\",\"Tadeusz Kesselring\",\"Nurse Noakes\",\"Boardman Mephi\",\"Old Georgie\"]},\"label\":\"ACTED_IN\"},{\"source\":-13,\"target\":117,\"id\":-28,\"data\":{\"roles\":[\"V\"]},\"label\":\"ACTED_IN\"},{\"source\":-13,\"target\":11,\"id\":-29,\"data\":{\"count\":3,\"roles\":[\"Agent Smith\",\"Morpheus\",\"Trinity\",\"Neo\"]},\"label\":\"ACTED_IN\"},{\"source\":-13,\"target\":10,\"id\":-30,\"data\":{\"count\":3,\"roles\":[\"Agent Smith\",\"Morpheus\",\"Trinity\",\"Neo\"]},\"label\":\"ACTED_IN\"},{\"source\":-13,\"target\":306,\"id\":-31,\"data\":{},\"label\":\"MY_CASE_REL\"},{\"source\":-13,\"target\":305,\"id\":-32,\"data\":{},\"label\":\"MY_CASE_REL\"}],\"labels\":{\"TTL\":\"#8721DB\",\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"Actor\":\"#9E008D\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\",\"NodeWithTime\":\"#161DEF\",\"Test\":\"#615488\",\"Finished\":\"#5A5A63\",\"CurrentTime\":\"#1FBD07\",\"Counter\":\"#73DCBB\",\"Schedule\":\"#D6870E\",\"NotFound\":\"#C84E0C\",\"Found\":\"#5C71C6\",\"City\":\"#EE1B85\",\"TagLine\":\"#785865\",\"Flight\":\"#D6E11D\",\"Airport\":\"#FBC242\",\"MergeOne\":\"#54D41D\",\"Company\":\"#79377F\",\"Car\":\"#35437F\",\"Animal\":\"#3FCE6B\",\"Cat\":\"#0FDDE6\",\"MergeTwo\":\"#3E6FCA\",\"One\":\"#FEC55E\",\"Five\":\"#A55202\",\"Other\":\"#E86A47\",\"Other2\":\"#A25512\"},\"types\":[\"Pippo2\",\"HAS_MOVIE\",\"ALPHA_BETA\",\"DRIVE\",\"MY_REL\",\"HAS_TAGLINE\",\"CONNECTED_TO\",\"PRODUCED\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\",\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"IN\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"Pippo\",\"OUT\",\"FRIENDS\",\"WROTE\",\"MY_PERIODIC_REL\",\"HAS_HQ\",\"WORKS_FOR\",\"HAS\"],\"directed\":true}"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1638201667133_1389208122",
       "id": "paragraph_1638201667133_1389208122",
       "dateCreated": "2021-11-29 16:01:07.133",
-      "dateStarted": "2022-03-24 09:02:03.566",
-      "dateFinished": "2022-03-24 09:02:03.693",
+      "dateStarted": "2022-03-25 11:38:28.864",
+      "dateFinished": "2022-03-25 11:38:28.970",
       "status": "FINISHED"
     },
     {
       "title": "selfRel: true",
       "text": "%neo4j\nMATCH (p:Person {name: \u0027Bill Paxton\u0027})-[:ACTED_IN]-\u003e(c:Movie {title: \u0027Apollo 13\u0027})\nwith collect(c) + p as subgraph\nCALL apoc.nodes.collapse(subgraph, {selfRel: true}) \nyield from, rel, to\nreturn apoc.node.id(from), apoc.node.id(to)",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 09:08:02.904",
+      "dateUpdated": "2022-03-25 11:38:46.070",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -551,21 +605,30 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "apoc.node.id(from)\tapoc.node.id(to)\n-14\t41499\n72\t-14\n116\t-14\n146\t-14\n135\t-14\n20\t-14\n-14\t-14\n-14\t148\n-14\t163\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1638200352175_541082587",
       "id": "paragraph_1638200352175_541082587",
       "dateCreated": "2021-11-29 15:39:12.175",
-      "dateStarted": "2022-03-24 09:08:02.935",
-      "dateFinished": "2022-03-24 09:08:03.005",
+      "dateStarted": "2022-03-25 11:38:46.101",
+      "dateFinished": "2022-03-25 11:38:46.239",
       "status": "FINISHED"
     },
     {
       "title": "selfRel: false",
       "text": "%neo4j\nMATCH (p:Person {name: \u0027Bill Paxton\u0027})-[:ACTED_IN]-\u003e(c:Movie {title: \u0027Apollo 13\u0027})\nwith collect(c) + p as subgraph\nCALL apoc.nodes.collapse(subgraph, {selfRel: false}) \nyield from, rel, to\nreturn apoc.node.id(from), apoc.node.id(to)",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 09:02:24.633",
+      "dateUpdated": "2022-03-25 11:38:49.445",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -613,21 +676,30 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "apoc.node.id(from)\tapoc.node.id(to)\n-15\t41499\n72\t-15\n116\t-15\n146\t-15\n135\t-15\n20\t-15\n-15\t148\n-15\t163\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1638203698151_1469058835",
       "id": "paragraph_1638203698151_1469058835",
       "dateCreated": "2021-11-29 16:34:58.152",
-      "dateStarted": "2022-03-24 09:02:24.654",
-      "dateFinished": "2022-03-24 09:02:24.776",
+      "dateStarted": "2022-03-25 11:38:49.469",
+      "dateFinished": "2022-03-25 11:38:49.559",
       "status": "FINISHED"
     },
     {
       "title": "apoc.graph.fromData",
       "text": "%neo4j\n\nMATCH (p:Person {name: \"Franco e Ciccio\"})-[r:PRODUCED]-\u003e(m:Movie)\nWITH p,r,m\nWITH collect(m) + collect(p) AS nodes, collect(r) AS relationships\nCALL apoc.graph.fromData(nodes, relationships, \"movies\", {})\nYIELD graph\nWITH graph.nodes as nodes, graph.relationships as rels\nUNWIND nodes AS node\nUNWIND rels AS rel\nRETURN DISTINCT node, rel",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 09:10:47.041",
+      "dateUpdated": "2022-03-25 11:39:39.128",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -684,21 +756,30 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":129,\"data\":{\"title\":\"Ninja Assassin\"},\"label\":\"Movie\"},{\"id\":1,\"data\":{\"title\":\"The Matrix\"},\"label\":\"Movie\"},{\"id\":117,\"data\":{\"title\":\"V for Vendetta\"},\"label\":\"Movie\"},{\"id\":8,\"data\":{\"name\":\"Franco e Ciccio\",\"uuid\":\"4aa69d17-d3d8-4812-961a-694b3ca084d3\",\"born\":1952},\"label\":\"Person\"},{\"id\":122,\"data\":{\"title\":\"Speed Racer\"},\"label\":\"Movie\"},{\"id\":10,\"data\":{\"title\":\"The Matrix Reloaded\"},\"label\":\"Movie\"},{\"id\":11,\"data\":{\"title\":\"The Matrix Revolutions\"},\"label\":\"Movie\"}],\"edges\":[{\"source\":8,\"target\":129,\"id\":181,\"data\":{},\"label\":\"PRODUCED\"},{\"source\":8,\"target\":11,\"id\":21,\"data\":{},\"label\":\"PRODUCED\"},{\"source\":8,\"target\":1,\"id\":6,\"data\":{},\"label\":\"PRODUCED\"},{\"source\":8,\"target\":122,\"id\":173,\"data\":{},\"label\":\"PRODUCED\"},{\"source\":8,\"target\":10,\"id\":14,\"data\":{},\"label\":\"PRODUCED\"},{\"source\":8,\"target\":117,\"id\":159,\"data\":{},\"label\":\"PRODUCED\"}],\"labels\":{\"TTL\":\"#8721DB\",\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"Actor\":\"#9E008D\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\",\"NodeWithTime\":\"#161DEF\",\"Test\":\"#615488\",\"Finished\":\"#5A5A63\",\"CurrentTime\":\"#1FBD07\",\"Counter\":\"#73DCBB\",\"Schedule\":\"#D6870E\",\"NotFound\":\"#C84E0C\",\"Found\":\"#5C71C6\",\"City\":\"#EE1B85\",\"TagLine\":\"#785865\",\"Flight\":\"#D6E11D\",\"Airport\":\"#FBC242\",\"MergeOne\":\"#54D41D\",\"Company\":\"#79377F\",\"Car\":\"#35437F\",\"Animal\":\"#3FCE6B\",\"Cat\":\"#0FDDE6\",\"MergeTwo\":\"#3E6FCA\",\"One\":\"#FEC55E\",\"Five\":\"#A55202\",\"Other\":\"#E86A47\",\"Other2\":\"#A25512\"},\"types\":[\"Pippo2\",\"HAS_MOVIE\",\"ALPHA_BETA\",\"DRIVE\",\"MY_REL\",\"HAS_TAGLINE\",\"CONNECTED_TO\",\"PRODUCED\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\",\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"IN\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"Pippo\",\"OUT\",\"FRIENDS\",\"WROTE\",\"MY_PERIODIC_REL\",\"HAS_HQ\",\"WORKS_FOR\",\"HAS\"],\"directed\":true}"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1636544202474_1918473223",
       "id": "paragraph_1636544202474_1918473223",
       "dateCreated": "2021-11-10 11:36:42.474",
-      "dateStarted": "2022-03-24 09:10:47.064",
-      "dateFinished": "2022-03-24 09:10:47.203",
+      "dateStarted": "2022-03-25 11:39:39.152",
+      "dateFinished": "2022-03-25 11:39:39.363",
       "status": "FINISHED"
     },
     {
       "title": "apoc.graph.fromDocument",
       "text": "%neo4j\n\nCALL apoc.graph.fromDocument(\"{\u0027id\u0027: 1,\u0027type\u0027: \u0027artist\u0027,\u0027name\u0027:\u0027Genesis\u0027,\u0027members\u0027: [\u0027Tony Banks\u0027,\u0027Mike Rutherford\u0027,\u0027Phil Collins\u0027],\u0027years\u0027: [1967, 1998, 1999, 2000, 2006],\u0027albums\u0027: [{\u0027type\u0027: \u0027album\u0027,\u0027id\u0027: 1,\u0027producer\u0027: \u0027Jonathan King\u0027,\u0027title\u0027: \u0027From Genesis to Revelation\u0027}]}\", {})\nYIELD graph \nWITH graph.nodes as nodes, graph.relationships as rels\nUNWIND nodes AS node\nUNWIND rels AS rel\nRETURN DISTINCT node, rel\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 09:11:02.589",
+      "dateUpdated": "2022-03-25 11:40:16.484",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -754,20 +835,29 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":-17,\"data\":{\"producer\":\"Jonathan King\",\"id\":1,\"type\":\"album\",\"title\":\"From Genesis to Revelation\"},\"label\":\"Album\"},{\"id\":-16,\"data\":{\"name\":\"Genesis\",\"id\":1,\"type\":\"artist\",\"years\":[1967,1998,1999,2000,2006],\"members\":[\"Tony Banks\",\"Mike Rutherford\",\"Phil Collins\"]},\"label\":\"Artist\"}],\"edges\":[{\"source\":-16,\"target\":-17,\"id\":-55,\"data\":{},\"label\":\"ALBUMS\"}],\"labels\":{\"TTL\":\"#8721DB\",\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"Actor\":\"#9E008D\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\",\"NodeWithTime\":\"#161DEF\",\"Test\":\"#615488\",\"Finished\":\"#5A5A63\",\"CurrentTime\":\"#1FBD07\",\"Counter\":\"#73DCBB\",\"Schedule\":\"#D6870E\",\"NotFound\":\"#C84E0C\",\"Found\":\"#5C71C6\",\"City\":\"#EE1B85\",\"TagLine\":\"#785865\",\"Flight\":\"#D6E11D\",\"Airport\":\"#FBC242\",\"MergeOne\":\"#54D41D\",\"Company\":\"#79377F\",\"Car\":\"#35437F\",\"Animal\":\"#3FCE6B\",\"Cat\":\"#0FDDE6\",\"MergeTwo\":\"#3E6FCA\",\"One\":\"#FEC55E\",\"Five\":\"#A55202\",\"Other\":\"#E86A47\",\"Other2\":\"#A25512\"},\"types\":[\"Pippo2\",\"HAS_MOVIE\",\"ALPHA_BETA\",\"DRIVE\",\"MY_REL\",\"HAS_TAGLINE\",\"CONNECTED_TO\",\"PRODUCED\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\",\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"IN\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"Pippo\",\"OUT\",\"FRIENDS\",\"WROTE\",\"MY_PERIODIC_REL\",\"HAS_HQ\",\"WORKS_FOR\",\"HAS\"],\"directed\":true}"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1636543612824_977596292",
       "id": "paragraph_1636543612824_977596292",
       "dateCreated": "2021-11-10 11:26:52.825",
-      "dateStarted": "2022-03-24 09:11:02.613",
-      "dateFinished": "2022-03-24 09:11:02.716",
+      "dateStarted": "2022-03-25 11:40:16.508",
+      "dateFinished": "2022-03-25 11:40:16.604",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\nMATCH (n:Movie {title: \u0027The Matrix\u0027})\nCALL apoc.graph.fromCypher(\u0027MATCH (n)-[r:ACTED_IN]-(m) WHERE n.title \u003d $title RETURN *\u0027, {title: n.title}, \u0027test\u0027, {})\nYIELD graph\nUNWIND graph.nodes AS nodes\nUNWIND graph.relationships AS rels\nRETURN nodes, rels",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 09:17:12.378",
+      "dateUpdated": "2022-03-25 11:40:51.294",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -775,7 +865,7 @@
         "results": {
           "0": {
             "graph": {
-              "mode": "table",
+              "mode": "network",
               "height": 300.0,
               "optionOpen": false,
               "setting": {
@@ -911,10 +1001,14 @@
                       "id": "string",
                       "label": "string",
                       "title": "string",
-                      "name": "string",
                       "datetime": "string",
-                      "uuid": "string",
+                      "other": "string",
                       "born": "string",
+                      "name": "string",
+                      "uuid": "string",
+                      "something": "string",
+                      "timestamp": "string",
+                      "stuff": "string",
                       "children": "string",
                       "roles": "string"
                     },
@@ -946,14 +1040,23 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":1,\"data\":{\"title\":\"The Matrix\"},\"label\":\"Movie\"},{\"id\":2,\"data\":{\"datetime\":\"2022-03-25T10:47:01.843Z\",\"other\":444,\"born\":1964,\"name\":\"Giandomenico Fracchia\",\"uuid\":\"65965404-4fc3-451a-afca-190371d9145b\",\"something\":\"8d91382c-372c-4952-b8db-b0b417c39fa2\",\"timestamp\":1648200777563,\"stuff\":0.46906873841357555},\"label\":\"Person\"},{\"id\":3,\"data\":{\"name\":\"Carrie-Anne Moss\",\"children\":[\"Al\",\"John\",\"Jack\"],\"uuid\":\"3d82dddf-be90-410d-9b43-52d359344ceb\",\"born\":1967},\"label\":\"Person\"},{\"id\":4,\"data\":{\"name\":\"Laurence Fishburne\",\"children\":[\"Naruto\",\"Sasuke\",\"Sakura\"],\"uuid\":\"3570039c-983d-4d75-914a-9dba0293cc18\",\"born\":1961},\"label\":\"Person\"},{\"id\":5,\"data\":{\"name\":\"Hugo Weaving\",\"uuid\":\"0671dc7e-46f5-4f7b-aff6-75ec5f46341f\",\"born\":1960},\"label\":\"Person\"},{\"id\":9,\"data\":{\"name\":\"Emil Eifrem\",\"uuid\":\"fe7de34e-6078-43df-acb1-eef562cc5fad\",\"born\":1978},\"label\":\"Person\"}],\"edges\":[{\"source\":2,\"target\":1,\"id\":0,\"data\":{\"roles\":[\"Neo\"]},\"label\":\"ACTED_IN\"},{\"source\":3,\"target\":1,\"id\":1,\"data\":{\"roles\":[\"Trinity\"]},\"label\":\"ACTED_IN\"},{\"source\":4,\"target\":1,\"id\":2,\"data\":{\"roles\":[\"Morpheus\"]},\"label\":\"ACTED_IN\"},{\"source\":5,\"target\":1,\"id\":3,\"data\":{\"roles\":[\"Agent Smith\"]},\"label\":\"ACTED_IN\"},{\"source\":9,\"target\":1,\"id\":7,\"data\":{\"roles\":[\"Emil\"]},\"label\":\"ACTED_IN\"}],\"labels\":{\"TTL\":\"#8721DB\",\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"Actor\":\"#9E008D\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\",\"NodeWithTime\":\"#161DEF\",\"Test\":\"#615488\",\"Finished\":\"#5A5A63\",\"CurrentTime\":\"#1FBD07\",\"Counter\":\"#73DCBB\",\"Schedule\":\"#D6870E\",\"NotFound\":\"#C84E0C\",\"Found\":\"#5C71C6\",\"City\":\"#EE1B85\",\"TagLine\":\"#785865\",\"Flight\":\"#D6E11D\",\"Airport\":\"#FBC242\",\"MergeOne\":\"#54D41D\",\"Company\":\"#79377F\",\"Car\":\"#35437F\",\"Animal\":\"#3FCE6B\",\"Cat\":\"#0FDDE6\",\"MergeTwo\":\"#3E6FCA\",\"One\":\"#FEC55E\",\"Five\":\"#A55202\",\"Other\":\"#E86A47\",\"Other2\":\"#A25512\"},\"types\":[\"Pippo2\",\"HAS_MOVIE\",\"ALPHA_BETA\",\"DRIVE\",\"MY_REL\",\"HAS_TAGLINE\",\"CONNECTED_TO\",\"PRODUCED\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\",\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"IN\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"Pippo\",\"OUT\",\"FRIENDS\",\"WROTE\",\"MY_PERIODIC_REL\",\"HAS_HQ\",\"WORKS_FOR\",\"HAS\"],\"directed\":true}"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1637829460444_949439686",
       "id": "paragraph_1637829460444_949439686",
       "dateCreated": "2021-11-25 08:37:40.444",
-      "dateStarted": "2022-03-24 09:17:12.398",
-      "dateFinished": "2022-03-24 09:17:12.474",
+      "dateStarted": "2022-03-25 11:40:47.931",
+      "dateFinished": "2022-03-25 11:40:48.071",
       "status": "FINISHED"
     },
     {
@@ -1001,7 +1104,7 @@
       "title": "Dataset for apoc.nodes.group",
       "text": "%neo4j\n\nmatch (n) where n:Movie or n:Person\nSET n.century \u003d toInteger(coalesce(n.born,n.released) / 100) * 100;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 09:17:41.038",
+      "dateUpdated": "2022-03-25 11:42:40.011",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1021,21 +1124,25 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1637832902661_1461296922",
       "id": "paragraph_1637832902661_1461296922",
       "dateCreated": "2021-11-25 09:35:02.661",
-      "dateStarted": "2022-03-24 09:17:17.191",
-      "dateFinished": "2022-03-24 09:17:17.435",
+      "dateStarted": "2022-03-25 11:42:40.042",
+      "dateFinished": "2022-03-25 11:42:40.325",
       "status": "FINISHED"
     },
     {
       "title": "apoc.nodes.group",
       "text": "%neo4j\n\nCALL apoc.nodes.group([\u0027Movie\u0027, \u0027Person\u0027],[\u0027century\u0027])",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 16:15:06.762",
+      "dateUpdated": "2022-03-25 11:42:48.210",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1089,7 +1196,12 @@
       },
       "results": {
         "code": "SUCCESS",
-        "msg": []
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":-18,\"data\":{\"count_*\":39},\"label\":\"Movie\"},{\"id\":-19,\"data\":{\"count_*\":1,\"century\":2000},\"label\":\"Movie\"},{\"id\":-20,\"data\":{\"count_*\":129,\"century\":1900},\"label\":\"Person\"},{\"id\":-21,\"data\":{\"count_*\":10},\"label\":\"Person\"}],\"edges\":[{\"source\":-20,\"target\":-18,\"id\":-65,\"data\":{\"count_*\":14},\"label\":\"PRODUCED\"},{\"source\":-20,\"target\":-18,\"id\":-66,\"data\":{\"count_*\":9},\"label\":\"WROTE\"},{\"source\":-20,\"target\":-19,\"id\":-67,\"data\":{\"count_*\":1},\"label\":\"WROTE\"},{\"source\":-20,\"target\":-19,\"id\":-68,\"data\":{\"count_*\":1},\"label\":\"DIRECTED\"},{\"source\":-20,\"target\":-19,\"id\":-69,\"data\":{\"count_*\":1},\"label\":\"PRODUCED\"},{\"source\":-21,\"target\":-18,\"id\":-56,\"data\":{\"count_*\":1},\"label\":\"ACTED_IN\"},{\"source\":-21,\"target\":-21,\"id\":-57,\"data\":{\"count_*\":1},\"label\":\"FRIENDS\"},{\"source\":-21,\"target\":-21,\"id\":-58,\"data\":{\"count_*\":3},\"label\":\"FOLLOWS\"},{\"source\":-21,\"target\":-18,\"id\":-59,\"data\":{\"count_*\":9},\"label\":\"REVIEWED\"},{\"source\":-18,\"target\":-20,\"id\":-60,\"data\":{\"count_*\":1},\"label\":\"NEW_REL\"},{\"source\":-20,\"target\":-18,\"id\":-61,\"data\":{\"count_*\":1},\"label\":\"HAS_MOVIE\"},{\"source\":-20,\"target\":-19,\"id\":-62,\"data\":{\"count_*\":3},\"label\":\"ACTED_IN\"},{\"source\":-20,\"target\":-18,\"id\":-63,\"data\":{\"count_*\":168},\"label\":\"ACTED_IN\"},{\"source\":-20,\"target\":-18,\"id\":-64,\"data\":{\"count_*\":43},\"label\":\"DIRECTED\"}],\"labels\":{\"TTL\":\"#8721DB\",\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"Actor\":\"#9E008D\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\",\"NodeWithTime\":\"#161DEF\",\"Test\":\"#615488\",\"Finished\":\"#5A5A63\",\"CurrentTime\":\"#1FBD07\",\"Counter\":\"#73DCBB\",\"Schedule\":\"#D6870E\",\"NotFound\":\"#C84E0C\",\"Found\":\"#5C71C6\",\"City\":\"#EE1B85\",\"TagLine\":\"#785865\",\"Flight\":\"#D6E11D\",\"Airport\":\"#FBC242\",\"MergeOne\":\"#54D41D\",\"Company\":\"#79377F\",\"Car\":\"#35437F\",\"Animal\":\"#3FCE6B\",\"Cat\":\"#0FDDE6\",\"MergeTwo\":\"#3E6FCA\",\"One\":\"#FEC55E\",\"Five\":\"#A55202\",\"Other\":\"#E86A47\",\"Other2\":\"#A25512\"},\"types\":[\"Pippo2\",\"HAS_MOVIE\",\"ALPHA_BETA\",\"DRIVE\",\"MY_REL\",\"HAS_TAGLINE\",\"CONNECTED_TO\",\"PRODUCED\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\",\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"IN\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"Pippo\",\"OUT\",\"FRIENDS\",\"WROTE\",\"MY_PERIODIC_REL\",\"HAS_HQ\",\"WORKS_FOR\",\"HAS\"],\"directed\":true}"
+          }
+        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -1097,8 +1209,8 @@
       "jobName": "paragraph_1637833265265_1530632691",
       "id": "paragraph_1637833265265_1530632691",
       "dateCreated": "2021-11-25 09:41:05.265",
-      "dateStarted": "2022-03-24 16:15:06.790",
-      "dateFinished": "2022-03-24 16:15:06.814",
+      "dateStarted": "2022-03-25 11:42:48.232",
+      "dateFinished": "2022-03-25 11:42:48.427",
       "status": "FINISHED"
     },
     {
@@ -1148,7 +1260,7 @@
       "title": "Example",
       "text": "%neo4j\n\nCALL apoc.systemdb.graph() yield nodes, relationships\nUNWIND nodes AS node\nUNWIND relationships AS rel\nRETURN DISTINCT node, rel",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 09:25:19.797",
+      "dateUpdated": "2022-03-25 11:43:57.554",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1218,21 +1330,30 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":0,\"data\":{\"name\":\"neo4j\",\"default\":true,\"uuid\":\"14a0f321-0bb3-490a-b47f-2d0b04d4bec1\",\"status\":\"online\"},\"label\":\"Database\"},{\"id\":-1,\"data\":{\"name\":\"system\",\"default\":false,\"uuid\":\"00000000-0000-0000-0000-000000000001\",\"status\":\"online\"},\"label\":\"Database\"},{\"id\":-2,\"data\":{\"name\":\"neo4j\",\"passwordChangeRequired\":false,\"id\":\"8426e6fc-2a40-4a35-8972-6f94f708710c\",\"credentials\":\"SHA-256,40f872b9c003d77be9c6887a8467b4487b5eb9325d8c2affff6a703b84bc2c9f,5dcce81299f666001006cea16b0341c293218f03cfc145ee98653d98f184849d,1024\",\"suspended\":false},\"label\":\"User\"},{\"id\":-3,\"data\":{\"security-privileges\":11,\"dbms-runtime\":4,\"security-users\":3},\"label\":\"Version\"},{\"id\":-4,\"data\":{\"name\":\"*\"},\"label\":\"DatabaseAll\"},{\"id\":-5,\"data\":{\"type\":\"node\",\"label\":\"*\"},\"label\":\"LabelQualifierAll\"},{\"id\":-6,\"data\":{\"type\":\"relationship\",\"label\":\"*\"},\"label\":\"RelationshipQualifierAll\"},{\"id\":-7,\"data\":{\"type\":\"database\",\"label\":\"\"},\"label\":\"DatabaseQualifier\"},{\"id\":-8,\"data\":{},\"label\":\"Segment\"},{\"id\":-9,\"data\":{},\"label\":\"Segment\"},{\"id\":-10,\"data\":{},\"label\":\"Segment\"},{\"id\":-11,\"data\":{\"arg2\":\"\",\"type\":\"graph\",\"arg1\":\"\"},\"label\":\"Resource\"},{\"id\":-12,\"data\":{\"arg2\":\"\",\"type\":\"all_properties\",\"arg1\":\"\"},\"label\":\"Resource\"},{\"id\":-13,\"data\":{\"arg2\":\"\",\"type\":\"database\",\"arg1\":\"\"},\"label\":\"Resource\"},{\"id\":-20,\"data\":{\"action\":\"access\"},\"label\":\"Privilege\"},{\"id\":-21,\"data\":{\"action\":\"token\"},\"label\":\"Privilege\"},{\"id\":-24,\"data\":{\"name\":\"DEFAULT\"},\"label\":\"DatabaseDefault\"},{\"id\":-25,\"data\":{},\"label\":\"Segment\"},{\"id\":-26,\"data\":{\"action\":\"match\"},\"label\":\"Privilege\"},{\"id\":-27,\"data\":{\"action\":\"match\"},\"label\":\"Privilege\"},{\"id\":-28,\"data\":{\"action\":\"write\"},\"label\":\"Privilege\"},{\"id\":-29,\"data\":{\"action\":\"write\"},\"label\":\"Privilege\"},{\"id\":-30,\"data\":{\"action\":\"access\"},\"label\":\"Privilege\"},{\"id\":-31,\"data\":{\"action\":\"index\"},\"label\":\"Privilege\"},{\"id\":-32,\"data\":{\"action\":\"constraint\"},\"label\":\"Privilege\"},{\"id\":-33,\"data\":{\"type\":\"procedure\",\"label\":\"*\"},\"label\":\"ProcedureQualifierAll\"},{\"id\":-34,\"data\":{},\"label\":\"Segment\"},{\"id\":-35,\"data\":{\"action\":\"execute\"},\"label\":\"Privilege\"},{\"id\":-36,\"data\":{\"type\":\"function\",\"label\":\"*\"},\"label\":\"FunctionQualifierAll\"},{\"id\":-37,\"data\":{},\"label\":\"Segment\"},{\"id\":-38,\"data\":{\"action\":\"execute\"},\"label\":\"Privilege\"},{\"id\":-39,\"data\":{\"type\":\"user\",\"label\":\"*\"},\"label\":\"UserQualifierAll\"},{\"id\":-40,\"data\":{},\"label\":\"Segment\"},{\"id\":-41,\"data\":{\"action\":\"transaction_management\"},\"label\":\"Privilege\"},{\"id\":-42,\"data\":{\"action\":\"start_database\"},\"label\":\"Privilege\"},{\"id\":-43,\"data\":{\"action\":\"stop_database\"},\"label\":\"Privilege\"},{\"id\":-44,\"data\":{\"action\":\"dbms_actions\"},\"label\":\"Privilege\"},{\"id\":-45,\"data\":{\"name\":\"admin\"},\"label\":\"Role\"},{\"id\":-46,\"data\":{\"name\":\"architect\"},\"label\":\"Role\"},{\"id\":-47,\"data\":{\"name\":\"publisher\"},\"label\":\"Role\"},{\"id\":-48,\"data\":{\"name\":\"editor\"},\"label\":\"Role\"},{\"id\":-49,\"data\":{\"name\":\"reader\"},\"label\":\"Role\"},{\"id\":-50,\"data\":{\"name\":\"PUBLIC\"},\"label\":\"Role\"},{\"id\":-51,\"data\":{\"mode\":\"READ\",\"outputs\":\"[{\\\"default\\\":null,\\\"name\\\":\\\"answer\\\",\\\"type\\\":\\\"INTEGER?\\\"}]\",\"database\":\"neo4j\",\"inputs\":\"[{\\\"default\\\":null,\\\"name\\\":\\\"input\\\",\\\"type\\\":\\\"INTEGER?\\\"},{\\\"default\\\":null,\\\"name\\\":\\\"product\\\",\\\"type\\\":\\\"INTEGER?\\\"}]\",\"prefix\":[\"custom\"],\"statement\":\"UNWIND range(0, $product) AS power RETURN $input ^ power AS answer\",\"name\":\"ajeje\",\"description\":\"\"},\"label\":\"ApocCypherProcedures\"},{\"id\":-52,\"data\":{\"lastUpdated\":1648203690087,\"database\":\"neo4j\"},\"label\":\"ApocCypherProceduresMeta\"},{\"id\":-53,\"data\":{\"output\":\"INTEGER?\",\"database\":\"neo4j\",\"forceSingle\":false,\"inputs\":\"[{\\\"default\\\":null,\\\"name\\\":\\\"input\\\",\\\"type\\\":\\\"INTEGER?\\\"}]\",\"prefix\":[\"custom\"],\"name\":\"brazorf\",\"statement\":\"RETURN $input*2 as answer\",\"description\":\"\"},\"label\":\"ApocCypherProcedures\"},{\"id\":-54,\"data\":{\"output\":\"LIST? OF INTEGER?\",\"database\":\"neo4j\",\"forceSingle\":true,\"inputs\":\"[{\\\"default\\\":null,\\\"name\\\":\\\"input\\\",\\\"type\\\":\\\"ANY?\\\"}]\",\"prefix\":[\"custom\"],\"name\":\"forceSingleTrue\",\"statement\":\"MATCH (n:Movie) WITH n LIMIT 1 RETURN n.released\",\"description\":\"\"},\"label\":\"ApocCypherProcedures\"},{\"id\":-55,\"data\":{\"output\":\"LIST? OF INTEGER?\",\"database\":\"neo4j\",\"forceSingle\":false,\"inputs\":\"[{\\\"default\\\":null,\\\"name\\\":\\\"input\\\",\\\"type\\\":\\\"ANY?\\\"}]\",\"prefix\":[\"custom\"],\"name\":\"forceSingleFalse\",\"statement\":\"MATCH (n:Movie) WITH n LIMIT 1 RETURN n.released\",\"description\":\"\"},\"label\":\"ApocCypherProcedures\"},{\"id\":-56,\"data\":{\"outputs\":\"[{\\\"default\\\":null,\\\"name\\\":\\\"answer\\\",\\\"type\\\":\\\"INTEGER?\\\"}]\",\"mode\":\"WRITE\",\"database\":\"neo4j\",\"inputs\":\"[]\",\"prefix\":[\"custom\"],\"name\":\"writeSomething\",\"statement\":\"CREATE (n:Some)\",\"description\":\"\"},\"label\":\"ApocCypherProcedures\"},{\"id\":-58,\"data\":{\"lastUpdated\":1648205429676,\"database\":\"neo4j\"},\"label\":\"ApocTriggerMeta\"}],\"edges\":[{\"source\":-8,\"target\":-5,\"id\":0,\"data\":{},\"label\":\"QUALIFIED\"},{\"source\":-8,\"target\":-4,\"id\":-1,\"data\":{},\"label\":\"FOR\"},{\"source\":-9,\"target\":-6,\"id\":-2,\"data\":{},\"label\":\"QUALIFIED\"},{\"source\":-9,\"target\":-4,\"id\":-3,\"data\":{},\"label\":\"FOR\"},{\"source\":-10,\"target\":-7,\"id\":-4,\"data\":{},\"label\":\"QUALIFIED\"},{\"source\":-10,\"target\":-4,\"id\":-5,\"data\":{},\"label\":\"FOR\"},{\"source\":-20,\"target\":-10,\"id\":-18,\"data\":{},\"label\":\"SCOPE\"},{\"source\":-20,\"target\":-13,\"id\":-19,\"data\":{},\"label\":\"APPLIES_TO\"},{\"source\":-21,\"target\":-10,\"id\":-20,\"data\":{},\"label\":\"SCOPE\"},{\"source\":-21,\"target\":-13,\"id\":-21,\"data\":{},\"label\":\"APPLIES_TO\"},{\"source\":-25,\"target\":-7,\"id\":-26,\"data\":{},\"label\":\"QUALIFIED\"},{\"source\":-25,\"target\":-24,\"id\":-27,\"data\":{},\"label\":\"FOR\"},{\"source\":-26,\"target\":-8,\"id\":-28,\"data\":{},\"label\":\"SCOPE\"},{\"source\":-26,\"target\":-12,\"id\":-29,\"data\":{},\"label\":\"APPLIES_TO\"},{\"source\":-27,\"target\":-9,\"id\":-30,\"data\":{},\"label\":\"SCOPE\"},{\"source\":-27,\"target\":-12,\"id\":-31,\"data\":{},\"label\":\"APPLIES_TO\"},{\"source\":-28,\"target\":-8,\"id\":-32,\"data\":{},\"label\":\"SCOPE\"},{\"source\":-28,\"target\":-11,\"id\":-33,\"data\":{},\"label\":\"APPLIES_TO\"},{\"source\":-29,\"target\":-9,\"id\":-34,\"data\":{},\"label\":\"SCOPE\"},{\"source\":-29,\"target\":-11,\"id\":-35,\"data\":{},\"label\":\"APPLIES_TO\"},{\"source\":-30,\"target\":-25,\"id\":-36,\"data\":{},\"label\":\"SCOPE\"},{\"source\":-30,\"target\":-13,\"id\":-37,\"data\":{},\"label\":\"APPLIES_TO\"},{\"source\":-31,\"target\":-10,\"id\":-38,\"data\":{},\"label\":\"SCOPE\"},{\"source\":-31,\"target\":-13,\"id\":-39,\"data\":{},\"label\":\"APPLIES_TO\"},{\"source\":-32,\"target\":-10,\"id\":-40,\"data\":{},\"label\":\"SCOPE\"},{\"source\":-32,\"target\":-13,\"id\":-41,\"data\":{},\"label\":\"APPLIES_TO\"},{\"source\":-34,\"target\":-33,\"id\":-42,\"data\":{},\"label\":\"QUALIFIED\"},{\"source\":-34,\"target\":-4,\"id\":-43,\"data\":{},\"label\":\"FOR\"},{\"source\":-35,\"target\":-34,\"id\":-44,\"data\":{},\"label\":\"SCOPE\"},{\"source\":-35,\"target\":-13,\"id\":-45,\"data\":{},\"label\":\"APPLIES_TO\"},{\"source\":-37,\"target\":-36,\"id\":-46,\"data\":{},\"label\":\"QUALIFIED\"},{\"source\":-37,\"target\":-4,\"id\":-47,\"data\":{},\"label\":\"FOR\"},{\"source\":-38,\"target\":-37,\"id\":-48,\"data\":{},\"label\":\"SCOPE\"},{\"source\":-38,\"target\":-13,\"id\":-49,\"data\":{},\"label\":\"APPLIES_TO\"},{\"source\":-40,\"target\":-39,\"id\":-50,\"data\":{},\"label\":\"QUALIFIED\"},{\"source\":-40,\"target\":-4,\"id\":-51,\"data\":{},\"label\":\"FOR\"},{\"source\":-41,\"target\":-40,\"id\":-52,\"data\":{},\"label\":\"SCOPE\"},{\"source\":-41,\"target\":-13,\"id\":-53,\"data\":{},\"label\":\"APPLIES_TO\"},{\"source\":-42,\"target\":-10,\"id\":-54,\"data\":{},\"label\":\"SCOPE\"},{\"source\":-42,\"target\":-13,\"id\":-55,\"data\":{},\"label\":\"APPLIES_TO\"},{\"source\":-43,\"target\":-10,\"id\":-56,\"data\":{},\"label\":\"SCOPE\"},{\"source\":-43,\"target\":-13,\"id\":-57,\"data\":{},\"label\":\"APPLIES_TO\"},{\"source\":-44,\"target\":-10,\"id\":-58,\"data\":{},\"label\":\"SCOPE\"},{\"source\":-44,\"target\":-13,\"id\":-59,\"data\":{},\"label\":\"APPLIES_TO\"},{\"source\":-45,\"target\":-41,\"id\":-60,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-45,\"target\":-42,\"id\":-61,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-45,\"target\":-43,\"id\":-62,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-45,\"target\":-44,\"id\":-63,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-45,\"target\":-32,\"id\":-64,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-45,\"target\":-31,\"id\":-65,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-45,\"target\":-21,\"id\":-66,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-45,\"target\":-28,\"id\":-67,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-45,\"target\":-29,\"id\":-68,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-45,\"target\":-26,\"id\":-69,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-45,\"target\":-27,\"id\":-70,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-45,\"target\":-20,\"id\":-71,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-46,\"target\":-32,\"id\":-72,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-46,\"target\":-31,\"id\":-73,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-46,\"target\":-21,\"id\":-74,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-46,\"target\":-28,\"id\":-75,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-46,\"target\":-29,\"id\":-76,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-46,\"target\":-26,\"id\":-77,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-46,\"target\":-27,\"id\":-78,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-46,\"target\":-20,\"id\":-79,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-47,\"target\":-21,\"id\":-80,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-47,\"target\":-28,\"id\":-81,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-47,\"target\":-29,\"id\":-82,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-47,\"target\":-26,\"id\":-83,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-47,\"target\":-27,\"id\":-84,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-47,\"target\":-20,\"id\":-85,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-48,\"target\":-28,\"id\":-86,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-48,\"target\":-29,\"id\":-87,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-48,\"target\":-26,\"id\":-88,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-48,\"target\":-27,\"id\":-89,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-48,\"target\":-20,\"id\":-90,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-49,\"target\":-26,\"id\":-91,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-49,\"target\":-27,\"id\":-92,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-49,\"target\":-20,\"id\":-93,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-50,\"target\":-30,\"id\":-94,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-50,\"target\":-35,\"id\":-95,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-50,\"target\":-38,\"id\":-96,\"data\":{},\"label\":\"GRANTED\"},{\"source\":-2,\"target\":-45,\"id\":-97,\"data\":{},\"label\":\"HAS_ROLE\"}],\"labels\":{\"TTL\":\"#8721DB\",\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"Actor\":\"#9E008D\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\",\"NodeWithTime\":\"#161DEF\",\"Test\":\"#615488\",\"Finished\":\"#5A5A63\",\"CurrentTime\":\"#1FBD07\",\"Counter\":\"#73DCBB\",\"Schedule\":\"#D6870E\",\"NotFound\":\"#C84E0C\",\"Found\":\"#5C71C6\",\"City\":\"#EE1B85\",\"TagLine\":\"#785865\",\"Flight\":\"#D6E11D\",\"Airport\":\"#FBC242\",\"MergeOne\":\"#54D41D\",\"Company\":\"#79377F\",\"Car\":\"#35437F\",\"Animal\":\"#3FCE6B\",\"Cat\":\"#0FDDE6\",\"MergeTwo\":\"#3E6FCA\",\"One\":\"#FEC55E\",\"Five\":\"#A55202\",\"Other\":\"#E86A47\",\"Other2\":\"#A25512\"},\"types\":[\"Pippo2\",\"HAS_MOVIE\",\"ALPHA_BETA\",\"DRIVE\",\"MY_REL\",\"HAS_TAGLINE\",\"CONNECTED_TO\",\"PRODUCED\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\",\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"IN\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"Pippo\",\"OUT\",\"FRIENDS\",\"WROTE\",\"MY_PERIODIC_REL\",\"HAS_HQ\",\"WORKS_FOR\",\"HAS\"],\"directed\":true}"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1636543866363_709769901",
       "id": "paragraph_1636543866363_709769901",
       "dateCreated": "2021-11-10 11:31:06.363",
-      "dateStarted": "2022-03-24 09:25:19.831",
-      "dateFinished": "2022-03-24 09:25:19.946",
+      "dateStarted": "2022-03-25 11:43:57.587",
+      "dateFinished": "2022-03-25 11:43:57.774",
       "status": "FINISHED"
     },
     {
       "title": "Get roles",
       "text": "%neo4j\n\nCALL apoc.systemdb.graph() yield nodes, relationships\nUNWIND nodes AS node\nWITH node\nWHERE apoc.node.labels(node) \u003d [\"Role\"]\nRETURN DISTINCT node",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 09:25:21.497",
+      "dateUpdated": "2022-03-25 11:44:13.448",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1302,14 +1423,23 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":-49,\"data\":{\"name\":\"reader\"},\"label\":\"Role\"},{\"id\":-50,\"data\":{\"name\":\"PUBLIC\"},\"label\":\"Role\"},{\"id\":-45,\"data\":{\"name\":\"admin\"},\"label\":\"Role\"},{\"id\":-46,\"data\":{\"name\":\"architect\"},\"label\":\"Role\"},{\"id\":-47,\"data\":{\"name\":\"publisher\"},\"label\":\"Role\"},{\"id\":-48,\"data\":{\"name\":\"editor\"},\"label\":\"Role\"}],\"edges\":[],\"labels\":{\"TTL\":\"#8721DB\",\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"Actor\":\"#9E008D\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\",\"NodeWithTime\":\"#161DEF\",\"Test\":\"#615488\",\"Finished\":\"#5A5A63\",\"CurrentTime\":\"#1FBD07\",\"Counter\":\"#73DCBB\",\"Schedule\":\"#D6870E\",\"NotFound\":\"#C84E0C\",\"Found\":\"#5C71C6\",\"City\":\"#EE1B85\",\"TagLine\":\"#785865\",\"Flight\":\"#D6E11D\",\"Airport\":\"#FBC242\",\"MergeOne\":\"#54D41D\",\"Company\":\"#79377F\",\"Car\":\"#35437F\",\"Animal\":\"#3FCE6B\",\"Cat\":\"#0FDDE6\",\"MergeTwo\":\"#3E6FCA\",\"One\":\"#FEC55E\",\"Five\":\"#A55202\",\"Other\":\"#E86A47\",\"Other2\":\"#A25512\"},\"types\":[\"Pippo2\",\"HAS_MOVIE\",\"ALPHA_BETA\",\"DRIVE\",\"MY_REL\",\"HAS_TAGLINE\",\"CONNECTED_TO\",\"PRODUCED\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\",\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"IN\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"Pippo\",\"OUT\",\"FRIENDS\",\"WROTE\",\"MY_PERIODIC_REL\",\"HAS_HQ\",\"WORKS_FOR\",\"HAS\"],\"directed\":true}"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1636634414289_1524495302",
       "id": "paragraph_1636634414289_1524495302",
       "dateCreated": "2021-11-11 12:40:14.289",
-      "dateStarted": "2022-03-24 09:25:21.521",
-      "dateFinished": "2022-03-24 09:25:21.581",
+      "dateStarted": "2022-03-25 11:44:13.483",
+      "dateFinished": "2022-03-25 11:44:13.567",
       "status": "FINISHED"
     },
     {
@@ -1359,7 +1489,7 @@
       "title": "apoc.uuid.install",
       "text": "%neo4j\n// First of all we create the constraint\nCREATE CONSTRAINT ON (node:NodeWithUnique) ASSERT node.omega IS UNIQUE;\n\nCALL apoc.uuid.install(\u0027NodeWithUnique\u0027, {uuidProperty: \u0027omega\u0027});",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 09:25:53.913",
+      "dateUpdated": "2022-03-25 11:47:43.708",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1431,21 +1561,30 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "batchComputationResult.committedOperations\tbatchComputationResult.batch.total\tbatchComputationResult.batch.committed\tbatchComputationResult.batch.failed\tbatchComputationResult.wasTerminated\tbatchComputationResult.batches\tbatchComputationResult.timeTaken\tbatchComputationResult.retries\tbatchComputationResult.total\tbatchComputationResult.operations.total\tbatchComputationResult.operations.committed\tbatchComputationResult.operations.failed\tbatchComputationResult.failedOperations\tbatchComputationResult.updateStatistics.nodesDeleted\tbatchComputationResult.updateStatistics.labelsAdded\tbatchComputationResult.updateStatistics.relationshipsCreated\tbatchComputationResult.updateStatistics.nodesCreated\tbatchComputationResult.updateStatistics.propertiesSet\tbatchComputationResult.updateStatistics.relationshipsDeleted\tbatchComputationResult.updateStatistics.labelsRemoved\tbatchComputationResult.failedBatches\tlabel\tinstalled\tproperties.uuidProperty\tproperties.addToSetLabels\n0\t1\t1\t0\tfalse\t1\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t\"NodeWithUnique\"\tTRUE\tomega\tfalse\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1635868931436_15761564",
       "id": "paragraph_1635868931436_15761564",
       "dateCreated": "2021-11-02 16:02:11.436",
-      "dateStarted": "2021-11-18 11:49:47.131",
-      "dateFinished": "2021-11-18 11:49:47.433",
+      "dateStarted": "2022-03-25 11:47:43.732",
+      "dateFinished": "2022-03-25 11:47:44.030",
       "status": "FINISHED"
     },
     {
       "title": "Check results",
       "text": "%neo4j\nCREATE (n:NodeWithUnique);\n\nMATCH (n:NodeWithUnique) RETURN n;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 09:25:53.935",
+      "dateUpdated": "2022-03-25 11:47:54.209",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1493,14 +1632,23 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":41538,\"data\":{\"omega\":\"8457289f-a0b7-485a-a726-d4c9df3a510a\"},\"label\":\"NodeWithUnique\"}],\"edges\":[],\"labels\":{\"TTL\":\"#8721DB\",\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"Actor\":\"#9E008D\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\",\"NodeWithTime\":\"#161DEF\",\"Test\":\"#615488\",\"Finished\":\"#5A5A63\",\"CurrentTime\":\"#1FBD07\",\"Counter\":\"#73DCBB\",\"Schedule\":\"#D6870E\",\"NotFound\":\"#C84E0C\",\"Found\":\"#5C71C6\",\"City\":\"#EE1B85\",\"TagLine\":\"#785865\",\"Flight\":\"#D6E11D\",\"Airport\":\"#FBC242\",\"MergeOne\":\"#54D41D\",\"Company\":\"#79377F\",\"Car\":\"#35437F\",\"Animal\":\"#3FCE6B\",\"Cat\":\"#0FDDE6\",\"MergeTwo\":\"#3E6FCA\",\"One\":\"#FEC55E\",\"Five\":\"#A55202\",\"Other\":\"#E86A47\",\"Other2\":\"#A25512\",\"NodeWithUnique\":\"#57D134\"},\"types\":[\"Pippo2\",\"HAS_MOVIE\",\"ALPHA_BETA\",\"DRIVE\",\"MY_REL\",\"HAS_TAGLINE\",\"CONNECTED_TO\",\"PRODUCED\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\",\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"IN\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"Pippo\",\"OUT\",\"FRIENDS\",\"WROTE\",\"MY_PERIODIC_REL\",\"HAS_HQ\",\"WORKS_FOR\",\"HAS\"],\"directed\":true}"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1635868938917_1994016294",
       "id": "paragraph_1635868938917_1994016294",
       "dateCreated": "2021-11-02 16:02:18.918",
-      "dateStarted": "2021-11-18 11:50:20.373",
-      "dateFinished": "2021-11-18 11:50:20.492",
+      "dateStarted": "2022-03-25 11:47:54.233",
+      "dateFinished": "2022-03-25 11:47:54.297",
       "status": "FINISHED"
     },
     {
@@ -1547,7 +1695,7 @@
     {
       "text": "%neo4j\n\nCREATE (n:ToRemove) WITH n\nCALL apoc.ttl.expireIn(n, 5,\u0027s\u0027)\nRETURN n;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 10:19:20.518",
+      "dateUpdated": "2022-03-25 11:48:49.676",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1596,20 +1744,29 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":41540,\"data\":{\"ttl\":1648208934740},\"label\":\"TTL\"}],\"edges\":[],\"labels\":{\"TTL\":\"#8721DB\",\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"Actor\":\"#9E008D\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\",\"NodeWithTime\":\"#161DEF\",\"Test\":\"#615488\",\"Finished\":\"#5A5A63\",\"CurrentTime\":\"#1FBD07\",\"Counter\":\"#73DCBB\",\"Schedule\":\"#D6870E\",\"NotFound\":\"#C84E0C\",\"Found\":\"#5C71C6\",\"City\":\"#EE1B85\",\"TagLine\":\"#785865\",\"Flight\":\"#D6E11D\",\"Airport\":\"#FBC242\",\"MergeOne\":\"#54D41D\",\"Company\":\"#79377F\",\"Car\":\"#35437F\",\"Animal\":\"#3FCE6B\",\"Cat\":\"#0FDDE6\",\"MergeTwo\":\"#3E6FCA\",\"One\":\"#FEC55E\",\"Five\":\"#A55202\",\"Other\":\"#E86A47\",\"Other2\":\"#A25512\",\"NodeWithUnique\":\"#57D134\",\"ToRemove\":\"#CC4B1D\"},\"types\":[\"Pippo2\",\"HAS_MOVIE\",\"ALPHA_BETA\",\"DRIVE\",\"MY_REL\",\"HAS_TAGLINE\",\"CONNECTED_TO\",\"PRODUCED\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\",\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"IN\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"Pippo\",\"OUT\",\"FRIENDS\",\"WROTE\",\"MY_PERIODIC_REL\",\"HAS_HQ\",\"WORKS_FOR\",\"HAS\"],\"directed\":true}"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1637769616188_1180357338",
       "id": "paragraph_1637769616188_1180357338",
       "dateCreated": "2021-11-24 16:00:16.188",
-      "dateStarted": "2022-03-24 10:19:20.552",
-      "dateFinished": "2022-03-24 10:19:20.879",
+      "dateStarted": "2022-03-25 11:48:49.699",
+      "dateFinished": "2022-03-25 11:48:49.758",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\n\nMATCH (n:ToRemove) RETURN n;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 10:19:29.063",
+      "dateUpdated": "2022-03-25 11:48:56.586",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1658,14 +1815,18 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1637769628446_1038125624",
       "id": "paragraph_1637769628446_1038125624",
       "dateCreated": "2021-11-24 16:00:28.446",
-      "dateStarted": "2022-03-24 10:19:29.092",
-      "dateFinished": "2022-03-24 10:19:29.121",
+      "dateStarted": "2022-03-25 11:48:56.605",
+      "dateFinished": "2022-03-25 11:48:56.621",
       "status": "FINISHED"
     },
     {
@@ -1713,7 +1874,7 @@
       "title": "apoc.schema.assert",
       "text": "%neo4j\n\nCALL apoc.schema.assert({Movie: [\u0027release\u0027, \u0027tagline\u0027]}, {Movie: [\"title\"]}, true);\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 09:28:00.172",
+      "dateUpdated": "2022-03-25 11:50:14.095",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1765,21 +1926,30 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "label\tkey\tkeys\tunique\taction\n\"TTL\"\t\"ttl\"\t[\"ttl\"]\tFALSE\t\"DROPPED\"\n\"Movie\"\t\"title\"\t[\"title\"]\tFALSE\t\"DROPPED\"\n\"Actor\"\tNULL\t[\"name\",\"born\"]\tFALSE\t\"DROPPED\"\n\"Movie\"\t\"release\"\t[\"release\"]\tFALSE\t\"CREATED\"\n\"Movie\"\t\"tagline\"\t[\"tagline\"]\tFALSE\t\"CREATED\"\n\"Person\"\t\"name\"\t[\"name\"]\tTRUE\t\"DROPPED\"\n\"TagLine\"\t\"name\"\t[\"name\"]\tTRUE\t\"DROPPED\"\n\"NodeWithUnique\"\t\"omega\"\t[\"omega\"]\tTRUE\t\"DROPPED\"\n\"Movie\"\t\"title\"\t[\"title\"]\tTRUE\t\"CREATED\"\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1636532662677_401422741",
       "id": "paragraph_1636532662677_401422741",
       "dateCreated": "2021-11-10 08:24:22.677",
-      "dateStarted": "2022-03-24 09:28:00.199",
-      "dateFinished": "2022-03-24 09:28:00.497",
+      "dateStarted": "2022-03-25 11:50:14.118",
+      "dateFinished": "2022-03-25 11:50:14.382",
       "status": "FINISHED"
     },
     {
       "title": "apoc.schema.node.constraintExists",
       "text": "%neo4j\n\nRETURN apoc.schema.node.constraintExists(\"Movie\", [\"title\"])\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 09:28:03.179",
+      "dateUpdated": "2022-03-25 11:50:31.375",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1827,21 +1997,30 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "apoc.schema.node.constraintExists(\"Movie\", [\"title\"])\nTRUE\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1636532704343_2097459738",
       "id": "paragraph_1636532704343_2097459738",
       "dateCreated": "2021-11-10 08:25:04.343",
-      "dateStarted": "2022-03-24 09:28:03.204",
-      "dateFinished": "2022-03-24 09:28:03.252",
+      "dateStarted": "2022-03-25 11:50:31.393",
+      "dateFinished": "2022-03-25 11:50:31.439",
       "status": "FINISHED"
     },
     {
       "title": "apoc.schema.nodes",
       "text": "%neo4j\nCALL apoc.schema.nodes()",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 09:28:07.720",
+      "dateUpdated": "2022-03-25 11:50:41.891",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1896,14 +2075,23 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tlabel\tproperties\tstatus\ttype\tfailure\tpopulationProgress\tsize\tvaluesSelectivity\tuserDescription\n\":\u003cany-labels\u003e()\"\t\"\u003cany-labels\u003e\"\t[]\t\"ONLINE\"\t\"INDEX\"\t\"NO FAILURE\"\t100.0\t0\t1.0\t\"Index( id\u003d1, name\u003d\u0027index_343aff4e\u0027, type\u003d\u0027TOKEN LOOKUP\u0027, schema\u003d(:\u003cany-labels\u003e), indexProvider\u003d\u0027token-lookup-1.0\u0027 )\"\n\":Movie(release)\"\t\"Movie\"\t[\"release\"]\t\"ONLINE\"\t\"INDEX\"\t\"NO FAILURE\"\t100.0\t0\t1.0\t\"Index( id\u003d12, name\u003d\u0027index_aba47136\u0027, type\u003d\u0027GENERAL BTREE\u0027, schema\u003d(:Movie {release}), indexProvider\u003d\u0027native-btree-1.0\u0027 )\"\n\":Movie(tagline)\"\t\"Movie\"\t[\"tagline\"]\t\"ONLINE\"\t\"INDEX\"\t\"NO FAILURE\"\t100.0\t0\t1.0\t\"Index( id\u003d13, name\u003d\u0027index_531180b4\u0027, type\u003d\u0027GENERAL BTREE\u0027, schema\u003d(:Movie {tagline}), indexProvider\u003d\u0027native-btree-1.0\u0027 )\"\n\":Movie(title)\"\t\"Movie\"\t[\"title\"]\t\"ONLINE\"\t\"UNIQUENESS\"\t\"NO FAILURE\"\t100.0\t39\t1.0\t\"Index( id\u003d14, name\u003d\u0027constraint_3044d997\u0027, type\u003d\u0027UNIQUE BTREE\u0027, schema\u003d(:Movie {title}), indexProvider\u003d\u0027native-btree-1.0\u0027, owningConstraint\u003d15 )\"\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1636532750579_2013459649",
       "id": "paragraph_1636532750579_2013459649",
       "dateCreated": "2021-11-10 08:25:50.580",
-      "dateStarted": "2022-03-24 09:28:07.748",
-      "dateFinished": "2022-03-24 09:28:07.812",
+      "dateStarted": "2022-03-25 11:50:41.914",
+      "dateFinished": "2022-03-25 11:50:41.978",
       "status": "FINISHED"
     },
     {
@@ -1951,7 +2139,7 @@
       "title": "apoc.load.jdbc",
       "text": "%neo4j\n\nCALL apoc.load.jdbc(\"jdbc:postgresql://postgres:5432/myDb\",              // connection URL\n    \u0027SELECT * FROM PERSON WHERE \"SURNAME\" \u003d ?\u0027,                          // query with param\n    [\u0027Test\u0027],                                                            // parameters\n    {schema: \"myDb\", credentials: {user: \"test\", password: \"postgres\"}}) // config with schema, credential\nYIELD row\nRETURN row",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 09:28:15.401",
+      "dateUpdated": "2022-03-25 11:52:13.232",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2003,14 +2191,23 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "row.SURNAME\trow.EFFECTIVE_FROM_DATE\trow.HIRE_DATE\trow.NULL_DATE\trow.TEST_TIME\trow.NAME\nTest\t2016-06-22T17:10:25\t1999-05-25\t\t15:37\tAl\nTest\t2016-06-22T17:10:25\t2017-05-25\t\t15:37\tJohn\nTest\t2016-06-22T17:10:25\t2018-05-25\t\t15:37\tJack\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1636564574714_611795321",
       "id": "paragraph_1636564574714_611795321",
       "dateCreated": "2021-11-10 17:16:14.714",
-      "dateStarted": "2022-03-24 09:28:15.429",
-      "dateFinished": "2022-03-24 09:28:15.756",
+      "dateStarted": "2022-03-25 11:52:13.258",
+      "dateFinished": "2022-03-25 11:52:13.426",
       "status": "FINISHED"
     },
     {
@@ -2057,7 +2254,7 @@
     {
       "text": "%neo4j\nreturn apoc.static.getAll(\"postgresCredentials\")",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 10:18:16.864",
+      "dateUpdated": "2022-03-25 11:53:14.128",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2103,20 +2300,29 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "apoc.static.getAll(\"postgresCredentials\").user\tapoc.static.getAll(\"postgresCredentials\").password\ntest\tpostgres\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1637769940241_1136000910",
       "id": "paragraph_1637769940241_1136000910",
       "dateCreated": "2021-11-24 16:05:40.241",
-      "dateStarted": "2022-03-24 10:18:16.945",
-      "dateFinished": "2022-03-24 10:18:22.826",
+      "dateStarted": "2022-03-25 11:53:14.198",
+      "dateFinished": "2022-03-25 11:53:14.241",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\n\nCALL apoc.load.jdbc(\"jdbc:postgresql://postgres:5432/myDb\",              // connection URL\n    \u0027SELECT * FROM PERSON WHERE \"SURNAME\" \u003d ?\u0027,                          // query with param\n    [\u0027Test\u0027],                                                            // parameters\n    {schema: \"myDb\", credentials: apoc.static.getAll(\"postgresCredentials\")}) // config with schema, credential\nYIELD row\nRETURN row",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 16:32:12.205",
+      "dateUpdated": "2022-03-25 11:53:29.350",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2181,8 +2387,8 @@
       "jobName": "paragraph_1637769895170_1367827034",
       "id": "paragraph_1637769895170_1367827034",
       "dateCreated": "2021-11-24 16:04:55.170",
-      "dateStarted": "2022-03-24 16:32:12.236",
-      "dateFinished": "2022-03-24 16:32:13.091",
+      "dateStarted": "2022-03-25 11:53:29.379",
+      "dateFinished": "2022-03-25 11:53:29.442",
       "status": "FINISHED"
     },
     {
@@ -2230,7 +2436,7 @@
       "title": "Create virtual resource",
       "text": "\n%neo4j\n\n/*\n table towns (id, code, article, name, department)\n \n 1\t001\t\tAbergement-Clémenciat\t01\n 2\t002\t\tAbergement-de-Varey\t01\n 3\t004\t\tAmbérieu-en-Bugey\t01\n 4\t005\t\tAmbérieux-en-Dombes\t01\n 5\t006\t\tAmbléon\t01\n 6\t007\t\tAmbronay\t01\n 7\t008\t\tAmbutrix\t01\n .... etc\n*/\n\n\nCALL apoc.dv.catalog.add(\"myName\", {\n  type: \"JDBC\",\n  url: \"jdbc:postgresql://postgres:5432/myDb?user\u003dtest\u0026password\u003dpostgres\",\n  labels: [\"Town\",\"PopulatedPlace\"],\n  query: \"SELECT code, name FROM towns where department \u003d $dept_no\",\n  desc: \"my incredible description\"\n})",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 09:32:01.672",
+      "dateUpdated": "2022-03-25 11:54:16.804",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2284,26 +2490,66 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\ttype\turl\tdesc\tlabels\tquery\tparams\n\"myName\"\t\"JDBC\"\t\"jdbc:postgresql://postgres:5432/myDb?user\u003dtest\u0026password\u003dpostgres\"\t\"my incredible description\"\t[\"Town\",\"PopulatedPlace\"]\t\"SELECT code, name FROM towns where department \u003d $dept_no\"\t[\"$dept_no\"]\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1647965718926_849248057",
       "id": "paragraph_1647965718926_849248057",
       "dateCreated": "2022-03-22 16:15:18.926",
-      "dateStarted": "2022-03-24 09:31:29.209",
-      "dateFinished": "2022-03-24 09:31:29.277",
+      "dateStarted": "2022-03-25 11:54:16.837",
+      "dateFinished": "2022-03-25 11:54:16.936",
       "status": "FINISHED"
     },
     {
       "title": "Get results from virtual resource",
       "text": "%neo4j\nCALL apoc.dv.query(\"myName\", { dept_no: \"73\" })",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 09:32:04.376",
+      "dateUpdated": "2022-03-25 11:54:30.999",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
         "enabled": true,
-        "results": {},
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "id": "string",
+                      "label": "string",
+                      "name": "string",
+                      "code": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
         "editorSetting": {
           "editOnDblClick": false
         },
@@ -2316,18 +2562,29 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":-22,\"data\":{\"name\":\"Aiguebelette-le-Lac\",\"code\":\"001\"},\"label\":\"Town\"},{\"id\":-23,\"data\":{\"name\":\"Aiguebelle\",\"code\":\"002\"},\"label\":\"Town\"},{\"id\":-24,\"data\":{\"name\":\"Aigueblanche\",\"code\":\"003\"},\"label\":\"Town\"},{\"id\":-25,\"data\":{\"name\":\"Aillon-le-Jeune\",\"code\":\"004\"},\"label\":\"Town\"},{\"id\":-26,\"data\":{\"name\":\"Aillon-le-Vieux\",\"code\":\"005\"},\"label\":\"Town\"},{\"id\":-27,\"data\":{\"name\":\"Aime\",\"code\":\"006\"},\"label\":\"Town\"},{\"id\":-28,\"data\":{\"name\":\"Aiton\",\"code\":\"007\"},\"label\":\"Town\"},{\"id\":-29,\"data\":{\"name\":\"Aix-les-Bains\",\"code\":\"008\"},\"label\":\"Town\"},{\"id\":-30,\"data\":{\"name\":\"Albens\",\"code\":\"010\"},\"label\":\"Town\"},{\"id\":-31,\"data\":{\"name\":\"Albertville\",\"code\":\"011\"},\"label\":\"Town\"},{\"id\":-32,\"data\":{\"name\":\"Albiez-le-Jeune\",\"code\":\"012\"},\"label\":\"Town\"},{\"id\":-33,\"data\":{\"name\":\"Albiez-Montrond\",\"code\":\"013\"},\"label\":\"Town\"},{\"id\":-34,\"data\":{\"name\":\"Allondaz\",\"code\":\"014\"},\"label\":\"Town\"},{\"id\":-35,\"data\":{\"name\":\"Allues\",\"code\":\"015\"},\"label\":\"Town\"},{\"id\":-36,\"data\":{\"name\":\"Apremont\",\"code\":\"017\"},\"label\":\"Town\"},{\"id\":-37,\"data\":{\"name\":\"Arbin\",\"code\":\"018\"},\"label\":\"Town\"},{\"id\":-38,\"data\":{\"name\":\"Argentine\",\"code\":\"019\"},\"label\":\"Town\"},{\"id\":-39,\"data\":{\"name\":\"Arith\",\"code\":\"020\"},\"label\":\"Town\"},{\"id\":-40,\"data\":{\"name\":\"Arvillard\",\"code\":\"021\"},\"label\":\"Town\"},{\"id\":-41,\"data\":{\"name\":\"Attignat-Oncin\",\"code\":\"022\"},\"label\":\"Town\"},{\"id\":-42,\"data\":{\"name\":\"Aussois\",\"code\":\"023\"},\"label\":\"Town\"},{\"id\":-43,\"data\":{\"name\":\"Avanchers-Valmorel\",\"code\":\"024\"},\"label\":\"Town\"},{\"id\":-44,\"data\":{\"name\":\"Avressieux\",\"code\":\"025\"},\"label\":\"Town\"},{\"id\":-45,\"data\":{\"name\":\"Avrieux\",\"code\":\"026\"},\"label\":\"Town\"},{\"id\":-46,\"data\":{\"name\":\"Ayn\",\"code\":\"027\"},\"label\":\"Town\"},{\"id\":-47,\"data\":{\"name\":\"Balme\",\"code\":\"028\"},\"label\":\"Town\"},{\"id\":-48,\"data\":{\"name\":\"Barberaz\",\"code\":\"029\"},\"label\":\"Town\"},{\"id\":-49,\"data\":{\"name\":\"Barby\",\"code\":\"030\"},\"label\":\"Town\"},{\"id\":-50,\"data\":{\"name\":\"Bassens\",\"code\":\"031\"},\"label\":\"Town\"},{\"id\":-51,\"data\":{\"name\":\"Bâthie\",\"code\":\"032\"},\"label\":\"Town\"},{\"id\":-52,\"data\":{\"name\":\"Bauche\",\"code\":\"033\"},\"label\":\"Town\"},{\"id\":-53,\"data\":{\"name\":\"Beaufort\",\"code\":\"034\"},\"label\":\"Town\"},{\"id\":-54,\"data\":{\"name\":\"Bellecombe-en-Bauges\",\"code\":\"036\"},\"label\":\"Town\"},{\"id\":-55,\"data\":{\"name\":\"Bellentre\",\"code\":\"038\"},\"label\":\"Town\"},{\"id\":-56,\"data\":{\"name\":\"Belmont-Tramonet\",\"code\":\"039\"},\"label\":\"Town\"},{\"id\":-57,\"data\":{\"name\":\"Bessans\",\"code\":\"040\"},\"label\":\"Town\"},{\"id\":-58,\"data\":{\"name\":\"Betton-Bettonet\",\"code\":\"041\"},\"label\":\"Town\"},{\"id\":-59,\"data\":{\"name\":\"Billième\",\"code\":\"042\"},\"label\":\"Town\"},{\"id\":-60,\"data\":{\"name\":\"Biolle\",\"code\":\"043\"},\"label\":\"Town\"},{\"id\":-61,\"data\":{\"name\":\"Bois\",\"code\":\"045\"},\"label\":\"Town\"},{\"id\":-62,\"data\":{\"name\":\"Bonneval\",\"code\":\"046\"},\"label\":\"Town\"},{\"id\":-63,\"data\":{\"name\":\"Bonneval-sur-Arc\",\"code\":\"047\"},\"label\":\"Town\"},{\"id\":-64,\"data\":{\"name\":\"Bonvillard\",\"code\":\"048\"},\"label\":\"Town\"},{\"id\":-65,\"data\":{\"name\":\"Bonvillaret\",\"code\":\"049\"},\"label\":\"Town\"},{\"id\":-66,\"data\":{\"name\":\"Bourdeau\",\"code\":\"050\"},\"label\":\"Town\"},{\"id\":-67,\"data\":{\"name\":\"Bourget-du-Lac\",\"code\":\"051\"},\"label\":\"Town\"},{\"id\":-68,\"data\":{\"name\":\"Bourget-en-Huile\",\"code\":\"052\"},\"label\":\"Town\"},{\"id\":-69,\"data\":{\"name\":\"Bourgneuf\",\"code\":\"053\"},\"label\":\"Town\"},{\"id\":-70,\"data\":{\"name\":\"Bourg-Saint-Maurice\",\"code\":\"054\"},\"label\":\"Town\"},{\"id\":-71,\"data\":{\"name\":\"Bozel\",\"code\":\"055\"},\"label\":\"Town\"},{\"id\":-72,\"data\":{\"name\":\"Bramans\",\"code\":\"056\"},\"label\":\"Town\"},{\"id\":-73,\"data\":{\"name\":\"Brides-les-Bains\",\"code\":\"057\"},\"label\":\"Town\"},{\"id\":-74,\"data\":{\"name\":\"Bridoire\",\"code\":\"058\"},\"label\":\"Town\"},{\"id\":-75,\"data\":{\"name\":\"Brison-Saint-Innocent\",\"code\":\"059\"},\"label\":\"Town\"},{\"id\":-76,\"data\":{\"name\":\"Césarches\",\"code\":\"061\"},\"label\":\"Town\"},{\"id\":-77,\"data\":{\"name\":\"Cessens\",\"code\":\"062\"},\"label\":\"Town\"},{\"id\":-78,\"data\":{\"name\":\"Cevins\",\"code\":\"063\"},\"label\":\"Town\"},{\"id\":-79,\"data\":{\"name\":\"Challes-les-Eaux\",\"code\":\"064\"},\"label\":\"Town\"},{\"id\":-80,\"data\":{\"name\":\"Chambéry\",\"code\":\"065\"},\"label\":\"Town\"},{\"id\":-81,\"data\":{\"name\":\"Chambre\",\"code\":\"067\"},\"label\":\"Town\"},{\"id\":-82,\"data\":{\"name\":\"Chamousset\",\"code\":\"068\"},\"label\":\"Town\"},{\"id\":-83,\"data\":{\"name\":\"Chamoux-sur-Gelon\",\"code\":\"069\"},\"label\":\"Town\"},{\"id\":-84,\"data\":{\"name\":\"Champagneux\",\"code\":\"070\"},\"label\":\"Town\"},{\"id\":-85,\"data\":{\"name\":\"Champagny-en-Vanoise\",\"code\":\"071\"},\"label\":\"Town\"},{\"id\":-86,\"data\":{\"name\":\"Champ-Laurent\",\"code\":\"072\"},\"label\":\"Town\"},{\"id\":-87,\"data\":{\"name\":\"Chanaz\",\"code\":\"073\"},\"label\":\"Town\"},{\"id\":-88,\"data\":{\"name\":\"Chapelle\",\"code\":\"074\"},\"label\":\"Town\"},{\"id\":-89,\"data\":{\"name\":\"Chapelle-Blanche\",\"code\":\"075\"},\"label\":\"Town\"},{\"id\":-90,\"data\":{\"name\":\"Chapelle-du-Mont-du-Chat\",\"code\":\"076\"},\"label\":\"Town\"},{\"id\":-91,\"data\":{\"name\":\"Chapelles\",\"code\":\"077\"},\"label\":\"Town\"},{\"id\":-92,\"data\":{\"name\":\"Chapelle-Saint-Martin\",\"code\":\"078\"},\"label\":\"Town\"},{\"id\":-93,\"data\":{\"name\":\"Châteauneuf\",\"code\":\"079\"},\"label\":\"Town\"},{\"id\":-94,\"data\":{\"name\":\"Châtel\",\"code\":\"080\"},\"label\":\"Town\"},{\"id\":-95,\"data\":{\"name\":\"Châtelard\",\"code\":\"081\"},\"label\":\"Town\"},{\"id\":-96,\"data\":{\"name\":\"Chavanne\",\"code\":\"082\"},\"label\":\"Town\"},{\"id\":-97,\"data\":{\"name\":\"Chavannes-en-Maurienne\",\"code\":\"083\"},\"label\":\"Town\"},{\"id\":-98,\"data\":{\"name\":\"Chignin\",\"code\":\"084\"},\"label\":\"Town\"},{\"id\":-99,\"data\":{\"name\":\"Chindrieux\",\"code\":\"085\"},\"label\":\"Town\"},{\"id\":-100,\"data\":{\"name\":\"Cléry\",\"code\":\"086\"},\"label\":\"Town\"},{\"id\":-101,\"data\":{\"name\":\"Cognin\",\"code\":\"087\"},\"label\":\"Town\"},{\"id\":-102,\"data\":{\"name\":\"Cohennoz\",\"code\":\"088\"},\"label\":\"Town\"},{\"id\":-103,\"data\":{\"name\":\"Coise-Saint-Jean-Pied-Gauthier\",\"code\":\"089\"},\"label\":\"Town\"},{\"id\":-104,\"data\":{\"name\":\"Compôte\",\"code\":\"090\"},\"label\":\"Town\"},{\"id\":-105,\"data\":{\"name\":\"Conjux\",\"code\":\"091\"},\"label\":\"Town\"},{\"id\":-106,\"data\":{\"name\":\"Corbel\",\"code\":\"092\"},\"label\":\"Town\"},{\"id\":-107,\"data\":{\"name\":\"Côte-d\\u0027Aime\",\"code\":\"093\"},\"label\":\"Town\"},{\"id\":-108,\"data\":{\"name\":\"Crest-Voland\",\"code\":\"094\"},\"label\":\"Town\"},{\"id\":-109,\"data\":{\"name\":\"Croix-de-la-Rochette\",\"code\":\"095\"},\"label\":\"Town\"},{\"id\":-110,\"data\":{\"name\":\"Cruet\",\"code\":\"096\"},\"label\":\"Town\"},{\"id\":-111,\"data\":{\"name\":\"Curienne\",\"code\":\"097\"},\"label\":\"Town\"},{\"id\":-112,\"data\":{\"name\":\"Déserts\",\"code\":\"098\"},\"label\":\"Town\"},{\"id\":-113,\"data\":{\"name\":\"Détrier\",\"code\":\"099\"},\"label\":\"Town\"},{\"id\":-114,\"data\":{\"name\":\"Domessin\",\"code\":\"100\"},\"label\":\"Town\"},{\"id\":-115,\"data\":{\"name\":\"Doucy-en-Bauges\",\"code\":\"101\"},\"label\":\"Town\"},{\"id\":-116,\"data\":{\"name\":\"Drumettaz-Clarafond\",\"code\":\"103\"},\"label\":\"Town\"},{\"id\":-117,\"data\":{\"name\":\"Dullin\",\"code\":\"104\"},\"label\":\"Town\"},{\"id\":-118,\"data\":{\"name\":\"Échelles\",\"code\":\"105\"},\"label\":\"Town\"},{\"id\":-119,\"data\":{\"name\":\"École\",\"code\":\"106\"},\"label\":\"Town\"},{\"id\":-120,\"data\":{\"name\":\"Entremont-le-Vieux\",\"code\":\"107\"},\"label\":\"Town\"},{\"id\":-121,\"data\":{\"name\":\"Épersy\",\"code\":\"108\"},\"label\":\"Town\"},{\"id\":-122,\"data\":{\"name\":\"Épierre\",\"code\":\"109\"},\"label\":\"Town\"},{\"id\":-123,\"data\":{\"name\":\"Esserts-Blay\",\"code\":\"110\"},\"label\":\"Town\"},{\"id\":-124,\"data\":{\"name\":\"Étable\",\"code\":\"111\"},\"label\":\"Town\"},{\"id\":-125,\"data\":{\"name\":\"Feissons-sur-Isère\",\"code\":\"112\"},\"label\":\"Town\"},{\"id\":-126,\"data\":{\"name\":\"Feissons-sur-Salins\",\"code\":\"113\"},\"label\":\"Town\"},{\"id\":-127,\"data\":{\"name\":\"Flumet\",\"code\":\"114\"},\"label\":\"Town\"},{\"id\":-128,\"data\":{\"name\":\"Fontaine-le-Puits\",\"code\":\"115\"},\"label\":\"Town\"},{\"id\":-129,\"data\":{\"name\":\"Fontcouverte-la Toussuire\",\"code\":\"116\"},\"label\":\"Town\"},{\"id\":-130,\"data\":{\"name\":\"Fourneaux\",\"code\":\"117\"},\"label\":\"Town\"},{\"id\":-131,\"data\":{\"name\":\"Francin\",\"code\":\"118\"},\"label\":\"Town\"},{\"id\":-132,\"data\":{\"name\":\"Freney\",\"code\":\"119\"},\"label\":\"Town\"},{\"id\":-133,\"data\":{\"name\":\"Fréterive\",\"code\":\"120\"},\"label\":\"Town\"},{\"id\":-134,\"data\":{\"name\":\"Frontenex\",\"code\":\"121\"},\"label\":\"Town\"},{\"id\":-135,\"data\":{\"name\":\"Gerbaix\",\"code\":\"122\"},\"label\":\"Town\"},{\"id\":-136,\"data\":{\"name\":\"Giettaz\",\"code\":\"123\"},\"label\":\"Town\"},{\"id\":-137,\"data\":{\"name\":\"Gilly-sur-Isère\",\"code\":\"124\"},\"label\":\"Town\"},{\"id\":-138,\"data\":{\"name\":\"Granier\",\"code\":\"126\"},\"label\":\"Town\"},{\"id\":-139,\"data\":{\"name\":\"Gresin\",\"code\":\"127\"},\"label\":\"Town\"},{\"id\":-140,\"data\":{\"name\":\"Grésy-sur-Aix\",\"code\":\"128\"},\"label\":\"Town\"},{\"id\":-141,\"data\":{\"name\":\"Grésy-sur-Isère\",\"code\":\"129\"},\"label\":\"Town\"},{\"id\":-142,\"data\":{\"name\":\"Grignon\",\"code\":\"130\"},\"label\":\"Town\"},{\"id\":-143,\"data\":{\"name\":\"Hautecour\",\"code\":\"131\"},\"label\":\"Town\"},{\"id\":-144,\"data\":{\"name\":\"Hauteluce\",\"code\":\"132\"},\"label\":\"Town\"},{\"id\":-145,\"data\":{\"name\":\"Hauteville\",\"code\":\"133\"},\"label\":\"Town\"},{\"id\":-146,\"data\":{\"name\":\"Hermillon\",\"code\":\"135\"},\"label\":\"Town\"},{\"id\":-147,\"data\":{\"name\":\"Jacob-Bellecombette\",\"code\":\"137\"},\"label\":\"Town\"},{\"id\":-148,\"data\":{\"name\":\"Jarrier\",\"code\":\"138\"},\"label\":\"Town\"},{\"id\":-149,\"data\":{\"name\":\"Jarsy\",\"code\":\"139\"},\"label\":\"Town\"},{\"id\":-150,\"data\":{\"name\":\"Jongieux\",\"code\":\"140\"},\"label\":\"Town\"},{\"id\":-151,\"data\":{\"name\":\"Laissaud\",\"code\":\"141\"},\"label\":\"Town\"},{\"id\":-152,\"data\":{\"name\":\"Landry\",\"code\":\"142\"},\"label\":\"Town\"},{\"id\":-153,\"data\":{\"name\":\"Lanslebourg-Mont-Cenis\",\"code\":\"143\"},\"label\":\"Town\"},{\"id\":-154,\"data\":{\"name\":\"Lanslevillard\",\"code\":\"144\"},\"label\":\"Town\"},{\"id\":-155,\"data\":{\"name\":\"Lépin-le-Lac\",\"code\":\"145\"},\"label\":\"Town\"},{\"id\":-156,\"data\":{\"name\":\"Lescheraines\",\"code\":\"146\"},\"label\":\"Town\"},{\"id\":-157,\"data\":{\"name\":\"Loisieux\",\"code\":\"147\"},\"label\":\"Town\"},{\"id\":-158,\"data\":{\"name\":\"Lucey\",\"code\":\"149\"},\"label\":\"Town\"},{\"id\":-159,\"data\":{\"name\":\"Mâcot-la-Plagne\",\"code\":\"150\"},\"label\":\"Town\"},{\"id\":-160,\"data\":{\"name\":\"Marches\",\"code\":\"151\"},\"label\":\"Town\"},{\"id\":-161,\"data\":{\"name\":\"Marcieux\",\"code\":\"152\"},\"label\":\"Town\"},{\"id\":-162,\"data\":{\"name\":\"Marthod\",\"code\":\"153\"},\"label\":\"Town\"},{\"id\":-163,\"data\":{\"name\":\"Mercury\",\"code\":\"154\"},\"label\":\"Town\"},{\"id\":-164,\"data\":{\"name\":\"Méry\",\"code\":\"155\"},\"label\":\"Town\"},{\"id\":-165,\"data\":{\"name\":\"Meyrieux-Trouet\",\"code\":\"156\"},\"label\":\"Town\"},{\"id\":-166,\"data\":{\"name\":\"Modane\",\"code\":\"157\"},\"label\":\"Town\"},{\"id\":-167,\"data\":{\"name\":\"Mognard\",\"code\":\"158\"},\"label\":\"Town\"},{\"id\":-168,\"data\":{\"name\":\"Mollettes\",\"code\":\"159\"},\"label\":\"Town\"},{\"id\":-169,\"data\":{\"name\":\"Montagnole\",\"code\":\"160\"},\"label\":\"Town\"},{\"id\":-170,\"data\":{\"name\":\"Montagny\",\"code\":\"161\"},\"label\":\"Town\"},{\"id\":-171,\"data\":{\"name\":\"Montailleur\",\"code\":\"162\"},\"label\":\"Town\"},{\"id\":-172,\"data\":{\"name\":\"Montaimont\",\"code\":\"163\"},\"label\":\"Town\"},{\"id\":-173,\"data\":{\"name\":\"Montcel\",\"code\":\"164\"},\"label\":\"Town\"},{\"id\":-174,\"data\":{\"name\":\"Montendry\",\"code\":\"166\"},\"label\":\"Town\"},{\"id\":-175,\"data\":{\"name\":\"Montgellafrey\",\"code\":\"167\"},\"label\":\"Town\"},{\"id\":-176,\"data\":{\"name\":\"Montgilbert\",\"code\":\"168\"},\"label\":\"Town\"},{\"id\":-177,\"data\":{\"name\":\"Montgirod\",\"code\":\"169\"},\"label\":\"Town\"},{\"id\":-178,\"data\":{\"name\":\"Monthion\",\"code\":\"170\"},\"label\":\"Town\"},{\"id\":-179,\"data\":{\"name\":\"Montmélian\",\"code\":\"171\"},\"label\":\"Town\"},{\"id\":-180,\"data\":{\"name\":\"Montricher-Albanne\",\"code\":\"173\"},\"label\":\"Town\"},{\"id\":-181,\"data\":{\"name\":\"Montsapey\",\"code\":\"175\"},\"label\":\"Town\"},{\"id\":-182,\"data\":{\"name\":\"Montvalezan\",\"code\":\"176\"},\"label\":\"Town\"},{\"id\":-183,\"data\":{\"name\":\"Montvernier\",\"code\":\"177\"},\"label\":\"Town\"},{\"id\":-184,\"data\":{\"name\":\"Motte-en-Bauges\",\"code\":\"178\"},\"label\":\"Town\"},{\"id\":-185,\"data\":{\"name\":\"Motte-Servolex\",\"code\":\"179\"},\"label\":\"Town\"},{\"id\":-186,\"data\":{\"name\":\"Motz\",\"code\":\"180\"},\"label\":\"Town\"},{\"id\":-187,\"data\":{\"name\":\"Moûtiers\",\"code\":\"181\"},\"label\":\"Town\"},{\"id\":-188,\"data\":{\"name\":\"Mouxy\",\"code\":\"182\"},\"label\":\"Town\"},{\"id\":-189,\"data\":{\"name\":\"Myans\",\"code\":\"183\"},\"label\":\"Town\"},{\"id\":-190,\"data\":{\"name\":\"Nances\",\"code\":\"184\"},\"label\":\"Town\"},{\"id\":-191,\"data\":{\"name\":\"Notre-Dame-de-Bellecombe\",\"code\":\"186\"},\"label\":\"Town\"},{\"id\":-192,\"data\":{\"name\":\"Léchère\",\"code\":\"187\"},\"label\":\"Town\"},{\"id\":-193,\"data\":{\"name\":\"Notre-Dame-des-Millières\",\"code\":\"188\"},\"label\":\"Town\"},{\"id\":-194,\"data\":{\"name\":\"Notre-Dame-du-Cruet\",\"code\":\"189\"},\"label\":\"Town\"},{\"id\":-195,\"data\":{\"name\":\"Notre-Dame-du-Pré\",\"code\":\"190\"},\"label\":\"Town\"},{\"id\":-196,\"data\":{\"name\":\"Novalaise\",\"code\":\"191\"},\"label\":\"Town\"},{\"id\":-197,\"data\":{\"name\":\"Noyer\",\"code\":\"192\"},\"label\":\"Town\"},{\"id\":-198,\"data\":{\"name\":\"Ontex\",\"code\":\"193\"},\"label\":\"Town\"},{\"id\":-199,\"data\":{\"name\":\"Orelle\",\"code\":\"194\"},\"label\":\"Town\"},{\"id\":-200,\"data\":{\"name\":\"Pallud\",\"code\":\"196\"},\"label\":\"Town\"},{\"id\":-201,\"data\":{\"name\":\"Peisey-Nancroix\",\"code\":\"197\"},\"label\":\"Town\"},{\"id\":-202,\"data\":{\"name\":\"Perrière\",\"code\":\"198\"},\"label\":\"Town\"},{\"id\":-203,\"data\":{\"name\":\"Planaise\",\"code\":\"200\"},\"label\":\"Town\"},{\"id\":-204,\"data\":{\"name\":\"Planay\",\"code\":\"201\"},\"label\":\"Town\"},{\"id\":-205,\"data\":{\"name\":\"Plancherine\",\"code\":\"202\"},\"label\":\"Town\"},{\"id\":-206,\"data\":{\"name\":\"Pontamafrey-Montpascal\",\"code\":\"203\"},\"label\":\"Town\"},{\"id\":-207,\"data\":{\"name\":\"Pont-de-Beauvoisin\",\"code\":\"204\"},\"label\":\"Town\"},{\"id\":-208,\"data\":{\"name\":\"Pontet\",\"code\":\"205\"},\"label\":\"Town\"},{\"id\":-209,\"data\":{\"name\":\"Pralognan-la-Vanoise\",\"code\":\"206\"},\"label\":\"Town\"},{\"id\":-210,\"data\":{\"name\":\"Presle\",\"code\":\"207\"},\"label\":\"Town\"},{\"id\":-211,\"data\":{\"name\":\"Pugny-Chatenod\",\"code\":\"208\"},\"label\":\"Town\"},{\"id\":-212,\"data\":{\"name\":\"Puygros\",\"code\":\"210\"},\"label\":\"Town\"},{\"id\":-213,\"data\":{\"name\":\"Queige\",\"code\":\"211\"},\"label\":\"Town\"},{\"id\":-214,\"data\":{\"name\":\"Randens\",\"code\":\"212\"},\"label\":\"Town\"},{\"id\":-215,\"data\":{\"name\":\"Ravoire\",\"code\":\"213\"},\"label\":\"Town\"},{\"id\":-216,\"data\":{\"name\":\"Rochefort\",\"code\":\"214\"},\"label\":\"Town\"},{\"id\":-217,\"data\":{\"name\":\"Rochette\",\"code\":\"215\"},\"label\":\"Town\"},{\"id\":-218,\"data\":{\"name\":\"Rognaix\",\"code\":\"216\"},\"label\":\"Town\"},{\"id\":-219,\"data\":{\"name\":\"Rotherens\",\"code\":\"217\"},\"label\":\"Town\"},{\"id\":-220,\"data\":{\"name\":\"Ruffieux\",\"code\":\"218\"},\"label\":\"Town\"},{\"id\":-221,\"data\":{\"name\":\"Saint-Alban-de-Montbel\",\"code\":\"219\"},\"label\":\"Town\"},{\"id\":-222,\"data\":{\"name\":\"Saint-Alban-des-Hurtières\",\"code\":\"220\"},\"label\":\"Town\"},{\"id\":-223,\"data\":{\"name\":\"Saint-Alban-des-Villards\",\"code\":\"221\"},\"label\":\"Town\"},{\"id\":-224,\"data\":{\"name\":\"Saint-Alban-Leysse\",\"code\":\"222\"},\"label\":\"Town\"},{\"id\":-225,\"data\":{\"name\":\"Saint-André\",\"code\":\"223\"},\"label\":\"Town\"},{\"id\":-226,\"data\":{\"name\":\"Saint-Avre\",\"code\":\"224\"},\"label\":\"Town\"},{\"id\":-227,\"data\":{\"name\":\"Saint-Baldoph\",\"code\":\"225\"},\"label\":\"Town\"},{\"id\":-228,\"data\":{\"name\":\"Saint-Béron\",\"code\":\"226\"},\"label\":\"Town\"},{\"id\":-229,\"data\":{\"name\":\"Saint-Bon-Tarentaise\",\"code\":\"227\"},\"label\":\"Town\"},{\"id\":-230,\"data\":{\"name\":\"Saint-Cassin\",\"code\":\"228\"},\"label\":\"Town\"},{\"id\":-231,\"data\":{\"name\":\"Saint-Christophe\",\"code\":\"229\"},\"label\":\"Town\"},{\"id\":-232,\"data\":{\"name\":\"Saint-Colomban-des-Villards\",\"code\":\"230\"},\"label\":\"Town\"},{\"id\":-233,\"data\":{\"name\":\"Saint-Etienne-de-Cuines\",\"code\":\"231\"},\"label\":\"Town\"},{\"id\":-234,\"data\":{\"name\":\"Sainte-Foy-Tarentaise\",\"code\":\"232\"},\"label\":\"Town\"},{\"id\":-235,\"data\":{\"name\":\"Saint-Franc\",\"code\":\"233\"},\"label\":\"Town\"},{\"id\":-236,\"data\":{\"name\":\"Saint-François-de-Sales\",\"code\":\"234\"},\"label\":\"Town\"},{\"id\":-237,\"data\":{\"name\":\"Saint-François-Longchamp\",\"code\":\"235\"},\"label\":\"Town\"},{\"id\":-238,\"data\":{\"name\":\"Saint-Genix-sur-Guiers\",\"code\":\"236\"},\"label\":\"Town\"},{\"id\":-239,\"data\":{\"name\":\"Saint-Georges-des-Hurtières\",\"code\":\"237\"},\"label\":\"Town\"},{\"id\":-240,\"data\":{\"name\":\"Saint-Germain-la-Chambotte\",\"code\":\"238\"},\"label\":\"Town\"},{\"id\":-241,\"data\":{\"name\":\"Saint-Girod\",\"code\":\"239\"},\"label\":\"Town\"},{\"id\":-242,\"data\":{\"name\":\"Sainte-Hélène-du-Lac\",\"code\":\"240\"},\"label\":\"Town\"},{\"id\":-243,\"data\":{\"name\":\"Sainte-Hélène-sur-Isère\",\"code\":\"241\"},\"label\":\"Town\"},{\"id\":-244,\"data\":{\"name\":\"Saint-Jean-d\\u0027Arves\",\"code\":\"242\"},\"label\":\"Town\"},{\"id\":-245,\"data\":{\"name\":\"Saint-Jean-d\\u0027Arvey\",\"code\":\"243\"},\"label\":\"Town\"},{\"id\":-246,\"data\":{\"name\":\"Saint-Jean-de-Belleville\",\"code\":\"244\"},\"label\":\"Town\"},{\"id\":-247,\"data\":{\"name\":\"Saint-Jean-de-Chevelu\",\"code\":\"245\"},\"label\":\"Town\"},{\"id\":-248,\"data\":{\"name\":\"Saint-Jean-de-Couz\",\"code\":\"246\"},\"label\":\"Town\"},{\"id\":-249,\"data\":{\"name\":\"Saint-Jean-de-la-Porte\",\"code\":\"247\"},\"label\":\"Town\"},{\"id\":-250,\"data\":{\"name\":\"Saint-Jean-de-Maurienne\",\"code\":\"248\"},\"label\":\"Town\"},{\"id\":-251,\"data\":{\"name\":\"Saint-Jeoire-Prieuré\",\"code\":\"249\"},\"label\":\"Town\"},{\"id\":-252,\"data\":{\"name\":\"Saint-Julien-Mont-Denis\",\"code\":\"250\"},\"label\":\"Town\"},{\"id\":-253,\"data\":{\"name\":\"Saint-Léger\",\"code\":\"252\"},\"label\":\"Town\"},{\"id\":-254,\"data\":{\"name\":\"Saint-Marcel\",\"code\":\"253\"},\"label\":\"Town\"},{\"id\":-255,\"data\":{\"name\":\"Sainte-Marie-d\\u0027Alvey\",\"code\":\"254\"},\"label\":\"Town\"},{\"id\":-256,\"data\":{\"name\":\"Sainte-Marie-de-Cuines\",\"code\":\"255\"},\"label\":\"Town\"},{\"id\":-257,\"data\":{\"name\":\"Saint-Martin-d\\u0027Arc\",\"code\":\"256\"},\"label\":\"Town\"},{\"id\":-258,\"data\":{\"name\":\"Saint-Martin-de-Belleville\",\"code\":\"257\"},\"label\":\"Town\"},{\"id\":-259,\"data\":{\"name\":\"Saint-Martin-de-la-Porte\",\"code\":\"258\"},\"label\":\"Town\"},{\"id\":-260,\"data\":{\"name\":\"Saint-Martin-sur-la-Chambre\",\"code\":\"259\"},\"label\":\"Town\"},{\"id\":-261,\"data\":{\"name\":\"Saint-Maurice-de-Rotherens\",\"code\":\"260\"},\"label\":\"Town\"},{\"id\":-262,\"data\":{\"name\":\"Saint-Michel-de-Maurienne\",\"code\":\"261\"},\"label\":\"Town\"},{\"id\":-263,\"data\":{\"name\":\"Saint-Nicolas-la-Chapelle\",\"code\":\"262\"},\"label\":\"Town\"},{\"id\":-264,\"data\":{\"name\":\"Saint-Offenge-Dessous\",\"code\":\"263\"},\"label\":\"Town\"},{\"id\":-265,\"data\":{\"name\":\"Saint-Offenge-Dessus\",\"code\":\"264\"},\"label\":\"Town\"},{\"id\":-266,\"data\":{\"name\":\"Saint-Ours\",\"code\":\"265\"},\"label\":\"Town\"},{\"id\":-267,\"data\":{\"name\":\"Saint-Oyen\",\"code\":\"266\"},\"label\":\"Town\"},{\"id\":-268,\"data\":{\"name\":\"Saint-Pancrace\",\"code\":\"267\"},\"label\":\"Town\"},{\"id\":-269,\"data\":{\"name\":\"Saint-Paul-sur-Isère\",\"code\":\"268\"},\"label\":\"Town\"},{\"id\":-270,\"data\":{\"name\":\"Saint-Paul\",\"code\":\"269\"},\"label\":\"Town\"},{\"id\":-271,\"data\":{\"name\":\"Saint-Pierre-d\\u0027Albigny\",\"code\":\"270\"},\"label\":\"Town\"},{\"id\":-272,\"data\":{\"name\":\"Saint-Pierre-d\\u0027Alvey\",\"code\":\"271\"},\"label\":\"Town\"},{\"id\":-273,\"data\":{\"name\":\"Saint-Pierre-de-Belleville\",\"code\":\"272\"},\"label\":\"Town\"},{\"id\":-274,\"data\":{\"name\":\"Saint-Pierre-de-Curtille\",\"code\":\"273\"},\"label\":\"Town\"},{\"id\":-275,\"data\":{\"name\":\"Saint-Pierre-d\\u0027Entremont\",\"code\":\"274\"},\"label\":\"Town\"},{\"id\":-276,\"data\":{\"name\":\"Saint-Pierre-de-Genebroz\",\"code\":\"275\"},\"label\":\"Town\"},{\"id\":-277,\"data\":{\"name\":\"Saint-Pierre-de-Soucy\",\"code\":\"276\"},\"label\":\"Town\"},{\"id\":-278,\"data\":{\"name\":\"Sainte-Reine\",\"code\":\"277\"},\"label\":\"Town\"},{\"id\":-279,\"data\":{\"name\":\"Saint-Rémy-de-Maurienne\",\"code\":\"278\"},\"label\":\"Town\"},{\"id\":-280,\"data\":{\"name\":\"Saint-Sorlin-d\\u0027Arves\",\"code\":\"280\"},\"label\":\"Town\"},{\"id\":-281,\"data\":{\"name\":\"Saint-Sulpice\",\"code\":\"281\"},\"label\":\"Town\"},{\"id\":-282,\"data\":{\"name\":\"Saint-Thibaud-de-Couz\",\"code\":\"282\"},\"label\":\"Town\"},{\"id\":-283,\"data\":{\"name\":\"Saint-Vital\",\"code\":\"283\"},\"label\":\"Town\"},{\"id\":-284,\"data\":{\"name\":\"Salins-les-Thermes\",\"code\":\"284\"},\"label\":\"Town\"},{\"id\":-285,\"data\":{\"name\":\"Séez\",\"code\":\"285\"},\"label\":\"Town\"},{\"id\":-286,\"data\":{\"name\":\"Serrières-en-Chautagne\",\"code\":\"286\"},\"label\":\"Town\"},{\"id\":-287,\"data\":{\"name\":\"Sollières-Sardières\",\"code\":\"287\"},\"label\":\"Town\"},{\"id\":-288,\"data\":{\"name\":\"Sonnaz\",\"code\":\"288\"},\"label\":\"Town\"},{\"id\":-289,\"data\":{\"name\":\"Table\",\"code\":\"289\"},\"label\":\"Town\"},{\"id\":-290,\"data\":{\"name\":\"Termignon\",\"code\":\"290\"},\"label\":\"Town\"},{\"id\":-291,\"data\":{\"name\":\"Thénésol\",\"code\":\"292\"},\"label\":\"Town\"},{\"id\":-292,\"data\":{\"name\":\"Thoiry\",\"code\":\"293\"},\"label\":\"Town\"},{\"id\":-293,\"data\":{\"name\":\"Thuile\",\"code\":\"294\"},\"label\":\"Town\"},{\"id\":-294,\"data\":{\"name\":\"Tignes\",\"code\":\"296\"},\"label\":\"Town\"},{\"id\":-295,\"data\":{\"name\":\"Tournon\",\"code\":\"297\"},\"label\":\"Town\"},{\"id\":-296,\"data\":{\"name\":\"Tours-en-Savoie\",\"code\":\"298\"},\"label\":\"Town\"},{\"id\":-297,\"data\":{\"name\":\"Traize\",\"code\":\"299\"},\"label\":\"Town\"},{\"id\":-298,\"data\":{\"name\":\"Tresserve\",\"code\":\"300\"},\"label\":\"Town\"},{\"id\":-299,\"data\":{\"name\":\"Trévignin\",\"code\":\"301\"},\"label\":\"Town\"},{\"id\":-300,\"data\":{\"name\":\"Trinité\",\"code\":\"302\"},\"label\":\"Town\"},{\"id\":-301,\"data\":{\"name\":\"Ugine\",\"code\":\"303\"},\"label\":\"Town\"},{\"id\":-302,\"data\":{\"name\":\"Val-d\\u0027Isère\",\"code\":\"304\"},\"label\":\"Town\"},{\"id\":-303,\"data\":{\"name\":\"Valezan\",\"code\":\"305\"},\"label\":\"Town\"},{\"id\":-304,\"data\":{\"name\":\"Valloire\",\"code\":\"306\"},\"label\":\"Town\"},{\"id\":-305,\"data\":{\"name\":\"Valmeinier\",\"code\":\"307\"},\"label\":\"Town\"},{\"id\":-306,\"data\":{\"name\":\"Venthon\",\"code\":\"308\"},\"label\":\"Town\"},{\"id\":-307,\"data\":{\"name\":\"Verel-de-Montbel\",\"code\":\"309\"},\"label\":\"Town\"},{\"id\":-308,\"data\":{\"name\":\"Verel-Pragondran\",\"code\":\"310\"},\"label\":\"Town\"},{\"id\":-309,\"data\":{\"name\":\"Verneil\",\"code\":\"311\"},\"label\":\"Town\"},{\"id\":-310,\"data\":{\"name\":\"Verrens-Arvey\",\"code\":\"312\"},\"label\":\"Town\"},{\"id\":-311,\"data\":{\"name\":\"Verthemex\",\"code\":\"313\"},\"label\":\"Town\"},{\"id\":-312,\"data\":{\"name\":\"Villard-d\\u0027Héry\",\"code\":\"314\"},\"label\":\"Town\"},{\"id\":-313,\"data\":{\"name\":\"Villard-Léger\",\"code\":\"315\"},\"label\":\"Town\"},{\"id\":-314,\"data\":{\"name\":\"Villard-Sallet\",\"code\":\"316\"},\"label\":\"Town\"},{\"id\":-315,\"data\":{\"name\":\"Villard-sur-Doron\",\"code\":\"317\"},\"label\":\"Town\"},{\"id\":-316,\"data\":{\"name\":\"Villarembert\",\"code\":\"318\"},\"label\":\"Town\"},{\"id\":-317,\"data\":{\"name\":\"Villargondran\",\"code\":\"320\"},\"label\":\"Town\"},{\"id\":-318,\"data\":{\"name\":\"Villarlurin\",\"code\":\"321\"},\"label\":\"Town\"},{\"id\":-319,\"data\":{\"name\":\"Villarodin-Bourget\",\"code\":\"322\"},\"label\":\"Town\"},{\"id\":-320,\"data\":{\"name\":\"Villaroger\",\"code\":\"323\"},\"label\":\"Town\"},{\"id\":-321,\"data\":{\"name\":\"Villaroux\",\"code\":\"324\"},\"label\":\"Town\"},{\"id\":-322,\"data\":{\"name\":\"Vimines\",\"code\":\"326\"},\"label\":\"Town\"},{\"id\":-323,\"data\":{\"name\":\"Vions\",\"code\":\"327\"},\"label\":\"Town\"},{\"id\":-324,\"data\":{\"name\":\"Viviers-du-Lac\",\"code\":\"328\"},\"label\":\"Town\"},{\"id\":-325,\"data\":{\"name\":\"Voglans\",\"code\":\"329\"},\"label\":\"Town\"},{\"id\":-326,\"data\":{\"name\":\"Yenne\",\"code\":\"330\"},\"label\":\"Town\"}],\"edges\":[],\"labels\":{\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\",\"NodeWithTime\":\"#161DEF\",\"Test\":\"#615488\",\"Finished\":\"#5A5A63\",\"CurrentTime\":\"#1FBD07\",\"Counter\":\"#73DCBB\",\"Schedule\":\"#D6870E\",\"NotFound\":\"#C84E0C\",\"Found\":\"#5C71C6\",\"City\":\"#EE1B85\",\"TagLine\":\"#785865\",\"Flight\":\"#D6E11D\",\"Airport\":\"#FBC242\",\"MergeOne\":\"#54D41D\",\"Company\":\"#79377F\",\"Car\":\"#35437F\",\"Animal\":\"#3FCE6B\",\"Cat\":\"#0FDDE6\",\"MergeTwo\":\"#3E6FCA\",\"One\":\"#FEC55E\",\"Five\":\"#A55202\",\"Other\":\"#E86A47\",\"Other2\":\"#A25512\",\"NodeWithUnique\":\"#57D134\"},\"types\":[\"Pippo2\",\"HAS_MOVIE\",\"ALPHA_BETA\",\"DRIVE\",\"MY_REL\",\"HAS_TAGLINE\",\"CONNECTED_TO\",\"PRODUCED\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\",\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"IN\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"Pippo\",\"OUT\",\"FRIENDS\",\"WROTE\",\"MY_PERIODIC_REL\",\"HAS_HQ\",\"WORKS_FOR\",\"HAS\"],\"directed\":true}"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1647965768935_1263439503",
       "id": "paragraph_1647965768935_1263439503",
       "dateCreated": "2022-03-22 16:16:08.935",
-      "status": "READY"
+      "dateStarted": "2022-03-25 11:54:29.303",
+      "dateFinished": "2022-03-25 11:54:29.610",
+      "status": "FINISHED"
     },
     {
       "text": "%neo4j\nCALL apoc.dv.catalog.list()",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 09:25:54.336",
+      "dateUpdated": "2022-03-25 11:54:34.013",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2378,21 +2635,30 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\ttype\turl\tdesc\tlabels\tquery\tparams\n\"myName\"\t\"JDBC\"\t\"jdbc:postgresql://postgres:5432/myDb?user\u003dtest\u0026password\u003dpostgres\"\t\"my incredible description\"\t[\"Town\",\"PopulatedPlace\"]\t\"SELECT code, name FROM towns where department \u003d $dept_no\"\t[\"$dept_no\"]\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1647965779482_1534388793",
       "id": "paragraph_1647965779482_1534388793",
       "dateCreated": "2022-03-22 16:16:19.482",
-      "dateStarted": "2022-03-22 16:21:01.089",
-      "dateFinished": "2022-03-22 16:21:01.118",
+      "dateStarted": "2022-03-25 11:54:34.038",
+      "dateFinished": "2022-03-25 11:54:34.090",
       "status": "FINISHED"
     },
     {
       "title": "Csv virtual resource",
       "text": "%neo4j\n\nCALL apoc.dv.catalog.add(\"person-by-name\", {\n  type: \"CSV\",\n  url: \"file://persons.csv\",\n  labels: [\"ProductDetails\"],\n  query: \"map.name \u003d $name\",\n  desc: \"Product Details By ID\"\n})",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 09:33:25.318",
+      "dateUpdated": "2022-03-25 11:54:46.895",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2444,21 +2710,30 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\ttype\turl\tdesc\tlabels\tquery\tparams\n\"person-by-name\"\t\"CSV\"\t\"file://persons.csv\"\t\"Product Details By ID\"\t[\"ProductDetails\"]\t\"map.name \u003d $name\"\t[\"$name\"]\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1647965786612_1128694624",
       "id": "paragraph_1647965786612_1128694624",
       "dateCreated": "2022-03-22 16:16:26.612",
-      "dateStarted": "2022-03-24 09:33:23.682",
-      "dateFinished": "2022-03-24 09:33:23.728",
+      "dateStarted": "2022-03-25 11:54:46.920",
+      "dateFinished": "2022-03-25 11:54:46.962",
       "status": "FINISHED"
     },
     {
       "title": "Get result",
       "text": "%neo4j\n\n// equivalent to apoc.load.csv(..) yield map where map.name \u003d $name return map\nCALL apoc.dv.query(\"person-by-name\", { name: \"Eren\" })",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 09:33:38.896",
+      "dateUpdated": "2022-03-25 11:54:50.962",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2507,21 +2782,30 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":-327,\"data\":{\"name\":\"Eren\",\"surname\":\"Jager\"},\"label\":\"ProductDetails\"}],\"edges\":[],\"labels\":{\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\",\"NodeWithTime\":\"#161DEF\",\"Test\":\"#615488\",\"Finished\":\"#5A5A63\",\"CurrentTime\":\"#1FBD07\",\"Counter\":\"#73DCBB\",\"Schedule\":\"#D6870E\",\"NotFound\":\"#C84E0C\",\"Found\":\"#5C71C6\",\"City\":\"#EE1B85\",\"TagLine\":\"#785865\",\"Flight\":\"#D6E11D\",\"Airport\":\"#FBC242\",\"MergeOne\":\"#54D41D\",\"Company\":\"#79377F\",\"Car\":\"#35437F\",\"Animal\":\"#3FCE6B\",\"Cat\":\"#0FDDE6\",\"MergeTwo\":\"#3E6FCA\",\"One\":\"#FEC55E\",\"Five\":\"#A55202\",\"Other\":\"#E86A47\",\"Other2\":\"#A25512\",\"NodeWithUnique\":\"#57D134\"},\"types\":[\"Pippo2\",\"HAS_MOVIE\",\"ALPHA_BETA\",\"DRIVE\",\"MY_REL\",\"HAS_TAGLINE\",\"CONNECTED_TO\",\"PRODUCED\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\",\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"IN\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"Pippo\",\"OUT\",\"FRIENDS\",\"WROTE\",\"MY_PERIODIC_REL\",\"HAS_HQ\",\"WORKS_FOR\",\"HAS\"],\"directed\":true}"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1647965792114_570897506",
       "id": "paragraph_1647965792114_570897506",
       "dateCreated": "2022-03-22 16:16:32.114",
-      "dateStarted": "2022-03-24 09:33:29.611",
-      "dateFinished": "2022-03-24 09:33:29.779",
+      "dateStarted": "2022-03-25 11:54:50.989",
+      "dateFinished": "2022-03-25 11:54:51.094",
       "status": "FINISHED"
     },
     {
       "title": "apoc.dv.queryAndLink",
       "text": "%neo4j\nMATCH (p:Person { name: \"Giandomenico Fracchia\" })\nCALL apoc.dv.queryAndLink(p, \"IS_IN_LOVE_WITH\", \"person-by-name\", { name: \"Armin\" }) YIELD path\nRETURN *",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 09:33:44.986",
+      "dateUpdated": "2022-03-25 11:55:00.842",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2575,14 +2859,23 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":2,\"data\":{\"datetime\":\"2022-03-25T10:47:01.843Z\",\"other\":444,\"century\":1900,\"born\":1964,\"name\":\"Giandomenico Fracchia\",\"uuid\":\"65965404-4fc3-451a-afca-190371d9145b\",\"something\":\"8d91382c-372c-4952-b8db-b0b417c39fa2\",\"timestamp\":1648200777563,\"stuff\":0.46906873841357555},\"label\":\"Person\"},{\"id\":-328,\"data\":{\"name\":\"Armin\",\"surname\":\"Arelet \"},\"label\":\"ProductDetails\"}],\"edges\":[{\"source\":2,\"target\":-328,\"id\":-70,\"data\":{},\"label\":\"IS_IN_LOVE_WITH\"}],\"labels\":{\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\",\"NodeWithTime\":\"#161DEF\",\"Test\":\"#615488\",\"Finished\":\"#5A5A63\",\"CurrentTime\":\"#1FBD07\",\"Counter\":\"#73DCBB\",\"Schedule\":\"#D6870E\",\"NotFound\":\"#C84E0C\",\"Found\":\"#5C71C6\",\"City\":\"#EE1B85\",\"TagLine\":\"#785865\",\"Flight\":\"#D6E11D\",\"Airport\":\"#FBC242\",\"MergeOne\":\"#54D41D\",\"Company\":\"#79377F\",\"Car\":\"#35437F\",\"Animal\":\"#3FCE6B\",\"Cat\":\"#0FDDE6\",\"MergeTwo\":\"#3E6FCA\",\"One\":\"#FEC55E\",\"Five\":\"#A55202\",\"Other\":\"#E86A47\",\"Other2\":\"#A25512\",\"NodeWithUnique\":\"#57D134\"},\"types\":[\"Pippo2\",\"HAS_MOVIE\",\"ALPHA_BETA\",\"DRIVE\",\"MY_REL\",\"HAS_TAGLINE\",\"CONNECTED_TO\",\"PRODUCED\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\",\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"IN\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"Pippo\",\"OUT\",\"FRIENDS\",\"WROTE\",\"MY_PERIODIC_REL\",\"HAS_HQ\",\"WORKS_FOR\",\"HAS\"],\"directed\":true}"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1647965764457_606423474",
       "id": "paragraph_1647965764457_606423474",
       "dateCreated": "2022-03-22 16:16:04.457",
-      "dateStarted": "2022-03-24 09:33:41.811",
-      "dateFinished": "2022-03-24 09:33:41.917",
+      "dateStarted": "2022-03-25 11:55:00.879",
+      "dateFinished": "2022-03-25 11:55:01.048",
       "status": "FINISHED"
     },
     {
@@ -2629,7 +2922,7 @@
     {
       "text": "%neo4j\n\n// url: bolt://\u003cUSERNAME\u003e:\u003cPASSWORD\u003e@hostAddress:\u003cPORT\u003e\n\ncall apoc.bolt.load(\"bolt://neo4j:password@localhost:7687\", \"match(p:Person {name: $name}) return p\", {name:\u0027Madonna\u0027})",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 10:18:54.094",
+      "dateUpdated": "2022-03-25 11:55:34.010",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2648,6 +2941,8 @@
                       "row.p.id": "string",
                       "row.p.entityType": "string",
                       "row.p.properties.name": "string",
+                      "row.p.properties.century": "string",
+                      "row.p.properties.uuid": "string",
                       "row.p.properties.born": "string",
                       "row.p.labels": "string"
                     },
@@ -2680,20 +2975,29 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "row.p.id\trow.p.entityType\trow.p.properties.name\trow.p.properties.century\trow.p.properties.uuid\trow.p.properties.born\trow.p.labels\n164\tNODE\tMadonna\t1900\tdf29ff7b-3ce1-4f62-a932-beb640810de0\t1954\t[\"Person\"]\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1637760981766_776564136",
       "id": "paragraph_1637760981766_776564136",
       "dateCreated": "2021-11-24 13:36:21.766",
-      "dateStarted": "2022-03-24 10:18:54.137",
-      "dateFinished": "2022-03-24 10:18:55.767",
+      "dateStarted": "2022-03-25 11:55:32.062",
+      "dateFinished": "2022-03-25 11:55:33.618",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\n\n// url: bolt://\u003cUSERNAME\u003e:\u003cPASSWORD\u003e@hostAddress:\u003cPORT\u003e\n\ncall apoc.load.json(\u0027persons.json\u0027) yield value with value\ncall apoc.bolt.execute(\"bolt://neo4j:password@localhost:7687\", \"create (p:BoltNode) set p+\u003d $props\", {props: value})\nyield row return row",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 09:25:54.573",
+      "dateUpdated": "2022-03-25 11:55:40.149",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2743,14 +3047,18 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1637934497262_1389724788",
       "id": "paragraph_1637934497262_1389724788",
       "dateCreated": "2021-11-26 13:48:17.262",
-      "dateStarted": "2021-11-26 14:06:13.121",
-      "dateFinished": "2021-11-26 14:06:15.424",
+      "dateStarted": "2022-03-25 11:55:40.172",
+      "dateFinished": "2022-03-25 11:55:42.582",
       "status": "FINISHED"
     },
     {
@@ -2891,7 +3199,7 @@
       "title": "Logs",
       "text": "%neo4j\n\nmatch (n:Person {name: \u0027Franco e Ciccio\u0027}) \nwith n\ncall apoc.log.info(\u0027Questo qua si chiama %s\u0027, [n.name])\nCALL apoc.log.warn(\u0027Attenzione al nodo %s\u0027, [n.name])\nCALL apoc.log.debug(\u0027Il nodo con id %s si chiama %s ed è nato il %s\u0027, [id(n), n.name, n.born])\nCALL apoc.log.error(\u0027Fatal error!!!1!! %s\u0027, [n.name])\nreturn n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 09:25:54.636",
+      "dateUpdated": "2022-03-25 11:56:01.952",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2910,6 +3218,7 @@
                       "id": "string",
                       "label": "string",
                       "name": "string",
+                      "century": "string",
                       "uuid": "string",
                       "born": "string"
                     },
@@ -2941,14 +3250,23 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":8,\"data\":{\"name\":\"Franco e Ciccio\",\"century\":1900,\"uuid\":\"4aa69d17-d3d8-4812-961a-694b3ca084d3\",\"born\":1952},\"label\":\"Person\"}],\"edges\":[],\"labels\":{\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\",\"NodeWithTime\":\"#161DEF\",\"Test\":\"#615488\",\"Finished\":\"#5A5A63\",\"CurrentTime\":\"#1FBD07\",\"Counter\":\"#73DCBB\",\"Schedule\":\"#D6870E\",\"NotFound\":\"#C84E0C\",\"Found\":\"#5C71C6\",\"City\":\"#EE1B85\",\"TagLine\":\"#785865\",\"Flight\":\"#D6E11D\",\"Airport\":\"#FBC242\",\"MergeOne\":\"#54D41D\",\"Company\":\"#79377F\",\"Car\":\"#35437F\",\"Animal\":\"#3FCE6B\",\"Cat\":\"#0FDDE6\",\"MergeTwo\":\"#3E6FCA\",\"One\":\"#FEC55E\",\"Five\":\"#A55202\",\"Other\":\"#E86A47\",\"Other2\":\"#A25512\",\"NodeWithUnique\":\"#57D134\",\"BoltNode\":\"#80BCF4\"},\"types\":[\"Pippo2\",\"HAS_MOVIE\",\"ALPHA_BETA\",\"DRIVE\",\"MY_REL\",\"HAS_TAGLINE\",\"CONNECTED_TO\",\"PRODUCED\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\",\"NEW_REL\",\"ACTED_IN\",\"REVIEWED\",\"IN\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"Pippo\",\"OUT\",\"FRIENDS\",\"WROTE\",\"MY_PERIODIC_REL\",\"HAS_HQ\",\"WORKS_FOR\",\"HAS\"],\"directed\":true}"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1637760979806_1307761226",
       "id": "paragraph_1637760979806_1307761226",
       "dateCreated": "2021-11-24 13:36:19.806",
-      "dateStarted": "2022-03-22 16:20:01.355",
-      "dateFinished": "2022-03-22 16:20:01.385",
+      "dateStarted": "2022-03-25 11:56:01.111",
+      "dateFinished": "2022-03-25 11:56:01.274",
       "status": "FINISHED"
     },
     {
@@ -3036,7 +3354,7 @@
     {
       "text": "%neo4j\n\nWith \u0027Mätrix II 哈哈😄123\u0027 as string\nwith string, apoc.util.compress(string, {charset: \u0027UTF-32\u0027}) AS compressed // compressed is a byte[]\nreturn apoc.util.decompress(compressed, {charset: \u0027UTF-32\u0027}) as decompressed, string, compressed\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 11:12:24.158",
+      "dateUpdated": "2022-03-25 11:57:15.345",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3130,14 +3448,23 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "decompressed\tstring\tcompressed\n\"Mätrix II 哈哈😄123\"\t\"Mätrix II 哈哈😄123\"\t#1f0ffffff8b080000000000000ffffffff6360600fffffff065606078020ffffffc425405c040ffffffc40ffffff99405c010ffffffc40a400ffffffec090ffffffc540760ffffffc80930660fffffffc0ffffffc6020ffffffe41b020ffffffb111101b0300710ffffff830ffffffdf2e40000000\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1637936982013_1182031097",
       "id": "paragraph_1637936982013_1182031097",
       "dateCreated": "2021-11-26 14:29:42.014",
-      "dateStarted": "2022-03-24 11:12:24.187",
-      "dateFinished": "2022-03-24 11:12:24.375",
+      "dateStarted": "2022-03-25 11:57:15.368",
+      "dateFinished": "2022-03-25 11:57:15.524",
       "status": "FINISHED"
     },
     {
@@ -3225,7 +3552,7 @@
     {
       "text": "%neo4j\n\nMATCH (p:Person {name:\u0027Carrie-Anne Moss\u0027})\nCALL apoc.atomic.insert(p, \u0027children\u0027,2,\u0027Franco\u0027,5)\nYIELD oldValue, newValue\nRETURN oldValue, newValue",
       "user": "anonymous",
-      "dateUpdated": "2022-03-23 09:25:54.787",
+      "dateUpdated": "2022-03-25 11:58:03.286",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -3273,14 +3600,23 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "oldValue\tnewValue\n[\"Al\",\"John\",\"Jack\"]\t[\"Al\",\"John\",\"Franco\",\"Jack\"]\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1638281414341_733143677",
       "id": "paragraph_1638281414341_733143677",
       "dateCreated": "2021-11-30 14:10:14.341",
-      "dateStarted": "2021-11-30 14:12:24.376",
-      "dateFinished": "2021-11-30 14:12:24.498",
+      "dateStarted": "2022-03-25 11:58:03.307",
+      "dateFinished": "2022-03-25 11:58:03.375",
       "status": "FINISHED"
     },
     {

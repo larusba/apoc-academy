@@ -46,7 +46,7 @@
       "title": "Install a trigger ",
       "text": "%neo4j\n\n// We could add a trigger that when is added a specific property on a node, that property is added to all the nodes connected to this node\n\nCALL apoc.trigger.add(\u0027setlabels\u0027,\u0027UNWIND apoc.trigger.nodesByLabel($assignedLabels,\"Trigger\") AS n SET n.datetime \u003d $datetime\u0027,\n{phase:\u0027afterAsync\u0027}, \n{params: {datetime: datetime()}}) // param to be used in $triggered",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:20:58.229",
+      "dateUpdated": "2022-03-25 10:47:01.784",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -98,21 +98,30 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tquery\tselector.phase\tparams.datetime\tinstalled\tpaused\n\"setlabels\"\t\"UNWIND apoc.trigger.nodesByLabel($assignedLabels,\\\"Trigger\\\") AS n SET n.datetime \u003d $datetime\"\tafterAsync\t2022-03-25T10:47:01.843Z\tTRUE\tFALSE\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1635853267522_1557662643",
       "id": "paragraph_1635853267522_1557662643",
       "dateCreated": "2021-11-02 11:41:07.522",
-      "dateStarted": "2022-03-24 08:20:58.260",
-      "dateFinished": "2022-03-24 08:20:58.585",
+      "dateStarted": "2022-03-25 10:47:01.811",
+      "dateFinished": "2022-03-25 10:47:02.090",
       "status": "FINISHED"
     },
     {
       "title": "Query to trigger ",
       "text": "%neo4j\n\nMATCH (d:Person {name:\u0027Giandomenico Fracchia\u0027})\nSET d:Trigger\nRETURN d",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:21:02.103",
+      "dateUpdated": "2022-03-25 10:48:03.208",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -130,9 +139,13 @@
                     "names": {
                       "id": "string",
                       "label": "string",
+                      "other": "string",
+                      "born": "string",
                       "name": "string",
                       "uuid": "string",
-                      "born": "string"
+                      "something": "string",
+                      "timestamp": "string",
+                      "stuff": "string"
                     },
                     "updated": false
                   },
@@ -163,21 +176,30 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":2,\"data\":{\"other\":444,\"born\":1964,\"name\":\"Giandomenico Fracchia\",\"uuid\":\"65965404-4fc3-451a-afca-190371d9145b\",\"something\":\"8d91382c-372c-4952-b8db-b0b417c39fa2\",\"timestamp\":1648200777563,\"stuff\":0.46906873841357555},\"label\":\"Person\"}],\"edges\":[],\"labels\":{\"TTL\":\"#8721DB\",\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"Actor\":\"#9E008D\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\"},\"types\":[\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"MY_REL\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"DIRECTED\"],\"directed\":true}"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1635853359717_1862278247",
       "id": "paragraph_1635853359717_1862278247",
       "dateCreated": "2021-11-02 11:42:39.717",
-      "dateStarted": "2022-03-24 08:21:01.684",
-      "dateFinished": "2022-03-24 08:21:01.889",
+      "dateStarted": "2022-03-25 10:48:02.873",
+      "dateFinished": "2022-03-25 10:48:03.020",
       "status": "FINISHED"
     },
     {
       "title": "Check trigger execution",
       "text": "%neo4j\n\nMATCH (p:Person {name:\u0027Giandomenico Fracchia\u0027}) RETURN p",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:21:04.744",
+      "dateUpdated": "2022-03-25 10:48:12.953",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -195,10 +217,14 @@
                     "names": {
                       "id": "string",
                       "label": "string",
-                      "name": "string",
                       "datetime": "string",
+                      "other": "string",
+                      "born": "string",
+                      "name": "string",
                       "uuid": "string",
-                      "born": "string"
+                      "something": "string",
+                      "timestamp": "string",
+                      "stuff": "string"
                     },
                     "updated": false
                   },
@@ -229,21 +255,30 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":2,\"data\":{\"datetime\":\"2022-03-25T10:47:01.843Z\",\"other\":444,\"born\":1964,\"name\":\"Giandomenico Fracchia\",\"uuid\":\"65965404-4fc3-451a-afca-190371d9145b\",\"something\":\"8d91382c-372c-4952-b8db-b0b417c39fa2\",\"timestamp\":1648200777563,\"stuff\":0.46906873841357555},\"label\":\"Person\"}],\"edges\":[],\"labels\":{\"TTL\":\"#8721DB\",\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"Actor\":\"#9E008D\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\"},\"types\":[\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"MY_REL\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"DIRECTED\"],\"directed\":true}"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1635853392081_796719443",
       "id": "paragraph_1635853392081_796719443",
       "dateCreated": "2021-11-02 11:43:12.081",
-      "dateStarted": "2022-03-24 08:21:04.420",
-      "dateFinished": "2022-03-24 08:21:04.510",
+      "dateStarted": "2022-03-25 10:48:12.689",
+      "dateFinished": "2022-03-25 10:48:12.755",
       "status": "FINISHED"
     },
     {
       "title": "$createdNodes parameter",
       "text": "%neo4j\n// 3rd parameter is null, so phase is \u0027before\u0027 by default\nCALL apoc.trigger.add(\u0027unique\u0027,\u0027UNWIND $createdNodes AS n SET n.datetime \u003d $datetime\u0027, null, {params: {datetime: datetime()}}); ",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:23:12.552",
+      "dateUpdated": "2022-03-25 10:48:43.301",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -295,21 +330,30 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tquery\tselector\tparams.datetime\tinstalled\tpaused\n\"unique\"\t\"UNWIND $createdNodes AS n SET n.datetime \u003d $datetime\"\tNULL\t2022-03-25T10:48:43.339Z\tTRUE\tFALSE\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1635864280616_762486125",
       "id": "paragraph_1635864280616_762486125",
       "dateCreated": "2021-11-02 14:44:40.616",
-      "dateStarted": "2022-03-24 08:23:12.568",
-      "dateFinished": "2022-03-24 08:23:12.649",
+      "dateStarted": "2022-03-25 10:48:43.319",
+      "dateFinished": "2022-03-25 10:48:43.404",
       "status": "FINISHED"
     },
     {
       "title": "Check results",
       "text": "%neo4j\nCREATE (n:NodeWithTime);\nMATCH (n:NodeWithTime) RETURN n;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:23:19.964",
+      "dateUpdated": "2022-03-25 10:48:50.882",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -358,21 +402,30 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":41427,\"data\":{\"datetime\":\"2022-03-25T10:48:43.339Z\"},\"label\":\"NodeWithTime\"}],\"edges\":[],\"labels\":{\"TTL\":\"#8721DB\",\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"Actor\":\"#9E008D\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\",\"NodeWithTime\":\"#161DEF\"},\"types\":[\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"MY_REL\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"DIRECTED\"],\"directed\":true}"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1635864655639_1005439890",
       "id": "paragraph_1635864655639_1005439890",
       "dateCreated": "2021-11-02 14:50:55.639",
-      "dateStarted": "2022-03-24 08:23:19.984",
-      "dateFinished": "2022-03-24 08:23:20.079",
+      "dateStarted": "2022-03-25 10:48:50.900",
+      "dateFinished": "2022-03-25 10:48:50.990",
       "status": "FINISHED"
     },
     {
       "title": "Enforcing property type",
       "text": "%neo4j\n\n// Enforcing property type, for this example, we would like that all the `reference` node properties are of type `STRING`\n\nCALL apoc.trigger.add(\"forceStringType\",\n\"unwind apoc.trigger.propertiesByKey($assignedNodeProperties, \u0027reference\u0027) AS props WITH props.new as prop\nCALL apoc.util.validate(apoc.meta.type(prop) \u003c\u003e \u0027STRING\u0027, \u0027expected string property type, got %s\u0027, [apoc.meta.type(prop)]) RETURN null\", {phase:\u0027before\u0027})",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:23:51.106",
+      "dateUpdated": "2022-03-25 10:49:57.741",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -488,21 +541,30 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tquery\tselector.phase\tinstalled\tpaused\n\"forceStringType\"\t\"unwind apoc.trigger.propertiesByKey($assignedNodeProperties, \u0027reference\u0027) AS props WITH props.new as prop\nCALL apoc.util.validate(apoc.meta.type(prop) \u003c\u003e \u0027STRING\u0027, \u0027expected string property type, got %s\u0027, [apoc.meta.type(prop)]) RETURN null\"\tbefore\tTRUE\tFALSE\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1635864199254_1511871497",
       "id": "paragraph_1635864199254_1511871497",
       "dateCreated": "2021-11-02 14:43:19.254",
-      "dateStarted": "2022-03-24 08:23:51.123",
-      "dateFinished": "2022-03-24 08:23:51.299",
+      "dateStarted": "2022-03-25 10:49:57.764",
+      "dateFinished": "2022-03-25 10:49:57.848",
       "status": "FINISHED"
     },
     {
       "title": "Check prop type constraint",
-      "text": "%neo4j\nCREATE (a:Node) SET a.reference \u003d 1",
+      "text": "%neo4j\nCREATE (a:Node) SET a.reference \u003d \"1\"",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:24:00.295",
+      "dateUpdated": "2022-03-25 10:50:07.543",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -521,21 +583,25 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1635864255093_158993446",
       "id": "paragraph_1635864255093_158993446",
       "dateCreated": "2021-11-02 14:44:15.093",
-      "dateStarted": "2022-03-24 08:24:00.313",
-      "dateFinished": "2022-03-24 08:24:00.381",
-      "status": "ERROR"
+      "dateStarted": "2022-03-25 10:50:07.560",
+      "dateFinished": "2022-03-25 10:50:07.602",
+      "status": "FINISHED"
     },
     {
       "title": "apoc.trigger.list",
       "text": "%neo4j\nCALL apoc.trigger.list",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:24:05.468",
+      "dateUpdated": "2022-03-25 10:50:22.969",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -588,21 +654,30 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tquery\tselector.phase\tparams.datetime\tinstalled\tpaused\tselector\n\"setlabels\"\t\"UNWIND apoc.trigger.nodesByLabel($assignedLabels,\\\"Trigger\\\") AS n SET n.datetime \u003d $datetime\"\tafterAsync\t2022-03-25T10:47:01.843Z\tTRUE\tFALSE\t\n\"unique\"\t\"UNWIND $createdNodes AS n SET n.datetime \u003d $datetime\"\t\t2022-03-25T10:48:43.339Z\tTRUE\tFALSE\tNULL\n\"forceStringType\"\t\"unwind apoc.trigger.propertiesByKey($assignedNodeProperties, \u0027reference\u0027) AS props WITH props.new as prop\nCALL apoc.util.validate(apoc.meta.type(prop) \u003c\u003e \u0027STRING\u0027, \u0027expected string property type, got %s\u0027, [apoc.meta.type(prop)]) RETURN null\"\tbefore\t\tTRUE\tFALSE\t\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1635864312695_2074767345",
       "id": "paragraph_1635864312695_2074767345",
       "dateCreated": "2021-11-02 14:45:12.695",
-      "dateStarted": "2022-03-24 08:24:05.109",
-      "dateFinished": "2022-03-24 08:24:05.151",
+      "dateStarted": "2022-03-25 10:50:22.991",
+      "dateFinished": "2022-03-25 10:50:23.035",
       "status": "FINISHED"
     },
     {
       "title": "apoc.trigger.removeAll",
       "text": "%neo4j\nCALL apoc.trigger.removeAll",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:24:09.529",
+      "dateUpdated": "2022-03-25 10:50:29.608",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -655,14 +730,23 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tquery\tselector.phase\tparams.datetime\tinstalled\tpaused\tselector\n\"setlabels\"\t\"UNWIND apoc.trigger.nodesByLabel($assignedLabels,\\\"Trigger\\\") AS n SET n.datetime \u003d $datetime\"\tafterAsync\t2022-03-25T10:47:01.843Z\tFALSE\tFALSE\t\n\"unique\"\t\"UNWIND $createdNodes AS n SET n.datetime \u003d $datetime\"\t\t2022-03-25T10:48:43.339Z\tFALSE\tFALSE\tNULL\n\"forceStringType\"\t\"unwind apoc.trigger.propertiesByKey($assignedNodeProperties, \u0027reference\u0027) AS props WITH props.new as prop\nCALL apoc.util.validate(apoc.meta.type(prop) \u003c\u003e \u0027STRING\u0027, \u0027expected string property type, got %s\u0027, [apoc.meta.type(prop)]) RETURN null\"\tbefore\t\tFALSE\tFALSE\t\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1636636268973_1703951230",
       "id": "paragraph_1636636268973_1703951230",
       "dateCreated": "2021-11-11 13:11:08.973",
-      "dateStarted": "2022-03-24 08:24:09.138",
-      "dateFinished": "2022-03-24 08:24:09.207",
+      "dateStarted": "2022-03-25 10:50:29.625",
+      "dateFinished": "2022-03-25 10:50:29.705",
       "status": "FINISHED"
     },
     {
@@ -711,7 +795,7 @@
       "title": "apoc.load.directory.async.add",
       "text": "%neo4j\n\nCALL apoc.load.directory.async.add(\u0027myTrigger\u0027,\n\"CALL apoc.load.csv($filePath) YIELD map with map create (n:Test) set n.fileName \u003d $fileName, n.event \u003d $listenEventType, n +\u003d map\",\n\"*.csv\", \n\"csvImport\",\n{listenEventType: [\u0027CREATE\u0027]})",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:24:39.996",
+      "dateUpdated": "2022-03-25 10:52:54.981",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -765,21 +849,30 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tstatus\tpattern\tcypher\turlDir\tconfig.interval\tconfig.listenEventType\terror\n\"myTrigger\"\t\"CREATED\"\t\"*.csv\"\t\"CALL apoc.load.csv($filePath) YIELD map with map create (n:Test) set n.fileName \u003d $fileName, n.event \u003d $listenEventType, n +\u003d map\"\t\"file:///var/lib/neo4j/import/csvImport/\"\t1000\t[\"CREATE\"]\t\"\"\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1636544466331_1555017225",
       "id": "paragraph_1636544466331_1555017225",
       "dateCreated": "2021-11-10 11:41:06.331",
-      "dateStarted": "2022-03-24 08:24:40.020",
-      "dateFinished": "2022-03-24 08:24:40.193",
+      "dateStarted": "2022-03-25 10:52:54.999",
+      "dateFinished": "2022-03-25 10:52:55.148",
       "status": "FINISHED"
     },
     {
       "title": "Check results",
       "text": "%neo4j\nmatch (n:Test) return properties(n) as prop",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:26:46.938",
+      "dateUpdated": "2022-03-25 10:53:55.980",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -831,21 +924,30 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "prop.name\tprop.fileName\tprop.event\tprop.age\tprop.beverage\nSelma\tload.csv\tCREATE\t9\tSoda\nRana\tload.csv\tCREATE\t12\tTea;Milk\nSelina\tload.csv\tCREATE\t19\tCola\nAlpha\tload.csv\tCREATE\t55\tGamma\nBeta\tload.csv\tCREATE\t66\tDelta\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1636544521276_2107985340",
       "id": "paragraph_1636544521276_2107985340",
       "dateCreated": "2021-11-10 11:42:01.276",
-      "dateStarted": "2022-03-24 08:26:46.958",
-      "dateFinished": "2022-03-24 08:26:47.004",
+      "dateStarted": "2022-03-25 10:53:56.005",
+      "dateFinished": "2022-03-25 10:53:56.062",
       "status": "FINISHED"
     },
     {
       "title": "With error",
       "text": "%neo4j\nCALL apoc.load.directory.async.add(\u0027another\u0027, \"CREATE (:Stuff)\", \"*.csv\", \"notExistentPath\")",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:27:28.170",
+      "dateUpdated": "2022-03-25 10:54:24.435",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -899,21 +1001,30 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tstatus\tpattern\tcypher\turlDir\tconfig.interval\tconfig.listenEventType\terror\n\"myTrigger\"\t\"RUNNING\"\t\"*.csv\"\t\"CALL apoc.load.csv($filePath) YIELD map with map create (n:Test) set n.fileName \u003d $fileName, n.event \u003d $listenEventType, n +\u003d map\"\t\"file:///var/lib/neo4j/import/csvImport/\"\t1000\t[\"CREATE\"]\t\"\"\n\"another\"\t\"CREATED\"\t\"*.csv\"\t\"CREATE (:Stuff)\"\t\"file:///var/lib/neo4j/import/notExistentPath\"\t1000\t[\"CREATE\",\"MODIFY\",\"DELETE\"]\t\"\"\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1636545967327_205410133",
       "id": "paragraph_1636545967327_205410133",
       "dateCreated": "2021-11-10 12:06:07.327",
-      "dateStarted": "2022-03-24 08:27:28.189",
-      "dateFinished": "2022-03-24 08:27:28.259",
+      "dateStarted": "2022-03-25 10:54:24.458",
+      "dateFinished": "2022-03-25 10:54:24.530",
       "status": "FINISHED"
     },
     {
       "title": "apoc.load.directory.async.list",
       "text": "%neo4j\nCALL apoc.load.directory.async.list()",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:27:34.754",
+      "dateUpdated": "2022-03-25 10:54:31.252",
       "config": {
         "editorSetting": {
           "language": "scala",
@@ -968,21 +1079,30 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tstatus\tpattern\tcypher\turlDir\tconfig.interval\tconfig.listenEventType\terror\n\"myTrigger\"\t\"RUNNING\"\t\"*.csv\"\t\"CALL apoc.load.csv($filePath) YIELD map with map create (n:Test) set n.fileName \u003d $fileName, n.event \u003d $listenEventType, n +\u003d map\"\t\"file:///var/lib/neo4j/import/csvImport/\"\t1000\t[\"CREATE\"]\t\"\"\n\"another\"\t\"ERROR\"\t\"*.csv\"\t\"CREATE (:Stuff)\"\t\"file:///var/lib/neo4j/import/notExistentPath\"\t1000\t[\"CREATE\",\"MODIFY\",\"DELETE\"]\t\"java.nio.file.NoSuchFileException: /var/lib/neo4j/import/notExistentPath\n\tat java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:92)\n\tat java.base/sun.nio.fs.UnixException.asIOException(UnixException.java:120)\n\tat java.base/sun.nio.fs.LinuxWatchService$Poller.implRegister(LinuxWatchService.java:248)\n\tat java.base/sun.nio.fs.AbstractPoller.processRequests(AbstractPoller.java:265)\n\tat java.base/sun.nio.fs.LinuxWatchService$Poller.run(LinuxWatchService.java:366)\n\tat java.base/java.lang.Thread.run(Thread.java:829)\n\"\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1636545976586_723359064",
       "id": "paragraph_1636545976586_723359064",
       "dateCreated": "2021-11-10 12:06:16.586",
-      "dateStarted": "2022-03-24 08:27:34.773",
-      "dateFinished": "2022-03-24 08:27:34.829",
+      "dateStarted": "2022-03-25 10:54:31.271",
+      "dateFinished": "2022-03-25 10:54:31.335",
       "status": "FINISHED"
     },
     {
       "title": "apoc.load.directory.async.removeAll",
       "text": "%neo4j\nCALL apoc.load.directory.async.removeAll()",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:27:57.010",
+      "dateUpdated": "2022-03-25 10:55:02.558",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1001,14 +1121,18 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1636545981605_989834727",
       "id": "paragraph_1636545981605_989834727",
       "dateCreated": "2021-11-10 12:06:21.606",
-      "dateStarted": "2022-03-24 08:27:57.029",
-      "dateFinished": "2022-03-24 08:27:57.070",
+      "dateStarted": "2022-03-25 10:55:02.586",
+      "dateFinished": "2022-03-25 10:55:02.629",
       "status": "FINISHED"
     },
     {
@@ -1100,7 +1224,7 @@
     {
       "text": "%neo4j\n\n// execute almost immediately the statement despite apoc.util.sleep\ncall apoc.periodic.submit(\u0027foo\u0027,\u0027call apoc.util.sleep(7000) create (n:Finished)\u0027)\nyield done return done",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:32:36.848",
+      "dateUpdated": "2022-03-25 10:56:14.365",
       "config": {
         "colWidth": 8.0,
         "fontSize": 9.0,
@@ -1146,20 +1270,29 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "done\nFALSE\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1637859619281_1658894694",
       "id": "paragraph_1637859619281_1658894694",
       "dateCreated": "2021-11-25 17:00:19.281",
-      "dateStarted": "2022-03-24 08:32:36.842",
-      "dateFinished": "2022-03-24 08:32:36.942",
+      "dateStarted": "2022-03-25 10:56:14.384",
+      "dateFinished": "2022-03-25 10:56:14.484",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\n\nmatch (n:Finished) return n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:32:44.121",
+      "dateUpdated": "2022-03-25 10:56:22.419",
       "config": {
         "colWidth": 4.0,
         "fontSize": 9.0,
@@ -1206,21 +1339,30 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":41435,\"data\":{},\"label\":\"Finished\"}],\"edges\":[],\"labels\":{\"TTL\":\"#8721DB\",\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"Actor\":\"#9E008D\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\",\"NodeWithTime\":\"#161DEF\",\"Test\":\"#615488\",\"Finished\":\"#5A5A63\"},\"types\":[\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"MY_REL\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"DIRECTED\"],\"directed\":true}"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1637940237709_1836168786",
       "id": "paragraph_1637940237709_1836168786",
       "dateCreated": "2021-11-26 15:23:57.709",
-      "dateStarted": "2022-03-24 08:32:44.153",
-      "dateFinished": "2022-03-24 08:32:44.213",
+      "dateStarted": "2022-03-25 10:56:22.438",
+      "dateFinished": "2022-03-25 10:56:22.479",
       "status": "FINISHED"
     },
     {
       "title": "periodic.repeat",
       "text": "%neo4j\ncall apoc.periodic.repeat(\"repeat-name\", \"CREATE (:CurrentTime {time: $time})\", 5, {params: {time: time() }})",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:33:45.834",
+      "dateUpdated": "2022-03-25 10:56:47.362",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1271,20 +1413,29 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tdelay\trate\tdone\tcancelled\n\"repeat-name\"\t0\t5\tFALSE\tFALSE\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1637940301456_1167496956",
       "id": "paragraph_1637940301456_1167496956",
       "dateCreated": "2021-11-26 15:25:01.456",
-      "dateStarted": "2022-03-24 08:33:24.087",
-      "dateFinished": "2022-03-24 08:33:24.285",
+      "dateStarted": "2022-03-25 10:56:47.383",
+      "dateFinished": "2022-03-25 10:56:47.452",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\ncall apoc.periodic.list()",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:33:29.627",
+      "dateUpdated": "2022-03-25 10:58:20.161",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1335,21 +1486,25 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1637938479096_2081287059",
       "id": "paragraph_1637938479096_2081287059",
       "dateCreated": "2021-11-26 14:54:39.106",
-      "dateStarted": "2022-03-24 08:33:29.646",
-      "dateFinished": "2022-03-24 08:33:29.660",
+      "dateStarted": "2022-03-25 10:58:20.182",
+      "dateFinished": "2022-03-25 10:58:20.195",
       "status": "FINISHED"
     },
     {
       "title": "Check periodic.repeat",
       "text": "%neo4j\nmatch (n:CurrentTime) return n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:34:13.302",
+      "dateUpdated": "2022-03-25 10:57:06.998",
       "config": {
         "colWidth": 8.0,
         "fontSize": 9.0,
@@ -1398,21 +1553,30 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":41436,\"data\":{\"time\":{\"time\":{\"hour\":10,\"minute\":56,\"second\":47,\"nano\":406000000},\"offset\":{\"totalSeconds\":0}}},\"label\":\"CurrentTime\"},{\"id\":41437,\"data\":{\"time\":{\"time\":{\"hour\":10,\"minute\":56,\"second\":47,\"nano\":406000000},\"offset\":{\"totalSeconds\":0}}},\"label\":\"CurrentTime\"},{\"id\":41438,\"data\":{\"time\":{\"time\":{\"hour\":10,\"minute\":56,\"second\":47,\"nano\":406000000},\"offset\":{\"totalSeconds\":0}}},\"label\":\"CurrentTime\"},{\"id\":41439,\"data\":{\"time\":{\"time\":{\"hour\":10,\"minute\":56,\"second\":47,\"nano\":406000000},\"offset\":{\"totalSeconds\":0}}},\"label\":\"CurrentTime\"}],\"edges\":[],\"labels\":{\"TTL\":\"#8721DB\",\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"Actor\":\"#9E008D\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\",\"NodeWithTime\":\"#161DEF\",\"Test\":\"#615488\",\"Finished\":\"#5A5A63\",\"CurrentTime\":\"#1FBD07\"},\"types\":[\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"MY_REL\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"DIRECTED\"],\"directed\":true}"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1637940704100_888036127",
       "id": "paragraph_1637940704100_888036127",
       "dateCreated": "2021-11-26 15:31:44.101",
-      "dateStarted": "2022-03-24 08:34:13.319",
-      "dateFinished": "2022-03-24 08:34:13.390",
+      "dateStarted": "2022-03-25 10:57:07.015",
+      "dateFinished": "2022-03-25 10:57:07.038",
       "status": "FINISHED"
     },
     {
       "title": "Cancel query",
       "text": "%neo4j\n\ncall apoc.periodic.cancel(\"repeat-name\")",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:34:18.099",
+      "dateUpdated": "2022-03-25 10:57:14.789",
       "config": {
         "colWidth": 4.0,
         "fontSize": 9.0,
@@ -1463,20 +1627,29 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tdelay\trate\tdone\tcancelled\n\"repeat-name\"\t0\t0\tTRUE\tTRUE\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1637940765072_1823280212",
       "id": "paragraph_1637940765072_1823280212",
       "dateCreated": "2021-11-26 15:32:45.072",
-      "dateStarted": "2022-03-24 08:34:18.120",
-      "dateFinished": "2022-03-24 08:34:18.168",
+      "dateStarted": "2022-03-25 10:57:14.809",
+      "dateFinished": "2022-03-25 10:57:14.855",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\nCREATE (:Counter {value: 20});\nCALL apoc.periodic.countdown(\"countdown\", \"MATCH (counter:Counter) SET counter.value \u003d counter.value - 1 RETURN counter.value\", 1)",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:34:24.147",
+      "dateUpdated": "2022-03-25 10:57:54.106",
       "config": {
         "colWidth": 8.0,
         "fontSize": 9.0,
@@ -1526,20 +1699,29 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tdelay\trate\tdone\tcancelled\n\"countdown\"\t0\t1\tFALSE\tFALSE\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1637940832651_2054465436",
       "id": "paragraph_1637940832651_2054465436",
       "dateCreated": "2021-11-26 15:33:52.651",
-      "dateStarted": "2022-03-24 08:34:24.167",
-      "dateFinished": "2022-03-24 08:34:24.296",
+      "dateStarted": "2022-03-25 10:57:54.124",
+      "dateFinished": "2022-03-25 10:57:54.233",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\nMATCH (n:Counter) RETURN n.value",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 08:34:26.467",
+      "dateUpdated": "2022-03-25 10:58:15.786",
       "config": {
         "colWidth": 4.0,
         "fontSize": 9.0,
@@ -1586,20 +1768,29 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "n.value\n0\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1637942221420_682749139",
       "id": "paragraph_1637942221420_682749139",
       "dateCreated": "2021-11-26 15:57:01.421",
-      "dateStarted": "2022-03-24 08:34:26.489",
-      "dateFinished": "2022-03-24 08:34:26.528",
+      "dateStarted": "2022-03-25 10:58:15.805",
+      "dateFinished": "2022-03-25 10:58:15.819",
       "status": "FINISHED"
     },
     {
-      "text": "%md\n\n## Exercise\n\n- Create a nodes `(:Schedule {name: \u0027123\u0027})` ;\n- Create a apoc.periodic.repeat every 3 second to create a node `(:Found {name: name})` if `size()` of property `Schedule` name \u003e 5 or else `(:NotFound {name: name})` via apoc.\n- Set name of Schedule --\u003e \u002712345\u0027\n- Check results\n- Cancel the repeat procedure\n",
+      "text": "%md\n\n## Exercise\n\n- Create a nodes `(:Schedule {name: \u0027123\u0027})` ;\n- Create a apoc.periodic.repeat every 3 second to create a node `(:Found {name: name})` if `size()` of property `Schedule.name` \u003e 4 or else `(:NotFound {name: name})` via apoc.\n- Set name of Schedule --\u003e \u002712345\u0027\n- Check results\n- Cancel the repeat procedure\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 21:15:07.595",
+      "dateUpdated": "2022-03-25 10:59:10.635",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1624,7 +1815,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eExercise\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eCreate a nodes \u003ccode\u003e(:Schedule {name: \u0027123\u0027})\u003c/code\u003e ;\u003c/li\u003e\n\u003cli\u003eCreate a apoc.periodic.repeat every 3 second to create a node \u003ccode\u003e(:Found {name: name})\u003c/code\u003e if \u003ccode\u003esize()\u003c/code\u003e of property \u003ccode\u003eSchedule\u003c/code\u003e name \u0026gt; 5 or else \u003ccode\u003e(:NotFound {name: name})\u003c/code\u003e via apoc.\u003c/li\u003e\n\u003cli\u003eSet name of Schedule \u0026ndash;\u0026gt; \u0026lsquo;12345\u0026rsquo;\u003c/li\u003e\n\u003cli\u003eCheck results\u003c/li\u003e\n\u003cli\u003eCancel the repeat procedure\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eExercise\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eCreate a nodes \u003ccode\u003e(:Schedule {name: \u0027123\u0027})\u003c/code\u003e ;\u003c/li\u003e\n\u003cli\u003eCreate a apoc.periodic.repeat every 3 second to create a node \u003ccode\u003e(:Found {name: name})\u003c/code\u003e if \u003ccode\u003esize()\u003c/code\u003e of property \u003ccode\u003eSchedule.name\u003c/code\u003e \u0026gt; 4 or else \u003ccode\u003e(:NotFound {name: name})\u003c/code\u003e via apoc.\u003c/li\u003e\n\u003cli\u003eSet name of Schedule \u0026ndash;\u0026gt; \u0026lsquo;12345\u0026rsquo;\u003c/li\u003e\n\u003cli\u003eCheck results\u003c/li\u003e\n\u003cli\u003eCancel the repeat procedure\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
           }
         ]
       },
@@ -1634,14 +1825,14 @@
       "jobName": "paragraph_1647958773245_2145023811",
       "id": "paragraph_1647958773245_2145023811",
       "dateCreated": "2022-03-22 14:19:33.245",
-      "dateStarted": "2022-03-24 21:15:07.596",
-      "dateFinished": "2022-03-24 21:15:07.608",
+      "dateStarted": "2022-03-25 10:59:10.631",
+      "dateFinished": "2022-03-25 10:59:10.649",
       "status": "FINISHED"
     },
     {
-      "text": "%neo4j\n\nCREATE (n:Schedule {name: \u0027123\u0027});\n\n/* TODO */\n",
+      "text": "%neo4j\n\nCREATE (n:Schedule {name: \u0027123\u0027});\n\n/* TODO */\nCall apoc.periodic.repeat(\u0027name\u0027, \u0027match (n:Schedule) with n.name as name call apoc.do.when(size(name) \u003e 4, \"create (:Found {name: $name})\", \"create (:NotFound {name: $name})\", {name: name}) yield value return value.n\u0027, 3, {})",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 14:58:03.876",
+      "dateUpdated": "2022-03-25 11:08:32.737",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1691,20 +1882,29 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tdelay\trate\tdone\tcancelled\n\"name\"\t0\t3\tFALSE\tFALSE\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1647958770291_877239562",
       "id": "paragraph_1647958770291_877239562",
       "dateCreated": "2022-03-22 14:19:30.291",
-      "dateStarted": "2022-03-22 14:57:19.772",
-      "dateFinished": "2022-03-22 14:57:19.911",
+      "dateStarted": "2022-03-25 11:08:32.759",
+      "dateFinished": "2022-03-25 11:08:32.878",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\n\nmatch (nf:NotFound) optional match (f:Found)\nreturn nf, f",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 14:57:47.698",
+      "dateUpdated": "2022-03-25 11:08:54.787",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1753,20 +1953,29 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":41446,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41447,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41448,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41449,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41450,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41451,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41452,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41453,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41454,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41455,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41456,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41457,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41458,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41459,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41460,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41461,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41462,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41463,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41464,\"data\":{\"name\":\"12345\"},\"label\":\"Found\"},{\"id\":41465,\"data\":{\"name\":\"12345\"},\"label\":\"Found\"},{\"id\":41466,\"data\":{\"name\":\"12345\"},\"label\":\"Found\"},{\"id\":41467,\"data\":{\"name\":\"12345\"},\"label\":\"Found\"},{\"id\":41468,\"data\":{\"name\":\"12345\"},\"label\":\"Found\"},{\"id\":41469,\"data\":{\"name\":\"12345\"},\"label\":\"Found\"}],\"edges\":[],\"labels\":{\"TTL\":\"#8721DB\",\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"Actor\":\"#9E008D\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\",\"NodeWithTime\":\"#161DEF\",\"Test\":\"#615488\",\"Finished\":\"#5A5A63\",\"CurrentTime\":\"#1FBD07\",\"Counter\":\"#73DCBB\",\"Schedule\":\"#D6870E\",\"NotFound\":\"#C84E0C\",\"Found\":\"#5C71C6\"},\"types\":[\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"MY_REL\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"DIRECTED\"],\"directed\":true}"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1647960523129_1844236766",
       "id": "paragraph_1647960523129_1844236766",
       "dateCreated": "2022-03-22 14:48:43.129",
-      "dateStarted": "2022-03-22 14:57:47.720",
-      "dateFinished": "2022-03-22 14:57:47.772",
+      "dateStarted": "2022-03-25 11:08:54.819",
+      "dateFinished": "2022-03-25 11:08:54.872",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\nMATCH (n:Schedule) SET n.name \u003d \u002712345\u0027;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 14:57:58.139",
+      "dateUpdated": "2022-03-25 11:08:48.895",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1814,20 +2023,24 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1647960487377_1081168348",
       "id": "paragraph_1647960487377_1081168348",
       "dateCreated": "2022-03-22 14:48:07.377",
-      "dateStarted": "2022-03-22 14:57:29.133",
-      "dateFinished": "2022-03-22 14:57:29.148",
+      "dateStarted": "2022-03-25 11:08:48.913",
+      "dateFinished": "2022-03-25 11:08:48.948",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\ncall apoc.periodic.cancel(\u0027name\u0027);",
       "user": "anonymous",
-      "dateUpdated": "2022-03-22 14:57:53.578",
+      "dateUpdated": "2022-03-25 11:09:01.593",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1878,14 +2091,23 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tdelay\trate\tdone\tcancelled\n\"name\"\t0\t0\tTRUE\tTRUE\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1647960976009_1232393439",
       "id": "paragraph_1647960976009_1232393439",
       "dateCreated": "2022-03-22 14:56:16.009",
-      "dateStarted": "2022-03-22 14:57:53.599",
-      "dateFinished": "2022-03-22 14:57:53.611",
+      "dateStarted": "2022-03-25 11:09:01.612",
+      "dateFinished": "2022-03-25 11:09:01.643",
       "status": "FINISHED"
     },
     {
