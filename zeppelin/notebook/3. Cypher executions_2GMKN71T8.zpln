@@ -805,9 +805,9 @@
     },
     {
       "title": "Force list config: true",
-      "text": "%neo4j\n\n\nCALL apoc.custom.declareFunction(\n  \u0027forceSingleTrue(input::ANY) :: LIST OF INT\u0027,\n  \u0027MATCH (n:Movie) WITH n LIMIT 1 RETURN n.released\u0027, \n  true\n);",
+      "text": "%neo4j\n\n\nCALL apoc.custom.declareFunction(\n  \u0027forceSingleTrue1(input::ANY) :: LIST OF INT\u0027,\n  \u0027RETURN 1\u0027, \n  true\n);",
       "user": "anonymous",
-      "dateUpdated": "2022-03-25 10:20:51.291",
+      "dateUpdated": "2022-05-25 15:37:23.535",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -828,8 +828,13 @@
         "forms": {}
       },
       "results": {
-        "code": "SUCCESS",
-        "msg": []
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Failed to invoke procedure `apoc.custom.declareFunction`: Caused by: org.neo4j.graphdb.MultipleFoundException: Found multiple nodes with label: \u0027ApocCypherProceduresMeta\u0027, property name: \u0027database\u0027 and property value: \u0027neo4j\u0027 while only one was expected."
+          }
+        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -837,15 +842,15 @@
       "jobName": "paragraph_1637685408313_226305696",
       "id": "paragraph_1637685408313_226305696",
       "dateCreated": "2021-11-23 16:36:48.314",
-      "dateStarted": "2022-03-25 10:20:51.307",
-      "dateFinished": "2022-03-25 10:20:51.348",
-      "status": "FINISHED"
+      "dateStarted": "2022-05-25 15:37:23.548",
+      "dateFinished": "2022-05-25 15:37:23.596",
+      "status": "ERROR"
     },
     {
       "title": "Force list config: false",
-      "text": "%neo4j\n\n\nCALL apoc.custom.declareFunction(\n  \u0027forceSingleFalse(input::ANY) :: LIST OF INT\u0027,\n  \u0027MATCH (n:Movie) WITH n LIMIT 1 RETURN n.released\u0027,\n  false\n);",
+      "text": "%neo4j\n\n\nCALL apoc.custom.declareFunction(\n  \u0027forceSingleFalse(input::ANY) :: LIST OF INT\u0027,\n  \u0027RETURN 1\u0027,\n  false\n);",
       "user": "anonymous",
-      "dateUpdated": "2022-03-25 10:20:53.881",
+      "dateUpdated": "2022-05-25 15:28:41.716",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -876,14 +881,14 @@
       "jobName": "paragraph_1637686437571_1246927786",
       "id": "paragraph_1637686437571_1246927786",
       "dateCreated": "2021-11-23 16:53:57.571",
-      "dateStarted": "2022-03-25 10:20:53.898",
-      "dateFinished": "2022-03-25 10:20:53.951",
+      "dateStarted": "2022-05-25 15:28:41.799",
+      "dateFinished": "2022-05-25 15:28:43.241",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\n\nRETURN custom.forceSingleTrue()",
       "user": "anonymous",
-      "dateUpdated": "2022-03-25 10:20:56.785",
+      "dateUpdated": "2022-05-25 15:28:44.898",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -936,7 +941,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "custom.forceSingleTrue()\n0\n"
+            "data": "custom.forceSingleTrue()\n1\n"
           }
         ]
       },
@@ -946,14 +951,14 @@
       "jobName": "paragraph_1637685433590_1312379145",
       "id": "paragraph_1637685433590_1312379145",
       "dateCreated": "2021-11-23 16:37:13.590",
-      "dateStarted": "2022-03-25 10:20:56.802",
-      "dateFinished": "2022-03-25 10:20:56.876",
+      "dateStarted": "2022-05-25 15:28:44.917",
+      "dateFinished": "2022-05-25 15:28:45.052",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\n\nRETURN custom.forceSingleFalse()",
       "user": "anonymous",
-      "dateUpdated": "2022-03-25 10:21:03.173",
+      "dateUpdated": "2022-05-25 15:28:46.940",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1006,7 +1011,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "custom.forceSingleFalse()\n[0]\n"
+            "data": "custom.forceSingleFalse()\n[1]\n"
           }
         ]
       },
@@ -1016,14 +1021,14 @@
       "jobName": "paragraph_1637685598192_390040203",
       "id": "paragraph_1637685598192_390040203",
       "dateCreated": "2021-11-23 16:39:58.192",
-      "dateStarted": "2022-03-25 10:21:03.191",
-      "dateFinished": "2022-03-25 10:21:03.225",
+      "dateStarted": "2022-05-25 15:28:46.957",
+      "dateFinished": "2022-05-25 15:28:47.112",
       "status": "FINISHED"
     },
     {
-      "text": "%neo4j\n\ncall apoc.custom.declareProcedure(\n  \u0027writeSomething() :: (answer::INT)\u0027,\n  \u0027CREATE (n:Some)\u0027,\n   \u0027write\u0027\n);",
+      "text": "%neo4j\n\ncall apoc.custom.declareProcedure(\n  \u0027writeSomething1() :: (answer::INT)\u0027,\n  \u0027CREATE (n:Some)\u0027,\n   \u0027write\u0027,\n   \u0027opt description\u0027\n);",
       "user": "anonymous",
-      "dateUpdated": "2022-03-25 10:21:30.028",
+      "dateUpdated": "2022-05-25 15:36:39.942",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1043,8 +1048,13 @@
         "forms": {}
       },
       "results": {
-        "code": "SUCCESS",
-        "msg": []
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Failed to invoke procedure `apoc.custom.declareProcedure`: Caused by: org.neo4j.graphdb.MultipleFoundException: Found multiple nodes with label: \u0027ApocCypherProceduresMeta\u0027, property name: \u0027database\u0027 and property value: \u0027neo4j\u0027 while only one was expected."
+          }
+        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -1052,14 +1062,14 @@
       "jobName": "paragraph_1638287319801_598676474",
       "id": "paragraph_1638287319801_598676474",
       "dateCreated": "2021-11-30 15:48:39.802",
-      "dateStarted": "2022-03-25 10:21:30.052",
-      "dateFinished": "2022-03-25 10:21:30.093",
-      "status": "FINISHED"
+      "dateStarted": "2022-05-25 15:36:39.955",
+      "dateFinished": "2022-05-25 15:36:40.020",
+      "status": "ERROR"
     },
     {
       "text": "%neo4j\n\nCALL custom.writeSomething();\nMATCH (n:Some) RETURN n;",
       "user": "anonymous",
-      "dateUpdated": "2022-03-25 10:21:31.646",
+      "dateUpdated": "2022-05-25 15:36:30.758",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1113,7 +1123,7 @@
         "msg": [
           {
             "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":41420,\"data\":{},\"label\":\"Some\"}],\"edges\":[],\"labels\":{\"TTL\":\"#8721DB\",\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"Actor\":\"#9E008D\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\"},\"types\":[\"MY_REL\",\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"DIRECTED\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\"],\"directed\":true}"
+            "data": "{\"nodes\":[{\"id\":0,\"data\":{},\"label\":\"Some\"}],\"edges\":[],\"labels\":{\"TTL\":\"#9B71E9\",\"Some\":\"#8241D4\"},\"types\":[],\"directed\":true}"
           }
         ]
       },
@@ -1123,8 +1133,8 @@
       "jobName": "paragraph_1638287451028_957677354",
       "id": "paragraph_1638287451028_957677354",
       "dateCreated": "2021-11-30 15:50:51.028",
-      "dateStarted": "2022-03-25 10:21:31.663",
-      "dateFinished": "2022-03-25 10:21:31.793",
+      "dateStarted": "2022-05-25 15:36:30.774",
+      "dateFinished": "2022-05-25 15:36:31.205",
       "status": "FINISHED"
     },
     {

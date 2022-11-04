@@ -6,7 +6,6 @@ services:
     hostname: zeppelin
     container_name: zeppelin
     image: larusefraudy/zeppelin:0.9.0
-    # image: apache/zeppelin:0.10.0
     depends_on:
       - neo4j
     ports:
@@ -20,6 +19,7 @@ services:
       - apoc_workshop
     environment:
       HOME: ./zeppelin
+      # ZEPPELIN_NOTEBOOK_DIR: './zeppelin/notebook'
       ZEPPELIN_HELIUM_REGISTRY: helium,https://s3.amazonaws.com/helium-package/helium.json
 
   neo4j:
@@ -39,8 +39,6 @@ services:
       apoc.import.file.enabled: "true"
       apoc.trigger.enabled: "true"
       apoc.uuid.enabled: "true"
-      apoc.ttl.enabled: "true"
-      apoc.ttl.schedule: 10
       apoc.static.postgresCredentials.user: "test"
       apoc.static.postgresCredentials.password: "postgres"
     networks:

@@ -658,7 +658,7 @@
     {
       "text": "%md\n## Import procedures\n\n- `apoc.import.csv`\n- `apoc.import.graphml`\n- `apoc.import.json`\n- `apoc.import.xml`\n\nSee \u003ca href\u003d\"https://neo4j.com/labs/apoc/4.0/import/\" target\u003d\"_blank\"\u003ehere\u003c/a\u003e for more details.",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 11:01:25.241",
+      "dateUpdated": "2022-11-04 16:10:04.172",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -671,8 +671,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": true,
-        "tableHide": false
+        "editorHide": false,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -701,7 +701,7 @@
       "title": "apoc.import.csv",
       "text": "%md\n\nThe `apoc.import.csv([nodeFiles], [relationshipsFiles], $config)` procedure \nit\u0027s implemented along the lines of \u003ca href\u003d\"https://neo4j.com/docs/operations-manual/current/tutorial/neo4j-admin-import/\"\u003eneo4j-admin-import\u003c/a\u003e native tool, but requires no reboot and empty db.\n\nFor example, supports the following config parameters:\n\n- `delimiter` - delimiter character between columns like `--delimiter\u003d,` of `neo4j-admin-import`\n- `arrayDelimiter` - delimiter character in arrays `--array-delimiter\u003d;`\n- `ignoreDuplicateNodes` - for duplicate nodes, only load the first one and skip the rest (true) or fail the import (false)  `--ignore-duplicate-nodes\u003dfalse`",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 11:01:29.023",
+      "dateUpdated": "2022-11-04 16:10:33.817",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -714,8 +714,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": true,
-        "tableHide": false,
+        "editorHide": false,
+        "tableHide": true,
         "title": true
       },
       "settings": {

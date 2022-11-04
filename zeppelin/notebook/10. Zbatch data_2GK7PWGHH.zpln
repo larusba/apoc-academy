@@ -3,7 +3,7 @@
     {
       "text": "%md\n\n# If-else statements\n\nSometimes queries require conditional execution logic that can’t be adequately expressed in Cypher. \n\nFor example, to simulate a conditional with pure Cypher we could execute for example:\n`MATCH (n:Test) FOREACH(ignoreMe IN CASE WHEN EXISTS(s.myProp) THEN [1] ELSE [] END | SET n.otherProp \u003d 0)`\n\nThe `FOREACH` clause can be used to update data, but with more complex use cases (for example a `MATCH`), we cannot use it.\n\nSo if I want to do more complex conditional executions, I can use `apoc.when` / `apoc.case` procedure.\n- `apoc.when(condition, ifQuery, elseQuery, {parameters})` - only for read queries\n- `apoc.case([listOfConditionals], elseQuery, {parameters})` - only for read queries\n- `apoc.do.when` - equals to apoc.when but we can also execute \u0027write\u0027 statements\n- `apoc.do.case` - equals to apoc.case but we can also execute \u0027write\u0027 statements\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 10:57:21.786",
+      "dateUpdated": "2022-11-04 15:49:40.393",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -38,8 +38,8 @@
       "jobName": "paragraph_1635516691436_323316003",
       "id": "paragraph_1635516691436_323316003",
       "dateCreated": "2021-10-29 14:11:31.436",
-      "dateStarted": "2022-03-24 10:57:21.784",
-      "dateFinished": "2022-03-24 10:57:21.834",
+      "dateStarted": "2022-11-04 15:49:40.394",
+      "dateFinished": "2022-11-04 15:49:40.463",
       "status": "FINISHED"
     },
     {
@@ -1622,7 +1622,7 @@
       "status": "READY"
     }
   ],
-  "name": "1. Conditional and batch data",
+  "name": "10. Zbatch data",
   "id": "2GK7PWGHH",
   "defaultInterpreterGroup": "spark",
   "version": "0.9.0-preview2",

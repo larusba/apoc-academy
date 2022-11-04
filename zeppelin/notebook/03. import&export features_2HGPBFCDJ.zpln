@@ -1,0 +1,177 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n# export compressed",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-04 16:51:49.749",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667580680352_780501957",
+      "id": "paragraph_1667580680352_780501957",
+      "dateCreated": "2022-11-04 16:51:20.352",
+      "status": "READY"
+    },
+    {
+      "text": "%md\n# import/load archives\nNote: currently only 4.3.0.9 and 4.4.0.10 supports tar.gz,tgz and tar arhives.",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-04 16:54:25.149",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667580702174_1091705956",
+      "id": "paragraph_1667580702174_1091705956",
+      "dateCreated": "2022-11-04 16:51:42.175",
+      "status": "READY"
+    },
+    {
+      "text": "%md\n# import/load binaries",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-04 16:51:59.849",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667580699567_1038130095",
+      "id": "paragraph_1667580699567_1038130095",
+      "dateCreated": "2022-11-04 16:51:39.568",
+      "status": "READY"
+    },
+    {
+      "text": "%md\nesercizio con compressed",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-04 16:52:08.107",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667580719916_1888707285",
+      "id": "paragraph_1667580719916_1888707285",
+      "dateCreated": "2022-11-04 16:51:59.916",
+      "status": "READY"
+    },
+    {
+      "text": "%md\nesercizio con archive --\u003e esporto, comprimo da terminale in zip, importo",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-04 16:52:53.312",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667580728175_1909260445",
+      "id": "paragraph_1667580728175_1909260445",
+      "dateCreated": "2022-11-04 16:52:08.175",
+      "status": "READY"
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-04 16:52:23.030",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667580743030_1244303906",
+      "id": "paragraph_1667580743030_1244303906",
+      "dateCreated": "2022-11-04 16:52:23.030",
+      "status": "READY"
+    }
+  ],
+  "name": "03. import\u0026export features",
+  "id": "2HGPBFCDJ",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0-preview2",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

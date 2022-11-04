@@ -506,3 +506,7 @@ CREATE
 
 
 MATCH (n:Person)-[:ACTED_IN]->(m) WITH DISTINCT n SET n:Actor;
+
+CREATE INDEX PersonNameIndex FOR (p:Person) ON (p.name);
+CREATE INDEX MovieTitleIndex FOR (p:Movie) ON (p.title);
+
