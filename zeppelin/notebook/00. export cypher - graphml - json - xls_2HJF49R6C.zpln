@@ -43,6 +43,35 @@
       "status": "FINISHED"
     },
     {
+      "text": "%md\n## todo - 3 example csv with quotes. And 1 with arrayDelim and 1 with delim",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 08:57:44.376",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667811431789_587199659",
+      "id": "paragraph_1667811431789_587199659",
+      "dateCreated": "2022-11-07 08:57:11.789",
+      "status": "READY"
+    },
+    {
       "text": "%md\n\n## Export cypher\n\nSee [here](https://neo4j.com/labs/apoc/4.4/export/cypher/)\n\nWe have 4 procedures + 1 just for schema:\n- apoc.export.cypher.all\n- apoc.export.cypher.data\n- apoc.export.cypher.graph\n- apoc.export.cypher.query\n- apoc.export.cypher.schema\n\n\n### Available configurations:\n\n- format\n- cypherFormat [vedere chat alberto]\n- separateFiles \n- useOptimizations\n- awaitForIndexes\n- saveIndexNames\n- saveConstraintNames\n- multipleRelationshipsWithType\n- timeout\n- check others...\n- stream: https://neo4j.com/labs/apoc/4.4/export/cypher/#export-cypher-stream-export",
       "user": "anonymous",
       "dateUpdated": "2022-11-04 11:37:08.192",
@@ -3271,21 +3300,21 @@
       "status": "READY"
     },
     {
-      "text": "%md\n# file compressi\n\nNOTE:file compressed (e.g `.gz`, `.deflate`) not archives (like `.tar.gz` or `.zip`)",
+      "text": "",
       "user": "anonymous",
-      "dateUpdated": "2022-11-04 16:42:02.265",
+      "dateUpdated": "2022-11-05 00:59:09.703",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "markdown",
-          "editOnDblClick": true,
+          "language": "scala",
+          "editOnDblClick": false,
           "completionKey": "TAB",
-          "completionSupport": false
+          "completionSupport": true
         },
-        "editorMode": "ace/mode/markdown"
+        "editorMode": "ace/mode/scala"
       },
       "settings": {
         "params": {},

@@ -404,7 +404,7 @@
     {
       "text": "%md\n\n### Grouping nodes into categories\n\nTo transform a unique property key of a target node into a new node and connect target and new node.\n\n\n`CALL apoc.refactor.categorize(sourceKey, type, outgoing, label, targetKey, copiedKeys, batchSize)`\n\n\nThe parameters are:\n\n- `sourceKey`: the property on the existing node we want to use to create the new node\n- `type`: the type for the new relationship for connecting the existing node to the new node\n- `outgoing`: whether the relationship is outgoing or not\n- `label`: the label for the new node\n- `targetKey`: the key property name we want on the new node\n- `copiedKeys`: any additional properties we’d like copied from the old node to the new\n- `batchSize`\n\n\u003cpre\u003e\nBefore we can execute this procedure, we need to put a constraint on the new node and property key.\n\u003c/pre\u003e\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 11:04:36.679",
+      "dateUpdated": "2022-11-07 08:35:21.155",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -417,8 +417,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": true,
-        "tableHide": false
+        "editorHide": false,
+        "tableHide": true
       },
       "settings": {
         "params": {},

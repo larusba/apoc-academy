@@ -1,25 +1,36 @@
 {
   "paragraphs": [
     {
-      "text": "",
+      "text": "%md\n\n## File load procedures\nSimilar to import procedure, retrieve the results from file but doesn\u0027t execute graph operation, more flexible\n\n- `apoc.load.csv`\n- `apoc.load.json` \n- `apoc.load.xls`\n- `apoc.load.xml`\n- `apoc.load.html`\n\nSee \u003ca href\u003d\"https://neo4j.com/labs/apoc/4.0/import/\" target\u003d\"_blank\"\u003ehere\u003c/a\u003e for more details.\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-04 16:10:53.473",
+      "dateUpdated": "2022-11-07 11:19:19.650",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
+          "language": "markdown",
+          "editOnDblClick": true,
           "completionKey": "TAB",
-          "completionSupport": true
+          "completionSupport": false
         },
-        "editorMode": "ace/mode/scala"
+        "editorMode": "ace/mode/markdown",
+        "editorHide": false,
+        "tableHide": true
       },
       "settings": {
         "params": {},
         "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eFile load procedures\u003c/h2\u003e\n\u003cp\u003eSimilar to import procedure, retrieve the results from file but doesn\u0026rsquo;t execute graph operation, more flexible\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eapoc.load.csv\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.load.json\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.load.xls\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.load.xml\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.load.html\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eSee \u003ca href\u003d\"https://neo4j.com/labs/apoc/4.0/import/\" target\u003d\"_blank\"\u003ehere\u003c/a\u003e for more details.\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -27,12 +38,14 @@
       "jobName": "paragraph_1667577365574_808005847",
       "id": "paragraph_1667577365574_808005847",
       "dateCreated": "2022-11-04 15:56:05.574",
-      "status": "READY"
+      "dateStarted": "2022-11-07 09:52:16.538",
+      "dateFinished": "2022-11-07 09:52:18.309",
+      "status": "FINISHED"
     },
     {
-      "text": "",
+      "text": "%neo4j\n\n/* File content\n    name,age,beverage\n    Selma,9,Soda\n    Rana,12,Tea;Milk\n    Selina,19,Cola\n    Alhpa,55,Gamma\n    Beta,66,Delta\n*/\n\nCALL apoc.load.csv(\u0027load.csv\u0027)",
       "user": "anonymous",
-      "dateUpdated": "2022-11-04 16:51:02.054",
+      "dateUpdated": "2022-11-07 09:54:12.640",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -44,7 +57,7 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/scala"
+        "editorMode": "ace/mode/undefined"
       },
       "settings": {
         "params": {},
@@ -59,10 +72,22 @@
       "status": "READY"
     },
     {
-      "text": "%md\n",
+      "text": "%neo4j\nCALL apoc.load.csv(\u0027load.csv\u0027,{skip: 1, limit: 2})\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-04 16:10:45.828",
-      "config": {},
+      "dateUpdated": "2022-11-07 09:54:17.494",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/undefined"
+      },
       "settings": {
         "params": {},
         "forms": {}
@@ -76,9 +101,369 @@
       "status": "READY"
     },
     {
-      "text": "%md\n# ripasso della `apoc.do.when` e `apoc.when` \n\nThere is a procedure `apoc.when`, equivalent but allows only read-only queries, so e.g you could execute \"return 123\" instead of \"create (n:First)\"",
+      "text": "%md\nChar configs, i.e. `escapeChar`, `arraySep`, `sep` accepts `\"TAB\"` and `\"NONE\"` too.",
       "user": "anonymous",
-      "dateUpdated": "2022-11-04 16:08:35.072",
+      "dateUpdated": "2022-11-07 11:42:12.450",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eChar configs, i.e. \u003ccode\u003eescapeChar\u003c/code\u003e, \u003ccode\u003earraySep\u003c/code\u003e, \u003ccode\u003esep\u003c/code\u003e accepts \u003ccode\u003e\u0026quot;TAB\u0026quot;\u003c/code\u003e and \u003ccode\u003e\u0026quot;NONE\u0026quot;\u003c/code\u003e too.\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667821265988_1174942252",
+      "id": "paragraph_1667821265988_1174942252",
+      "dateCreated": "2022-11-07 11:41:05.988",
+      "dateStarted": "2022-11-07 11:42:12.450",
+      "dateFinished": "2022-11-07 11:42:12.496",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\n\n// File content\n//name\tage\n//Rana\t11\nCALL apoc.load.csv(\u0027loadSep.csv\u0027,{sep:\u0027|\u0027, arraySep: \u0027-\u0027})\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 11:37:02.906",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667821009406_1291356628",
+      "id": "paragraph_1667821009406_1291356628",
+      "dateCreated": "2022-11-07 11:36:49.406",
+      "status": "READY"
+    },
+    {
+      "text": "%neo4j\n\n// File content\n//name\tage\n//Rana\t11\nCALL apoc.load.csv(\u0027loadSep.csv\u0027,{sep:\u0027TAB\u0027, arraySep: \u0027-\u0027})\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 11:37:24.675",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667821036066_72841580",
+      "id": "paragraph_1667821036066_72841580",
+      "dateCreated": "2022-11-07 11:37:16.066",
+      "status": "READY"
+    },
+    {
+      "text": "%neo4j\n\n/*\nname,surname\nN\\\"aruto\\\",Uzu\\maki\nMinat\\o,Nami\\kaze\n\n*/\n\nCALL apoc.load.csv(\"test-escape.csv\",{escapeChar: \u0027NONE\u0027}) YIELD map",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 11:54:11.435",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 244.933,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "map.name": "string",
+                      "map.surname": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "map.name\tmap.surname\nN\\aruto\\\tUzu\\maki\nMinat\\o\tNami\\kaze\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667821044755_1918733286",
+      "id": "paragraph_1667821044755_1918733286",
+      "dateCreated": "2022-11-07 11:37:24.755",
+      "dateStarted": "2022-11-07 11:49:51.275",
+      "dateFinished": "2022-11-07 11:49:51.379",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\nCALL apoc.load.csv(\"test-escape.csv\", {escapeChar: \u0027\\\\\u0027}) YIELD map",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 11:54:07.982",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 374.933,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "map.name": "string",
+                      "map.surname": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "map.name\tmap.surname\nN\"aruto\"\tUzumaki\nMinato\tNamikaze\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667821259703_736319860",
+      "id": "paragraph_1667821259703_736319860",
+      "dateCreated": "2022-11-07 11:40:59.703",
+      "dateStarted": "2022-11-07 11:49:53.224",
+      "dateFinished": "2022-11-07 11:49:53.258",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\nCALL apoc.load.csv(\"test-quotations.csv\", {ignoreQuotations: false}) YIELD map",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 11:53:57.772",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "map.name": "string",
+                      "map.surname": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667821801417_468449983",
+      "id": "paragraph_1667821801417_468449983",
+      "dateCreated": "2022-11-07 11:50:01.417",
+      "dateStarted": "2022-11-07 11:53:49.513",
+      "dateFinished": "2022-11-07 11:53:40.619",
+      "status": "RUNNING"
+    },
+    {
+      "text": "%neo4j\nCALL apoc.load.csv(\"test-quotations.csv\", {ignoreQuotations: true}) YIELD map",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 11:54:25.343",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "map.name": "string",
+                      "map.surname": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667822059996_2049061619",
+      "id": "paragraph_1667822059996_2049061619",
+      "dateCreated": "2022-11-07 11:54:19.996",
+      "dateStarted": "2022-11-07 11:54:25.354",
+      "status": "RUNNING"
+    },
+    {
+      "text": "%md\ntodo - failOnError with test-quotations.csv",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 11:55:50.033",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -99,9 +484,658 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667822113510_953028019",
+      "id": "paragraph_1667822113510_953028019",
+      "dateCreated": "2022-11-07 11:55:13.510",
+      "status": "READY"
+    },
+    {
+      "text": "%md\nTODO - altre configs...\n\n        hasHeader \u003d (boolean) config.getOrDefault(\"header\", true);\n        limit \u003d (long) config.getOrDefault(\"limit\", Long.MAX_VALUE);\n        failOnError \u003d (boolean) config.getOrDefault(\"failOnError\", true);\n        ignoreQuotations \u003d (boolean) config.getOrDefault(\"ignoreQuotations\", false);\n\n        results \u003d EnumSet.noneOf(Results.class);",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 11:50:20.634",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667820470756_771751878",
+      "id": "paragraph_1667820470756_771751878",
+      "dateCreated": "2022-11-07 11:27:50.756",
+      "status": "READY"
+    },
+    {
+      "text": "%neo4j\nTODO - failOnError",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 11:26:45.379",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667820397545_240824350",
+      "id": "paragraph_1667820397545_240824350",
+      "dateCreated": "2022-11-07 11:26:37.545",
+      "status": "READY"
+    },
+    {
+      "text": "%neo4j\n\n// File content\n//name\tage\n//Rana\t11\nCALL apoc.load.csv(\u0027loadSep.csv\u0027,{sep:\u0027|\u0027, arraySep: \u0027-\u0027})\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 09:54:27.214",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667609523366_2084766568",
+      "id": "paragraph_1667609523366_2084766568",
+      "dateCreated": "2022-11-05 00:52:03.366",
+      "status": "READY"
+    },
+    {
+      "text": "%neo4j\n// associate property to types and ignore something\nCALL apoc.load.csv(\u0027load.csv\u0027, {mapping: {name:{type:\u0027string\u0027}, age:{type:\u0027int\u0027}, beverage:{ignore:true}}})\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 09:54:43.715",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1667577437726_1316528764",
       "id": "paragraph_1667577437726_1316528764",
       "dateCreated": "2022-11-04 15:57:17.726",
+      "status": "READY"
+    },
+    {
+      "text": "%md\n\n## Load directory\n\n`apoc.load.directory(\u0027pattern\u0027, \u0027urlDir\u0027, $config) YIELD value` - Loads list of all files with a specific `patter` in folder specified by urlDir or in import folder if `urlDir` string is empty or not specified\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 09:57:53.280",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667814883813_1597522574",
+      "id": "paragraph_1667814883813_1597522574",
+      "dateCreated": "2022-11-07 09:54:43.813",
+      "status": "READY"
+    },
+    {
+      "text": "%neo4j\ncall apoc.load.directory()",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 09:58:57.087",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667815076013_1519194864",
+      "id": "paragraph_1667815076013_1519194864",
+      "dateCreated": "2022-11-07 09:57:56.013",
+      "status": "READY"
+    },
+    {
+      "text": "%neo4j\ncall apoc.load.directory()",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 09:59:00.140",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667815140131_992490540",
+      "id": "paragraph_1667815140131_992490540",
+      "dateCreated": "2022-11-07 09:59:00.131",
+      "status": "READY"
+    },
+    {
+      "text": "%neo4j\n\n// there is a sub-subfolder\nCALL apoc.load.directory(\u0027*.csv\u0027, \u0027subfolder\u0027);",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 09:59:20.656",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667815152368_1804232280",
+      "id": "paragraph_1667815152368_1804232280",
+      "dateCreated": "2022-11-07 09:59:12.368",
+      "status": "READY"
+    },
+    {
+      "text": "%neo4j\n\nCALL apoc.load.directory(\"*.csv\", \u0027subfolder\u0027, {recursive: false})",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 09:59:27.168",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667815152939_1909280195",
+      "id": "paragraph_1667815152939_1909280195",
+      "dateCreated": "2022-11-07 09:59:12.939",
+      "status": "READY"
+    },
+    {
+      "text": "%neo4j\n\n/*  in loadDirSubfolder there are 2 files\n    fileTest.csv                  fileTest2.csv\n    ---                           ---\n    number,numero                 Eren,Jager\n    One,Uno                       Mikasa,Ackermann\n    Two,Due                       Armin,Arelet\n*/\n\n\nCALL apoc.load.directory(\u0027*.csv\u0027, \u0027loadDirSubfolder\u0027)\nyield value WITH value as url ORDER BY url DESC\nCALL apoc.load.csv(url, {results:[\u0027map\u0027]}) YIELD map RETURN map",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 09:59:36.721",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667815074746_1964712829",
+      "id": "paragraph_1667815074746_1964712829",
+      "dateCreated": "2022-11-07 09:57:54.746",
+      "status": "READY"
+    },
+    {
+      "text": "%neo4j\n// todo - load folder",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 11:19:35.906",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667815176786_958014490",
+      "id": "paragraph_1667815176786_958014490",
+      "dateCreated": "2022-11-07 09:59:36.787",
+      "status": "READY"
+    },
+    {
+      "text": "%md\n## `apoc.load.json` \n\n3 versions:\n\n- `apoc.load.json`\n- `apoc.load.jsonParams`\n- `apoc.load.jsonArray`",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 11:21:42.013",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667819967649_1850070851",
+      "id": "paragraph_1667819967649_1850070851",
+      "dateCreated": "2022-11-07 11:19:27.649",
+      "status": "READY"
+    },
+    {
+      "title": "Default configuration",
+      "text": "%neo4j\ncall apoc.load.json(\"\")",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 11:25:37.997",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/undefined",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667820280377_396963860",
+      "id": "paragraph_1667820280377_396963860",
+      "dateCreated": "2022-11-07 11:24:40.377",
+      "status": "READY"
+    },
+    {
+      "text": "%neo4j\ncall apoc.load.json(\"\")",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 11:25:53.446",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667820331890_688115055",
+      "id": "paragraph_1667820331890_688115055",
+      "dateCreated": "2022-11-07 11:25:31.890",
+      "status": "READY"
+    },
+    {
+      "text": "%neo4j\ncall apoc.load.json(\"\")",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 11:25:56.278",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667820356265_990388704",
+      "id": "paragraph_1667820356265_990388704",
+      "dateCreated": "2022-11-07 11:25:56.265",
+      "status": "READY"
+    },
+    {
+      "text": "%md\n        boolean failOnError \u003d (boolean) config.getOrDefault(\"failOnError\", true);\n        String compressionAlgo \u003d (String) config.getOrDefault(COMPRESSION, CompressionAlgo.NONE.name());\n        List\u003cString\u003e pathOptions \u003d (List\u003cString\u003e) config.get(\"pathOptions\");",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 11:23:10.476",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667820104680_1694071230",
+      "id": "paragraph_1667820104680_1694071230",
+      "dateCreated": "2022-11-07 11:21:44.680",
+      "status": "READY"
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 11:23:52.021",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667820232021_983587420",
+      "id": "paragraph_1667820232021_983587420",
+      "dateCreated": "2022-11-07 11:23:52.021",
+      "status": "READY"
+    },
+    {
+      "text": "%md\napoc.load.jsonParams \u003c-- example from tests. Wep API",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 11:23:50.892",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667820104213_1147762207",
+      "id": "paragraph_1667820104213_1147762207",
+      "dateCreated": "2022-11-07 11:21:44.213",
+      "status": "READY"
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 11:21:43.698",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667820103698_1603802005",
+      "id": "paragraph_1667820103698_1603802005",
+      "dateCreated": "2022-11-07 11:21:43.698",
+      "status": "READY"
+    },
+    {
+      "text": "%md\n\n- `apoc.load.xls`\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 11:19:59.504",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667819983911_1513188002",
+      "id": "paragraph_1667819983911_1513188002",
+      "dateCreated": "2022-11-07 11:19:43.911",
+      "status": "READY"
+    },
+    {
+      "text": "%md\n- `apoc.load.xml`",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 11:19:57.704",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667819993562_593075108",
+      "id": "paragraph_1667819993562_593075108",
+      "dateCreated": "2022-11-07 11:19:53.562",
+      "status": "READY"
+    },
+    {
+      "text": "%md\n- `apoc.load.html`",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 11:20:00.220",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667819985329_2095761288",
+      "id": "paragraph_1667819985329_2095761288",
+      "dateCreated": "2022-11-07 11:19:45.329",
+      "status": "READY"
+    },
+    {
+      "text": "%md\nvantaggi/svantaggi load.html con selenium --\u003e si appoggia ad un browser chrome/firefox, più lento.\n\nQuindi se non serve, meglio non usarlo",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 09:56:24.344",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667814967813_2139693341",
+      "id": "paragraph_1667814967813_2139693341",
+      "dateCreated": "2022-11-07 09:56:07.813",
       "status": "READY"
     },
     {

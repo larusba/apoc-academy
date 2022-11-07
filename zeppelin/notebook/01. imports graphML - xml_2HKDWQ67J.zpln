@@ -292,7 +292,7 @@
     {
       "text": "# ripasso: apoc.cypher.runFile\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-04 15:46:55.248",
+      "dateUpdated": "2022-11-05 01:00:35.858",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -303,11 +303,22 @@
           "editOnDblClick": true,
           "completionSupport": false
         },
-        "editorMode": "ace/mode/markdown"
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
       },
       "settings": {
         "params": {},
         "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eripasso: apoc.cypher.runFile\u003c/h1\u003e\n\n\u003c/div\u003e"
+          }
+        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -315,7 +326,9 @@
       "jobName": "paragraph_1667576791537_1115562443",
       "id": "paragraph_1667576791537_1115562443",
       "dateCreated": "2022-11-04 15:46:31.537",
-      "status": "READY"
+      "dateStarted": "2022-11-05 01:00:35.861",
+      "dateFinished": "2022-11-05 01:00:37.913",
+      "status": "FINISHED"
     },
     {
       "text": "2 esercizi:\n\nimportare con runFile\nimportare con apoc.import.json\nimportare con apoc.import.graphml",
@@ -343,6 +356,34 @@
       "jobName": "paragraph_1666972757983_629739544",
       "id": "paragraph_1666972757983_629739544",
       "dateCreated": "2022-10-28 15:59:17.983",
+      "status": "READY"
+    },
+    {
+      "text": "- vari protocols: http/https/s3/...",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-05 00:59:28.348",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667609967019_405901882",
+      "id": "paragraph_1667609967019_405901882",
+      "dateCreated": "2022-11-05 00:59:27.019",
       "status": "READY"
     },
     {

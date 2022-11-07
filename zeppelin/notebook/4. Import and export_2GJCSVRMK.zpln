@@ -901,7 +901,7 @@
     {
       "text": "%md\n\n## File load procedures\nSimilar to import procedure, retrieve the results from file but doesn\u0027t execute graph operation, more flexible\n\n- `apoc.load.csv`\n- `apoc.load.json` \n- `apoc.load.xls`\n- `apoc.load.xml`\n- `apoc.load.html`\n\nSee \u003ca href\u003d\"https://neo4j.com/labs/apoc/4.0/import/\" target\u003d\"_blank\"\u003ehere\u003c/a\u003e for more details.\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 11:01:34.065",
+      "dateUpdated": "2022-11-07 09:52:00.861",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -914,8 +914,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": true,
-        "tableHide": false
+        "editorHide": false,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -1250,7 +1250,7 @@
     {
       "text": "%md\n\n## Load directory\n\n`apoc.load.directory(\u0027pattern\u0027, \u0027urlDir\u0027, $config) YIELD value` - Loads list of all files with a specific `patter` in folder specified by urlDir or in import folder if `urlDir` string is empty or not specified\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 11:01:40.676",
+      "dateUpdated": "2022-11-07 09:57:49.078",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1263,8 +1263,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": true,
-        "tableHide": false
+        "editorHide": false,
+        "tableHide": true
       },
       "settings": {
         "params": {},

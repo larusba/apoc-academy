@@ -1,9 +1,9 @@
 {
   "paragraphs": [
     {
-      "text": "%md\n# export compressed",
+      "text": "%md\n# export compressed\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-04 16:51:49.749",
+      "dateUpdated": "2022-11-05 00:09:20.711",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -88,9 +88,38 @@
       "status": "READY"
     },
     {
-      "text": "%md\nesercizio con compressed",
+      "text": "%md\nripasso. apoc util compress/decompress",
       "user": "anonymous",
-      "dateUpdated": "2022-11-04 16:52:08.107",
+      "dateUpdated": "2022-11-05 00:30:37.548",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667608214129_819534560",
+      "id": "paragraph_1667608214129_819534560",
+      "dateCreated": "2022-11-05 00:30:14.137",
+      "status": "READY"
+    },
+    {
+      "text": "%md\nesercizio con compressed\ncreo una funzione che esporta in formato stream e in gzip, e per ogni riga crea un nodo PersonCompressed",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-05 00:34:02.463",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
