@@ -45,12 +45,45 @@
     {
       "text": "%neo4j\n\n/* File content\n    name,age,beverage\n    Selma,9,Soda\n    Rana,12,Tea;Milk\n    Selina,19,Cola\n    Alhpa,55,Gamma\n    Beta,66,Delta\n*/\n\nCALL apoc.load.csv(\u0027load.csv\u0027)",
       "user": "anonymous",
-      "dateUpdated": "2022-11-07 09:54:12.640",
+      "dateUpdated": "2022-11-07 14:46:17.607",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
         "enabled": true,
-        "results": {},
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "lineNo": "string",
+                      "list": "string",
+                      "strings": "string",
+                      "map.name": "string",
+                      "map.age": "string",
+                      "map.beverage": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
         "editorSetting": {
           "language": "scala",
           "editOnDblClick": false,
@@ -63,23 +96,389 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "lineNo\tlist\tstrings\tmap.name\tmap.age\tmap.beverage\n0\t[\"Selma\",\"9\",\"Soda\"]\t[]\tSelma\t9\tSoda\n1\t[\"Rana\",\"12\",\"Tea;Milk\"]\t[]\tRana\t12\tTea;Milk\n2\t[\"Selina\",\"19\",\"Cola\"]\t[]\tSelina\t19\tCola\n3\t[\"Alhpa\",\"55\",\"Gamma\"]\t[]\tAlhpa\t55\tGamma\n4\t[\"Beta\",\"66\",\"Delta\"]\t[]\tBeta\t66\tDelta\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1667578236426_672918611",
       "id": "paragraph_1667578236426_672918611",
       "dateCreated": "2022-11-04 16:10:36.426",
-      "status": "READY"
+      "dateStarted": "2022-11-07 14:46:16.933",
+      "dateFinished": "2022-11-07 14:46:16.967",
+      "status": "FINISHED"
     },
     {
-      "text": "%neo4j\nCALL apoc.load.csv(\u0027load.csv\u0027,{skip: 1, limit: 2})\n",
+      "title": "With mapping",
+      "text": "%neo4j\n\n// associate property to types and ignore something\nCALL apoc.load.csv(\u0027load.csv\u0027, {mapping: {name:{type:\u0027string\u0027}, age:{type:\u0027int\u0027}, beverage:{ignore:true}}})\n// we return just the list result\nyield list return list ",
       "user": "anonymous",
-      "dateUpdated": "2022-11-07 09:54:17.494",
+      "dateUpdated": "2022-11-07 15:11:18.299",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "list": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "list\n[\"Selma\",9]\n[\"Rana\",12]\n[\"Selina\",19]\n[\"Alhpa\",55]\n[\"Beta\",66]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667833792297_1089767367",
+      "id": "paragraph_1667833792297_1089767367",
+      "dateCreated": "2022-11-07 15:09:52.297",
+      "dateStarted": "2022-11-07 15:11:17.091",
+      "dateFinished": "2022-11-07 15:11:17.577",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n### `results` config\n\nIs a list of enum, with possible values \"list\", \"map\", \"strings\", \"stringMap\".\nDefault value is `[\u0027list\u0027, \u0027map\u0027]`.\n\n\"strings\" and \"stringMap\" are equivalent respectively to list and map, but don\u0027t convert the results if they aren\u0027t strings.\n\n\n```\nBy passing fewer results we lighten the procedure\n```",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 15:08:33.216",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
         "enabled": true,
         "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667832282596_1923448090",
+      "id": "paragraph_1667832282596_1923448090",
+      "dateCreated": "2022-11-07 14:44:42.596",
+      "status": "READY"
+    },
+    {
+      "text": "%neo4j\n˘\nCALL apoc.load.csv(\"load.csv\", {results: [\u0027list\u0027, \u0027map\u0027, \u0027strings\u0027, \u0027stringMap\u0027]})",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 15:11:56.641",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "lineNo": "string",
+                      "list": "string",
+                      "strings": "string",
+                      "map.name": "string",
+                      "map.age": "string",
+                      "map.beverage": "string",
+                      "stringMap.name": "string",
+                      "stringMap.age": "string",
+                      "stringMap.beverage": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "lineNo\tlist\tstrings\tmap.name\tmap.age\tmap.beverage\tstringMap.name\tstringMap.age\tstringMap.beverage\n0\t[\"Selma\",\"9\",\"Soda\"]\t[\"Selma\",\"9\",\"Soda\"]\tSelma\t9\tSoda\tSelma\t9\tSoda\n1\t[\"Rana\",\"12\",\"Tea;Milk\"]\t[\"Rana\",\"12\",\"Tea;Milk\"]\tRana\t12\tTea;Milk\tRana\t12\tTea;Milk\n2\t[\"Selina\",\"19\",\"Cola\"]\t[\"Selina\",\"19\",\"Cola\"]\tSelina\t19\tCola\tSelina\t19\tCola\n3\t[\"Alhpa\",\"55\",\"Gamma\"]\t[\"Alhpa\",\"55\",\"Gamma\"]\tAlhpa\t55\tGamma\tAlhpa\t55\tGamma\n4\t[\"Beta\",\"66\",\"Delta\"]\t[\"Beta\",\"66\",\"Delta\"]\tBeta\t66\tDelta\tBeta\t66\tDelta\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667832060126_971998457",
+      "id": "paragraph_1667832060126_971998457",
+      "dateCreated": "2022-11-07 14:41:00.127",
+      "dateStarted": "2022-11-07 14:47:02.745",
+      "dateFinished": "2022-11-07 14:47:02.844",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\nCALL apoc.load.csv(\"load.csv\", \n{\n    results: [\u0027list\u0027, \u0027map\u0027, \u0027strings\u0027, \u0027stringMap\u0027],\n    mapping: {age:{type:\u0027int\u0027}}\n})",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 15:16:27.951",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "lineNo": "string",
+                      "list": "string",
+                      "strings": "string",
+                      "map.name": "string",
+                      "map.age": "string",
+                      "map.beverage": "string",
+                      "stringMap.name": "string",
+                      "stringMap.age": "string",
+                      "stringMap.beverage": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "lineNo\tlist\tstrings\tmap.name\tmap.age\tmap.beverage\tstringMap.name\tstringMap.age\tstringMap.beverage\n0\t[\"Selma\",9,\"Soda\"]\t[\"Selma\",\"9\",\"Soda\"]\tSelma\t9\tSoda\tSelma\t9\tSoda\n1\t[\"Rana\",12,\"Tea;Milk\"]\t[\"Rana\",\"12\",\"Tea;Milk\"]\tRana\t12\tTea;Milk\tRana\t12\tTea;Milk\n2\t[\"Selina\",19,\"Cola\"]\t[\"Selina\",\"19\",\"Cola\"]\tSelina\t19\tCola\tSelina\t19\tCola\n3\t[\"Alhpa\",55,\"Gamma\"]\t[\"Alhpa\",\"55\",\"Gamma\"]\tAlhpa\t55\tGamma\tAlhpa\t55\tGamma\n4\t[\"Beta\",66,\"Delta\"]\t[\"Beta\",\"66\",\"Delta\"]\tBeta\t66\tDelta\tBeta\t66\tDelta\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667833916574_1361740776",
+      "id": "paragraph_1667833916574_1361740776",
+      "dateCreated": "2022-11-07 15:11:56.574",
+      "dateStarted": "2022-11-07 15:16:27.642",
+      "dateFinished": "2022-11-07 15:16:27.736",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Optimization: list only",
+      "text": "%neo4j\n\nCALL apoc.load.csv(\"load.csv\", {results: [\u0027list\u0027]})\nyield list",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 15:16:05.595",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "list": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "list\n[\"Selma\",\"9\",\"Soda\"]\n[\"Rana\",\"12\",\"Tea;Milk\"]\n[\"Selina\",\"19\",\"Cola\"]\n[\"Alhpa\",\"55\",\"Gamma\"]\n[\"Beta\",\"66\",\"Delta\"]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667832520267_889722718",
+      "id": "paragraph_1667832520267_889722718",
+      "dateCreated": "2022-11-07 14:48:40.267",
+      "dateStarted": "2022-11-07 15:16:05.274",
+      "dateFinished": "2022-11-07 15:16:05.359",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\nCALL apoc.load.csv(\u0027load.csv\u0027,{skip: 1, limit: 2})\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 15:16:51.929",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "lineNo": "string",
+                      "list": "string",
+                      "strings": "string",
+                      "map.name": "string",
+                      "map.age": "string",
+                      "map.beverage": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
         "editorSetting": {
           "language": "markdown",
           "editOnDblClick": false,
@@ -92,13 +491,24 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "lineNo\tlist\tstrings\tmap.name\tmap.age\tmap.beverage\n1\t[\"Rana\",\"12\",\"Tea;Milk\"]\t[]\tRana\t12\tTea;Milk\n2\t[\"Selina\",\"19\",\"Cola\"]\t[]\tSelina\t19\tCola\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1667578245828_1037374104",
       "id": "paragraph_1667578245828_1037374104",
       "dateCreated": "2022-11-04 16:10:45.828",
-      "status": "READY"
+      "dateStarted": "2022-11-07 15:16:51.184",
+      "dateFinished": "2022-11-07 15:16:51.306",
+      "status": "FINISHED"
     },
     {
       "text": "%md\nChar configs, i.e. `escapeChar`, `arraySep`, `sep` accepts `\"TAB\"` and `\"NONE\"` too.",
@@ -143,9 +553,9 @@
       "status": "FINISHED"
     },
     {
-      "text": "%neo4j\n\n// File content\n//name\tage\n//Rana\t11\nCALL apoc.load.csv(\u0027loadSep.csv\u0027,{sep:\u0027|\u0027, arraySep: \u0027-\u0027})\n",
+      "text": "%neo4j\n\n/*\nname|age|beverage\nSelma|9|Soda\nRana|12|Tea-Milk \u003c-- Tea-Milk should be a list\nSelina|19|Cola\nAlhpa|55|Gamma\nBeta|66|Delta\n...\n*/\n\nCALL apoc.load.csv(\u0027loadSep.csv\u0027,{sep:\u0027|\u0027, arraySep: \u0027-\u0027})",
       "user": "anonymous",
-      "dateUpdated": "2022-11-07 11:37:02.906",
+      "dateUpdated": "2022-11-07 15:22:29.657",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -163,23 +573,66 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Failed to invoke procedure `apoc.load.csv`: Caused by: java.io.IOException: Cannot open file /var/lib/neo4j/import/loadSep.csv for reading."
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1667821009406_1291356628",
       "id": "paragraph_1667821009406_1291356628",
       "dateCreated": "2022-11-07 11:36:49.406",
-      "status": "READY"
+      "dateStarted": "2022-11-07 15:19:44.292",
+      "dateFinished": "2022-11-07 15:19:44.331",
+      "status": "ERROR"
     },
     {
-      "text": "%neo4j\n\n// File content\n//name\tage\n//Rana\t11\nCALL apoc.load.csv(\u0027loadSep.csv\u0027,{sep:\u0027TAB\u0027, arraySep: \u0027-\u0027})\n",
+      "text": "%neo4j\n\n/*\nname\tage\nRana\t11\n*/\n\nCALL apoc.load.csv(\u0027test-tab.csv\u0027,{sep:\u0027TAB\u0027, arraySep: \u0027-\u0027})\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-07 11:37:24.675",
+      "dateUpdated": "2022-11-07 15:24:27.768",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
         "enabled": true,
-        "results": {},
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "lineNo": "string",
+                      "list": "string",
+                      "strings": "string",
+                      "map.name": "string",
+                      "map.age": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
         "editorSetting": {
           "language": "scala",
           "editOnDblClick": false,
@@ -193,13 +646,24 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "lineNo\tlist\tstrings\tmap.name\tmap.age\n0\t[\"Rana\",\"11\"]\t[]\tRana\t11\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1667821036066_72841580",
       "id": "paragraph_1667821036066_72841580",
       "dateCreated": "2022-11-07 11:37:16.066",
-      "status": "READY"
+      "dateStarted": "2022-11-07 15:24:27.393",
+      "dateFinished": "2022-11-07 15:24:27.459",
+      "status": "FINISHED"
     },
     {
       "text": "%neo4j\n\n/*\nname,surname\nN\\\"aruto\\\",Uzu\\maki\nMinat\\o,Nami\\kaze\n\n*/\n\nCALL apoc.load.csv(\"test-escape.csv\",{escapeChar: \u0027NONE\u0027}) YIELD map",
@@ -343,7 +807,7 @@
     {
       "text": "%neo4j\nCALL apoc.load.csv(\"test-quotations.csv\", {ignoreQuotations: false}) YIELD map",
       "user": "anonymous",
-      "dateUpdated": "2022-11-07 11:53:57.772",
+      "dateUpdated": "2022-11-08 08:14:18.022",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -384,7 +848,8 @@
           "completionKey": "TAB",
           "completionSupport": true
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -396,14 +861,14 @@
       "jobName": "paragraph_1667821801417_468449983",
       "id": "paragraph_1667821801417_468449983",
       "dateCreated": "2022-11-07 11:50:01.417",
-      "dateStarted": "2022-11-07 11:53:49.513",
-      "dateFinished": "2022-11-07 11:53:40.619",
-      "status": "RUNNING"
+      "dateStarted": "2022-11-07 13:16:12.518",
+      "dateFinished": "2022-11-07 13:16:12.558",
+      "status": "ERROR"
     },
     {
       "text": "%neo4j\nCALL apoc.load.csv(\"test-quotations.csv\", {ignoreQuotations: true}) YIELD map",
       "user": "anonymous",
-      "dateUpdated": "2022-11-07 11:54:25.343",
+      "dateUpdated": "2022-11-07 13:23:33.190",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -451,14 +916,266 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "map.name\tmap.surname\nStani\"s\tLaRochelle\nRené\tFerretti\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1667822059996_2049061619",
       "id": "paragraph_1667822059996_2049061619",
       "dateCreated": "2022-11-07 11:54:19.996",
-      "dateStarted": "2022-11-07 11:54:25.354",
-      "status": "RUNNING"
+      "dateStarted": "2022-11-07 13:23:32.993",
+      "dateFinished": "2022-11-07 13:23:33.027",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\nCALL apoc.load.csv(\"notExistent.csv\", {failOnError: true})",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 13:12:50.703",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "lineNo": "string",
+                      "list": "string",
+                      "strings": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Failed to invoke procedure `apoc.load.csv`: Caused by: java.io.IOException: Cannot open file /var/lib/neo4j/import/notExistent.csv for reading."
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667826175640_633899143",
+      "id": "paragraph_1667826175640_633899143",
+      "dateCreated": "2022-11-07 13:02:55.640",
+      "dateStarted": "2022-11-07 13:12:50.721",
+      "dateFinished": "2022-11-07 13:12:50.804",
+      "status": "ERROR"
+    },
+    {
+      "text": "%neo4j\nCALL apoc.load.csv(\"notExistent.csv\", {failOnError: false})",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 13:14:32.532",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "lineNo": "string",
+                      "list": "string",
+                      "strings": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "lineNo\tlist\tstrings\n0\t[]\t[]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667826759729_409525880",
+      "id": "paragraph_1667826759729_409525880",
+      "dateCreated": "2022-11-07 13:12:39.732",
+      "dateStarted": "2022-11-07 13:12:49.087",
+      "dateFinished": "2022-11-07 13:12:49.125",
+      "status": "FINISHED"
+    },
+    {
+      "title": "No header",
+      "text": "%neo4j\n// map is null, because we don\u0027t have keys (that is header)\nCALL apoc.load.csv(\"load.csv\", {header: false}) yield lineNo, list, map",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 15:27:27.361",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "lineNo": "string",
+                      "list": "string",
+                      "map": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "lineNo\tlist\tmap\n0\t[\"name\",\"age\",\"beverage\"]\tNULL\n1\t[\"Selma\",\"9\",\"Soda\"]\tNULL\n2\t[\"Rana\",\"12\",\"Tea;Milk\"]\tNULL\n3\t[\"Selina\",\"19\",\"Cola\"]\tNULL\n4\t[\"Alhpa\",\"55\",\"Gamma\"]\tNULL\n5\t[\"Beta\",\"66\",\"Delta\"]\tNULL\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667834732225_567875888",
+      "id": "paragraph_1667834732225_567875888",
+      "dateCreated": "2022-11-07 15:25:32.225",
+      "dateStarted": "2022-11-07 15:27:26.982",
+      "dateFinished": "2022-11-07 15:27:27.050",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n\n## ex: creare 3 nodi (n:LoadCsv {id: \u0027nodo1\u0027}), (n:LoadCsv {id: \u0027nodo2\u0027}), (n:LoadCsv {id: \u0027nodo3\u0027})\nper ogni nodo `yield list`\nutilizzando solo la prima riga dei csv utilizzare la apoc.load.csv per \ncreare delle proprietà csvList: risultato del load csv yield list.\ne ritornare i tre nodi\n\nSe il csv non esiste / dà errore, non creare la proprietà csvList\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 13:23:06.105",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667826872613_1545899442",
+      "id": "paragraph_1667826872613_1545899442",
+      "dateCreated": "2022-11-07 13:14:32.613",
+      "status": "READY"
     },
     {
       "text": "%md\ntodo - failOnError with test-quotations.csv",
@@ -487,64 +1204,6 @@
       "jobName": "paragraph_1667822113510_953028019",
       "id": "paragraph_1667822113510_953028019",
       "dateCreated": "2022-11-07 11:55:13.510",
-      "status": "READY"
-    },
-    {
-      "text": "%md\nTODO - altre configs...\n\n        hasHeader \u003d (boolean) config.getOrDefault(\"header\", true);\n        limit \u003d (long) config.getOrDefault(\"limit\", Long.MAX_VALUE);\n        failOnError \u003d (boolean) config.getOrDefault(\"failOnError\", true);\n        ignoreQuotations \u003d (boolean) config.getOrDefault(\"ignoreQuotations\", false);\n\n        results \u003d EnumSet.noneOf(Results.class);",
-      "user": "anonymous",
-      "dateUpdated": "2022-11-07 11:50:20.634",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "markdown",
-          "editOnDblClick": true,
-          "completionKey": "TAB",
-          "completionSupport": false
-        },
-        "editorMode": "ace/mode/markdown"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1667820470756_771751878",
-      "id": "paragraph_1667820470756_771751878",
-      "dateCreated": "2022-11-07 11:27:50.756",
-      "status": "READY"
-    },
-    {
-      "text": "%neo4j\nTODO - failOnError",
-      "user": "anonymous",
-      "dateUpdated": "2022-11-07 11:26:45.379",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/undefined"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1667820397545_240824350",
-      "id": "paragraph_1667820397545_240824350",
-      "dateCreated": "2022-11-07 11:26:37.545",
       "status": "READY"
     },
     {
@@ -603,6 +1262,23 @@
       "jobName": "paragraph_1667577437726_1316528764",
       "id": "paragraph_1667577437726_1316528764",
       "dateCreated": "2022-11-04 15:57:17.726",
+      "status": "READY"
+    },
+    {
+      "text": "%neo4j\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 15:28:47.725",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667834927725_1054717918",
+      "id": "paragraph_1667834927725_1054717918",
+      "dateCreated": "2022-11-07 15:28:47.725",
       "status": "READY"
     },
     {
@@ -872,9 +1548,9 @@
       "status": "READY"
     },
     {
-      "text": "%neo4j\ncall apoc.load.json(\"\")",
+      "text": "%neo4j\nCALL apoc.load.json($url, \u0027$..columns\u0027);",
       "user": "anonymous",
-      "dateUpdated": "2022-11-07 11:25:53.446",
+      "dateUpdated": "2022-11-07 15:43:56.008",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -901,9 +1577,9 @@
       "status": "READY"
     },
     {
-      "text": "%neo4j\ncall apoc.load.json(\"\")",
+      "text": "%neo4j\nCALL apoc.load.json($url, \u0027$..columns\u0027, [\u0027ALWAYS_RETURN_LIST\u0027]);",
       "user": "anonymous",
-      "dateUpdated": "2022-11-07 11:25:56.278",
+      "dateUpdated": "2022-11-07 15:43:45.923",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -931,21 +1607,21 @@
       "status": "READY"
     },
     {
-      "text": "%md\n        boolean failOnError \u003d (boolean) config.getOrDefault(\"failOnError\", true);\n        String compressionAlgo \u003d (String) config.getOrDefault(COMPRESSION, CompressionAlgo.NONE.name());\n        List\u003cString\u003e pathOptions \u003d (List\u003cString\u003e) config.get(\"pathOptions\");",
+      "text": "",
       "user": "anonymous",
-      "dateUpdated": "2022-11-07 11:23:10.476",
+      "dateUpdated": "2022-11-07 15:44:01.067",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "markdown",
-          "editOnDblClick": true,
+          "language": "scala",
+          "editOnDblClick": false,
           "completionKey": "TAB",
-          "completionSupport": false
+          "completionSupport": true
         },
-        "editorMode": "ace/mode/markdown"
+        "editorMode": "ace/mode/scala"
       },
       "settings": {
         "params": {},
@@ -977,9 +1653,9 @@
       "status": "READY"
     },
     {
-      "text": "%md\napoc.load.jsonParams \u003c-- example from tests. Wep API",
+      "text": "%md\nCALL apoc.load.jsonParams(\u003cjsonAPIUrl\u003e, headers, payload, jsonPath, config) \u003c-- example from tests. Wep API",
       "user": "anonymous",
-      "dateUpdated": "2022-11-07 11:23:50.892",
+      "dateUpdated": "2022-11-07 16:38:28.366",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1006,26 +1682,289 @@
       "status": "READY"
     },
     {
-      "text": "%md\n",
+      "text": "%neo4j\n\nCALL apoc.load.jsonParams(\n  \"https://63692a2828cd16bba716bec4.mockapi.io/api/mock/users\",\n  {method: \"POST\"},\n  // no body request\n  \u0027\u0027\n)",
       "user": "anonymous",
-      "dateUpdated": "2022-11-07 11:21:43.698",
-      "config": {},
+      "dateUpdated": "2022-11-07 16:39:12.937",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "value.name": "string",
+                      "value.createdAt": "string",
+                      "value.avatar": "string",
+                      "value.id": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/undefined"
+      },
       "settings": {
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "value.name\tvalue.createdAt\tvalue.avatar\tvalue.id\nRosa Steuber III\t2022-11-06T23:15:59.667Z\thttps://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/590.jpg\t40\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1667820103698_1603802005",
-      "id": "paragraph_1667820103698_1603802005",
-      "dateCreated": "2022-11-07 11:21:43.698",
-      "status": "READY"
+      "jobName": "paragraph_1667839084065_922082670",
+      "id": "paragraph_1667839084065_922082670",
+      "dateCreated": "2022-11-07 16:38:04.066",
+      "dateStarted": "2022-11-07 16:39:12.951",
+      "dateFinished": "2022-11-07 16:39:13.443",
+      "status": "FINISHED"
     },
     {
-      "text": "%md\n\n- `apoc.load.xls`\n\n",
+      "text": "%neo4j\nCALL apoc.load.jsonParams(\n  \"https://63692a2828cd16bba716bec4.mockapi.io/api/mock/users\",\n  {method: \"POST\"},\n  \"bodyRequest\"\n)",
       "user": "anonymous",
-      "dateUpdated": "2022-11-07 11:19:59.504",
+      "dateUpdated": "2022-11-07 16:36:25.377",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "value.name": "string",
+                      "value.bodyRequest": "string",
+                      "value.createdAt": "string",
+                      "value.avatar": "string",
+                      "value.id": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "value.name\tvalue.bodyRequest\tvalue.createdAt\tvalue.avatar\tvalue.id\nBilly Walsh\t\t2022-11-06T20:46:50.114Z\thttps://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/266.jpg\t34\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667836070733_328062962",
+      "id": "paragraph_1667836070733_328062962",
+      "dateCreated": "2022-11-07 15:47:50.733",
+      "dateStarted": "2022-11-07 16:36:24.665",
+      "dateFinished": "2022-11-07 16:36:25.164",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\n\n// we can get a password, set in `apoc.conf` file, as `password\u003dSUPER_PASSWORD_4`\nCALL apoc.load.jsonParams(\n  \"https://63692a2828cd16bba716bec4.mockapi.io/api/mock/users\",\n  {method: \"POST\", Authorization: \"Bearer \" + apoc.static.get(\u0027password\u0027) },\n  \"bodyRequest\"\n)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 16:25:08.690",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "value.a": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "value.a\n1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667837961639_1431046683",
+      "id": "paragraph_1667837961639_1431046683",
+      "dateCreated": "2022-11-07 16:19:21.639",
+      "dateStarted": "2022-11-07 16:25:08.701",
+      "dateFinished": "2022-11-07 16:25:09.202",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\n\nCALL apoc.load.jsonParams(\n  \"https://63692a2828cd16bba716bec4.mockapi.io/api/mock/users\",\n  // method, auth, headers...\n  {method: \"POST\" /*method, auth, headers...*/},\n  \n  // optional request\n  \"bodyRequest\", \n  \n  // json path\n  \"$..*\"\n)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-08 08:55:50.928",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "value.result": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "value.result\n[\"2022-11-08T01:17:20.300Z\",\"Dr. Phillip Schmidt\",\"https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1117.jpg\",\"41\",\"\"]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667838147881_817269765",
+      "id": "paragraph_1667838147881_817269765",
+      "dateCreated": "2022-11-07 16:22:27.881",
+      "dateStarted": "2022-11-08 08:55:50.946",
+      "dateFinished": "2022-11-08 08:55:51.905",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n\n- `apoc.load.xls(url, selector, $config)`\n\nThe usage of apoc.load.xls is similar to apoc.load.csv with the main difference the ability to select a worksheet or a range from a sheet to load.\n\nConfig similar to apoc.load.csv, accept ... example with mapping and skip\n\nSelector is the sheet name, plus an optional `!cellBegin:cellEnd`, to read only some cells\n\n\u003cpre\u003e\nRequire the same dependencies as apoc.export.xls, https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/4.4.0.10/apoc-xls-dependencies-4.4.0.10.jar\n\u003c/pre\u003e\n\nTODO",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 22:39:47.462",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1037,11 +1976,22 @@
           "completionKey": "TAB",
           "completionSupport": false
         },
-        "editorMode": "ace/mode/markdown"
+        "editorMode": "ace/mode/markdown",
+        "editorHide": false,
+        "tableHide": true
       },
       "settings": {
         "params": {},
         "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eapoc.load.xls(url, selector, $config)\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe usage of apoc.load.xls is similar to apoc.load.csv with the main difference the ability to select a worksheet or a range from a sheet to load.\u003c/p\u003e\n\u003cp\u003eConfig similar to apoc.load.csv, accept \u0026hellip; example with mapping and skip\u003c/p\u003e\n\u003cp\u003eSelector is the sheet name, plus \u0026hellip;TODO\u003c/p\u003e\n\u003cpre\u003e\nRequire the same dependencies as apoc.export.xls, https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/4.4.0.10/apoc-xls-dependencies-4.4.0.10.jar\n\u003c/pre\u003e\n\u003cp\u003eTODO\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -1049,12 +1999,204 @@
       "jobName": "paragraph_1667819983911_1513188002",
       "id": "paragraph_1667819983911_1513188002",
       "dateCreated": "2022-11-07 11:19:43.911",
-      "status": "READY"
+      "dateStarted": "2022-11-07 21:49:48.355",
+      "dateFinished": "2022-11-07 21:49:48.385",
+      "status": "FINISHED"
     },
     {
-      "text": "%md\n- `apoc.load.xml`",
+      "title": "File load_test.xlsx",
+      "text": "%md\n\n\nSheet \"Standard\"\n\n|-------|------------\n| name\t| age\n| Selma\t| 8\n| Rana\t| 11\n| Selina\t|18\n\n\nSheet \"Offset\"\n\n|-------|-------------|------|-------|-------------|------|\n| \u003cbr\u003e |  |  |  | | \n|  | String | Boolean | Integer | Float | Array\n|  | Test | true | 2 | 1,5 | 1;2;3\n| \u003cbr\u003e  |  |  |  | | \n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-07 11:19:57.704",
+      "dateUpdated": "2022-11-07 22:39:53.311",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": false,
+        "tableHide": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eSheet \u0026ldquo;Standard\u0026rdquo;\u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\u003ctd\u003ename\u003c/td\u003e\u003ctd\u003eage\u003c/td\u003e\u003c/tr\u003e\n\u003ctr\u003e\u003ctd\u003eSelma\u003c/td\u003e\u003ctd\u003e8\u003c/td\u003e\u003c/tr\u003e\n\u003ctr\u003e\u003ctd\u003eRana\u003c/td\u003e\u003ctd\u003e11\u003c/td\u003e\u003c/tr\u003e\n\u003ctr\u003e\u003ctd\u003eSelina\u003c/td\u003e\u003ctd\u003e18\u003c/td\u003e\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cp\u003eSheet \u0026ldquo;Offset\u0026rdquo;\u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003e \u003c/td\u003e\u003ctd\u003e \u003c/td\u003e\u003ctd\u003e \u003c/td\u003e\u003ctd\u003e \u003c/td\u003e\u003c/tr\u003e\n\u003ctr\u003e\u003ctd\u003e \u003c/td\u003e\u003ctd\u003eString\u003c/td\u003e\u003ctd\u003eBoolean\u003c/td\u003e\u003ctd\u003eInteger\u003c/td\u003e\u003ctd\u003eFloat\u003c/td\u003e\u003ctd\u003eArray\u003c/td\u003e\u003c/tr\u003e\n\u003ctr\u003e\u003ctd\u003e \u003c/td\u003e\u003ctd\u003eTest\u003c/td\u003e\u003ctd\u003etrue\u003c/td\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd\u003e1,5\u003c/td\u003e\u003ctd\u003e1;2;3\u003c/td\u003e\u003c/tr\u003e\n\u003ctr\u003e\u003ctd\u003e\u003cbr\u003e\u003c/td\u003e\u003ctd\u003e \u003c/td\u003e\u003ctd\u003e \u003c/td\u003e\u003ctd\u003e \u003c/td\u003e\u003ctd\u003e \u003c/td\u003e\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667860088771_1765472411",
+      "id": "paragraph_1667860088771_1765472411",
+      "dateCreated": "2022-11-07 22:28:08.773",
+      "dateStarted": "2022-11-07 22:37:04.225",
+      "dateFinished": "2022-11-07 22:37:04.238",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\n\nCALL apoc.load.xls(\u0027load_test.xlsx\u0027,\u0027Standard\u0027)\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 22:37:55.757",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "lineNo": "string",
+                      "list": "string",
+                      "map.name": "string",
+                      "map.age": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "lineNo\tlist\tmap.name\tmap.age\n0\t[\"Selma\",8]\tSelma\t8\n1\t[\"Rana\",11]\tRana\t11\n2\t[\"Selina\",18]\tSelina\t18\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667840983988_352550301",
+      "id": "paragraph_1667840983988_352550301",
+      "dateCreated": "2022-11-07 17:09:43.989",
+      "dateStarted": "2022-11-07 22:37:55.221",
+      "dateFinished": "2022-11-07 22:37:55.408",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\n\n\nCALL apoc.load.xls(\u0027load_test.xlsx\u0027,\u0027Offset!B2:F3\u0027)\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 22:38:00.299",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "lineNo": "string",
+                      "list": "string",
+                      "map.Integer": "string",
+                      "map.Array": "string",
+                      "map.Float": "string",
+                      "map.String": "string",
+                      "map.Boolean": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "lineNo\tlist\tmap.Integer\tmap.Array\tmap.Float\tmap.String\tmap.Boolean\n0\t[\"Test\",true,2,1.5,\"1;2;3\"]\t2\t1;2;3\t1.5\tTest\ttrue\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667859769864_1222677351",
+      "id": "paragraph_1667859769864_1222677351",
+      "dateCreated": "2022-11-07 22:22:49.864",
+      "dateStarted": "2022-11-07 22:38:00.315",
+      "dateFinished": "2022-11-07 22:38:00.453",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n- `apoc.load.xml(\u003cfileurl\u003e, path, $config, simple)`\n\n\nThe `$config` parameter can have `failOnError` and `header` (which is equivalent to `apoc.load.json`).\n\n\nNote: there is an equivalent `apoc.xml.parse`, which is a function instead of a procedure and accept a string xml as a 1st parameter instead of an url.",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-08 09:27:33.813",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1081,9 +2223,264 @@
       "status": "READY"
     },
     {
-      "text": "%md\n- `apoc.load.html`",
+      "text": "%neo4j\n\n/*\n\u003c?xml version\u003d\"1.0\"?\u003e\n\u003ccatalog\u003e\n   \u003cbook id\u003d\"bk101\"\u003e\n      \u003cauthor\u003eGambardella, Matthew\u003c/author\u003e\n      \u003cauthor\u003eArciniegas, Fabio\u003c/author\u003e\n      \u003ctitle\u003eXML Developer\u0027s Guide\u003c/title\u003e\n      \u003cgenre\u003eComputer\u003c/genre\u003e\n      \u003cdescription\u003eAn in-depth look....\u003c/description\u003e\n   \u003c/book\u003e\n   \u003cbook id\u003d\"bk102\"\u003e\n      \u003cauthor\u003eRalls, Kim\u003c/author\u003e\n      \u003ctitle\u003eMidnight Rain\u003c/title\u003e\n      \u003cgenre\u003eFantasy\u003c/genre\u003e\n      \u003cdescription\u003eBla bla bla\u003c/description\u003e\n   \u003c/book\u003e\n   \u003cbook id\u003d\"bk110\"\u003e\n      \u003cauthor\u003eO\u0027Brien, Tim\u003c/author\u003e\n      \u003ctitle\u003eMicrosoft .NET: The Programming Bible\u003c/title\u003e\n      \u003cgenre\u003eComputer\u003c/genre\u003e\n      \u003cdescription\u003eqwertyuiop\u003c/description\u003e\n   \u003c/book\u003e\n\u003c/catalog\u003e\n\n*/\n\ncall apoc.load.xml(\u0027books.xml\u0027)",
       "user": "anonymous",
-      "dateUpdated": "2022-11-07 11:20:00.220",
+      "dateUpdated": "2022-11-08 08:41:21.508",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "value._type": "string",
+                      "value._children": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "value._type\tvalue._children\ncatalog\t[{\"_type\":\"book\",\"_children\":[{\"_type\":\"author\",\"_text\":\"Gambardella, Matthew\"},{\"_type\":\"author\",\"_text\":\"Arciniegas, Fabio\"},{\"_type\":\"title\",\"_text\":\"XML Developer\u0027s Guide\"},{\"_type\":\"genre\",\"_text\":\"Computer\"},{\"_type\":\"price\",\"_text\":\"44.95\"},{\"_type\":\"publish_date\",\"_text\":\"2000-10-01\"},{\"_type\":\"description\",\"_text\":\"An in-depth look....\"}],\"id\":\"bk101\"},{\"_type\":\"book\",\"_children\":[{\"_type\":\"author\",\"_text\":\"Ralls, Kim\"},{\"_type\":\"title\",\"_text\":\"Midnight Rain\"},{\"_type\":\"genre\",\"_text\":\"Fantasy\"},{\"_type\":\"price\",\"_text\":\"5.95\"},{\"_type\":\"publish_date\",\"_text\":\"2000-12-16\"},{\"_type\":\"description\",\"_text\":\"Bla bla bla\"}],\"id\":\"bk102\"}]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667895502365_1602789120",
+      "id": "paragraph_1667895502365_1602789120",
+      "dateCreated": "2022-11-08 08:18:22.368",
+      "dateStarted": "2022-11-08 08:27:20.074",
+      "dateFinished": "2022-11-08 08:27:20.138",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n\nAs a 2nd parameter we can pass an XPath, similar to the JSONPath one, to select only some parts.\nSee here for more details: https://www.w3schools.com/xml/xpath_intro.asp\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-08 08:33:43.694",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667896293696_464157102",
+      "id": "paragraph_1667896293696_464157102",
+      "dateCreated": "2022-11-08 08:31:33.696",
+      "status": "READY"
+    },
+    {
+      "text": "%neo4j\n/*\n    /catalog/book[genre\u003d\\\u0027Computer\\\u0027] \n    \n    via /catalog we get the root element\n    \n    via /book we selects all \u003cbook\u003e elements that are children of catalog\n    \n    via [genre\u003d\\\u0027Computer\\\u0027] we select only the book elements with attribute genre\u003d\"Computer\"\n*/\n\ncall apoc.load.xml(\u0027books.xml\u0027, \u0027/catalog/book[genre\u003d\"Computer\"]\u0027)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-08 08:41:11.186",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "value._type": "string",
+                      "value._children": "string",
+                      "value.id": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "value._type\tvalue._children\tvalue.id\nbook\t[{\"_type\":\"author\",\"_text\":\"Gambardella, Matthew\"},{\"_type\":\"author\",\"_text\":\"Arciniegas, Fabio\"},{\"_type\":\"title\",\"_text\":\"XML Developer\u0027s Guide\"},{\"_type\":\"genre\",\"_text\":\"Computer\"},{\"_type\":\"description\",\"_text\":\"An in-depth look....\"}]\tbk101\nbook\t[{\"_type\":\"author\",\"_text\":\"O\u0027Brien, Tim\"},{\"_type\":\"title\",\"_text\":\"Microsoft .NET: The Programming Bible\"},{\"_type\":\"genre\",\"_text\":\"Computer\"},{\"_type\":\"description\",\"_text\":\"qwertyuiop\"}]\tbk110\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667896069855_317089457",
+      "id": "paragraph_1667896069855_317089457",
+      "dateCreated": "2022-11-08 08:27:49.855",
+      "dateStarted": "2022-11-08 08:41:11.206",
+      "dateFinished": "2022-11-08 08:41:11.286",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\n// children have key \"_nameElement\" instead of \"_children\"\ncall apoc.load.xml(\u0027books.xml\u0027, \u0027/catalog/book[genre\u003d\"Computer\"]\u0027, {}, true)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-08 08:48:05.183",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "value._type": "string",
+                      "value._book": "string",
+                      "value.id": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "value._type\tvalue._book\tvalue.id\nbook\t[{\"_type\":\"author\",\"_text\":\"Gambardella, Matthew\"},{\"_type\":\"author\",\"_text\":\"Arciniegas, Fabio\"},{\"_type\":\"title\",\"_text\":\"XML Developer\u0027s Guide\"},{\"_type\":\"genre\",\"_text\":\"Computer\"},{\"_type\":\"description\",\"_text\":\"An in-depth look....\"}]\tbk101\nbook\t[{\"_type\":\"author\",\"_text\":\"O\u0027Brien, Tim\"},{\"_type\":\"title\",\"_text\":\"Microsoft .NET: The Programming Bible\"},{\"_type\":\"genre\",\"_text\":\"Computer\"},{\"_type\":\"description\",\"_text\":\"qwertyuiop\"}]\tbk110\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667896889361_1893389216",
+      "id": "paragraph_1667896889361_1893389216",
+      "dateCreated": "2022-11-08 08:41:29.362",
+      "dateStarted": "2022-11-08 08:48:04.719",
+      "dateFinished": "2022-11-08 08:48:04.774",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-08 08:41:27.208",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667896887208_1666110985",
+      "id": "paragraph_1667896887208_1666110985",
+      "dateCreated": "2022-11-08 08:41:27.208",
+      "status": "READY"
+    },
+    {
+      "text": "%md\n- `apoc.load.html(url, selector, $config)`\n\n\nIt relies on jsoup library, https://jsoup.org/.\n\nConfig can have `charset` (default \u0027UTF-8\u0027), `baseUri`, `htmlString`, ",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-08 09:36:49.269",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1110,9 +2507,307 @@
       "status": "READY"
     },
     {
-      "text": "%md\nvantaggi/svantaggi load.html con selenium --\u003e si appoggia ad un browser chrome/firefox, più lento.\n\nQuindi se non serve, meglio non usarlo",
+      "text": "%neo4j\n// return in key first all \u003ch1\u003e, and in second all \u003ch2\u003e\n\ncall apoc.load.html(\"https://it.wikipedia.org/wiki/Termostato\", {first:\"h1\", second:\"h2\"})",
       "user": "anonymous",
-      "dateUpdated": "2022-11-07 09:56:24.344",
+      "dateUpdated": "2022-11-08 10:13:27.147",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {
+                    "columns": [
+                      {
+                        "name": "value.h10",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {
+                          "priority": 0.0,
+                          "direction": "desc"
+                        },
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "value.h21",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      }
+                    ],
+                    "scrollFocus": {},
+                    "selection": [],
+                    "grouping": {
+                      "grouping": [],
+                      "aggregations": [],
+                      "rowExpandedStates": {}
+                    },
+                    "treeView": {},
+                    "pagination": {
+                      "paginationCurrentPage": 1.0,
+                      "paginationPageSize": 250.0
+                    }
+                  },
+                  "tableColumnTypeState": {
+                    "names": {
+                      "value.first": "string",
+                      "value.second": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "value.h1",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "value.h2",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": false,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "value.first\tvalue.second\n[{\"attributes\":{\"class\":\"firstHeading mw-first-heading\",\"id\":\"firstHeading\"},\"text\":\"Termostato\",\"tagName\":\"h1\"}]\t[{\"attributes\":{\"id\":\"mw-toc-heading\"},\"text\":\"Indice\",\"tagName\":\"h2\"},{\"tagName\":\"h2\",\"text\":\"Descrizione[modifica | modifica wikitesto]\"},{\"tagName\":\"h2\",\"text\":\"Funzione[modifica | modifica wikitesto]\"},{\"tagName\":\"h2\",\"text\":\"Termostati meccanici[modifica | modifica wikitesto]\"},{\"tagName\":\"h2\",\"text\":\"Termostati elettronici[modifica | modifica wikitesto]\"},{\"tagName\":\"h2\",\"text\":\"Voci correlate[modifica | modifica wikitesto]\"},{\"tagName\":\"h2\",\"text\":\"Altri progetti[modifica | modifica wikitesto]\"},{\"tagName\":\"h2\",\"text\":\"Collegamenti esterni[modifica | modifica wikitesto]\"},{\"tagName\":\"h2\",\"text\":\"Menu di navigazione\"}]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667899682067_529402395",
+      "id": "paragraph_1667899682067_529402395",
+      "dateCreated": "2022-11-08 09:28:02.067",
+      "dateStarted": "2022-11-08 10:12:56.120",
+      "dateFinished": "2022-11-08 10:12:56.777",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\n\n// jQuery selectors: return in key fistt all \u003cspan\u003e with class\u003d\"mw-headline\", and in second all \u003cdiv\u003e with attribute id starting with \"t\"\n\ncall apoc.load.html(\"https://it.wikipedia.org/wiki/Termostato\", {first:\"span.mw-headline\", second:\"div[id^\u003d\u0027t\u0027]\"})",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-08 10:12:50.397",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "value.first": "string",
+                      "value.second": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "value.first\tvalue.second\n[{\"attributes\":{\"class\":\"mw-headline\",\"id\":\"Descrizione\"},\"text\":\"Descrizione\",\"tagName\":\"span\"},{\"attributes\":{\"class\":\"mw-headline\",\"id\":\"Funzione\"},\"text\":\"Funzione\",\"tagName\":\"span\"},{\"attributes\":{\"class\":\"mw-headline\",\"id\":\"Termostati_meccanici\"},\"text\":\"Termostati meccanici\",\"tagName\":\"span\"},{\"attributes\":{\"class\":\"mw-headline\",\"id\":\"A_dilatazione_di_fluido\"},\"text\":\"A dilatazione di fluido\",\"tagName\":\"span\"},{\"attributes\":{\"class\":\"mw-headline\",\"id\":\"A_lamina_bimetallica\"},\"text\":\"A lamina bimetallica\",\"tagName\":\"span\"},{\"attributes\":{\"class\":\"mw-headline\",\"id\":\"A_cera\"},\"text\":\"A cera\",\"tagName\":\"span\"},{\"attributes\":{\"class\":\"mw-headline\",\"id\":\"Termostati_elettronici\"},\"text\":\"Termostati elettronici\",\"tagName\":\"span\"},{\"attributes\":{\"class\":\"mw-headline\",\"id\":\"Voci_correlate\"},\"text\":\"Voci correlate\",\"tagName\":\"span\"},{\"attributes\":{\"class\":\"mw-headline\",\"id\":\"Altri_progetti\"},\"text\":\"Altri progetti\",\"tagName\":\"span\"},{\"attributes\":{\"class\":\"mw-headline\",\"id\":\"Collegamenti_esterni\"},\"text\":\"Collegamenti esterni\",\"tagName\":\"span\"}]\t[{\"attributes\":{\"role\":\"navigation\",\"id\":\"toc\",\"aria-labelledby\":\"mw-toc-heading\",\"class\":\"toc\"},\"text\":\"Indice 1 Descrizione 2 Funzione 3 Termostati meccanici 3.1 A dilatazione di fluido 3.2 A lamina bimetallica 3.3 A cera 4 Termostati elettronici 5 Voci correlate 6 Altri progetti 7 Collegamenti esterni\",\"tagName\":\"div\"}]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667901972779_1270812887",
+      "id": "paragraph_1667901972779_1270812887",
+      "dateCreated": "2022-11-08 10:06:12.779",
+      "dateStarted": "2022-11-08 10:11:38.407",
+      "dateFinished": "2022-11-08 10:11:38.858",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\ncall apoc.load.html(\"\u003cbody\u003e\u003cspan\u003euno\u003cspan\u003e\u003cp\u003edue\u003c/p\u003e\u003cp\u003etre\u003c/p\u003c/body\u003e\", {res: \"p\"}, {htmlString: true})",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-08 10:15:02.347",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "value.res": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "value.res\n[{\"tagName\":\"p\",\"text\":\"due\"},{\"tagName\":\"p\",\"text\":\"tre\"}]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667901678077_367298515",
+      "id": "paragraph_1667901678077_367298515",
+      "dateCreated": "2022-11-08 10:01:18.077",
+      "dateStarted": "2022-11-08 10:15:02.363",
+      "dateFinished": "2022-11-08 10:15:02.420",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\ncall apoc.load.html(\"wikipedia.html\", {res: \"p\"}, {})",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-08 10:18:28.071",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667902676021_1090590661",
+      "id": "paragraph_1667902676021_1090590661",
+      "dateCreated": "2022-11-08 10:17:56.021",
+      "dateStarted": "2022-11-08 10:18:28.086",
+      "status": "RUNNING"
+    },
+    {
+      "text": "%md\nTODO -- download selenium dependencies...\n\n\nAdditionally, we can pass in `$config` the option `{browser: \"CHROME\"}` or `{browser: \"FIREFOX\"}`,\nin order to read html with auto-generated js.\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-08 10:15:43.194",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1125,6 +2820,202 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667901302131_1644072257",
+      "id": "paragraph_1667901302131_1644072257",
+      "dateCreated": "2022-11-08 09:55:02.131",
+      "status": "READY"
+    },
+    {
+      "text": "%md\n\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-08 09:56:43.961",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667901387186_1458378798",
+      "id": "paragraph_1667901387186_1458378798",
+      "dateCreated": "2022-11-08 09:56:27.186",
+      "status": "READY"
+    },
+    {
+      "text": "%md\nvantaggi/svantaggi load.html con selenium --\u003e si appoggia ad un browser chrome/firefox, più lento.\n\nQuindi se non serve, meglio non usarlo",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-08 09:47:19.386",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667900827818_2066998149",
+      "id": "paragraph_1667900827818_2066998149",
+      "dateCreated": "2022-11-08 09:47:07.818",
+      "status": "READY"
+    },
+    {
+      "text": "%md\n\nAdditionally, with `browser` not equal to `NONE`, you can set optional various configurations which work like the configurations \n https://bonigarcia.dev/webdrivermanager/[here described], in `Table 1. Configuration capabilities for driver management`.\nThe possible configs are:\n\n- `driverVersion`\n- `browserVersion`\n- `architecture`\n- `operatingSystem`\n- `driverRepositoryUrl`\n- `versionsPropertiesUrl`\n- `commandsPropertiesUrl`\n- `cachePath`\n- `resolutionCachePath`\n- `proxy`\n- `proxyUser`\n- `proxyPass`\n- `gitHubToken`\n- `forceDownload`\n- `useBetaVersions`\n- `useMirror`\n- `avoidExport`\n- `avoidOutputTree`\n- `clearDriverCache`\n- `clearResolutionCache`\n- `avoidFallback`\n- `avoidBrowserDetection`\n- `avoidReadReleaseFromRepository`\n- `avoidTmpFolder`\n- `useLocalVersionsPropertiesFirst`\n- `timeout`\n- `ttl`\n- `ttlBrowsers\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-08 09:47:02.097",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667900809047_1465667111",
+      "id": "paragraph_1667900809047_1465667111",
+      "dateCreated": "2022-11-08 09:46:49.047",
+      "status": "READY"
+    },
+    {
+      "text": "%neo4j\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-08 09:46:47.711",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667900807711_658594561",
+      "id": "paragraph_1667900807711_658594561",
+      "dateCreated": "2022-11-08 09:46:47.711",
+      "status": "READY"
+    },
+    {
+      "text": "%neo4j\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-08 09:46:46.232",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667900806232_1556899268",
+      "id": "paragraph_1667900806232_1556899268",
+      "dateCreated": "2022-11-08 09:46:46.232",
+      "status": "READY"
+    },
+    {
+      "text": "%md\napoc.load.htmlPlainText",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-08 09:42:01.903",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667899683508_2078263579",
+      "id": "paragraph_1667899683508_2078263579",
+      "dateCreated": "2022-11-08 09:28:03.508",
+      "status": "READY"
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-08 09:42:02.009",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667900522009_501190974",
+      "id": "paragraph_1667900522009_501190974",
+      "dateCreated": "2022-11-08 09:42:02.009",
+      "status": "READY"
+    },
+    {
+      "text": "",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-08 09:47:07.138",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
       },
       "settings": {
         "params": {},

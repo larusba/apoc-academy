@@ -1,0 +1,189 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\nTrigger\n\n- Dire che nei cluster, per aggiungere o rimuovere trigger generalmente bisogna puntare con il protocollo bolt:// al membro con ",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 13:35:34.409",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667813990972_1044377987",
+      "id": "paragraph_1667813990972_1044377987",
+      "dateCreated": "2022-11-07 09:39:50.972",
+      "status": "READY"
+    },
+    {
+      "text": "%md\n\u003cimg src\u003d\"https://github.com/larusba/apoc-academy/raw/master/zeppelin/cluster.png\" /\u003e",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 13:44:36.207",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cimg src\u003d\"https://github.com/larusba/apoc-academy/raw/master/zeppelin/cluster.png\" /\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667828319523_1055843655",
+      "id": "paragraph_1667828319523_1055843655",
+      "dateCreated": "2022-11-07 13:38:39.523",
+      "dateStarted": "2022-11-07 13:44:36.227",
+      "dateFinished": "2022-11-07 13:44:36.240",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 13:43:12.522",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667828592522_678275850",
+      "id": "paragraph_1667828592522_678275850",
+      "dateCreated": "2022-11-07 13:43:12.522",
+      "status": "READY"
+    },
+    {
+      "text": "%md\n## apoc.periodic.iterate",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 13:45:02.504",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667828699876_281303502",
+      "id": "paragraph_1667828699876_281303502",
+      "dateCreated": "2022-11-07 13:44:59.876",
+      "status": "READY"
+    },
+    {
+      "text": "%md\n\n## apoc.periodic.submit",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 13:45:07.976",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667828705612_16675651",
+      "id": "paragraph_1667828705612_16675651",
+      "dateCreated": "2022-11-07 13:45:05.612",
+      "status": "READY"
+    },
+    {
+      "text": "%md\n# ripasso della `apoc.do.when` e `apoc.when` \n\nThere is a procedure `apoc.when`, equivalent but allows only read-only queries, so e.g you could execute \"return 123\" instead of \"create (n:First)\"",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 13:45:21.296",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667828719693_144336342",
+      "id": "paragraph_1667828719693_144336342",
+      "dateCreated": "2022-11-07 13:45:19.693",
+      "status": "READY"
+    }
+  ],
+  "name": "0. Refresh",
+  "id": "2HJSEJVEJ",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0-preview2",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

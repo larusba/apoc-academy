@@ -1096,9 +1096,9 @@
     },
     {
       "title": "With sep / arraySep",
-      "text": "%neo4j\n\n// File content\n//name\tage\n//Rana\t11\nCALL apoc.load.csv(\u0027loadSep.csv\u0027,{sep:\u0027|\u0027, arraySep: \u0027-\u0027})\n",
+      "text": "%neo4j\n\n/*\nname|age|beverage\nSelma|9|Soda\nRana|12|Tea-Milk \u003c-- Tea-Milk should be a list\nSelina|19|Cola\nAlhpa|55|Gamma\nBeta|66|Delta\n...\n*/\n\nCALL apoc.load.csv(\u0027loadSep.csv\u0027,{sep:\u0027|\u0027, arraySep: \u0027-\u0027})\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-25 10:33:37.304",
+      "dateUpdated": "2022-11-07 15:21:37.297",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1167,15 +1167,15 @@
       "jobName": "paragraph_1636447020232_589420860",
       "id": "paragraph_1636447020232_589420860",
       "dateCreated": "2021-11-09 08:37:00.232",
-      "dateStarted": "2022-03-25 10:33:37.332",
-      "dateFinished": "2022-03-25 10:33:37.437",
+      "dateStarted": "2022-11-07 15:21:37.322",
+      "dateFinished": "2022-11-07 15:21:37.357",
       "status": "FINISHED"
     },
     {
       "title": "With mapping",
       "text": "%neo4j\n// associate property to types and ignore something\nCALL apoc.load.csv(\u0027load.csv\u0027, {mapping: {name:{type:\u0027string\u0027}, age:{type:\u0027int\u0027}, beverage:{ignore:true}}})\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-25 10:34:23.225",
+      "dateUpdated": "2022-11-07 15:10:36.552",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
