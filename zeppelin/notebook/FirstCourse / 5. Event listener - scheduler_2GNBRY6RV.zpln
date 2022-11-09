@@ -1,0 +1,2184 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n# Triggers\n\nIn a trigger you register Cypher statements that are called when data in Neo4j is changed (created, updated, deleted).\nYou can run them before or after commit.\n\n\u003cpre\u003e\nYou have to enable trigger through the config `apoc.trigger.enabled\u003dtrue` to use it.\n\u003c/pre\u003e\n\n\nTo add a trigger you can execute this query:\n`CALL apoc.trigger.add(triggerName, statement, selector, params)`\n\nSecond param is the statement, in which you can put these parameters: `$createdNodes`, `$deletedNodes` etc.,\n\n- `transactionId` - the id of the transaction\n- `commitTime` - the date of the transaction in milliseconds\n- `createdNodes` - list of created nodes\n- `createdRelationships` - list of created relationships\n- `deletedNodes` - list of deleted nodes\n- `deletedRelationships` - list of deleted relationships\n- `removedLabels` - map of label - list of nodes\n- `assignedLabels` - map of label - list of nodes\n- `removedNodeProperties` - Map\u003cString, List\u003e, see below\n- `removedRelationshipProperties` - Map\u003cString, List\u003e, see below\n- `assignedNodeProperties` - Map\u003cString, List\u003e, see below\n- `assignedRelationshipProperties` - Map\u003cString, List\u003e, see below\n\nIf I have 2 nodes `(:Test {a: 1})`, `(:Test {b:1})`,\nif I execute `MATCH (n:Test) SET n.a\u003d2, n.b\u003d3` in a trigger\nthe `$assignedNodeProperties` will be this one (where map keys are property names):\n```\n{\n   a: [{\n         node : NODE(1),\n         new: 2,\n         old: 1,\n         key: \"a\"\n      },\n      {\n         node: NODE(2),\n         new: 2,\n         old: null,\n         key: \"a\"\n      }],\n   \n   b: [{\n         node: NODE(1),\n         new: 3,\n         old: null,\n         key: \"b\"\n      },\n      {\n         node: NODE(2),\n         new: 3,\n         old: 1,\n         key: \"b\"\n      }]\n}\n```\nSame structure for `removedNodeProperties`. \nThe `removedRelationshipProperties` and `assignedRelationshipProperties` have `relationship : REL` instead of `node : NODE`.\n\n\nYou can use these helper functions to extract nodes or relationships by label/relationship-type or updated property key.\n\n- `apoc.trigger.nodesByLabel($assignedLabels/$assignedNodeProperties,\u0027Label\u0027)` - function to filter entries by label, to be used within a trigger statement with `$assignedLabels`\n- `apoc.trigger.propertiesByKey($assignedNodeProperties,\u0027key\u0027)` - function to filter propertyEntries by property-key, to be used within a trigger statement with `$assignedNodeProperties`, `$assignedRelationshipProperties`, `$removedNodeProperties` and `$removedRelationshipProperties` .\n    So in previous case `apoc.trigger.propertiesByKey($assignedNodeProperties,\u0027b\u0027)` return only second array, \n    that is `[{node:NODE(1), new:3, old:null, key:\"b\"}, {node:NODE(2), new:3, old:1, key:\"b\"}]`\n\n\n\nThe `selector` parameter could be `{phase:PHASENAME\u0027}`\nwhere `PHASENAME` is:\n\n- `before (default)` - The trigger will be activate right `before` the commit\n- `rollback` - The trigger will be activate right after the  `rollback`\n- `after` - The trigger will be activate right after the `commit`\n- `afterAsync` - The trigger will be activate right after the commit and inside a new transaction and thread so that will not\nimpact the original one. Useful for heavy operations without to not blocking the original transaction.\n\n\nInto the 4th argument, you can put additional parameters: `{params: {paramMap}}` \n\n\n## Other trigger procedures:\n\nIn addition to `trigger.add` there are:\n\n- `CALL apoc.trigger.remove(name)`\n- `CALL apoc.trigger.removeAll()`\n- `CALL apoc.trigger.list()`\n- `CALL apoc.trigger.pause(name)`\n- `CALL apoc.trigger.resume(name)`\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-24 11:02:06.149",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eTriggers\u003c/h1\u003e\n\u003cp\u003eIn a trigger you register Cypher statements that are called when data in Neo4j is changed (created, updated, deleted).\u003cbr /\u003e\nYou can run them before or after commit.\u003c/p\u003e\n\u003cpre\u003e\nYou have to enable trigger through the config `apoc.trigger.enabled\u003dtrue` to use it.\n\u003c/pre\u003e\n\u003cp\u003eTo add a trigger you can execute this query:\u003cbr /\u003e\n\u003ccode\u003eCALL apoc.trigger.add(triggerName, statement, selector, params)\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eSecond param is the statement, in which you can put these parameters: \u003ccode\u003e$createdNodes\u003c/code\u003e, \u003ccode\u003e$deletedNodes\u003c/code\u003e etc.,\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003etransactionId\u003c/code\u003e - the id of the transaction\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ecommitTime\u003c/code\u003e - the date of the transaction in milliseconds\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ecreatedNodes\u003c/code\u003e - list of created nodes\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ecreatedRelationships\u003c/code\u003e - list of created relationships\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003edeletedNodes\u003c/code\u003e - list of deleted nodes\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003edeletedRelationships\u003c/code\u003e - list of deleted relationships\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eremovedLabels\u003c/code\u003e - map of label - list of nodes\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eassignedLabels\u003c/code\u003e - map of label - list of nodes\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eremovedNodeProperties\u003c/code\u003e - Map\u0026lt;String, List\u0026gt;, see below\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eremovedRelationshipProperties\u003c/code\u003e - Map\u0026lt;String, List\u0026gt;, see below\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eassignedNodeProperties\u003c/code\u003e - Map\u0026lt;String, List\u0026gt;, see below\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eassignedRelationshipProperties\u003c/code\u003e - Map\u0026lt;String, List\u0026gt;, see below\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eIf I have 2 nodes \u003ccode\u003e(:Test {a: 1})\u003c/code\u003e, \u003ccode\u003e(:Test {b:1})\u003c/code\u003e,\u003cbr /\u003e\nif I execute \u003ccode\u003eMATCH (n:Test) SET n.a\u003d2, n.b\u003d3\u003c/code\u003e in a trigger\u003cbr /\u003e\nthe \u003ccode\u003e$assignedNodeProperties\u003c/code\u003e will be this one (where map keys are property names):\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e{\n   a: [{\n         node : NODE(1),\n         new: 2,\n         old: 1,\n         key: \u0026quot;a\u0026quot;\n      },\n      {\n         node: NODE(2),\n         new: 2,\n         old: null,\n         key: \u0026quot;a\u0026quot;\n      }],\n   \n   b: [{\n         node: NODE(1),\n         new: 3,\n         old: null,\n         key: \u0026quot;b\u0026quot;\n      },\n      {\n         node: NODE(2),\n         new: 3,\n         old: 1,\n         key: \u0026quot;b\u0026quot;\n      }]\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eSame structure for \u003ccode\u003eremovedNodeProperties\u003c/code\u003e.\u003cbr /\u003e\nThe \u003ccode\u003eremovedRelationshipProperties\u003c/code\u003e and \u003ccode\u003eassignedRelationshipProperties\u003c/code\u003e have \u003ccode\u003erelationship : REL\u003c/code\u003e instead of \u003ccode\u003enode : NODE\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eYou can use these helper functions to extract nodes or relationships by label/relationship-type or updated property key.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eapoc.trigger.nodesByLabel($assignedLabels/$assignedNodeProperties,\u0027Label\u0027)\u003c/code\u003e - function to filter entries by label, to be used within a trigger statement with \u003ccode\u003e$assignedLabels\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.trigger.propertiesByKey($assignedNodeProperties,\u0027key\u0027)\u003c/code\u003e - function to filter propertyEntries by property-key, to be used within a trigger statement with \u003ccode\u003e$assignedNodeProperties\u003c/code\u003e, \u003ccode\u003e$assignedRelationshipProperties\u003c/code\u003e, \u003ccode\u003e$removedNodeProperties\u003c/code\u003e and \u003ccode\u003e$removedRelationshipProperties\u003c/code\u003e .\u003cbr /\u003e\nSo in previous case \u003ccode\u003eapoc.trigger.propertiesByKey($assignedNodeProperties,\u0027b\u0027)\u003c/code\u003e return only second array,\u003cbr /\u003e\nthat is \u003ccode\u003e[{node:NODE(1), new:3, old:null, key:\u0026quot;b\u0026quot;}, {node:NODE(2), new:3, old:1, key:\u0026quot;b\u0026quot;}]\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe \u003ccode\u003eselector\u003c/code\u003e parameter could be \u003ccode\u003e{phase:PHASENAME\u0027}\u003c/code\u003e\u003cbr /\u003e\nwhere \u003ccode\u003ePHASENAME\u003c/code\u003e is:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003ebefore (default)\u003c/code\u003e - The trigger will be activate right \u003ccode\u003ebefore\u003c/code\u003e the commit\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003erollback\u003c/code\u003e - The trigger will be activate right after the  \u003ccode\u003erollback\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eafter\u003c/code\u003e - The trigger will be activate right after the \u003ccode\u003ecommit\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eafterAsync\u003c/code\u003e - The trigger will be activate right after the commit and inside a new transaction and thread so that will not\u003cbr /\u003e\nimpact the original one. Useful for heavy operations without to not blocking the original transaction.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eInto the 4th argument, you can put additional parameters: \u003ccode\u003e{params: {paramMap}}\u003c/code\u003e\u003c/p\u003e\n\u003ch2\u003eOther trigger procedures:\u003c/h2\u003e\n\u003cp\u003eIn addition to \u003ccode\u003etrigger.add\u003c/code\u003e there are:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eCALL apoc.trigger.remove(name)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eCALL apoc.trigger.removeAll()\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eCALL apoc.trigger.list()\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eCALL apoc.trigger.pause(name)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eCALL apoc.trigger.resume(name)\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1635375648253_1121247002",
+      "id": "paragraph_1635375648253_1121247002",
+      "dateCreated": "2021-10-27 23:00:48.253",
+      "dateStarted": "2022-03-24 11:02:06.150",
+      "dateFinished": "2022-03-24 11:02:06.183",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Install a trigger ",
+      "text": "%neo4j\n\n// We could add a trigger that when is added a specific property on a node, that property is added to all the nodes connected to this node\n\nCALL apoc.trigger.add(\u0027setlabels\u0027,\u0027UNWIND apoc.trigger.nodesByLabel($assignedLabels,\"Trigger\") AS n SET n.datetime \u003d $datetime\u0027,\n{phase:\u0027afterAsync\u0027}, \n{params: {datetime: datetime()}}) // param to be used in trigger query",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-07 13:26:06.111",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 148.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "name": "string",
+                      "query": "string",
+                      "selector.phase": "string",
+                      "params.datetime": "string",
+                      "installed": "string",
+                      "paused": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tquery\tselector.phase\tparams.datetime\tinstalled\tpaused\n\"setlabels\"\t\"UNWIND apoc.trigger.nodesByLabel($assignedLabels,\\\"Trigger\\\") AS n SET n.datetime \u003d $datetime\"\tafterAsync\t2022-03-25T10:47:01.843Z\tTRUE\tFALSE\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1635853267522_1557662643",
+      "id": "paragraph_1635853267522_1557662643",
+      "dateCreated": "2021-11-02 11:41:07.522",
+      "dateStarted": "2022-03-25 10:47:01.811",
+      "dateFinished": "2022-03-25 10:47:02.090",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Query to trigger ",
+      "text": "%neo4j\n\nMATCH (d:Person {name:\u0027Giandomenico Fracchia\u0027})\nSET d:Trigger\nRETURN d",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:48:03.208",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 105.994,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "id": "string",
+                      "label": "string",
+                      "other": "string",
+                      "born": "string",
+                      "name": "string",
+                      "uuid": "string",
+                      "something": "string",
+                      "timestamp": "string",
+                      "stuff": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":2,\"data\":{\"other\":444,\"born\":1964,\"name\":\"Giandomenico Fracchia\",\"uuid\":\"65965404-4fc3-451a-afca-190371d9145b\",\"something\":\"8d91382c-372c-4952-b8db-b0b417c39fa2\",\"timestamp\":1648200777563,\"stuff\":0.46906873841357555},\"label\":\"Person\"}],\"edges\":[],\"labels\":{\"TTL\":\"#8721DB\",\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"Actor\":\"#9E008D\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\"},\"types\":[\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"MY_REL\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"DIRECTED\"],\"directed\":true}"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1635853359717_1862278247",
+      "id": "paragraph_1635853359717_1862278247",
+      "dateCreated": "2021-11-02 11:42:39.717",
+      "dateStarted": "2022-03-25 10:48:02.873",
+      "dateFinished": "2022-03-25 10:48:03.020",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Check trigger execution",
+      "text": "%neo4j\n\nMATCH (p:Person {name:\u0027Giandomenico Fracchia\u0027}) RETURN p",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:48:12.953",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 129.972,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "id": "string",
+                      "label": "string",
+                      "datetime": "string",
+                      "other": "string",
+                      "born": "string",
+                      "name": "string",
+                      "uuid": "string",
+                      "something": "string",
+                      "timestamp": "string",
+                      "stuff": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":2,\"data\":{\"datetime\":\"2022-03-25T10:47:01.843Z\",\"other\":444,\"born\":1964,\"name\":\"Giandomenico Fracchia\",\"uuid\":\"65965404-4fc3-451a-afca-190371d9145b\",\"something\":\"8d91382c-372c-4952-b8db-b0b417c39fa2\",\"timestamp\":1648200777563,\"stuff\":0.46906873841357555},\"label\":\"Person\"}],\"edges\":[],\"labels\":{\"TTL\":\"#8721DB\",\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"Actor\":\"#9E008D\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\"},\"types\":[\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"MY_REL\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"DIRECTED\"],\"directed\":true}"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1635853392081_796719443",
+      "id": "paragraph_1635853392081_796719443",
+      "dateCreated": "2021-11-02 11:43:12.081",
+      "dateStarted": "2022-03-25 10:48:12.689",
+      "dateFinished": "2022-03-25 10:48:12.755",
+      "status": "FINISHED"
+    },
+    {
+      "title": "$createdNodes parameter",
+      "text": "%neo4j\n// 3rd parameter is null, so phase is \u0027before\u0027 by default\nCALL apoc.trigger.add(\u0027unique\u0027,\u0027UNWIND $createdNodes AS n SET n.datetime \u003d $datetime\u0027, null, {params: {datetime: datetime()}}); ",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:48:43.301",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 161.989,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "name": "string",
+                      "query": "string",
+                      "selector": "string",
+                      "params.datetime": "string",
+                      "installed": "string",
+                      "paused": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tquery\tselector\tparams.datetime\tinstalled\tpaused\n\"unique\"\t\"UNWIND $createdNodes AS n SET n.datetime \u003d $datetime\"\tNULL\t2022-03-25T10:48:43.339Z\tTRUE\tFALSE\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1635864280616_762486125",
+      "id": "paragraph_1635864280616_762486125",
+      "dateCreated": "2021-11-02 14:44:40.616",
+      "dateStarted": "2022-03-25 10:48:43.319",
+      "dateFinished": "2022-03-25 10:48:43.404",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Check results",
+      "text": "%neo4j\nCREATE (n:NodeWithTime);\nMATCH (n:NodeWithTime) RETURN n;",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:48:50.882",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 88.0114,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "id": "string",
+                      "label": "string",
+                      "datetime": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":41427,\"data\":{\"datetime\":\"2022-03-25T10:48:43.339Z\"},\"label\":\"NodeWithTime\"}],\"edges\":[],\"labels\":{\"TTL\":\"#8721DB\",\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"Actor\":\"#9E008D\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\",\"NodeWithTime\":\"#161DEF\"},\"types\":[\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"MY_REL\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"DIRECTED\"],\"directed\":true}"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1635864655639_1005439890",
+      "id": "paragraph_1635864655639_1005439890",
+      "dateCreated": "2021-11-02 14:50:55.639",
+      "dateStarted": "2022-03-25 10:48:50.900",
+      "dateFinished": "2022-03-25 10:48:50.990",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Enforcing property type",
+      "text": "%neo4j\n\n// Enforcing property type, for this example, we would like that all the `reference` node properties are of type `STRING`\n\nCALL apoc.trigger.add(\"forceStringType\",\n\"unwind apoc.trigger.propertiesByKey($assignedNodeProperties, \u0027reference\u0027) AS props WITH props.new as prop\nCALL apoc.util.validate(apoc.meta.type(prop) \u003c\u003e \u0027STRING\u0027, \u0027expected string property type, got %s\u0027, [apoc.meta.type(prop)]) RETURN null\", {phase:\u0027before\u0027})",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:49:57.741",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {
+                    "columns": [
+                      {
+                        "name": "name0",
+                        "visible": true,
+                        "width": 377.0,
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "query1",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "selector.phase2",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "installed3",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "paused4",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      }
+                    ],
+                    "scrollFocus": {},
+                    "selection": [],
+                    "grouping": {
+                      "grouping": [],
+                      "aggregations": [],
+                      "rowExpandedStates": {}
+                    },
+                    "treeView": {},
+                    "pagination": {
+                      "paginationCurrentPage": 1.0,
+                      "paginationPageSize": 250.0
+                    }
+                  },
+                  "tableColumnTypeState": {
+                    "names": {
+                      "name": "string",
+                      "query": "string",
+                      "selector.phase": "string",
+                      "installed": "string",
+                      "paused": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/undefined",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tquery\tselector.phase\tinstalled\tpaused\n\"forceStringType\"\t\"unwind apoc.trigger.propertiesByKey($assignedNodeProperties, \u0027reference\u0027) AS props WITH props.new as prop\nCALL apoc.util.validate(apoc.meta.type(prop) \u003c\u003e \u0027STRING\u0027, \u0027expected string property type, got %s\u0027, [apoc.meta.type(prop)]) RETURN null\"\tbefore\tTRUE\tFALSE\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1635864199254_1511871497",
+      "id": "paragraph_1635864199254_1511871497",
+      "dateCreated": "2021-11-02 14:43:19.254",
+      "dateStarted": "2022-03-25 10:49:57.764",
+      "dateFinished": "2022-03-25 10:49:57.848",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Check prop type constraint",
+      "text": "%neo4j\nCREATE (a:Node) SET a.reference \u003d \"1\"",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:50:07.543",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1635864255093_158993446",
+      "id": "paragraph_1635864255093_158993446",
+      "dateCreated": "2021-11-02 14:44:15.093",
+      "dateStarted": "2022-03-25 10:50:07.560",
+      "dateFinished": "2022-03-25 10:50:07.602",
+      "status": "FINISHED"
+    },
+    {
+      "title": "apoc.trigger.list",
+      "text": "%neo4j\nCALL apoc.trigger.list",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:50:22.969",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 154.006,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "name": "string",
+                      "query": "string",
+                      "selector.phase": "string",
+                      "params.datetime": "string",
+                      "installed": "string",
+                      "paused": "string",
+                      "selector": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tquery\tselector.phase\tparams.datetime\tinstalled\tpaused\tselector\n\"setlabels\"\t\"UNWIND apoc.trigger.nodesByLabel($assignedLabels,\\\"Trigger\\\") AS n SET n.datetime \u003d $datetime\"\tafterAsync\t2022-03-25T10:47:01.843Z\tTRUE\tFALSE\t\n\"unique\"\t\"UNWIND $createdNodes AS n SET n.datetime \u003d $datetime\"\t\t2022-03-25T10:48:43.339Z\tTRUE\tFALSE\tNULL\n\"forceStringType\"\t\"unwind apoc.trigger.propertiesByKey($assignedNodeProperties, \u0027reference\u0027) AS props WITH props.new as prop\nCALL apoc.util.validate(apoc.meta.type(prop) \u003c\u003e \u0027STRING\u0027, \u0027expected string property type, got %s\u0027, [apoc.meta.type(prop)]) RETURN null\"\tbefore\t\tTRUE\tFALSE\t\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1635864312695_2074767345",
+      "id": "paragraph_1635864312695_2074767345",
+      "dateCreated": "2021-11-02 14:45:12.695",
+      "dateStarted": "2022-03-25 10:50:22.991",
+      "dateFinished": "2022-03-25 10:50:23.035",
+      "status": "FINISHED"
+    },
+    {
+      "title": "apoc.trigger.removeAll",
+      "text": "%neo4j\nCALL apoc.trigger.removeAll",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:50:29.608",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "name": "string",
+                      "query": "string",
+                      "selector.phase": "string",
+                      "params.datetime": "string",
+                      "installed": "string",
+                      "paused": "string",
+                      "selector": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tquery\tselector.phase\tparams.datetime\tinstalled\tpaused\tselector\n\"setlabels\"\t\"UNWIND apoc.trigger.nodesByLabel($assignedLabels,\\\"Trigger\\\") AS n SET n.datetime \u003d $datetime\"\tafterAsync\t2022-03-25T10:47:01.843Z\tFALSE\tFALSE\t\n\"unique\"\t\"UNWIND $createdNodes AS n SET n.datetime \u003d $datetime\"\t\t2022-03-25T10:48:43.339Z\tFALSE\tFALSE\tNULL\n\"forceStringType\"\t\"unwind apoc.trigger.propertiesByKey($assignedNodeProperties, \u0027reference\u0027) AS props WITH props.new as prop\nCALL apoc.util.validate(apoc.meta.type(prop) \u003c\u003e \u0027STRING\u0027, \u0027expected string property type, got %s\u0027, [apoc.meta.type(prop)]) RETURN null\"\tbefore\t\tFALSE\tFALSE\t\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1636636268973_1703951230",
+      "id": "paragraph_1636636268973_1703951230",
+      "dateCreated": "2021-11-11 13:11:08.973",
+      "dateStarted": "2022-03-25 10:50:29.625",
+      "dateFinished": "2022-03-25 10:50:29.705",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n\n## Load directory async\n\nAdd a directory listener to handle changes in it.\n\n`apoc.load.directory.async.add(name, cypher, pattern, urlDir, $config)`\nAdd (or replace) a folder listener with a specific `name`, pattern and url directory that execute the specified cypher query when an event is triggered and return listener list\n\nThe first parameter is the name of our custom watch listener.\nIf we use an already existing listener name, that listener will be overwritten.\nThe second parameter is the cypher query that will be executed.\nThe `cypher` can have the following parameters:\n\n* `$fileName`: the name of the file which triggered the event\n* `$filePath`: the absolute path of the file which triggered the event if `apoc.import.file.use_neo4j_config\u003dfalse`, otherwise the relative path starting from `$IMPORT_DIR`\n* `$fileDirectory`: the absolute path directory of the file which triggered the event if `apoc.import.file.use_neo4j_config\u003dfalse`, otherwise the relative path starting from `$IMPORT_DIR`\n* `$listenEventType`: the triggered event (\"CREATE\", \"DELETE\" or \"MODIFY\"). The event `\"CREATE\"` happens when a file is inserted in the folder,\n`\"DELETE\"` when a file is removed from the folder and `\"MODIFY\"` when a file in the folder is changed.\nPlease note that if a file is renamed, will be triggered 2 event, that is first \"DELETE\" and then\"CREATE\"\n\nThe third parameter is the pattern of file to search for. By default is \u0027*\u0027, that is, search all files. The fourth is the search path of directory. By default is an empty string, that is, search file in import directory.\nThe 4th parameter is the directory url.\n\nIn `config` whe can put:\n- `listenEventType`: List of types of event that execute the cypher query, `CREATE`, `DELETE` or `MODIFY`\n- `interval` (default: 1000): Interval in ms after re-watch for directory changes\n\n\n\nOther procedures:\n- `CALL apoc.load.directory.async.list()`\n- `CALL apoc.load.directory.async.remove(name)`\n- `CALL apoc.load.directory.async.removeAll()`\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-24 11:02:18.269",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eLoad directory async\u003c/h2\u003e\n\u003cp\u003eAdd a directory listener to handle changes in it.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eapoc.load.directory.async.add(name, cypher, pattern, urlDir, $config)\u003c/code\u003e\u003cbr /\u003e\nAdd (or replace) a folder listener with a specific \u003ccode\u003ename\u003c/code\u003e, pattern and url directory that execute the specified cypher query when an event is triggered and return listener list\u003c/p\u003e\n\u003cp\u003eThe first parameter is the name of our custom watch listener.\u003cbr /\u003e\nIf we use an already existing listener name, that listener will be overwritten.\u003cbr /\u003e\nThe second parameter is the cypher query that will be executed.\u003cbr /\u003e\nThe \u003ccode\u003ecypher\u003c/code\u003e can have the following parameters:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003e$fileName\u003c/code\u003e: the name of the file which triggered the event\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003e$filePath\u003c/code\u003e: the absolute path of the file which triggered the event if \u003ccode\u003eapoc.import.file.use_neo4j_config\u003dfalse\u003c/code\u003e, otherwise the relative path starting from \u003ccode\u003e$IMPORT_DIR\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003e$fileDirectory\u003c/code\u003e: the absolute path directory of the file which triggered the event if \u003ccode\u003eapoc.import.file.use_neo4j_config\u003dfalse\u003c/code\u003e, otherwise the relative path starting from \u003ccode\u003e$IMPORT_DIR\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003e$listenEventType\u003c/code\u003e: the triggered event (\u0026ldquo;CREATE\u0026rdquo;, \u0026ldquo;DELETE\u0026rdquo; or \u0026ldquo;MODIFY\u0026rdquo;). The event \u003ccode\u003e\u0026quot;CREATE\u0026quot;\u003c/code\u003e happens when a file is inserted in the folder,\u003cbr /\u003e\n\u003ccode\u003e\u0026quot;DELETE\u0026quot;\u003c/code\u003e when a file is removed from the folder and \u003ccode\u003e\u0026quot;MODIFY\u0026quot;\u003c/code\u003e when a file in the folder is changed.\u003cbr /\u003e\nPlease note that if a file is renamed, will be triggered 2 event, that is first \u0026ldquo;DELETE\u0026rdquo; and then\u0026quot;CREATE\u0026quot;\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe third parameter is the pattern of file to search for. By default is \u0026lsquo;*\u0026rsquo;, that is, search all files. The fourth is the search path of directory. By default is an empty string, that is, search file in import directory.\u003cbr /\u003e\nThe 4th parameter is the directory url.\u003c/p\u003e\n\u003cp\u003eIn \u003ccode\u003econfig\u003c/code\u003e whe can put:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003elistenEventType\u003c/code\u003e: List of types of event that execute the cypher query, \u003ccode\u003eCREATE\u003c/code\u003e, \u003ccode\u003eDELETE\u003c/code\u003e or \u003ccode\u003eMODIFY\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003einterval\u003c/code\u003e (default: 1000): Interval in ms after re-watch for directory changes\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eOther procedures:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eCALL apoc.load.directory.async.list()\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eCALL apoc.load.directory.async.remove(name)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eCALL apoc.load.directory.async.removeAll()\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1635375754840_2020527960",
+      "id": "paragraph_1635375754840_2020527960",
+      "dateCreated": "2021-10-27 23:02:34.840",
+      "dateStarted": "2022-03-24 11:02:18.269",
+      "dateFinished": "2022-03-24 11:02:18.285",
+      "status": "FINISHED"
+    },
+    {
+      "title": "apoc.load.directory.async.add",
+      "text": "%neo4j\n\nCALL apoc.load.directory.async.add(\u0027myTrigger\u0027,\n\"CALL apoc.load.csv($filePath) YIELD map with map create (n:Test) set n.fileName \u003d $fileName, n.event \u003d $listenEventType, n +\u003d map\",\n\"*.csv\", \n\"csvImport\",\n{listenEventType: [\u0027CREATE\u0027]})",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:52:54.981",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "name": "string",
+                      "status": "string",
+                      "pattern": "string",
+                      "cypher": "string",
+                      "urlDir": "string",
+                      "config.interval": "string",
+                      "config.listenEventType": "string",
+                      "error": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tstatus\tpattern\tcypher\turlDir\tconfig.interval\tconfig.listenEventType\terror\n\"myTrigger\"\t\"CREATED\"\t\"*.csv\"\t\"CALL apoc.load.csv($filePath) YIELD map with map create (n:Test) set n.fileName \u003d $fileName, n.event \u003d $listenEventType, n +\u003d map\"\t\"file:///var/lib/neo4j/import/csvImport/\"\t1000\t[\"CREATE\"]\t\"\"\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1636544466331_1555017225",
+      "id": "paragraph_1636544466331_1555017225",
+      "dateCreated": "2021-11-10 11:41:06.331",
+      "dateStarted": "2022-03-25 10:52:54.999",
+      "dateFinished": "2022-03-25 10:52:55.148",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Check results",
+      "text": "%neo4j\nmatch (n:Test) return properties(n) as prop",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:53:55.980",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 184.006,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "prop.name": "string",
+                      "prop.fileName": "string",
+                      "prop.event": "string",
+                      "prop.age": "string",
+                      "prop.beverage": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "title": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "prop.name\tprop.fileName\tprop.event\tprop.age\tprop.beverage\nSelma\tload.csv\tCREATE\t9\tSoda\nRana\tload.csv\tCREATE\t12\tTea;Milk\nSelina\tload.csv\tCREATE\t19\tCola\nAlpha\tload.csv\tCREATE\t55\tGamma\nBeta\tload.csv\tCREATE\t66\tDelta\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1636544521276_2107985340",
+      "id": "paragraph_1636544521276_2107985340",
+      "dateCreated": "2021-11-10 11:42:01.276",
+      "dateStarted": "2022-03-25 10:53:56.005",
+      "dateFinished": "2022-03-25 10:53:56.062",
+      "status": "FINISHED"
+    },
+    {
+      "title": "With error",
+      "text": "%neo4j\nCALL apoc.load.directory.async.add(\u0027another\u0027, \"CREATE (:Stuff)\", \"*.csv\", \"notExistentPath\")",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:54:24.435",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "name": "string",
+                      "status": "string",
+                      "pattern": "string",
+                      "cypher": "string",
+                      "urlDir": "string",
+                      "config.interval": "string",
+                      "config.listenEventType": "string",
+                      "error": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tstatus\tpattern\tcypher\turlDir\tconfig.interval\tconfig.listenEventType\terror\n\"myTrigger\"\t\"RUNNING\"\t\"*.csv\"\t\"CALL apoc.load.csv($filePath) YIELD map with map create (n:Test) set n.fileName \u003d $fileName, n.event \u003d $listenEventType, n +\u003d map\"\t\"file:///var/lib/neo4j/import/csvImport/\"\t1000\t[\"CREATE\"]\t\"\"\n\"another\"\t\"CREATED\"\t\"*.csv\"\t\"CREATE (:Stuff)\"\t\"file:///var/lib/neo4j/import/notExistentPath\"\t1000\t[\"CREATE\",\"MODIFY\",\"DELETE\"]\t\"\"\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1636545967327_205410133",
+      "id": "paragraph_1636545967327_205410133",
+      "dateCreated": "2021-11-10 12:06:07.327",
+      "dateStarted": "2022-03-25 10:54:24.458",
+      "dateFinished": "2022-03-25 10:54:24.530",
+      "status": "FINISHED"
+    },
+    {
+      "title": "apoc.load.directory.async.list",
+      "text": "%neo4j\nCALL apoc.load.directory.async.list()",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:54:31.252",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/undefined",
+        "fontSize": 9.0,
+        "editorHide": false,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "name": "string",
+                      "status": "string",
+                      "pattern": "string",
+                      "cypher": "string",
+                      "urlDir": "string",
+                      "config.interval": "string",
+                      "config.listenEventType": "string",
+                      "error": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tstatus\tpattern\tcypher\turlDir\tconfig.interval\tconfig.listenEventType\terror\n\"myTrigger\"\t\"RUNNING\"\t\"*.csv\"\t\"CALL apoc.load.csv($filePath) YIELD map with map create (n:Test) set n.fileName \u003d $fileName, n.event \u003d $listenEventType, n +\u003d map\"\t\"file:///var/lib/neo4j/import/csvImport/\"\t1000\t[\"CREATE\"]\t\"\"\n\"another\"\t\"ERROR\"\t\"*.csv\"\t\"CREATE (:Stuff)\"\t\"file:///var/lib/neo4j/import/notExistentPath\"\t1000\t[\"CREATE\",\"MODIFY\",\"DELETE\"]\t\"java.nio.file.NoSuchFileException: /var/lib/neo4j/import/notExistentPath\n\tat java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:92)\n\tat java.base/sun.nio.fs.UnixException.asIOException(UnixException.java:120)\n\tat java.base/sun.nio.fs.LinuxWatchService$Poller.implRegister(LinuxWatchService.java:248)\n\tat java.base/sun.nio.fs.AbstractPoller.processRequests(AbstractPoller.java:265)\n\tat java.base/sun.nio.fs.LinuxWatchService$Poller.run(LinuxWatchService.java:366)\n\tat java.base/java.lang.Thread.run(Thread.java:829)\n\"\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1636545976586_723359064",
+      "id": "paragraph_1636545976586_723359064",
+      "dateCreated": "2021-11-10 12:06:16.586",
+      "dateStarted": "2022-03-25 10:54:31.271",
+      "dateFinished": "2022-03-25 10:54:31.335",
+      "status": "FINISHED"
+    },
+    {
+      "title": "apoc.load.directory.async.removeAll",
+      "text": "%neo4j\nCALL apoc.load.directory.async.removeAll()",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:55:02.558",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1636545981605_989834727",
+      "id": "paragraph_1636545981605_989834727",
+      "dateCreated": "2021-11-10 12:06:21.606",
+      "dateStarted": "2022-03-25 10:55:02.586",
+      "dateFinished": "2022-03-25 10:55:02.629",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Periodic jobs",
+      "text": "%md\n\n- `CALL apoc.periodic.list()` - list all jobs\n\n- `CALL apoc.periodic.remove(name)` - remove a job\n\n- `CALL apoc.periodic.submit(\u0027name\u0027,statement)` - submit a one-off background and asynchronously (non-blocking) statement . Under-the-hood execute an `java.util.concurrent.ExecutorService.submit(Runnable)`\n\n- `CALL apoc.periodic.repeat(\u0027name\u0027,statement,repeat-time-in-seconds)` - submit a repeatedly-called background statement (via the `ExecutorService.scheduleWithFixedDelay(Runnable)`)\n\n- `CALL apoc.periodic.countdown(\u0027name\u0027,statement,delay-in-seconds)` - submit a repeatedly-called background statement (via the `ExecutorService.submit(Runnable)`) until it returns 0",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-24 11:02:24.720",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eCALL apoc.periodic.list()\u003c/code\u003e - list all jobs\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eCALL apoc.periodic.remove(name)\u003c/code\u003e - remove a job\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eCALL apoc.periodic.submit(\u0027name\u0027,statement)\u003c/code\u003e - submit a one-off background and asynchronously (non-blocking) statement . Under-the-hood execute an \u003ccode\u003ejava.util.concurrent.ExecutorService.submit(Runnable)\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eCALL apoc.periodic.repeat(\u0027name\u0027,statement,repeat-time-in-seconds)\u003c/code\u003e - submit a repeatedly-called background statement (via the \u003ccode\u003eExecutorService.scheduleWithFixedDelay(Runnable)\u003c/code\u003e)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eCALL apoc.periodic.countdown(\u0027name\u0027,statement,delay-in-seconds)\u003c/code\u003e - submit a repeatedly-called background statement (via the \u003ccode\u003eExecutorService.submit(Runnable)\u003c/code\u003e) until it returns 0\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1637859766962_30874579",
+      "id": "paragraph_1637859766962_30874579",
+      "dateCreated": "2021-11-25 17:02:46.962",
+      "dateStarted": "2022-03-24 11:02:24.721",
+      "dateFinished": "2022-03-24 11:02:24.735",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n\n### Block the query for a while\n\nWe can sleep the query execution through the:\n\u003cpre\u003e\napoc.util.sleep(\u0027duration in milliseconds\u0027)\n\u003c/pre\u003e\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-24 11:02:29.520",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eBlock the query for a while\u003c/h3\u003e\n\u003cp\u003eWe can sleep the query execution through the:\u003c/p\u003e\n\u003cpre\u003e\napoc.util.sleep(\u0027duration in milliseconds\u0027)\n\u003c/pre\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1637939076662_1723523791",
+      "id": "paragraph_1637939076662_1723523791",
+      "dateCreated": "2021-11-26 15:04:36.663",
+      "dateStarted": "2022-03-24 11:02:29.517",
+      "dateFinished": "2022-03-24 11:02:29.530",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\n\n// execute almost immediately the statement despite apoc.util.sleep\ncall apoc.periodic.submit(\u0027foo\u0027,\u0027call apoc.util.sleep(7000) create (n:Finished)\u0027)\nyield done return done",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:56:14.365",
+      "config": {
+        "colWidth": 8.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "done": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "done\nFALSE\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1637859619281_1658894694",
+      "id": "paragraph_1637859619281_1658894694",
+      "dateCreated": "2021-11-25 17:00:19.281",
+      "dateStarted": "2022-03-25 10:56:14.384",
+      "dateFinished": "2022-03-25 10:56:14.484",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\n\nmatch (n:Finished) return n",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:56:22.419",
+      "config": {
+        "colWidth": 4.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "id": "string",
+                      "label": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":41435,\"data\":{},\"label\":\"Finished\"}],\"edges\":[],\"labels\":{\"TTL\":\"#8721DB\",\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"Actor\":\"#9E008D\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\",\"NodeWithTime\":\"#161DEF\",\"Test\":\"#615488\",\"Finished\":\"#5A5A63\"},\"types\":[\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"MY_REL\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"DIRECTED\"],\"directed\":true}"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1637940237709_1836168786",
+      "id": "paragraph_1637940237709_1836168786",
+      "dateCreated": "2021-11-26 15:23:57.709",
+      "dateStarted": "2022-03-25 10:56:22.438",
+      "dateFinished": "2022-03-25 10:56:22.479",
+      "status": "FINISHED"
+    },
+    {
+      "title": "periodic.repeat",
+      "text": "%neo4j\ncall apoc.periodic.repeat(\"repeat-name\", \"CREATE (:CurrentTime {time: $time})\", 5, {params: {time: time() }})",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:56:47.362",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 84.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "name": "string",
+                      "delay": "string",
+                      "rate": "string",
+                      "done": "string",
+                      "cancelled": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tdelay\trate\tdone\tcancelled\n\"repeat-name\"\t0\t5\tFALSE\tFALSE\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1637940301456_1167496956",
+      "id": "paragraph_1637940301456_1167496956",
+      "dateCreated": "2021-11-26 15:25:01.456",
+      "dateStarted": "2022-03-25 10:56:47.383",
+      "dateFinished": "2022-03-25 10:56:47.452",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\ncall apoc.periodic.list()",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:58:20.161",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 184.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "name": "string",
+                      "delay": "string",
+                      "rate": "string",
+                      "done": "string",
+                      "cancelled": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1637938479096_2081287059",
+      "id": "paragraph_1637938479096_2081287059",
+      "dateCreated": "2021-11-26 14:54:39.106",
+      "dateStarted": "2022-03-25 10:58:20.182",
+      "dateFinished": "2022-03-25 10:58:20.195",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Check periodic.repeat",
+      "text": "%neo4j\nmatch (n:CurrentTime) return n",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:57:06.998",
+      "config": {
+        "colWidth": 8.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "id": "string",
+                      "label": "string",
+                      "time": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":41436,\"data\":{\"time\":{\"time\":{\"hour\":10,\"minute\":56,\"second\":47,\"nano\":406000000},\"offset\":{\"totalSeconds\":0}}},\"label\":\"CurrentTime\"},{\"id\":41437,\"data\":{\"time\":{\"time\":{\"hour\":10,\"minute\":56,\"second\":47,\"nano\":406000000},\"offset\":{\"totalSeconds\":0}}},\"label\":\"CurrentTime\"},{\"id\":41438,\"data\":{\"time\":{\"time\":{\"hour\":10,\"minute\":56,\"second\":47,\"nano\":406000000},\"offset\":{\"totalSeconds\":0}}},\"label\":\"CurrentTime\"},{\"id\":41439,\"data\":{\"time\":{\"time\":{\"hour\":10,\"minute\":56,\"second\":47,\"nano\":406000000},\"offset\":{\"totalSeconds\":0}}},\"label\":\"CurrentTime\"}],\"edges\":[],\"labels\":{\"TTL\":\"#8721DB\",\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"Actor\":\"#9E008D\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\",\"NodeWithTime\":\"#161DEF\",\"Test\":\"#615488\",\"Finished\":\"#5A5A63\",\"CurrentTime\":\"#1FBD07\"},\"types\":[\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"MY_REL\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"DIRECTED\"],\"directed\":true}"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1637940704100_888036127",
+      "id": "paragraph_1637940704100_888036127",
+      "dateCreated": "2021-11-26 15:31:44.101",
+      "dateStarted": "2022-03-25 10:57:07.015",
+      "dateFinished": "2022-03-25 10:57:07.038",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Cancel query",
+      "text": "%neo4j\n\ncall apoc.periodic.cancel(\"repeat-name\")",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:57:14.789",
+      "config": {
+        "colWidth": 4.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "name": "string",
+                      "delay": "string",
+                      "rate": "string",
+                      "done": "string",
+                      "cancelled": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tdelay\trate\tdone\tcancelled\n\"repeat-name\"\t0\t0\tTRUE\tTRUE\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1637940765072_1823280212",
+      "id": "paragraph_1637940765072_1823280212",
+      "dateCreated": "2021-11-26 15:32:45.072",
+      "dateStarted": "2022-03-25 10:57:14.809",
+      "dateFinished": "2022-03-25 10:57:14.855",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\nCREATE (:Counter {value: 20});\nCALL apoc.periodic.countdown(\"countdown\", \"MATCH (counter:Counter) SET counter.value \u003d counter.value - 1 RETURN counter.value\", 1)",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:57:54.106",
+      "config": {
+        "colWidth": 8.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 124.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "name": "string",
+                      "delay": "string",
+                      "rate": "string",
+                      "done": "string",
+                      "cancelled": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tdelay\trate\tdone\tcancelled\n\"countdown\"\t0\t1\tFALSE\tFALSE\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1637940832651_2054465436",
+      "id": "paragraph_1637940832651_2054465436",
+      "dateCreated": "2021-11-26 15:33:52.651",
+      "dateStarted": "2022-03-25 10:57:54.124",
+      "dateFinished": "2022-03-25 10:57:54.233",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\nMATCH (n:Counter) RETURN n.value",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:58:15.786",
+      "config": {
+        "colWidth": 4.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 124.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "n.value": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "n.value\n0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1637942221420_682749139",
+      "id": "paragraph_1637942221420_682749139",
+      "dateCreated": "2021-11-26 15:57:01.421",
+      "dateStarted": "2022-03-25 10:58:15.805",
+      "dateFinished": "2022-03-25 10:58:15.819",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n\n## Exercise\n\n- Create a nodes `(:Schedule {name: \u0027123\u0027})` ;\n- Create a apoc.periodic.repeat every 3 second to create a node `(:Found {name: name})` if `size()` of property `Schedule.name` \u003e 4 or else `(:NotFound {name: name})` via apoc.\n- Set name of Schedule --\u003e \u002712345\u0027\n- Check results\n- Cancel the repeat procedure\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:59:10.635",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eExercise\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eCreate a nodes \u003ccode\u003e(:Schedule {name: \u0027123\u0027})\u003c/code\u003e ;\u003c/li\u003e\n\u003cli\u003eCreate a apoc.periodic.repeat every 3 second to create a node \u003ccode\u003e(:Found {name: name})\u003c/code\u003e if \u003ccode\u003esize()\u003c/code\u003e of property \u003ccode\u003eSchedule.name\u003c/code\u003e \u0026gt; 4 or else \u003ccode\u003e(:NotFound {name: name})\u003c/code\u003e via apoc.\u003c/li\u003e\n\u003cli\u003eSet name of Schedule \u0026ndash;\u0026gt; \u0026lsquo;12345\u0026rsquo;\u003c/li\u003e\n\u003cli\u003eCheck results\u003c/li\u003e\n\u003cli\u003eCancel the repeat procedure\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1647958773245_2145023811",
+      "id": "paragraph_1647958773245_2145023811",
+      "dateCreated": "2022-03-22 14:19:33.245",
+      "dateStarted": "2022-03-25 10:59:10.631",
+      "dateFinished": "2022-03-25 10:59:10.649",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\n\nCREATE (n:Schedule {name: \u0027123\u0027});\n\n/* TODO */\nCall apoc.periodic.repeat(\u0027name\u0027, \u0027match (n:Schedule) with n.name as name call apoc.do.when(size(name) \u003e 4, \"create (:Found {name: $name})\", \"create (:NotFound {name: $name})\", {name: name}) yield value return value.n\u0027, 3, {})",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 11:08:32.737",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "name": "string",
+                      "delay": "string",
+                      "rate": "string",
+                      "done": "string",
+                      "cancelled": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tdelay\trate\tdone\tcancelled\n\"name\"\t0\t3\tFALSE\tFALSE\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1647958770291_877239562",
+      "id": "paragraph_1647958770291_877239562",
+      "dateCreated": "2022-03-22 14:19:30.291",
+      "dateStarted": "2022-03-25 11:08:32.759",
+      "dateFinished": "2022-03-25 11:08:32.878",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\n\nmatch (nf:NotFound) optional match (f:Found)\nreturn nf, f",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 11:08:54.787",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "id": "string",
+                      "label": "string",
+                      "name": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":41446,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41447,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41448,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41449,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41450,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41451,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41452,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41453,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41454,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41455,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41456,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41457,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41458,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41459,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41460,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41461,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41462,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41463,\"data\":{\"name\":\"123\"},\"label\":\"NotFound\"},{\"id\":41464,\"data\":{\"name\":\"12345\"},\"label\":\"Found\"},{\"id\":41465,\"data\":{\"name\":\"12345\"},\"label\":\"Found\"},{\"id\":41466,\"data\":{\"name\":\"12345\"},\"label\":\"Found\"},{\"id\":41467,\"data\":{\"name\":\"12345\"},\"label\":\"Found\"},{\"id\":41468,\"data\":{\"name\":\"12345\"},\"label\":\"Found\"},{\"id\":41469,\"data\":{\"name\":\"12345\"},\"label\":\"Found\"}],\"edges\":[],\"labels\":{\"TTL\":\"#8721DB\",\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\",\"Actor\":\"#9E008D\",\"TimeoutTest\":\"#2D204C\",\"Some\":\"#49BD96\",\"CsvPerson\":\"#2B6382\",\"MyLabel\":\"#4FAF7D\",\"Trigger\":\"#2AC49D\",\"NodeWithTime\":\"#161DEF\",\"Test\":\"#615488\",\"Finished\":\"#5A5A63\",\"CurrentTime\":\"#1FBD07\",\"Counter\":\"#73DCBB\",\"Schedule\":\"#D6870E\",\"NotFound\":\"#C84E0C\",\"Found\":\"#5C71C6\"},\"types\":[\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\",\"KNOWS\",\"MY_REL\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"DIRECTED\"],\"directed\":true}"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1647960523129_1844236766",
+      "id": "paragraph_1647960523129_1844236766",
+      "dateCreated": "2022-03-22 14:48:43.129",
+      "dateStarted": "2022-03-25 11:08:54.819",
+      "dateFinished": "2022-03-25 11:08:54.872",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\nMATCH (n:Schedule) SET n.name \u003d \u002712345\u0027;",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 11:08:48.895",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "id": "string",
+                      "label": "string",
+                      "name": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1647960487377_1081168348",
+      "id": "paragraph_1647960487377_1081168348",
+      "dateCreated": "2022-03-22 14:48:07.377",
+      "dateStarted": "2022-03-25 11:08:48.913",
+      "dateFinished": "2022-03-25 11:08:48.948",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\ncall apoc.periodic.cancel(\u0027name\u0027);",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 11:09:01.593",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "name": "string",
+                      "delay": "string",
+                      "rate": "string",
+                      "done": "string",
+                      "cancelled": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tdelay\trate\tdone\tcancelled\n\"name\"\t0\t0\tTRUE\tTRUE\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1647960976009_1232393439",
+      "id": "paragraph_1647960976009_1232393439",
+      "dateCreated": "2022-03-22 14:56:16.009",
+      "dateStarted": "2022-03-25 11:09:01.612",
+      "dateFinished": "2022-03-25 11:09:01.643",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n\n## [Property types manipulations](http://localhost:8080/#/notebook/2GN8QQ2U3)",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-24 11:02:43.145",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003e\u003ca href\u003d\"http://localhost:8080/#/notebook/2GN8QQ2U3\"\u003eProperty types manipulations\u003c/a\u003e\u003c/h2\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1636537568290_841176267",
+      "id": "paragraph_1636537568290_841176267",
+      "dateCreated": "2021-11-10 09:46:08.290",
+      "dateStarted": "2022-03-24 11:02:43.141",
+      "dateFinished": "2022-03-24 11:02:43.152",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-24 11:02:43.140",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1648119763140_1887948469",
+      "id": "paragraph_1648119763140_1887948469",
+      "dateCreated": "2022-03-24 11:02:43.140",
+      "status": "READY"
+    }
+  ],
+  "name": "5. Event listener - scheduler",
+  "id": "2GNBRY6RV",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0-preview2",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
