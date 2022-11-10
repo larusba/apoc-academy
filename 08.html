@@ -1,0 +1,396 @@
+
+<!-- saved from url=(0059)https://guides.neo4j.com/4.0-query-tuning-exercises/08.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><style type="text/css" media="screen">
+/*
+.nodes-image {
+	margin:-100;
+}
+*/	
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
+
+.imageblock .content img, .image img {max-width: 900px;max-height: 300px;}
+.deck h3, .deck h4 {display: block !important;margin-bottom:8px;margin-top:5px;}
+.listingblock {margin:8px;}
+.pull-bottom {position:relative;bottom:1em;}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note:before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip:before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning:before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution:before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important:before{content:"\f06a";color:#bf0000}
+.admonitionblock.note.speaker { display:none; }
+</style>
+<style type="text/css" media="screen">
+/* #editor.maximize-editor .CodeMirror-code { font-size:24px; line-height:26px; } */
+</style>
+</head><body><article class="guide" ng-controller="AdLibDataController">
+  <carousel class="deck container-fluid">
+    <!--slide class="row-fluid">
+      <div class="col-sm-3">
+        <h3>Exercise 8</h3>
+        <p class="lead">Information</p>
+			<!dl>
+				
+				
+				
+				
+				
+			</dl>
+		</div>
+      <div class="col-sm-9">
+        <figure>
+          <img style="width:300px" src=""/>
+        </figure>
+      </div>
+    </slide-->
+    
+
+   <h4>Exercise 8</h4>
+   
+
+<slide class="row-fluid">
+  <div class="col-sm-12">
+    <h3>Exercise 8: Getting Started with Neo4j Query Log Analyzer (Preparations)</h3>
+    <br>
+    <div>
+      <div class="paragraph">
+<p>Before you begin this exercise, you must use Neo4j Desktop as it is a graph app that executes within a Neo4j Desktop environment.
+In addition, you need to make DBMS configuration changes that are not possible when using Neo4j Sandbox or Neo4j Aura.</p>
+</div>
+	</div>
+  </div>
+</slide>
+
+
+<slide class="row-fluid">
+  <div class="col-sm-12">
+    <h3>Exercise 8: Getting Started with Neo4j Query Log Analyzer (Overview)</h3>
+    <br>
+    <div>
+      <div class="paragraph">
+<p>In this exercise, you will make some configuration changes to enable query logging.
+Then you will install and start using Neo4j Query Log Analyzer.</p>
+</div>
+<div class="paragraph">
+<p>In this exercise, you will:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Exercise 8.1</strong>: Prepare for query logging.</p>
+</li>
+<li>
+<p><strong>Exercise 8.2</strong>: Install the Query Log Analyzer Tool.</p>
+</li>
+<li>
+<p><strong>Exercise 8.3</strong>: Execute some queries that will be logged.</p>
+</li>
+<li>
+<p><strong>Exercise 8.4</strong>: View the queries logged using the Query Log Analyzer Tool.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Go to the next page to start this exercise.</p>
+</div>
+	</div>
+  </div>
+</slide>
+
+
+<slide class="row-fluid">
+  <div class="col-sm-12">
+    <h3>Exercise 8.1: Prepare for query logging (Instructions)</h3>
+    <br>
+    <div>
+      <div class="paragraph">
+<p>Add these settings to enable query logging:</p>
+</div>
+<div class="paragraph">
+<p><strong>Hint</strong>: You can add them to the end of the settings file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>dbms.logs.query.enabled=true
+# If the execution of query takes more time than this threshold,
+# the query is logged. If set to zero then all queries
+dbms.logs.query.threshold=100ms
+dbms.logs.query.parameter_logging_enabled=true
+dbms.logs.query.time_logging_enabled=true
+dbms.logs.query.allocation_logging_enabled=true
+dbms.logs.query.page_logging_enabled=true
+dbms.track_query_cpu_time=true
+dbms.track_query_allocation=true</pre>
+</div>
+</div>
+	</div>
+  </div>
+</slide>
+
+
+<slide class="row-fluid">
+  <div class="col-sm-12">
+    <h3>Exercise 8.1: Prepare for query logging  (Solution)</h3>
+    <br>
+    <div>
+      <div class="paragraph">
+<p>Add these settings to enable query logging:</p>
+</div>
+<div class="paragraph">
+<p><strong>Hint</strong>: You can add them to the end of the settings file.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In Neo4j Desktop click the 3 dots to currently running DBMS.</p>
+</li>
+<li>
+<p>Select <strong>Settings</strong> tab.</p>
+</li>
+<li>
+<p>Add the following code to the end of this file.</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>dbms.logs.query.enabled=true
+# If the execution of query takes more time than this threshold,
+# the query is logged. If set to zero then all queries
+dbms.logs.query.threshold=100ms
+dbms.logs.query.parameter_logging_enabled=true
+dbms.logs.query.time_logging_enabled=true
+dbms.logs.query.allocation_logging_enabled=true
+dbms.logs.query.page_logging_enabled=true
+dbms.track_query_cpu_time=true
+dbms.track_query_allocation=true</pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="4">
+<li>
+<p>Click <strong>Apply</strong> which will restart the database.</p>
+</li>
+</ol>
+</div>
+	</div>
+  </div>
+</slide>
+
+
+<slide class="row-fluid">
+  <div class="col-sm-12">
+    <h3>Exercise 8.2: Install the Query Log Analyzer Tool (Guided Exercise: Instructions + Solution)</h3>
+    <br>
+    <div>
+      <div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In Neo4j Desktop, for the project your are working with for this course, click  the <strong>Graph Apps</strong> icon in the left panel.</p>
+</li>
+<li>
+<p>Click the <strong>Graph Apps Gallery</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock thumb">
+<div class="content">
+<img src="./08_files/1-QLA-GraphAppsGallery.png" alt="1-QLA-GraphAppsGallery" width="600">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="3">
+<li>
+<p>Click the link for the Query Log Analyzer Tool which will open a window to <a href="https://neo.jfrog.io/neo/api/npm/npm/query-log-analyzer" class="bare">https://neo.jfrog.io/neo/api/npm/npm/query-log-analyzer</a>. This is the install location for this app.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock thumb">
+<div class="content">
+<img src="./08_files/2-QLA-nstallQueryLogAnalyzer.png" alt="2-QLA-nstallQueryLogAnalyzer" width="500">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="4">
+<li>
+<p>Back in Neo4j Desktop, paste this address in the Install field, and then click <strong>Install</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock thumb">
+<div class="content">
+<img src="./08_files/3-QLA-InstallQueryLogAnalyzer2.png" alt="3-QLA-InstallQueryLogAnalyzer2" width="600">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="5">
+<li>
+<p>A window will appear about the digital certificate for this app. You can click <strong>OK</strong> to continue the installation.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock thumb">
+<div class="content">
+<img src="./08_files/4-QLA-OKToInstallQueryLogAnalyzer.png" alt="4-QLA-OKToInstallQueryLogAnalyzer" width="600">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="6">
+<li>
+<p>You will now see Neo4j Query Log Analyzer as an available Graph App. Click it to start it.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock thumb">
+<div class="content">
+<img src="./08_files/5-QLA.png" alt="5-QLA" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>You are now ready to analyze queries that are logged. (Completed queries).</p>
+</div>
+	</div>
+  </div>
+</slide>
+
+
+<slide class="row-fluid">
+  <div class="col-sm-12">
+    <h3>Exercise 8.3: Execute some queries that will be logged (Instructions)</h3>
+    <br>
+    <div>
+      <div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>From your main Neo4j Browser session, type <code>:history</code> to view many of your past queries. Select a set of them to execute.</p>
+</li>
+<li>
+<p>Confirm that the queries have been written to the query.log file.</p>
+</li>
+<li>
+<p>Make a note of the location of the query.log file as you will be opening it in the Query Log Analyzer Tool.</p>
+</li>
+</ol>
+</div>
+	</div>
+  </div>
+</slide>
+
+
+<slide class="row-fluid">
+  <div class="col-sm-12">
+    <h3>Exercise 8.3: Execute some queries that will be logged (Solution)</h3>
+    <br>
+    <div>
+      <div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>From your main Neo4j Browser session, type <code>:history</code> to view many of your past queries. Select a set of them to execute.</p>
+</li>
+<li>
+<p>Confirm that the queries have been written to the query.log file.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Select the 3 dots to the right of the DBMS.</p>
+</li>
+<li>
+<p>Select <strong>Open Folder &gt; Logs</strong>.</p>
+</li>
+<li>
+<p>Ensure that <strong>query.log</strong> exists in the <strong>logs</strong> folder.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Make a note of the location of the query.log file as you will be opening it in the Query Log Analyzer Tool.</p>
+</li>
+</ol>
+</div>
+	</div>
+  </div>
+</slide>
+
+
+<slide class="row-fluid">
+  <div class="col-sm-12">
+    <h3>Exercise 8.4: View the queries logged using the Query Log Analyzer Tool (Instructions)</h3>
+    <br>
+    <div>
+      <div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Go to Neo4j Query Log Analyzer Tool.</p>
+</li>
+<li>
+<p>Select the query.log file.</p>
+</li>
+<li>
+<p>Click Analyze File.</p>
+</li>
+<li>
+<p>Explore the queries logged.</p>
+</li>
+</ol>
+</div>
+	</div>
+  </div>
+</slide>
+
+
+<slide class="row-fluid">
+  <div class="col-sm-12">
+    <h3>Exercise 8.4: View the queries logged using the Query Log Analyzer Tool (Solution)</h3>
+    <br>
+    <div>
+      <div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>From Neo4j Desktop, open the Neo4j Query Log Analyzer Tool.</p>
+</li>
+<li>
+<p>Select the query.log file.</p>
+</li>
+<li>
+<p>Click Analyze File.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Depending on what queries were logged, you will now see this:</p>
+</div>
+<div class="imageblock thumb">
+<div class="content">
+<img src="./08_files/EX8.4.png" alt="EX8.4" width="700">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="4">
+<li>
+<p>Explore the queries logged.</p>
+</li>
+</ol>
+</div>
+	</div>
+  </div>
+</slide>
+
+
+<slide class="row-fluid">
+  <div class="col-sm-12">
+    <h3>Exercise 8: Getting Started with Neo4j Query Log Analyzer (Summary)</h3>
+    <br>
+    <div>
+      <div class="paragraph">
+<p>In this exercise, you will made some configuration changes to enable query logging.
+Then you installed and started using Neo4j Query Log Analyzer.</p>
+</div>
+<div class="paragraph">
+<p>Congratulations! You have completed the exercises for this course.</p>
+</div>
+	</div>
+  </div>
+</slide>
+  </carousel>
+</article></body></html>

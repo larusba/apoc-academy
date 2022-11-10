@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<catalog>
+   <book id="bk101">
+      <author>Gambardella, Matthew</author>
+      <author>Arciniegas, Fabio</author>
+      <title>XML Developer's Guide</title>
+      <genre>Computer</genre>
+      <description>An in-depth look....</description>
+   </book>
+   <book id="bk102">
+      <author>Ralls, Kim</author>
+      <title>Midnight Rain</title>
+      <genre>Fantasy</genre>
+      <description>Bla bla bla</description>
+   </book>
+   <book id="bk110">
+      <author>O'Brien, Tim</author>
+      <title>Microsoft .NET: The Programming Bible</title>
+      <genre>Computer</genre>
+      <description>qwertyuiop</description>
+   </book>
+</catalog>

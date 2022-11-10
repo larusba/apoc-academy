@@ -1,0 +1,1509 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n\n# Cypher Execution\n\nThe Apoc library comes with many procedure to help us to execute specific Cypher statements. here are some of them: \n\n\n- `apoc.cypher.run(fragment, $params)` - executes a reading fragment with the given parameters\n- `apoc.cypher.doIt(fragment, $params)` - executes writing fragment\n- `apoc.cypher.runFile(file or url, $params)` - runs each statement in the file, all semicolon separated - currently no schema operations\n- `apoc.cypher.runSchema(statement, $params)` yield value - executes query schema statement\n- `apoc.cypher.runSchemaFile(file or url, $params)` - allows only schema operations, runs each schema statement in the file, all semicolon separated\n- `apoc.cypher.runTimeboxed(\u0027fragment\u0027,$params, timeout)` - abort transaction after `timeout` and return results\n\nSee \u003ca href\u003d\"https://neo4j.com/labs/apoc/4.1/cypher-execution/\" target\u003d\"_blank\"\u003ehere\u003c/a\u003e to complete list.\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-24 11:00:29.098",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eCypher Execution\u003c/h1\u003e\n\u003cp\u003eThe Apoc library comes with many procedure to help us to execute specific Cypher statements. here are some of them:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eapoc.cypher.run(fragment, $params)\u003c/code\u003e - executes a reading fragment with the given parameters\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.cypher.doIt(fragment, $params)\u003c/code\u003e - executes writing fragment\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.cypher.runFile(file or url, $params)\u003c/code\u003e - runs each statement in the file, all semicolon separated - currently no schema operations\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.cypher.runSchema(statement, $params)\u003c/code\u003e yield value - executes query schema statement\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.cypher.runSchemaFile(file or url, $params)\u003c/code\u003e - allows only schema operations, runs each schema statement in the file, all semicolon separated\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.cypher.runTimeboxed(\u0027fragment\u0027,$params, timeout)\u003c/code\u003e - abort transaction after \u003ccode\u003etimeout\u003c/code\u003e and return results\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eSee \u003ca href\u003d\"https://neo4j.com/labs/apoc/4.1/cypher-execution/\" target\u003d\"_blank\"\u003ehere\u003c/a\u003e to complete list.\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1635854661682_1970406879",
+      "id": "paragraph_1635854661682_1970406879",
+      "dateCreated": "2021-11-02 12:04:21.682",
+      "dateStarted": "2022-03-24 11:00:29.095",
+      "dateFinished": "2022-03-24 11:00:29.109",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n\n### apoc.cypher.run\n\nTo retrieve count of nodes for each labels we could do something like:\n\u003cpre\u003e\nMATCH (:Person) RETURN count(*)\nUNION ALL\nMATCH (:Movie) RETURN count(*)\nUNION ALL\n...\n\u003c/pre\u003e\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-24 11:00:38.726",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eapoc.cypher.run\u003c/h3\u003e\n\u003cp\u003eTo retrieve count of nodes for each labels we could do something like:\u003c/p\u003e\n\u003cpre\u003e\nMATCH (:Person) RETURN count(*)\nUNION ALL\nMATCH (:Movie) RETURN count(*)\nUNION ALL\n...\n\u003c/pre\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1635858459697_1303077886",
+      "id": "paragraph_1635858459697_1303077886",
+      "dateCreated": "2021-11-02 13:07:39.697",
+      "dateStarted": "2022-03-24 11:00:38.726",
+      "dateFinished": "2022-03-24 11:00:38.737",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Example",
+      "text": "%neo4j\n\nCALL db.labels() yield label\n// we can concatenate string and variables (label)\n// otherwise, with pure cypher it would be `match (:label) ...` (doesn\u0027t work) because it would searching for nodes with label `:label`\nCALL apoc.cypher.run(\"match (:`\"+label+\"`) return count(*) as count\", null) yield value\nreturn label, value.count as count",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:16:36.844",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 195.994,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "label": "string",
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "title": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "label\tcount\n\"TTL\"\t0\n\"Movie\"\t40\n\"Person\"\t135\n\"NotFracchia\"\t132\n\"MyCaseNode\"\t3\n\"NodePeriodic\"\t9999\n\"End\"\t9999\n\"Start\"\t1002\n\"Batch\"\t100\n\"Alert\"\t2\n\"Article\"\t1\n\"Module\"\t6\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1635858066468_27777609",
+      "id": "paragraph_1635858066468_27777609",
+      "dateCreated": "2021-11-02 13:01:06.468",
+      "dateStarted": "2022-03-25 10:16:36.869",
+      "dateFinished": "2022-03-25 10:16:37.165",
+      "status": "FINISHED"
+    },
+    {
+      "title": "apoc.cypher.runFile",
+      "text": "%neo4j\n\n// I have a file `fileExample.cypher` with this content:\n// CREATE (n:Node {id:1});\n// MATCH (n:Node) SET n.import \u003d true;\n\ncall apoc.cypher.runFile(\"fileExample.cypher\");",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:16:50.441",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 184.006,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "row": "string",
+                      "result.constraintsRemoved": "string",
+                      "result.indexesRemoved": "string",
+                      "result.nodesCreated": "string",
+                      "result.rows": "string",
+                      "result.propertiesSet": "string",
+                      "result.labelsRemoved": "string",
+                      "result.relationshipsDeleted": "string",
+                      "result.constraintsAdded": "string",
+                      "result.nodesDeleted": "string",
+                      "result.indexesAdded": "string",
+                      "result.labelsAdded": "string",
+                      "result.relationshipsCreated": "string",
+                      "result.time": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "row\tresult.constraintsRemoved\tresult.indexesRemoved\tresult.nodesCreated\tresult.rows\tresult.propertiesSet\tresult.labelsRemoved\tresult.relationshipsDeleted\tresult.constraintsAdded\tresult.nodesDeleted\tresult.indexesAdded\tresult.labelsAdded\tresult.relationshipsCreated\tresult.time\n-1\t0\t0\t1\t0\t1\t0\t0\t0\t0\t0\t1\t0\t0\n-1\t0\t0\t0\t0\t1\t0\t0\t0\t0\t0\t0\t0\t0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1635860142585_1100337140",
+      "id": "paragraph_1635860142585_1100337140",
+      "dateCreated": "2021-11-02 13:35:42.586",
+      "dateStarted": "2022-03-25 10:16:50.460",
+      "dateFinished": "2022-03-25 10:16:50.630",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Check results",
+      "text": "%neo4j\n\n\n\nmatch (n:Node {id: 1}) return n\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:16:58.615",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "id": "string",
+                      "label": "string",
+                      "import": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "title": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":21419,\"data\":{\"import\":true,\"id\":1},\"label\":\"Node\"}],\"edges\":[],\"labels\":{\"TTL\":\"#8721DB\",\"Movie\":\"#D56EA6\",\"Person\":\"#5C81D5\",\"NotFracchia\":\"#396893\",\"MyCaseNode\":\"#DCCECE\",\"NodePeriodic\":\"#59A787\",\"End\":\"#E4C908\",\"Start\":\"#58B9C1\",\"Batch\":\"#0ED68A\",\"Alert\":\"#7DC352\",\"Article\":\"#F24FB7\",\"Module\":\"#633B9C\",\"Node\":\"#35FB5A\"},\"types\":[\"MY_REL\",\"ACTED_IN\",\"REVIEWED\",\"HAS_MOVIE\",\"PRODUCED\",\"WROTE\",\"MY_PERIODIC_REL\",\"FOLLOWS\",\"DIRECTED\",\"DEPENDS_ON\",\"MY_CASE_REL\",\"ANOTHER\"],\"directed\":true}"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1635860300022_129065438",
+      "id": "paragraph_1635860300022_129065438",
+      "dateCreated": "2021-11-02 13:38:20.022",
+      "dateStarted": "2022-03-25 10:16:58.638",
+      "dateFinished": "2022-03-25 10:16:58.700",
+      "status": "FINISHED"
+    },
+    {
+      "title": "apoc.cypher.runSchemaFile",
+      "text": "%neo4j\n\n// File content:\n// CREATE INDEX FOR (a:Actor) ON (a.name, a.born);\n// CREATE CONSTRAINT ON (movie:Movie) ASSERT movie.title IS UNIQUE\n\nCALL apoc.cypher.runSchemaFile(\"fileExampleSchema.cypher\");",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:17:10.176",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 238.011,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "row": "string",
+                      "result.constraintsRemoved": "string",
+                      "result.indexesRemoved": "string",
+                      "result.nodesCreated": "string",
+                      "result.rows": "string",
+                      "result.propertiesSet": "string",
+                      "result.labelsRemoved": "string",
+                      "result.relationshipsDeleted": "string",
+                      "result.constraintsAdded": "string",
+                      "result.nodesDeleted": "string",
+                      "result.indexesAdded": "string",
+                      "result.labelsAdded": "string",
+                      "result.relationshipsCreated": "string",
+                      "result.time": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "title": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "row\tresult.constraintsRemoved\tresult.indexesRemoved\tresult.nodesCreated\tresult.rows\tresult.propertiesSet\tresult.labelsRemoved\tresult.relationshipsDeleted\tresult.constraintsAdded\tresult.nodesDeleted\tresult.indexesAdded\tresult.labelsAdded\tresult.relationshipsCreated\tresult.time\n-1\t0\t0\t0\t0\t0\t0\t0\t0\t0\t1\t0\t0\t0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1635862450813_1749992024",
+      "id": "paragraph_1635862450813_1749992024",
+      "dateCreated": "2021-11-02 14:14:10.814",
+      "dateStarted": "2022-03-25 10:17:10.202",
+      "dateFinished": "2022-03-25 10:17:10.379",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Check results",
+      "text": "%neo4j\ncall db.indexes",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:17:16.759",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 324.006,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "id": "string",
+                      "name": "string",
+                      "state": "string",
+                      "populationPercent": "string",
+                      "uniqueness": "string",
+                      "type": "string",
+                      "entityType": "string",
+                      "labelsOrTypes": "string",
+                      "properties": "string",
+                      "provider": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "title": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "id\tname\tstate\tpopulationPercent\tuniqueness\ttype\tentityType\tlabelsOrTypes\tproperties\tprovider\n5\t\"constraint_person\"\t\"ONLINE\"\t100.0\t\"UNIQUE\"\t\"BTREE\"\t\"NODE\"\t[\"Person\"]\t[\"name\"]\t\"native-btree-1.0\"\n1\t\"index_343aff4e\"\t\"ONLINE\"\t100.0\t\"NONUNIQUE\"\t\"LOOKUP\"\t\"NODE\"\t[]\t[]\t\"token-lookup-1.0\"\n3\t\"index_a5e3e466\"\t\"ONLINE\"\t100.0\t\"NONUNIQUE\"\t\"BTREE\"\t\"NODE\"\t[\"TTL\"]\t[\"ttl\"]\t\"native-btree-1.0\"\n7\t\"index_d3911f47\"\t\"ONLINE\"\t100.0\t\"NONUNIQUE\"\t\"BTREE\"\t\"NODE\"\t[\"Actor\"]\t[\"name\",\"born\"]\t\"native-btree-1.0\"\n2\t\"index_f7700477\"\t\"ONLINE\"\t100.0\t\"NONUNIQUE\"\t\"LOOKUP\"\t\"RELATIONSHIP\"\t[]\t[]\t\"token-lookup-1.0\"\n4\t\"index_movie\"\t\"ONLINE\"\t100.0\t\"NONUNIQUE\"\t\"BTREE\"\t\"NODE\"\t[\"Movie\"]\t[\"title\"]\t\"native-btree-1.0\"\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1635862549037_1694262330",
+      "id": "paragraph_1635862549037_1694262330",
+      "dateCreated": "2021-11-02 14:15:49.037",
+      "dateStarted": "2022-03-25 10:17:16.779",
+      "dateFinished": "2022-03-25 10:17:16.837",
+      "status": "FINISHED"
+    },
+    {
+      "title": "apoc.cypher.runTimeboxed",
+      "text": "%neo4j\n\n// I create 20000 \u0027TimeoutTest\u0027 nodes\nUNWIND range(1, 20000) as idx CREATE (n:TimeoutTest {id: idx});\n\ncall apoc.cypher.runTimeboxed(\"match (n:TimeoutTest) RETURN n\", {}, 100) // I set a small timeout\nYIELD value\nRETURN count(value.n.id);\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:17:56.511",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 114.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "count(value.n.id)": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "title": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "count(value.n.id)\n9798\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1635862617028_1273613672",
+      "id": "paragraph_1635862617028_1273613672",
+      "dateCreated": "2021-11-02 14:16:57.028",
+      "dateStarted": "2022-03-25 10:17:56.548",
+      "dateFinished": "2022-03-25 10:17:57.024",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n\n## Custom procedures and functions\n\n- `apoc.custom.declareProcedure(signature, cypher, mode, description)` - where mode indicates the query type allowed. can be read (default), write, schema or dbms\n- `apoc.custom.declareFunction(signature, cypher, forceSingle, description)`\n\n`signature` it similar to signature result from call `dbms.procedures()`, `call dbms.functions()`, except for optional `?`.\n\nSo it\u0027s `nameProcedureOrFunction(param1 :: TYPE \u003d defaultValue1, param2 :: TYPE \u003d defaultValue2, ... ) :: (result1 :: TYPE, result2 :: TYPE, ...)`,\nwhere ` \u003d defaultValueN` is optional\nor nameFunction(param1 :: TYPE \u003d defaultValue1, param2 :: TYPE \u003d defaultValue2, ... ) :: TYPE,\n\nwhere `TYPE` can be:  `INTEGER,FLOAT,STRING,BOOLEAN,RELATIONSHIP,NODE,PATH,NULL,ANY,MAP,LIST,POINT,DATE,DATE_TIME,LOCAL_TIME,LOCAL_DATE_TIME,TIME,DURATION` or `LIST OF \u003cPREVIOUS_VALUE\u003e`\n\n\u003cpre\u003e\nCurrently cypher has a problem cleaning the cache with functions and procedures with the same name, even with  db.clearQueryCaches().\nSo it is recommended not to overwrite them or put in neo4j.conf  `dbms.query_cache_size\u003d1`\n\u003c/pre\u003e\n\nThe procedure/function will be saved with name `custom.NAME`\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-24 11:00:45.914",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eCustom procedures and functions\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eapoc.custom.declareProcedure(signature, cypher, mode, description)\u003c/code\u003e - where mode indicates the query type allowed. can be read (default), write, schema or dbms\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.custom.declareFunction(signature, cypher, forceSingle, description)\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003ccode\u003esignature\u003c/code\u003e it similar to signature result from call \u003ccode\u003edbms.procedures()\u003c/code\u003e, \u003ccode\u003ecall dbms.functions()\u003c/code\u003e, except for optional \u003ccode\u003e?\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eSo it\u0026rsquo;s \u003ccode\u003enameProcedureOrFunction(param1 :: TYPE \u003d defaultValue1, param2 :: TYPE \u003d defaultValue2, ... ) :: (result1 :: TYPE, result2 :: TYPE, ...)\u003c/code\u003e,\u003cbr /\u003e\nwhere \u003ccode\u003e\u003d defaultValueN\u003c/code\u003e is optional\u003cbr /\u003e\nor nameFunction(param1 :: TYPE \u003d defaultValue1, param2 :: TYPE \u003d defaultValue2, \u0026hellip; ) :: TYPE,\u003c/p\u003e\n\u003cp\u003ewhere \u003ccode\u003eTYPE\u003c/code\u003e can be:  \u003ccode\u003eINTEGER,FLOAT,STRING,BOOLEAN,RELATIONSHIP,NODE,PATH,NULL,ANY,MAP,LIST,POINT,DATE,DATE_TIME,LOCAL_TIME,LOCAL_DATE_TIME,TIME,DURATION\u003c/code\u003e or \u003ccode\u003eLIST OF \u0026lt;PREVIOUS_VALUE\u0026gt;\u003c/code\u003e\u003c/p\u003e\n\u003cpre\u003e\nCurrently cypher has a problem cleaning the cache with functions and procedures with the same name, even with  db.clearQueryCaches().\nSo it is recommended not to overwrite them or put in neo4j.conf  `dbms.query_cache_size\u003d1`\n\u003c/pre\u003e\n\u003cp\u003eThe procedure/function will be saved with name \u003ccode\u003ecustom.NAME\u003c/code\u003e\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1637683072700_424785560",
+      "id": "paragraph_1637683072700_424785560",
+      "dateCreated": "2021-11-23 15:57:52.700",
+      "dateStarted": "2022-03-24 11:00:45.913",
+      "dateFinished": "2022-03-24 11:00:45.925",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\n\nCALL apoc.custom.declareProcedure(\n  \u0027ajeje(input::INT, product::INT) :: (answer::INT)\u0027,\n  \u0027UNWIND range(0, $product) AS power RETURN $input ^ power AS answer\u0027\n);",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:19:36.792",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1637684276341_1049085164",
+      "id": "paragraph_1637684276341_1049085164",
+      "dateCreated": "2021-11-23 16:17:56.341",
+      "dateStarted": "2022-03-25 10:19:36.810",
+      "dateFinished": "2022-03-25 10:19:36.939",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\n\nCALL custom.ajeje(4,3);\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:19:41.610",
+      "config": {
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/undefined",
+        "fontSize": 9.0,
+        "editorHide": false,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 194.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "answer": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "answer\n1.0\n4.0\n16.0\n64.0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1637684292414_1908513508",
+      "id": "paragraph_1637684292414_1908513508",
+      "dateCreated": "2021-11-23 16:18:12.414",
+      "dateStarted": "2022-03-25 10:19:41.634",
+      "dateFinished": "2022-03-25 10:19:41.711",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\n\n\nCALL apoc.custom.declareFunction(\n  \u0027brazorf(input::INT) :: INT\u0027,\n  \u0027RETURN $input*2 as answer\u0027\n);",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:20:14.780",
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/undefined",
+        "fontSize": 9.0,
+        "editorHide": false,
+        "results": {},
+        "enabled": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1637684348807_692323716",
+      "id": "paragraph_1637684348807_692323716",
+      "dateCreated": "2021-11-23 16:19:08.807",
+      "dateStarted": "2022-03-25 10:20:14.800",
+      "dateFinished": "2022-03-25 10:20:14.859",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\n\nRETURN custom.brazorf(83) AS value;",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:20:21.738",
+      "config": {
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/undefined",
+        "fontSize": 9.0,
+        "editorHide": false,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 84.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "value": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "value\n166\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1637684349522_1980156289",
+      "id": "paragraph_1637684349522_1980156289",
+      "dateCreated": "2021-11-23 16:19:09.523",
+      "dateStarted": "2022-03-25 10:20:21.767",
+      "dateFinished": "2022-03-25 10:20:21.816",
+      "status": "FINISHED"
+    },
+    {
+      "title": "Force list config: true",
+      "text": "%neo4j\n\n\nCALL apoc.custom.declareFunction(\n  \u0027forceSingleTrue1(input::ANY) :: LIST OF INT\u0027,\n  \u0027RETURN 1\u0027, \n  true\n);",
+      "user": "anonymous",
+      "dateUpdated": "2022-05-25 15:37:23.535",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Failed to invoke procedure `apoc.custom.declareFunction`: Caused by: org.neo4j.graphdb.MultipleFoundException: Found multiple nodes with label: \u0027ApocCypherProceduresMeta\u0027, property name: \u0027database\u0027 and property value: \u0027neo4j\u0027 while only one was expected."
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1637685408313_226305696",
+      "id": "paragraph_1637685408313_226305696",
+      "dateCreated": "2021-11-23 16:36:48.314",
+      "dateStarted": "2022-05-25 15:37:23.548",
+      "dateFinished": "2022-05-25 15:37:23.596",
+      "status": "ERROR"
+    },
+    {
+      "title": "Force list config: false",
+      "text": "%neo4j\n\n\nCALL apoc.custom.declareFunction(\n  \u0027forceSingleFalse(input::ANY) :: LIST OF INT\u0027,\n  \u0027RETURN 1\u0027,\n  false\n);",
+      "user": "anonymous",
+      "dateUpdated": "2022-05-25 15:28:41.716",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": false,
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1637686437571_1246927786",
+      "id": "paragraph_1637686437571_1246927786",
+      "dateCreated": "2021-11-23 16:53:57.571",
+      "dateStarted": "2022-05-25 15:28:41.799",
+      "dateFinished": "2022-05-25 15:28:43.241",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\n\nRETURN custom.forceSingleTrue()",
+      "user": "anonymous",
+      "dateUpdated": "2022-05-25 15:28:44.898",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 90.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "custom.forceSingleTrue()": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": false,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "custom.forceSingleTrue()\n1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1637685433590_1312379145",
+      "id": "paragraph_1637685433590_1312379145",
+      "dateCreated": "2021-11-23 16:37:13.590",
+      "dateStarted": "2022-05-25 15:28:44.917",
+      "dateFinished": "2022-05-25 15:28:45.052",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\n\nRETURN custom.forceSingleFalse()",
+      "user": "anonymous",
+      "dateUpdated": "2022-05-25 15:28:46.940",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 90.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "custom.forceSingleFalse()": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": false,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "custom.forceSingleFalse()\n[1]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1637685598192_390040203",
+      "id": "paragraph_1637685598192_390040203",
+      "dateCreated": "2021-11-23 16:39:58.192",
+      "dateStarted": "2022-05-25 15:28:46.957",
+      "dateFinished": "2022-05-25 15:28:47.112",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\n\ncall apoc.custom.declareProcedure(\n  \u0027writeSomething1() :: (answer::INT)\u0027,\n  \u0027CREATE (n:Some)\u0027,\n   \u0027write\u0027,\n   \u0027opt description\u0027\n);",
+      "user": "anonymous",
+      "dateUpdated": "2022-05-25 15:36:39.942",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Failed to invoke procedure `apoc.custom.declareProcedure`: Caused by: org.neo4j.graphdb.MultipleFoundException: Found multiple nodes with label: \u0027ApocCypherProceduresMeta\u0027, property name: \u0027database\u0027 and property value: \u0027neo4j\u0027 while only one was expected."
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1638287319801_598676474",
+      "id": "paragraph_1638287319801_598676474",
+      "dateCreated": "2021-11-30 15:48:39.802",
+      "dateStarted": "2022-05-25 15:36:39.955",
+      "dateFinished": "2022-05-25 15:36:40.020",
+      "status": "ERROR"
+    },
+    {
+      "text": "%neo4j\n\nCALL custom.writeSomething();\nMATCH (n:Some) RETURN n;",
+      "user": "anonymous",
+      "dateUpdated": "2022-05-25 15:36:30.758",
+      "config": {
+        "colWidth": 6.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 154.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "id": "string",
+                      "label": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": false,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "NETWORK",
+            "data": "{\"nodes\":[{\"id\":0,\"data\":{},\"label\":\"Some\"}],\"edges\":[],\"labels\":{\"TTL\":\"#9B71E9\",\"Some\":\"#8241D4\"},\"types\":[],\"directed\":true}"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1638287451028_957677354",
+      "id": "paragraph_1638287451028_957677354",
+      "dateCreated": "2021-11-30 15:50:51.028",
+      "dateStarted": "2022-05-25 15:36:30.774",
+      "dateFinished": "2022-05-25 15:36:31.205",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n## Statements in parallel\n\n- `apoc.cypher.mapParallel2(statement, params, list-to-parallelize, numPartitions, timeout)`\n- `apoc.cypher.parallel2(statement, params, parallelizeOn)`",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-24 11:00:53.881",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eStatements in parallel\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eapoc.cypher.mapParallel2(statement, params, list-to-parallelize, numPartitions, timeout)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.cypher.parallel2(statement, params, parallelizeOn)\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1638287248663_755101432",
+      "id": "paragraph_1638287248663_755101432",
+      "dateCreated": "2021-11-30 15:47:28.663",
+      "dateStarted": "2022-03-24 11:00:53.882",
+      "dateFinished": "2022-03-24 11:00:53.890",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\n\n// apoc.cypher.mapParallel is similar to apoc.cypher.mapParallel2 but less customizable and stable\n\nmatch (p:Person) WITH collect(p) as people\nCALL apoc.cypher.mapParallel2(\"MATCH (_)-[]-\u003e(p:Movie) RETURN collect(p.title + $t) as title\", {t: \" - ok\"}, people, \n10,  // with 0 --\u003e calculate the number of partition retrieving the num. of procs available from JVM through the java.lang.Runtime.availableProcessors()\n10) yield value\nreturn value.title",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:23:14.683",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "value.title": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "value.title\n[\"That Thing You Do - ok\",\"The Replacements - ok\",\"Unforgiven - ok\",\"The Birdcage - ok\",\"The Replacements - ok\",\"The Replacements - ok\",\"The Replacements - ok\",\"RescueDawn - ok\",\"RescueDawn - ok\",\"Twister - ok\",\"The Birdcage - ok\",\"Charlie Wilson\u0027s War - ok\",\"Unforgiven - ok\",\"Unforgiven - ok\",\"Unforgiven - ok\",\"Johnny Mnemonic - ok\",\"Johnny Mnemonic - ok\",\"Johnny Mnemonic - ok\",\"Johnny Mnemonic - ok\"]\n[\"Frost/Nixon - ok\",\"Bicentennial Man - ok\",\"Hoffa - ok\",\"Hoffa - ok\",\"One Flew Over the Cuckoo\u0027s Nest - ok\",\"Hoffa - ok\",\"Apollo 13 - ok\",\"Twister - ok\",\"A League of Their Own - ok\",\"Apollo 13 - ok\",\"Twister - ok\",\"Charlie Wilson\u0027s War - ok\",\"Twister - ok\",\"Cast Away - ok\",\"The Polar Express - ok\",\"One Flew Over the Cuckoo\u0027s Nest - ok\",\"Something\u0027s Gotta Give - ok\",\"Something\u0027s Gotta Give - ok\",\"Something\u0027s Gotta Give - ok\",\"Something\u0027s Gotta Give - ok\",\"Bicentennial Man - ok\",\"Charlie Wilson\u0027s War - ok\",\"A League of Their Own - ok\"]\n[\"A League of Their Own - ok\",\"A League of Their Own - ok\",\"A League of Their Own - ok\",\"The Replacements - ok\",\"The Da Vinci Code - ok\",\"The Replacements - ok\",\"Jerry Maguire - ok\",\"Cloud Atlas - ok\",\"The Birdcage - ok\",\"Unforgiven - ok\",\"The Replacements - ok\",\"The Da Vinci Code - ok\"]\n[\"Stand By Me - ok\",\"Stand By Me - ok\",\"RescueDawn - ok\",\"As Good as It Gets - ok\",\"Cast Away - ok\",\"Twister - ok\",\"You\u0027ve Got Mail - ok\",\"As Good as It Gets - ok\",\"As Good as It Gets - ok\",\"What Dreams May Come - ok\",\"What Dreams May Come - ok\",\"Snow Falling on Cedars - ok\",\"RescueDawn - ok\",\"What Dreams May Come - ok\",\"What Dreams May Come - ok\",\"Bicentennial Man - ok\",\"The Birdcage - ok\",\"What Dreams May Come - ok\",\"Snow Falling on Cedars - ok\",\"Ninja Assassin - ok\",\"Snow Falling on Cedars - ok\",\"The Green Mile - ok\",\"Snow Falling on Cedars - ok\",\"Snow Falling on Cedars - ok\"]\n[\"You\u0027ve Got Mail - ok\",\"You\u0027ve Got Mail - ok\",\"RescueDawn - ok\",\"You\u0027ve Got Mail - ok\",\"Apollo 13 - ok\",\"You\u0027ve Got Mail - ok\",\"A League of Their Own - ok\",\"Joe Versus the Volcano - ok\",\"That Thing You Do - ok\",\"The Da Vinci Code - ok\",\"Cloud Atlas - ok\",\"Cast Away - ok\",\"The Green Mile - ok\",\"Sleepless in Seattle - ok\",\"The Polar Express - ok\",\"Charlie Wilson\u0027s War - ok\",\"That Thing You Do - ok\",\"You\u0027ve Got Mail - ok\",\"When Herry Met Sally - ok\",\"Sleepless in Seattle - ok\",\"When Herry Met Sally - ok\",\"Sleepless in Seattle - ok\",\"Sleepless in Seattle - ok\",\"Sleepless in Seattle - ok\",\"A League of Their Own - ok\",\"Sleepless in Seattle - ok\",\"Joe Versus the Volcano - ok\",\"Joe Versus the Volcano - ok\",\"The Birdcage - ok\",\"When Herry Met Sally - ok\",\"When Herry Met Sally - ok\",\"When Herry Met Sally - ok\"]\n[\"Sleepless in Seattle - ok\",\"You\u0027ve Got Mail - ok\",\"Top Gun - ok\",\"When Herry Met Sally - ok\",\"Joe Versus the Volcano - ok\",\"Top Gun - ok\",\"Top Gun - ok\",\"Jerry Maguire - ok\",\"Jerry Maguire - ok\",\"Jerry Maguire - ok\",\"Stand By Me - ok\",\"Jerry Maguire - ok\",\"The Green Mile - ok\",\"Jerry Maguire - ok\",\"Jerry Maguire - ok\",\"Jerry Maguire - ok\",\"Jerry Maguire - ok\",\"Jerry Maguire - ok\",\"Jerry Maguire - ok\",\"Stand By Me - ok\",\"Stand By Me - ok\",\"Stand By Me - ok\"]\n[\"Something\u0027s Gotta Give - ok\",\"The Replacements - ok\",\"Johnny Mnemonic - ok\",\"The Devil\u0027s Advocate - ok\",\"The Matrix Revolutions - ok\",\"The Matrix Reloaded - ok\",\"The Matrix - ok\",\"The Matrix Revolutions - ok\",\"The Matrix Reloaded - ok\",\"The Matrix - ok\",\"The Matrix Revolutions - ok\",\"The Matrix Reloaded - ok\",\"The Matrix - ok\",\"Cloud Atlas - ok\",\"V for Vendetta - ok\",\"The Matrix Revolutions - ok\",\"The Matrix Reloaded - ok\",\"The Matrix - ok\",\"Speed Racer - ok\",\"V for Vendetta - ok\",\"Speed Racer - ok\",\"V for Vendetta - ok\",\"Ninja Assassin - ok\",\"Cloud Atlas - ok\",\"The Matrix Revolutions - ok\",\"The Matrix Reloaded - ok\",\"The Matrix - ok\",\"Speed Racer - ok\",\"V for Vendetta - ok\",\"V for Vendetta - ok\",\"Speed Racer - ok\",\"Cloud Atlas - ok\",\"Ninja Assassin - ok\",\"The Matrix Revolutions - ok\",\"The Matrix Reloaded - ok\",\"The Matrix - ok\",\"Speed Racer - ok\",\"V for Vendetta - ok\",\"Ninja Assassin - ok\",\"The Matrix Revolutions - ok\",\"The Matrix Reloaded - ok\",\"The Matrix - ok\",\"The Matrix - ok\",\"That Thing You Do - ok\",\"The Devil\u0027s Advocate - ok\",\"The Devil\u0027s Advocate - ok\",\"The Devil\u0027s Advocate - ok\",\"Jerry Maguire - ok\",\"Top Gun - ok\",\"A Few Good Men - ok\",\"As Good as It Gets - ok\",\"One Flew Over the Cuckoo\u0027s Nest - ok\",\"Something\u0027s Gotta Give - ok\",\"Hoffa - ok\",\"A Few Good Men - ok\",\"A Few Good Men - ok\"]\n[\"Cloud Atlas - ok\",\"Cloud Atlas - ok\",\"Cloud Atlas - ok\",\"Cloud Atlas - ok\",\"Cloud Atlas - ok\",\"The Da Vinci Code - ok\",\"The Da Vinci Code - ok\",\"The Da Vinci Code - ok\",\"Apollo 13 - ok\",\"Frost/Nixon - ok\",\"The Da Vinci Code - ok\",\"V for Vendetta - ok\",\"V for Vendetta - ok\",\"V for Vendetta - ok\",\"Speed Racer - ok\",\"Ninja Assassin - ok\",\"V for Vendetta - ok\",\"Speed Racer - ok\"]\n[\"Apollo 13 - ok\",\"Frost/Nixon - ok\",\"A Few Good Men - ok\",\"Stand By Me - ok\",\"A Few Good Men - ok\",\"A Few Good Men - ok\",\"What Dreams May Come - ok\",\"Jerry Maguire - ok\",\"As Good as It Gets - ok\",\"A Few Good Men - ok\",\"A Few Good Men - ok\",\"Hoffa - ok\",\"A Few Good Men - ok\",\"A Few Good Men - ok\",\"Ninja Assassin - ok\",\"V for Vendetta - ok\",\"A Few Good Men - ok\",\"Stand By Me - ok\",\"When Herry Met Sally - ok\",\"When Herry Met Sally - ok\",\"A Few Good Men - ok\",\"A Few Good Men - ok\",\"A Few Good Men - ok\",\"Top Gun - ok\",\"Top Gun - ok\",\"Top Gun - ok\",\"Top Gun - ok\"]\n[\"Speed Racer - ok\",\"Speed Racer - ok\",\"Speed Racer - ok\",\"Speed Racer - ok\",\"Speed Racer - ok\",\"Ninja Assassin - ok\",\"Ninja Assassin - ok\",\"The Green Mile - ok\",\"The Green Mile - ok\",\"The Green Mile - ok\",\"Frost/Nixon - ok\",\"Apollo 13 - ok\",\"The Green Mile - ok\",\"The Green Mile - ok\",\"The Green Mile - ok\",\"Frost/Nixon - ok\",\"Frost/Nixon - ok\"]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1637943356575_454165804",
+      "id": "paragraph_1637943356575_454165804",
+      "dateCreated": "2021-11-26 16:15:56.575",
+      "dateStarted": "2022-03-25 10:23:14.700",
+      "dateFinished": "2022-03-25 10:23:14.977",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\n\n// there is also apoc.cypher.parallel, less customizable and stable\n\nmatch (p:Person) with collect(p) as people\ncall apoc.cypher.parallel2(\"MATCH (a)-[]-\u003e(p:Movie) RETURN collect(p.title + $t) as title\", {a: people, t: \" - ok\"}, \"a\") yield value\nreturn value.title",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:23:45.650",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "value.title": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "value.title\n[\"Something\u0027s Gotta Give - ok\",\"The Replacements - ok\",\"Johnny Mnemonic - ok\",\"The Devil\u0027s Advocate - ok\",\"The Matrix Revolutions - ok\",\"The Matrix Reloaded - ok\",\"The Matrix - ok\"]\n[\"The Matrix Revolutions - ok\",\"The Matrix Reloaded - ok\",\"The Matrix - ok\"]\n[\"The Matrix Revolutions - ok\",\"The Matrix Reloaded - ok\",\"The Matrix - ok\"]\n[\"Cloud Atlas - ok\",\"V for Vendetta - ok\",\"The Matrix Revolutions - ok\",\"The Matrix Reloaded - ok\",\"The Matrix - ok\"]\n[\"Speed Racer - ok\",\"V for Vendetta - ok\",\"Speed Racer - ok\",\"V for Vendetta - ok\",\"Ninja Assassin - ok\",\"Cloud Atlas - ok\",\"The Matrix Revolutions - ok\",\"The Matrix Reloaded - ok\",\"The Matrix - ok\"]\n[\"Speed Racer - ok\",\"V for Vendetta - ok\",\"V for Vendetta - ok\",\"Speed Racer - ok\",\"Cloud Atlas - ok\",\"Ninja Assassin - ok\",\"The Matrix Revolutions - ok\",\"The Matrix Reloaded - ok\",\"The Matrix - ok\"]\n[\"Speed Racer - ok\",\"V for Vendetta - ok\",\"Ninja Assassin - ok\",\"The Matrix Revolutions - ok\",\"The Matrix Reloaded - ok\",\"The Matrix - ok\"]\n[\"The Matrix - ok\"]\n[\"That Thing You Do - ok\",\"The Devil\u0027s Advocate - ok\"]\n[\"The Devil\u0027s Advocate - ok\"]\n[\"The Devil\u0027s Advocate - ok\"]\n[\"Jerry Maguire - ok\",\"Top Gun - ok\",\"A Few Good Men - ok\"]\n[\"As Good as It Gets - ok\",\"One Flew Over the Cuckoo\u0027s Nest - ok\",\"Something\u0027s Gotta Give - ok\",\"Hoffa - ok\",\"A Few Good Men - ok\"]\n[\"A Few Good Men - ok\"]\n[\"Apollo 13 - ok\",\"Frost/Nixon - ok\",\"A Few Good Men - ok\"]\n[\"Stand By Me - ok\",\"A Few Good Men - ok\"]\n[\"A Few Good Men - ok\"]\n[\"What Dreams May Come - ok\",\"Jerry Maguire - ok\",\"As Good as It Gets - ok\",\"A Few Good Men - ok\"]\n[\"A Few Good Men - ok\"]\n[\"Hoffa - ok\",\"A Few Good Men - ok\"]\n[\"A Few Good Men - ok\",\"Ninja Assassin - ok\",\"V for Vendetta - ok\"]\n[\"A Few Good Men - ok\"]\n[\"Stand By Me - ok\",\"When Herry Met Sally - ok\",\"When Herry Met Sally - ok\",\"A Few Good Men - ok\"]\n[\"A Few Good Men - ok\",\"A Few Good Men - ok\"]\n[\"Top Gun - ok\"]\n[\"Top Gun - ok\"]\n[\"Top Gun - ok\"]\n[\"Top Gun - ok\"]\n[\"Sleepless in Seattle - ok\",\"You\u0027ve Got Mail - ok\",\"Top Gun - ok\",\"When Herry Met Sally - ok\",\"Joe Versus the Volcano - ok\"]\n[\"Top Gun - ok\"]\n[\"Top Gun - ok\"]\n[\"Jerry Maguire - ok\"]\n[\"Jerry Maguire - ok\"]\n[\"Jerry Maguire - ok\",\"Stand By Me - ok\"]\n[\"Jerry Maguire - ok\"]\n[\"The Green Mile - ok\",\"Jerry Maguire - ok\"]\n[\"Jerry Maguire - ok\"]\n[\"Jerry Maguire - ok\"]\n[\"Jerry Maguire - ok\",\"Jerry Maguire - ok\",\"Jerry Maguire - ok\"]\n[\"Stand By Me - ok\"]\n[\"Stand By Me - ok\"]\n[\"Stand By Me - ok\"]\n[\"Stand By Me - ok\"]\n[\"Stand By Me - ok\",\"RescueDawn - ok\"]\n[\"As Good as It Gets - ok\",\"Cast Away - ok\",\"Twister - ok\"]\n[\"You\u0027ve Got Mail - ok\",\"As Good as It Gets - ok\"]\n[\"As Good as It Gets - ok\"]\n[\"What Dreams May Come - ok\"]\n[\"What Dreams May Come - ok\",\"Snow Falling on Cedars - ok\"]\n[\"RescueDawn - ok\",\"What Dreams May Come - ok\"]\n[\"What Dreams May Come - ok\",\"Bicentennial Man - ok\",\"The Birdcage - ok\"]\n[\"What Dreams May Come - ok\"]\n[\"Snow Falling on Cedars - ok\"]\n[\"Ninja Assassin - ok\",\"Snow Falling on Cedars - ok\"]\n[\"The Green Mile - ok\",\"Snow Falling on Cedars - ok\"]\n[\"Snow Falling on Cedars - ok\"]\n[\"You\u0027ve Got Mail - ok\"]\n[\"You\u0027ve Got Mail - ok\"]\n[\"RescueDawn - ok\",\"You\u0027ve Got Mail - ok\"]\n[\"Apollo 13 - ok\",\"You\u0027ve Got Mail - ok\",\"A League of Their Own - ok\",\"Joe Versus the Volcano - ok\",\"That Thing You Do - ok\",\"The Da Vinci Code - ok\",\"Cloud Atlas - ok\",\"Cast Away - ok\",\"The Green Mile - ok\",\"Sleepless in Seattle - ok\",\"The Polar Express - ok\",\"Charlie Wilson\u0027s War - ok\",\"That Thing You Do - ok\"]\n[\"You\u0027ve Got Mail - ok\",\"When Herry Met Sally - ok\",\"Sleepless in Seattle - ok\",\"When Herry Met Sally - ok\"]\n[\"Sleepless in Seattle - ok\"]\n[\"Sleepless in Seattle - ok\"]\n[\"Sleepless in Seattle - ok\"]\n[\"A League of Their Own - ok\",\"Sleepless in Seattle - ok\"]\n[\"Joe Versus the Volcano - ok\"]\n[\"Joe Versus the Volcano - ok\",\"The Birdcage - ok\"]\n[\"When Herry Met Sally - ok\"]\n[\"When Herry Met Sally - ok\"]\n[\"When Herry Met Sally - ok\"]\n[\"That Thing You Do - ok\"]\n[\"The Replacements - ok\"]\n[\"Unforgiven - ok\",\"The Birdcage - ok\",\"The Replacements - ok\"]\n[\"The Replacements - ok\"]\n[\"The Replacements - ok\"]\n[\"RescueDawn - ok\"]\n[\"RescueDawn - ok\",\"Twister - ok\"]\n[\"The Birdcage - ok\",\"Charlie Wilson\u0027s War - ok\"]\n[\"Unforgiven - ok\"]\n[\"Unforgiven - ok\",\"Unforgiven - ok\"]\n[\"Johnny Mnemonic - ok\"]\n[\"Johnny Mnemonic - ok\"]\n[\"Johnny Mnemonic - ok\"]\n[\"Johnny Mnemonic - ok\"]\n[\"Cloud Atlas - ok\"]\n[\"Cloud Atlas - ok\"]\n[\"Cloud Atlas - ok\"]\n[\"Cloud Atlas - ok\"]\n[\"Cloud Atlas - ok\"]\n[\"The Da Vinci Code - ok\"]\n[\"The Da Vinci Code - ok\"]\n[\"The Da Vinci Code - ok\"]\n[\"Apollo 13 - ok\",\"Frost/Nixon - ok\",\"The Da Vinci Code - ok\"]\n[\"V for Vendetta - ok\"]\n[\"V for Vendetta - ok\"]\n[\"V for Vendetta - ok\"]\n[\"Speed Racer - ok\",\"Ninja Assassin - ok\",\"V for Vendetta - ok\"]\n[\"Speed Racer - ok\"]\n[\"Speed Racer - ok\"]\n[\"Speed Racer - ok\"]\n[\"Speed Racer - ok\"]\n[\"Speed Racer - ok\"]\n[\"Speed Racer - ok\",\"Ninja Assassin - ok\"]\n[\"Ninja Assassin - ok\"]\n[\"The Green Mile - ok\"]\n[\"The Green Mile - ok\"]\n[\"The Green Mile - ok\",\"Frost/Nixon - ok\"]\n[\"Apollo 13 - ok\",\"The Green Mile - ok\"]\n[\"The Green Mile - ok\"]\n[\"The Green Mile - ok\"]\n[\"Frost/Nixon - ok\"]\n[\"Frost/Nixon - ok\"]\n[\"Frost/Nixon - ok\",\"Bicentennial Man - ok\"]\n[\"Hoffa - ok\",\"Hoffa - ok\",\"One Flew Over the Cuckoo\u0027s Nest - ok\"]\n[\"Hoffa - ok\"]\n[\"Apollo 13 - ok\"]\n[\"Twister - ok\",\"A League of Their Own - ok\",\"Apollo 13 - ok\"]\n[\"Twister - ok\",\"Charlie Wilson\u0027s War - ok\"]\n[\"Twister - ok\"]\n[\"Cast Away - ok\",\"The Polar Express - ok\"]\n[\"One Flew Over the Cuckoo\u0027s Nest - ok\"]\n[\"Something\u0027s Gotta Give - ok\"]\n[\"Something\u0027s Gotta Give - ok\",\"Something\u0027s Gotta Give - ok\",\"Something\u0027s Gotta Give - ok\"]\n[\"Bicentennial Man - ok\"]\n[\"Charlie Wilson\u0027s War - ok\"]\n[\"A League of Their Own - ok\"]\n[\"A League of Their Own - ok\"]\n[\"A League of Their Own - ok\"]\n[\"A League of Their Own - ok\"]\n[]\n[\"The Replacements - ok\"]\n[\"The Da Vinci Code - ok\",\"The Replacements - ok\",\"Jerry Maguire - ok\",\"Cloud Atlas - ok\",\"The Birdcage - ok\",\"Unforgiven - ok\"]\n[\"The Replacements - ok\",\"The Da Vinci Code - ok\"]\n[]\n[]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1637946563275_1855470014",
+      "id": "paragraph_1637946563275_1855470014",
+      "dateCreated": "2021-11-26 17:09:23.289",
+      "dateStarted": "2022-03-25 10:23:45.674",
+      "dateFinished": "2022-03-25 10:23:46.012",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\nTo remove them:\n\n- `apoc.custom.removeFunction(name)`\n- `apoc.custom.removeProcedure(name)`",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-24 11:00:59.720",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eTo remove them:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eapoc.custom.removeFunction(name)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.custom.removeProcedure(name)\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1637747069114_1899531384",
+      "id": "paragraph_1637747069114_1899531384",
+      "dateCreated": "2021-11-24 09:44:29.118",
+      "dateStarted": "2022-03-24 11:00:59.720",
+      "dateFinished": "2022-03-24 11:00:59.731",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\nCALL apoc.custom.list\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-25 10:24:07.701",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "type": "string",
+                      "name": "string",
+                      "description": "string",
+                      "mode": "string",
+                      "statement": "string",
+                      "inputs": "string",
+                      "outputs": "string",
+                      "forceSingle": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/undefined",
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "type\tname\tdescription\tmode\tstatement\tinputs\toutputs\tforceSingle\n\"procedure\"\t\"ajeje\"\t\"\"\t\"read\"\t\"UNWIND range(0, $product) AS power RETURN $input ^ power AS answer\"\t[[\"input\",\"integer\"],[\"product\",\"integer\"]]\t[[\"answer\",\"integer\"]]\tNULL\n\"function\"\t\"brazorf\"\t\"\"\tNULL\t\"RETURN $input*2 as answer\"\t[[\"input\",\"integer\"]]\t\"integer\"\tFALSE\n\"function\"\t\"forceSingleTrue\"\t\"\"\tNULL\t\"MATCH (n:Movie) WITH n LIMIT 1 RETURN n.released\"\t[[\"input\",\"any\"]]\t\"list? of integer\"\tTRUE\n\"function\"\t\"forceSingleFalse\"\t\"\"\tNULL\t\"MATCH (n:Movie) WITH n LIMIT 1 RETURN n.released\"\t[[\"input\",\"any\"]]\t\"list? of integer\"\tFALSE\n\"procedure\"\t\"writeSomething\"\t\"\"\t\"write\"\t\"CREATE (n:Some)\"\t[]\t[[\"answer\",\"integer\"]]\tNULL\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1637747142953_10096929",
+      "id": "paragraph_1637747142953_10096929",
+      "dateCreated": "2021-11-24 09:45:42.953",
+      "dateStarted": "2022-03-25 10:24:07.723",
+      "dateFinished": "2022-03-25 10:24:07.780",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n\n## [Import - Export](http://localhost:8080/#/notebook/2GJCSVRMK)",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-24 11:01:06.199",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003e\u003ca href\u003d\"http://localhost:8080/#/notebook/2GJCSVRMK\"\u003eImport - Export\u003c/a\u003e\u003c/h2\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1635863303356_2095614526",
+      "id": "paragraph_1635863303356_2095614526",
+      "dateCreated": "2021-11-02 14:28:23.356",
+      "dateStarted": "2022-03-24 11:01:06.199",
+      "dateFinished": "2022-03-24 11:01:06.211",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-03-23 23:22:32.376",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1648077752375_1170102529",
+      "id": "paragraph_1648077752375_1170102529",
+      "dateCreated": "2022-03-23 23:22:32.376",
+      "status": "READY"
+    }
+  ],
+  "name": "3. Cypher executions",
+  "id": "2GMKN71T8",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0-preview2",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

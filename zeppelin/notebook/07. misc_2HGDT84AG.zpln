@@ -1,0 +1,73 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n\n`apoc.algo.*` /  `apoc.bitbwise.*` / `apoc.generate.*`",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-09 11:18:57.506",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667608501303_819842199",
+      "id": "paragraph_1667608501303_819842199",
+      "dateCreated": "2022-11-05 00:35:01.304",
+      "status": "READY"
+    },
+    {
+      "text": "%md\nhttps://neo4j.com/labs/apoc/4.3/graph-querying/path-querying/",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-05 01:11:56.294",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667610713404_1033409854",
+      "id": "paragraph_1667610713404_1033409854",
+      "dateCreated": "2022-11-05 01:11:53.404",
+      "status": "READY"
+    }
+  ],
+  "name": "07. misc",
+  "id": "2HGDT84AG",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0-preview2",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<!-- To make sure that Selenium work also with `$(document).ready()` -->
+<script type="text/javascript">
+$(() => {
+	var newP = document.createElement("strong");
+	var textNode = document.createTextNode("This is a new text node");
+	newP.appendChild(textNode);
+    document.getElementById("appendStuff").appendChild(newP);
+});
+</script>
+
+</head>
+<body>
+	<div class="container">
+		<div id="appendStuff"></div>
+			<table id="data" border="1">
+					<tr>
+						<th>col1</th>
+						<th>col2</th>
+					</tr>
+			</table>
+	</div>
+</body>
+</html>
