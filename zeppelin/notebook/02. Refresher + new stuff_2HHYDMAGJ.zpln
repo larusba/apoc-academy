@@ -1,96 +1,9 @@
 {
   "paragraphs": [
     {
-      "text": "",
+      "text": "%md\n## Collection function\n\n\n\u003ca href\u003d\"https://neo4j.com/labs/apoc/4.1/data-structures/collection-list-functions/\" target\u003d\"_blank\"\u003eHere\u003c/a\u003e is the list of all collection functions.\n\nLet\u0027s see some examples:",
       "user": "anonymous",
-      "dateUpdated": "2022-11-07 13:45:13.388",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1667811488602_595178660",
-      "id": "paragraph_1667811488602_595178660",
-      "dateCreated": "2022-11-07 08:58:08.602",
-      "status": "READY"
-    },
-    {
-      "text": "",
-      "user": "anonymous",
-      "dateUpdated": "2022-11-07 13:45:04.223",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1667813306876_1507233279",
-      "id": "paragraph_1667813306876_1507233279",
-      "dateCreated": "2022-11-07 09:28:26.876",
-      "status": "READY"
-    },
-    {
-      "text": "",
-      "user": "anonymous",
-      "dateUpdated": "2022-11-08 14:14:44.254",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/scala"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1667813386816_241408929",
-      "id": "paragraph_1667813386816_241408929",
-      "dateCreated": "2022-11-07 09:29:46.816",
-      "status": "READY"
-    },
-    {
-      "text": "%md\n## collection function\n\n\n\u003ca href\u003d\"https://neo4j.com/labs/apoc/4.1/data-structures/collection-list-functions/\" target\u003d\"_blank\"\u003eHere\u003c/a\u003e is the list of all collection functions.\n\nLet\u0027s see some examples:",
-      "user": "anonymous",
-      "dateUpdated": "2022-11-08 14:21:39.286",
+      "dateUpdated": "2022-11-10 08:15:36.171",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -102,11 +15,22 @@
           "completionKey": "TAB",
           "completionSupport": false
         },
-        "editorMode": "ace/mode/markdown"
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
       },
       "settings": {
         "params": {},
         "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eCollection function\u003c/h2\u003e\n\u003cp\u003e\u003ca href\u003d\"https://neo4j.com/labs/apoc/4.1/data-structures/collection-list-functions/\" target\u003d\"_blank\"\u003eHere\u003c/a\u003e is the list of all collection functions.\u003c/p\u003e\n\u003cp\u003eLet\u0026rsquo;s see some examples:\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -114,12 +38,15 @@
       "jobName": "paragraph_1667813410051_469318106",
       "id": "paragraph_1667813410051_469318106",
       "dateCreated": "2022-11-07 09:30:10.051",
-      "status": "READY"
+      "dateStarted": "2022-11-10 08:15:36.175",
+      "dateFinished": "2022-11-10 08:15:36.192",
+      "status": "FINISHED"
     },
     {
+      "title": "apoc.coll.sum",
       "text": "%neo4j\n\nreturn apoc.coll.sum([1,2,3,4,5]) AS output;",
       "user": "anonymous",
-      "dateUpdated": "2022-11-07 09:33:10.421",
+      "dateUpdated": "2022-11-10 08:12:53.909",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -131,7 +58,8 @@
           "completionKey": "TAB",
           "completionSupport": false
         },
-        "editorMode": "ace/mode/undefined"
+        "editorMode": "ace/mode/undefined",
+        "title": true
       },
       "settings": {
         "params": {},
@@ -233,9 +161,9 @@
       "status": "READY"
     },
     {
-      "text": "%neo4j\n// todo - other function\n\napoc.coll.toSet([list])",
+      "text": "%neo4j\n\napoc.coll.toSet([list])",
       "user": "anonymous",
-      "dateUpdated": "2022-11-08 14:23:47.820",
+      "dateUpdated": "2022-11-10 08:13:00.880",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -262,9 +190,9 @@
       "status": "READY"
     },
     {
-      "text": "%neo4j\napoc.coll.sort(coll)\n\n",
+      "text": "%neo4j\n\nRETURN apoc.coll.sort(coll)\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-08 14:23:50.837",
+      "dateUpdated": "2022-11-10 08:13:45.931",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -291,9 +219,9 @@
       "status": "READY"
     },
     {
-      "text": "%neo4j\napoc.coll.reverse(coll)\n\n",
+      "text": "%neo4j\n\nRETURN apoc.coll.reverse(coll)\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-08 14:23:59.298",
+      "dateUpdated": "2022-11-10 08:13:48.785",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -320,9 +248,9 @@
       "status": "READY"
     },
     {
-      "text": "%neo4j\napoc.coll.duplicates(coll)\n\n",
+      "text": "%neo4j\n\nRETURN apoc.coll.duplicates(coll)\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-08 14:24:33.270",
+      "dateUpdated": "2022-11-10 08:13:53.675",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -349,9 +277,9 @@
       "status": "READY"
     },
     {
-      "text": "%neo4j\napoc.coll.occurrences(coll, item)\n\n",
+      "text": "%neo4j\n\nRETURN apoc.coll.occurrences(coll, item)\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-08 14:24:41.332",
+      "dateUpdated": "2022-11-10 08:13:56.912",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -378,9 +306,9 @@
       "status": "READY"
     },
     {
-      "text": "%neo4j\napoc.coll.frequencies(coll)\n\n",
+      "text": "%neo4j\n\nRETURN apoc.coll.frequencies(coll)\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-08 14:24:47.194",
+      "dateUpdated": "2022-11-10 08:13:59.711",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -407,9 +335,9 @@
       "status": "READY"
     },
     {
-      "text": "%neo4j\napoc.coll.frequenciesAsMap(coll)\n\n",
+      "text": "%neo4j\n\nRETURN apoc.coll.frequenciesAsMap(coll)\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-08 14:24:52.799",
+      "dateUpdated": "2022-11-10 08:14:03.584",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -436,9 +364,9 @@
       "status": "READY"
     },
     {
-      "text": "%neo4j\napoc.coll.flatten\n\n",
+      "text": "%neo4j\n\nRETURN apoc.coll.flatten()\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-08 14:25:01.821",
+      "dateUpdated": "2022-11-10 08:14:08.956",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -465,9 +393,9 @@
       "status": "READY"
     },
     {
-      "text": "%neo4j\napoc.coll.sortText(coll, conf)\n\n",
+      "text": "%neo4j\n\nRETURN apoc.coll.sortText(coll, conf)\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-08 14:25:28.066",
+      "dateUpdated": "2022-11-10 08:14:12.493",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -494,9 +422,9 @@
       "status": "READY"
     },
     {
-      "text": "%neo4j\napoc.coll.set(coll, index, value)\n\n",
+      "text": "%neo4j\n\nRETURN apoc.coll.set(coll, index, value)\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-08 14:25:36.640",
+      "dateUpdated": "2022-11-10 08:14:17.717",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -523,9 +451,9 @@
       "status": "READY"
     },
     {
-      "text": "%neo4j\nCALL apoc.coll.elements(list,limit,offset) yield _1,_2,..,_10,_1s,_2i,_3f,_4m,_5l,_6n,_7r,_8p\n\n",
+      "text": "%neo4j\n\nCALL apoc.coll.elements(list,limit,offset) yield _1,_2,..,_10,_1s,_2i,_3f,_4m,_5l,_6n,_7r,_8p\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-08 14:25:45.835",
+      "dateUpdated": "2022-11-10 08:14:20.406",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -552,9 +480,9 @@
       "status": "READY"
     },
     {
-      "text": "%neo4j\napoc.coll.unionAll(first, second)\n\n",
+      "text": "%neo4j\n\nRETURN apoc.coll.unionAll(first, second)\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-08 14:26:12.755",
+      "dateUpdated": "2022-11-10 08:14:23.657",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -581,9 +509,9 @@
       "status": "READY"
     },
     {
-      "text": "%neo4j\napoc.coll.union(first, second)\n\n",
+      "text": "%neo4j\n\nRETURN apoc.coll.union(first, second)\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-08 14:26:16.125",
+      "dateUpdated": "2022-11-10 08:14:26.546",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -958,9 +886,9 @@
       "status": "READY"
     },
     {
-      "text": "%md\n\n// todo - mettere apoc.util.compress/decompress",
+      "text": "%md\n\n### Compress string\n\nTo store large string values into Node or Relationships, and vice-versa we can use:\n\n- apoc.util.compress(string, $configMap)\n- apoc.util.decompress(byte[], $configMap)\n\nwhere `$configMap` can have:\n- `compression`: compression mode (default: \u0027GZIP\u0027) - Can be GZIP, BZIP2, DEFLATE, BLOCK_LZ4, FRAMED_SNAPPY, NONE.\n- `charset` - default \u0027UTF-8\u0027\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-07 09:38:12.719",
+      "dateUpdated": "2022-11-09 23:36:32.056",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -984,6 +912,35 @@
       "jobName": "paragraph_1667813872300_981680006",
       "id": "paragraph_1667813872300_981680006",
       "dateCreated": "2022-11-07 09:37:52.300",
+      "status": "READY"
+    },
+    {
+      "text": "%neo4j\n\nWith \u0027Mätrix II 哈哈😄123\u0027 as string\nwith string, apoc.util.compress(string, {charset: \u0027UTF-32\u0027}) AS compressed // compressed is a byte[]\nreturn apoc.util.decompress(compressed, {charset: \u0027UTF-32\u0027}) as decompressed, string, compressed\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-09 23:36:37.675",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1668036995487_1370519999",
+      "id": "paragraph_1668036995487_1370519999",
+      "dateCreated": "2022-11-09 23:36:35.489",
       "status": "READY"
     },
     {
@@ -1730,9 +1687,9 @@
       "status": "READY"
     },
     {
-      "text": "%md\n\n### Handle `BigNumber`s\n\nNeo4j can\u0027t handle BigInteger and BigDecimal, so we have to coerce them in string, in case.\nFor this purpose, we can use the `apoc.number.exact.*` functions\n\n- RETURN apoc.number.exact.add(stringA,stringB) - return the sum’s result of two large numbers\n\n- RETURN apoc.number.exact.sub(stringA,stringB) - return the substraction’s of two large numbers\n\n- RETURN apoc.number.exact.mul(stringA,stringB,[prec],[roundingModel] - return the multiplication’s result of two large numbers\n\n- RETURN apoc.number.exact.div(stringA,stringB,[prec],[roundingModel]) - return the division’s result of two large numbers\n\n- RETURN apoc.number.exact.toInteger(string,[prec],[roundingMode]) - return the Integer value of a large number\n\n- RETURN apoc.number.exact.toFloat(string,[prec],[roundingMode]) - return the Float value of a large number\n\n- RETURN apoc.number.exact.toExact(number) - return the exact value\n\n\nPossible \u0027roundingModel\u0027 options are UP, DOWN, CEILING, FLOOR, HALF_UP, HALF_DOWN, HALF_EVEN, UNNECESSARY (default is `HALF_UP`), see here: https://docs.oracle.com/javase/7/docs/api/java/math/RoundingMode.html\n\nThe prec parameter let us to set the precision of the operation result. The default value is 0 (unlimited precision arithmetic) while for \u0027roundingModel\u0027 the default value is HALF_UP. For other information abouth prec and roundingModel see the documentation of MathContext, https://docs.oracle.com/javase/7/docs/api/java/math/MathContext.html",
+      "text": "%md\n\n### Handle `BigNumber`s\n\nNeo4j can\u0027t handle BigInteger and BigDecimal, so we have to coerce them in string, in case.\nFor this purpose, we can use the `apoc.number.exact.*` functions\n\n- `RETURN apoc.number.exact.add(stringA,stringB)` - return the sum’s result of two large numbers\n\n- `RETURN apoc.number.exact.sub(stringA,stringB)` - return the substraction’s of two large numbers\n\n- `RETURN apoc.number.exact.mul(stringA,stringB,[prec],[roundingModel])` - return the multiplication’s result of two large numbers\n\n- `RETURN apoc.number.exact.div(stringA,stringB,[prec],[roundingModel])` - return the division’s result of two large numbers\n\n- `RETURN apoc.number.exact.toInteger(string,[prec],[roundingMode])` - return the Integer value of a large number\n\n- `RETURN apoc.number.exact.toFloat(string,[prec],[roundingMode])` - return the Float value of a large number\n\n- `RETURN apoc.number.exact.toExact(number)` - return the exact value\n\n\nPossible \u0027roundingModel\u0027 options are UP, DOWN, CEILING, FLOOR, HALF_UP, HALF_DOWN, HALF_EVEN, UNNECESSARY (default is `HALF_UP`), see here: https://docs.oracle.com/javase/7/docs/api/java/math/RoundingMode.html\n\nThe prec parameter let us to set the precision of the operation result. The default value is 0 (unlimited precision arithmetic) while for \u0027roundingModel\u0027 the default value is HALF_UP. For other information abouth prec and roundingModel see the documentation of MathContext, https://docs.oracle.com/javase/7/docs/api/java/math/MathContext.html",
       "user": "anonymous",
-      "dateUpdated": "2022-11-08 16:10:26.507",
+      "dateUpdated": "2022-11-10 08:16:06.269",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1757,7 +1714,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eHandle \u003ccode\u003eBigNumber\u003c/code\u003es\u003c/h3\u003e\n\u003cp\u003eNeo4j can\u0026rsquo;t handle BigInteger and BigDecimal, so we have to coerce them in string, in case.\u003cbr /\u003e\nFor this purpose, we can use the \u003ccode\u003eapoc.number.exact.*\u003c/code\u003e functions\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eRETURN apoc.number.exact.add(stringA,stringB) - return the sum’s result of two large numbers\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRETURN apoc.number.exact.sub(stringA,stringB) - return the substraction’s of two large numbers\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRETURN apoc.number.exact.mul(stringA,stringB,[prec],[roundingModel] - return the multiplication’s result of two large numbers\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRETURN apoc.number.exact.div(stringA,stringB,[prec],[roundingModel]) - return the division’s result of two large numbers\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRETURN apoc.number.exact.toInteger(string,[prec],[roundingMode]) - return the Integer value of a large number\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRETURN apoc.number.exact.toFloat(string,[prec],[roundingMode]) - return the Float value of a large number\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eRETURN apoc.number.exact.toExact(number) - return the exact value\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003ePossible \u0026lsquo;roundingModel\u0026rsquo; options are UP, DOWN, CEILING, FLOOR, HALF_UP, HALF_DOWN, HALF_EVEN, UNNECESSARY (default is \u003ccode\u003eHALF_UP\u003c/code\u003e), see here: \u003ca href\u003d\"https://docs.oracle.com/javase/7/docs/api/java/math/RoundingMode.html\"\u003ehttps://docs.oracle.com/javase/7/docs/api/java/math/RoundingMode.html\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eThe prec parameter let us to set the precision of the operation result. The default value is 0 (unlimited precision arithmetic) while for \u0026lsquo;roundingModel\u0026rsquo; the default value is HALF_UP. For other information abouth prec and roundingModel see the documentation of MathContext, \u003ca href\u003d\"https://docs.oracle.com/javase/7/docs/api/java/math/MathContext.html\"\u003ehttps://docs.oracle.com/javase/7/docs/api/java/math/MathContext.html\u003c/a\u003e\u003c/p\u003e\n\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eHandle \u003ccode\u003eBigNumber\u003c/code\u003es\u003c/h3\u003e\n\u003cp\u003eNeo4j can\u0026rsquo;t handle BigInteger and BigDecimal, so we have to coerce them in string, in case.\u003cbr /\u003e\nFor this purpose, we can use the \u003ccode\u003eapoc.number.exact.*\u003c/code\u003e functions\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.number.exact.add(stringA,stringB)\u003c/code\u003e - return the sum’s result of two large numbers\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.number.exact.sub(stringA,stringB)\u003c/code\u003e - return the substraction’s of two large numbers\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.number.exact.mul(stringA,stringB,[prec],[roundingModel])\u003c/code\u003e - return the multiplication’s result of two large numbers\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.number.exact.div(stringA,stringB,[prec],[roundingModel])\u003c/code\u003e - return the division’s result of two large numbers\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.number.exact.toInteger(string,[prec],[roundingMode])\u003c/code\u003e - return the Integer value of a large number\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.number.exact.toFloat(string,[prec],[roundingMode])\u003c/code\u003e - return the Float value of a large number\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eRETURN apoc.number.exact.toExact(number)\u003c/code\u003e - return the exact value\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003ePossible \u0026lsquo;roundingModel\u0026rsquo; options are UP, DOWN, CEILING, FLOOR, HALF_UP, HALF_DOWN, HALF_EVEN, UNNECESSARY (default is \u003ccode\u003eHALF_UP\u003c/code\u003e), see here: \u003ca href\u003d\"https://docs.oracle.com/javase/7/docs/api/java/math/RoundingMode.html\"\u003ehttps://docs.oracle.com/javase/7/docs/api/java/math/RoundingMode.html\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eThe prec parameter let us to set the precision of the operation result. The default value is 0 (unlimited precision arithmetic) while for \u0026lsquo;roundingModel\u0026rsquo; the default value is HALF_UP. For other information abouth prec and roundingModel see the documentation of MathContext, \u003ca href\u003d\"https://docs.oracle.com/javase/7/docs/api/java/math/MathContext.html\"\u003ehttps://docs.oracle.com/javase/7/docs/api/java/math/MathContext.html\u003c/a\u003e\u003c/p\u003e\n\n\u003c/div\u003e"
           }
         ]
       },
@@ -1767,8 +1724,8 @@
       "jobName": "paragraph_1667818139096_1952168684",
       "id": "paragraph_1667818139096_1952168684",
       "dateCreated": "2022-11-07 10:48:59.097",
-      "dateStarted": "2022-11-08 16:10:26.507",
-      "dateFinished": "2022-11-08 16:10:26.580",
+      "dateStarted": "2022-11-10 08:16:06.274",
+      "dateFinished": "2022-11-10 08:16:06.333",
       "status": "FINISHED"
     },
     {
@@ -1821,15 +1778,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "output\nInfinity\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -1891,15 +1839,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "output\n50423.1656\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -2227,15 +2166,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "value\n\"0.5\"\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -2295,15 +2225,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "value\n\"0.6\"\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -2649,25 +2570,36 @@
       "status": "FINISHED"
     },
     {
-      "text": "",
+      "text": "%md\n\n### [Export procedures](http://localhost:8080/#/notebook/2HHYDMAGJ)",
       "user": "anonymous",
-      "dateUpdated": "2022-11-07 13:45:19.089",
+      "dateUpdated": "2022-11-10 08:17:38.046",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
+          "language": "markdown",
+          "editOnDblClick": true,
           "completionKey": "TAB",
-          "completionSupport": true
+          "completionSupport": false
         },
-        "editorMode": "ace/mode/scala"
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
       },
       "settings": {
         "params": {},
         "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003e\u003ca href\u003d\"http://localhost:8080/#/notebook/2HHYDMAGJ\"\u003eExport procedures\u003c/a\u003e\u003c/h3\u003e\n\n\u003c/div\u003e"
+          }
+        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -2675,6 +2607,25 @@
       "jobName": "paragraph_1667813282571_838718672",
       "id": "paragraph_1667813282571_838718672",
       "dateCreated": "2022-11-07 09:28:02.571",
+      "dateStarted": "2022-11-10 08:17:38.047",
+      "dateFinished": "2022-11-10 08:17:38.065",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-10 08:17:32.403",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1668068252403_1682104977",
+      "id": "paragraph_1668068252403_1682104977",
+      "dateCreated": "2022-11-10 08:17:32.403",
       "status": "READY"
     }
   ],

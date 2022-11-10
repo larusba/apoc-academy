@@ -873,7 +873,7 @@
       "id": "paragraph_1667990209476_1298195137",
       "dateCreated": "2022-11-09 10:36:49.476",
       "dateStarted": "2022-11-09 11:06:20.544",
-      "status": "RUNNING"
+      "status": "ABORT"
     },
     {
       "text": "%neo4j\n\n/*\n\n*/\n\nCALL apoc.import.graphml(\"labels.graphml\", {})",
@@ -960,10 +960,21 @@
       "status": "READY"
     },
     {
-      "text": "%neo4j\n",
+      "text": "%neo4j\ntodo - example with storeNodeIds",
       "user": "anonymous",
-      "dateUpdated": "2022-11-09 11:01:34.161",
-      "config": {},
+      "dateUpdated": "2022-11-09 11:17:33.040",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/undefined"
+      },
       "settings": {
         "params": {},
         "forms": {}
@@ -1006,7 +1017,7 @@
       "dateCreated": "2022-11-04 16:15:06.564",
       "dateStarted": "2022-11-09 10:56:02.609",
       "dateFinished": "2022-11-09 10:55:54.884",
-      "status": "RUNNING"
+      "status": "ABORT"
     },
     {
       "text": "%neo4j\nMATCH p\u003d()-[r:DEFAULT_TYPE]-() RETURN p",
@@ -1243,9 +1254,9 @@
       "status": "FINISHED"
     },
     {
-      "text": "2 esercizi:\n\nimportare con runFile\nimportare con apoc.import.json\nimportare con apoc.import.graphml",
+      "text": "2 esercizi:\n\nimportare con runFile\nimportare con apoc.import.json\nimportare con apoc.import.graphml e source/target",
       "user": "anonymous",
-      "dateUpdated": "2022-11-04 15:49:15.947",
+      "dateUpdated": "2022-11-09 11:17:44.582",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,

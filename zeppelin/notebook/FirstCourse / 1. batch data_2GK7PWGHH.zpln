@@ -3,7 +3,7 @@
     {
       "text": "%md\n\n# If-else statements\n\nSometimes queries require conditional execution logic that can’t be adequately expressed in Cypher. \n\nFor example, to simulate a conditional with pure Cypher we could execute for example:\n`MATCH (n:Test) FOREACH(ignoreMe IN CASE WHEN EXISTS(s.myProp) THEN [1] ELSE [] END | SET n.otherProp \u003d 0)`\n\nThe `FOREACH` clause can be used to update data, but with more complex use cases (for example a `MATCH`), we cannot use it.\n\nSo if I want to do more complex conditional executions, I can use `apoc.when` / `apoc.case` procedure.\n- `apoc.when(condition, ifQuery, elseQuery, {parameters})` - only for read queries\n- `apoc.case([listOfConditionals], elseQuery, {parameters})` - only for read queries\n- `apoc.do.when` - equals to apoc.when but we can also execute \u0027write\u0027 statements\n- `apoc.do.case` - equals to apoc.case but we can also execute \u0027write\u0027 statements\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-04 15:49:40.393",
+      "dateUpdated": "2022-11-09 22:23:50.713",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -16,8 +16,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": true,
-        "tableHide": false
+        "editorHide": false,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -38,8 +38,8 @@
       "jobName": "paragraph_1635516691436_323316003",
       "id": "paragraph_1635516691436_323316003",
       "dateCreated": "2021-10-29 14:11:31.436",
-      "dateStarted": "2022-11-04 15:49:40.394",
-      "dateFinished": "2022-11-04 15:49:40.463",
+      "dateStarted": "2022-11-09 22:23:48.701",
+      "dateFinished": "2022-11-09 22:23:48.777",
       "status": "FINISHED"
     },
     {
@@ -441,6 +441,23 @@
       "status": "FINISHED"
     },
     {
+      "text": "%neo4j\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-09 22:24:46.966",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1668032686966_1141614971",
+      "id": "paragraph_1668032686966_1141614971",
+      "dateCreated": "2022-11-09 22:24:46.966",
+      "status": "READY"
+    },
+    {
       "title": "apoc.do.case",
       "text": "%neo4j\n\nMATCH (n:Person)\nCALL apoc.do.case([                // list of pairs (condition and query)\n  n.name \u003d \u0027Giandomenico Fracchia\u0027, \"WITH $n as n CREATE (n)-[:MY_CASE_REL]-\u003e(:MyCaseNode {myId: 1})\",\n  n.name contains \u0027Carrie\u0027, \"WITH $n as n CREATE (n)-[:MY_CASE_REL]-\u003e(:MyCaseNode {myId: 2})\"],   \n  \u0027\u0027,                                         \n  {n: n}\n)\nYIELD value RETURN n.name;",
       "user": "anonymous",
@@ -587,7 +604,7 @@
     {
       "text": "%md\n\n\n## Conditional exception\n\nApoc also provide a procedure to raise an exception with a specific message when predicate is false.\n\n\u003cpre\u003e\napoc.util.validate(predicate, message, params) - if the `predicate` is true raise an exception with `message`.\n\u003c/pre\u003e\n\n\nWe have also `apoc.util.validatePredicate(predicate, message, params)`, equivalent but it\u0027s a function.\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 10:58:18.299",
+      "dateUpdated": "2022-11-09 22:25:13.201",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -600,8 +617,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": true,
-        "tableHide": false
+        "editorHide": false,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -622,8 +639,8 @@
       "jobName": "paragraph_1635865337623_10689460",
       "id": "paragraph_1635865337623_10689460",
       "dateCreated": "2021-11-02 15:02:17.623",
-      "dateStarted": "2022-03-24 10:58:18.299",
-      "dateFinished": "2022-03-24 10:58:18.316",
+      "dateStarted": "2022-11-09 22:25:09.455",
+      "dateFinished": "2022-11-09 22:25:09.471",
       "status": "FINISHED"
     },
     {
@@ -774,7 +791,7 @@
       "title": "apoc.util.validatePredicate",
       "text": "%md\n\nEquivalent to apoc.util.validate but is a function\n\n```\nMATCH (a:Person)\nWHERE apoc.util.validatePredicate(true,\u0027Person with name %s found\u0027,[n.name])\nRETURN a\n```",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 10:58:21.695",
+      "dateUpdated": "2022-11-09 22:26:04.189",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -819,8 +836,8 @@
         },
         "editorMode": "ace/mode/markdown",
         "title": true,
-        "editorHide": true,
-        "tableHide": false
+        "editorHide": false,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -841,14 +858,14 @@
       "jobName": "paragraph_1636043895936_231881876",
       "id": "paragraph_1636043895936_231881876",
       "dateCreated": "2021-11-04 16:38:15.936",
-      "dateStarted": "2022-03-24 10:58:21.695",
-      "dateFinished": "2022-03-24 10:58:21.713",
+      "dateStarted": "2022-11-09 22:25:57.515",
+      "dateFinished": "2022-11-09 22:25:57.581",
       "status": "FINISHED"
     },
     {
       "text": "%md\n\n# Batching data\n\nApoc provides some procedures to split the data in batches to handle performance and memory issues:\n- `apoc.periodic.iterate`\n- `apoc.periodic.commit`\n- `apoc.periodic.truncate`\n\nThe `apoc.periodic.iterate(data-driven, operation, $config)` procedure is helpful when you need to handle large amounts of data for import, refactoring, and other cases that require large transactions. \n\nIt provides a way to batch the data by dividing the workload into two parts:\n\n- a `data-driven` statement: This defines how you select what data needs handled. You can provide a Cypher statement to select from existing graph data, read external data from a file or API, or retrieve data from another datastore.\n- an `operation` statement: This defines what you want done to the selected data. You can do things like execute Cypher for updating or creating/deleting the data or run other procedures to manipulate and transform values before loading.\n\nThe data-driven statement is provided as the first statement that results in a stream of values to be processed. \nThe results of the data-driven statement are passed to the operation statement as parameters and the operation statement is provided as the second statement to process one element at a time or a batch at a time\n\nWe can use the following configurations as 3rd parameter:\n\n- `batchSize (default: 10000)` - run the specified number of operation statements in a single transaction\n- `parallel (default: false)` - run operation statements in paralle\n- `retries (default: 0)` - if the operation statement fails with an error, sleep 100ms and retry until retries-count is reached\n- `batchMode (default: \"BATCH\")` - how data-driven statements should be processed by operation statement. See below\n- `params (default: EmtpyMap)` - externally pass in map of params\n- `concurrency (default: 50)` - number of concurrent tasks are generated when using `parallel:true`\n\n\u003cpre\u003e\nFor complex operations like updating or removing relationships, \neither do not use `parallel: true` or make sure that you batch the work in a way that each subgraph of data is updated in one operation,\notherwise might deadlock due to conflicts [same relationship updated twice]\n\u003c/pre\u003e\n\n`batchMode` can have 3 values. \n`SINGLE` to perform one operation at a time. \nBoth `BATCH` and `BATCH_SINGLE` execute operation statement once per batchSize and the results of data-driven statement will be grouped in a `$_batch`. For example, in this case:\n\n| first      | second |\n| ----------- | ----------- | \n| alpha      | beta       | \n| gamma   | delta        |\n| ...        | ... |\n\n`$_batch` will be a list of maps: `[{first: \u0027alpha\u0027, second: \u0027beta\u0027} , {first: \u0027gamma\u0027, second: \u0027delta\u0027}  .....]`\n\n\nBut with `BATCH` will be executed an unpacking of batch, that is:\n\n\u003cpre\u003e\nUNWIND $_batch AS _batch\nWITH _batch.field1 AS field1, _batch.field2 AS field2\n\u003c/pre\u003e\n\nInstead with `BATCH_SINGLE` the unpacking have to be executed into the operation statement.\nThe operation query can access the batched values via the `$_batch` parameter.\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 10:58:24.046",
+      "dateUpdated": "2022-11-09 22:26:32.960",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -861,8 +878,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": true,
-        "tableHide": false
+        "editorHide": false,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -883,8 +900,8 @@
       "jobName": "paragraph_1635518181245_851865146",
       "id": "paragraph_1635518181245_851865146",
       "dateCreated": "2021-10-29 14:36:21.246",
-      "dateStarted": "2022-03-24 10:58:24.045",
-      "dateFinished": "2022-03-24 10:58:24.095",
+      "dateStarted": "2022-11-09 22:26:29.835",
+      "dateFinished": "2022-11-09 22:26:29.895",
       "status": "FINISHED"
     },
     {
@@ -1054,7 +1071,7 @@
       "title": " apoc.periodic.iterate with BATCH_SINGLE",
       "text": "%neo4j\n\nunwind range(1,1000) as id create (:Start {myProp: id});\n\n// the `$_batch` is [{n: Node(1)}, {n: Node(2)}, ....]\nCALL apoc.periodic.iterate(\n  \"MATCH (n:Start) RETURN n\",\n  \"WITH $_batch as b CREATE (batch:Batch) set batch.prop \u003d [item in b | item.n.myProp]\", // we create for each batch a list of \u0027myProp\u0027s\n  {batchMode: \u0027BATCH_SINGLE\u0027,batchSize:10, parallel:false})\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-25 09:20:38.011",
+      "dateUpdated": "2022-11-09 22:32:17.681",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1263,7 +1280,7 @@
     {
       "text": "%md\n\n### Periodic commit\n\nEspecially for graph processing it is useful to run a query repeatedly in separate transactions until it doesn’t generates any results anymore. \n\nIn this case, we can use `apoc.periodic.commit(query, $param)`, \nwith which the query is executed in separate transactions until it returns `0`.\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 10:58:28.878",
+      "dateUpdated": "2022-11-09 22:32:36.486",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1276,8 +1293,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": true,
-        "tableHide": false
+        "editorHide": false,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -1298,8 +1315,8 @@
       "jobName": "paragraph_1635518388146_1831838883",
       "id": "paragraph_1635518388146_1831838883",
       "dateCreated": "2021-10-29 14:39:48.146",
-      "dateStarted": "2022-03-24 10:58:28.878",
-      "dateFinished": "2022-03-24 10:58:28.892",
+      "dateStarted": "2022-11-09 22:27:28.518",
+      "dateFinished": "2022-11-09 22:27:28.533",
       "status": "FINISHED"
     },
     {
@@ -1523,7 +1540,7 @@
     {
       "text": "%md\n\n### Delete the entire database\n\nWe can use the `apoc.periodic.truncate` to delete periodically the entire database. This procedure uses the `apoc.periodic.iterate` under the hood.\nThe procedure is useful when you’re in the prototyping phase and you’re defining your graph model or your ingestion strategies.\n\n\u003cpre\u003e\nCALL apoc.periodic.truncate({dropSchema: true})\n\u003c/pre\u003e\nWith dropSchema\u003dtrue/false that eventually drops indexes and constraints.\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 10:58:32.649",
+      "dateUpdated": "2022-11-09 22:27:14.970",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1536,8 +1553,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": true,
-        "tableHide": false
+        "editorHide": false,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -1558,14 +1575,14 @@
       "jobName": "paragraph_1635848145239_975766747",
       "id": "paragraph_1635848145239_975766747",
       "dateCreated": "2021-11-02 10:15:45.240",
-      "dateStarted": "2022-03-24 10:58:32.647",
-      "dateFinished": "2022-03-24 10:58:32.666",
+      "dateStarted": "2022-11-09 22:27:03.330",
+      "dateFinished": "2022-11-09 22:27:03.347",
       "status": "FINISHED"
     },
     {
       "text": "%md\n\n## [Statistics and analysis](http://localhost:8080/#/notebook/2GKUM18D6)",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 10:58:35.355",
+      "dateUpdated": "2022-11-09 22:27:07.156",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1600,8 +1617,8 @@
       "jobName": "paragraph_1635518678615_1647023307",
       "id": "paragraph_1635518678615_1647023307",
       "dateCreated": "2021-10-29 14:44:38.615",
-      "dateStarted": "2022-03-24 10:58:35.347",
-      "dateFinished": "2022-03-24 10:58:35.359",
+      "dateStarted": "2022-11-09 22:27:07.157",
+      "dateFinished": "2022-11-09 22:27:07.170",
       "status": "FINISHED"
     },
     {
@@ -1622,7 +1639,7 @@
       "status": "READY"
     }
   ],
-  "name": "10. Zbatch data",
+  "name": " 1. batch data",
   "id": "2GK7PWGHH",
   "defaultInterpreterGroup": "spark",
   "version": "0.9.0-preview2",

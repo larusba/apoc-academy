@@ -3313,7 +3313,7 @@
     {
       "text": "%md\n\n### Compress string\n\nTo store large string values into Node or Relationships, and vice-versa we can use:\n\n- apoc.util.compress(string, $configMap)\n- apoc.util.decompress(byte[], $configMap)\n\nwhere `$configMap` can have:\n- `compression`: compression mode (default: \u0027GZIP\u0027) - Can be GZIP, BZIP2, DEFLATE, BLOCK_LZ4, FRAMED_SNAPPY, NONE.\n- `charset` - default \u0027UTF-8\u0027\n",
       "user": "anonymous",
-      "dateUpdated": "2022-03-24 11:12:11.925",
+      "dateUpdated": "2022-11-09 23:35:51.870",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3325,8 +3325,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "tableHide": false,
-        "editorHide": true
+        "tableHide": true,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -3751,7 +3751,7 @@
       "status": "READY"
     }
   ],
-  "name": "8. Others",
+  "name": " 8. Others",
   "id": "2GK4BTA5G",
   "defaultInterpreterGroup": "neo4j",
   "version": "0.9.0-preview2",
