@@ -1489,15 +1489,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "NETWORK",
-            "data": "{\"nodes\":[{\"id\":172,\"data\":{\"_xmlVersion\":\"1.0\",\"_xmlEncoding\":\"UTF-8\",\"url\":\"https://raw.githubusercontent.com/neo4j-contrib/neo4j-apoc-procedures/4.3/core/src/test/resources/xml/books.xml\"},\"label\":\"XmlDocument\"}],\"edges\":[],\"labels\":{\"Movie\":\"#6913C0\",\"Person\":\"#50BDC7\",\"XmlDocument\":\"#733D5A\",\"XmlTag\":\"#A82C2B\",\"XmlWord\":\"#2FF8E1\"},\"types\":[\"SELF_REL\",\"ACTED_IN\",\"REVIEWED\",\"NEXT_SIBLING\",\"IS_CHILD_OF\",\"FIRST_CHILD_OF\",\"PRODUCED\",\"WROTE\",\"LAST_CHILD_OF\",\"FOLLOWS\",\"NEXT\",\"DIRECTED\",\"NEXT_WORD\"],\"directed\":true}"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -1507,6 +1498,62 @@
       "dateStarted": "2022-11-11 01:44:16.183",
       "dateFinished": "2022-11-11 01:44:19.632",
       "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\nMATCH (n:XmlWord) RETURN n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-11 08:21:36.059",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1668154868967_872558010",
+      "id": "paragraph_1668154868967_872558010",
+      "dateCreated": "2022-11-11 08:21:08.967",
+      "status": "READY"
+    },
+    {
+      "text": "%neo4j\nMATCH (n:XmlTag) RETURN n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-11 08:21:33.899",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1668154880367_1398279581",
+      "id": "paragraph_1668154880367_1398279581",
+      "dateCreated": "2022-11-11 08:21:20.367",
+      "status": "READY"
     },
     {
       "user": "anonymous",

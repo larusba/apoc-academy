@@ -102,15 +102,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "file\tsource\tformat\tnodes\trelationships\tproperties\ttime\trows\tbatchSize\tbatches\tdone\tdata\n\"testfile.csv\"\t\"database: nodes(172), rels(254)\"\t\"csv\"\t172\t254\t571\t241\t426\t20000\t1\tTRUE\tNULL\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -468,15 +459,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "file\tbatches\tsource\tformat\tnodes\trelationships\tproperties\ttime\trows\tbatchSize\tcypherStatements\tnodeStatements\trelationshipStatements\tschemaStatements\tcleanupStatements\n\"testfile.cypher\"\t1\t\"database: nodes(172), rels(253)\"\t\"cypher\"\t172\t253\t569\t68\t425\t20000\tNULL\tNULL\tNULL\tNULL\tNULL\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -1168,15 +1150,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "file\tbatches\tsource\tformat\tnodes\trelationships\tproperties\ttime\trows\tbatchSize\tcypherStatements\tnodeStatements\trelationshipStatements\tschemaStatements\tcleanupStatements\n\"testAddStructure.cypher\"\t1\t\"database: nodes(172), rels(253)\"\t\"cypher\"\t172\t253\t569\t67\t425\t20000\tNULL\tNULL\tNULL\tNULL\tNULL\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -1286,15 +1259,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "file\tbatches\tsource\tformat\tnodes\trelationships\tproperties\ttime\trows\tbatchSize\n\"exportData.cypher\"\t1\t\"data: nodes(140), rels(172)\"\t\"cypher\"\t140\t172\t490\t33\t312\t20000\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -1552,15 +1516,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "file\tbatches\tsource\tformat\tnodes\trelationships\tproperties\ttime\trows\tbatchSize\tcypherStatements\tnodeStatements\trelationshipStatements\tschemaStatements\tcleanupStatements\n\"separated.cypher\"\t1\t\"database: nodes(172), rels(253)\"\t\"cypher\"\t172\t253\t569\t270\t425\t20000\tNULL\tNULL\tNULL\tNULL\tNULL\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -3001,7 +2956,7 @@
     {
       "text": "%md\n## Export GraphMl\n\nThe export GraphML procedures export data into a format that’s used by other tools like Gephi and CytoScape to read graph data.\n\nAll Point or Temporal data types are exported formatted as a String\n\ne.g:\n\nPoint 3d - `{\"crs\":\"wgs-84-3d\",\"latitude\":56.7,\"longitude\":12.78,\"height\":100.0}`\n\nPoint 2d - `{\"crs\":\"wgs-84-3d\",\"latitude\":56.7,\"longitude\":12.78,\"height\":null}`\n\nDate - `2018-10-10`\n\nLocalDateTime - `2018-10-10T00:00`\n\n\n- `apoc.export.graphml.all `\n- `apoc.export.graphml.data`\n- `apoc.export.graphml.graph` \n- `apoc.export.graphml.query`\n\n\n\n### Configurations\n\n- `useTypes`\n- `batchSize (default: 20000)`\n- `format` (default null) - can be \"gephi\" or \"tinkerpop\"\n- `separateFiles`",
       "user": "anonymous",
-      "dateUpdated": "2022-11-11 06:20:56.003",
+      "dateUpdated": "2022-11-11 08:25:28.757",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3014,8 +2969,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": false,
-        "tableHide": true
+        "editorHide": true,
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -3026,7 +2981,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eExport GraphMl\u003c/h2\u003e\n\u003cp\u003eThe export GraphML procedures export data into a format that’s used by other tools like Gephi and CytoScape to read graph data.\u003c/p\u003e\n\u003cp\u003eAll Point or Temporal data types are exported formatted as a String\u003c/p\u003e\n\u003cp\u003ee.g:\u003c/p\u003e\n\u003cp\u003ePoint 3d - \u003ccode\u003e{\u0026quot;crs\u0026quot;:\u0026quot;wgs-84-3d\u0026quot;,\u0026quot;latitude\u0026quot;:56.7,\u0026quot;longitude\u0026quot;:12.78,\u0026quot;height\u0026quot;:100.0}\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003ePoint 2d - \u003ccode\u003e{\u0026quot;crs\u0026quot;:\u0026quot;wgs-84-3d\u0026quot;,\u0026quot;latitude\u0026quot;:56.7,\u0026quot;longitude\u0026quot;:12.78,\u0026quot;height\u0026quot;:null}\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eDate - \u003ccode\u003e2018-10-10\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eLocalDateTime - \u003ccode\u003e2018-10-10T00:00\u003c/code\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eapoc.export.graphml.all\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.export.graphml.data\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.export.graphml.graph\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.export.graphml.query\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003eConfigurations\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003ecaption\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003euseTypes\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ebatchSize\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eformat\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eseparateFiles\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eExport GraphMl\u003c/h2\u003e\n\u003cp\u003eThe export GraphML procedures export data into a format that’s used by other tools like Gephi and CytoScape to read graph data.\u003c/p\u003e\n\u003cp\u003eAll Point or Temporal data types are exported formatted as a String\u003c/p\u003e\n\u003cp\u003ee.g:\u003c/p\u003e\n\u003cp\u003ePoint 3d - \u003ccode\u003e{\u0026quot;crs\u0026quot;:\u0026quot;wgs-84-3d\u0026quot;,\u0026quot;latitude\u0026quot;:56.7,\u0026quot;longitude\u0026quot;:12.78,\u0026quot;height\u0026quot;:100.0}\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003ePoint 2d - \u003ccode\u003e{\u0026quot;crs\u0026quot;:\u0026quot;wgs-84-3d\u0026quot;,\u0026quot;latitude\u0026quot;:56.7,\u0026quot;longitude\u0026quot;:12.78,\u0026quot;height\u0026quot;:null}\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eDate - \u003ccode\u003e2018-10-10\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eLocalDateTime - \u003ccode\u003e2018-10-10T00:00\u003c/code\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eapoc.export.graphml.all\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.export.graphml.data\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.export.graphml.graph\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.export.graphml.query\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003eConfigurations\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003euseTypes\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ebatchSize (default: 20000)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eformat\u003c/code\u003e (default null) - can be \u0026ldquo;gephi\u0026rdquo; or \u0026ldquo;tinkerpop\u0026rdquo;\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eseparateFiles\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
           }
         ]
       },
@@ -3036,8 +2991,8 @@
       "jobName": "paragraph_1667574354036_142950248",
       "id": "paragraph_1667574354036_142950248",
       "dateCreated": "2022-11-04 15:05:54.036",
-      "dateStarted": "2022-11-11 05:59:07.866",
-      "dateFinished": "2022-11-11 05:59:07.889",
+      "dateStarted": "2022-11-11 08:25:28.761",
+      "dateFinished": "2022-11-11 08:25:28.793",
       "status": "FINISHED"
     },
     {
@@ -3740,9 +3695,9 @@
       "status": "FINISHED"
     },
     {
-      "text": "%md\n\n## exercise!!\n\nexport with 3 different procedures, respectively the Person nodes, the Movie nodes and the relations: ACTED_IN.\nDo it for csv, json, cypher (and optionally for graphml and xls)",
+      "text": "%md\n\n## exercise!!\n\nExport with 3 different procedures, respectively the Person nodes, the Movie nodes and the relations: ACTED_IN. \u003cbr\u003e\nDo it for csv, json (and optionally for cypher, graphml and xls)",
       "user": "anonymous",
-      "dateUpdated": "2022-11-11 08:00:54.996",
+      "dateUpdated": "2022-11-11 08:17:38.245",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3767,7 +3722,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eexercise!!\u003c/h2\u003e\n\u003cp\u003eexport with 3 different procedures, respectively the Person nodes, the Movie nodes and the relations: ACTED_IN.\u003cbr /\u003e\nDo it for csv, json, cypher (and optionally for graphml and xls)\u003c/p\u003e\n\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eexercise!!\u003c/h2\u003e\n\u003cp\u003eExport with 3 different procedures, respectively the Person nodes, the Movie nodes and the relations: ACTED_IN. \u003cbr\u003e\u003cbr /\u003e\nDo it for csv, json (and optionally for cypher, graphml and xls)\u003c/p\u003e\n\n\u003c/div\u003e"
           }
         ]
       },
@@ -3777,8 +3732,8 @@
       "jobName": "paragraph_1666972646699_626512426",
       "id": "paragraph_1666972646699_626512426",
       "dateCreated": "2022-10-28 15:57:26.699",
-      "dateStarted": "2022-11-11 08:00:55.004",
-      "dateFinished": "2022-11-11 08:00:55.059",
+      "dateStarted": "2022-11-11 08:17:38.255",
+      "dateFinished": "2022-11-11 08:17:38.288",
       "status": "FINISHED"
     },
     {

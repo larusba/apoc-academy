@@ -96,15 +96,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "lineNo\tlist\tstrings\tmap.name\tmap.age\tmap.beverage\n0\t[\"Selma\",\"9\",\"Soda\"]\t[]\tSelma\t9\tSoda\n1\t[\"Rana\",\"12\",\"Tea;Milk\"]\t[]\tRana\t12\tTea;Milk\n2\t[\"Selina\",\"19\",\"Cola\"]\t[]\tSelina\t19\tCola\n3\t[\"Alhpa\",\"55\",\"Gamma\"]\t[]\tAlhpa\t55\tGamma\n4\t[\"Beta\",\"66\",\"Delta\"]\t[]\tBeta\t66\tDelta\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -166,15 +157,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "list\n[\"Selma\",9]\n[\"Rana\",12]\n[\"Selina\",19]\n[\"Alhpa\",55]\n[\"Beta\",66]\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
@@ -188,7 +170,7 @@
     {
       "text": "%md\n### `results` config\n\nIs a list of enum, with possible values \"list\", \"map\", \"strings\", \"stringMap\".\nDefault value is `[\u0027list\u0027, \u0027map\u0027]`.\n\n\"strings\" and \"stringMap\" are equivalent respectively to list and map, but don\u0027t convert the results if they aren\u0027t strings.\n\n\n```\nBy passing fewer results we lighten the procedure\n```",
       "user": "anonymous",
-      "dateUpdated": "2022-11-07 15:08:33.216",
+      "dateUpdated": "2022-11-11 08:26:17.790",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -200,11 +182,22 @@
           "completionKey": "TAB",
           "completionSupport": false
         },
-        "editorMode": "ace/mode/markdown"
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
       },
       "settings": {
         "params": {},
         "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003e\u003ccode\u003eresults\u003c/code\u003e config\u003c/h3\u003e\n\u003cp\u003eIs a list of enum, with possible values \u0026ldquo;list\u0026rdquo;, \u0026ldquo;map\u0026rdquo;, \u0026ldquo;strings\u0026rdquo;, \u0026ldquo;stringMap\u0026rdquo;.\u003cbr /\u003e\nDefault value is \u003ccode\u003e[\u0027list\u0027, \u0027map\u0027]\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003e\u0026ldquo;strings\u0026rdquo; and \u0026ldquo;stringMap\u0026rdquo; are equivalent respectively to list and map, but don\u0026rsquo;t convert the results if they aren\u0026rsquo;t strings.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eBy passing fewer results we lighten the procedure\n\u003c/code\u003e\u003c/pre\u003e\n\n\u003c/div\u003e"
+          }
+        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -212,7 +205,9 @@
       "jobName": "paragraph_1667832282596_1923448090",
       "id": "paragraph_1667832282596_1923448090",
       "dateCreated": "2022-11-07 14:44:42.596",
-      "status": "READY"
+      "dateStarted": "2022-11-11 08:26:17.794",
+      "dateFinished": "2022-11-11 08:26:17.806",
+      "status": "FINISHED"
     },
     {
       "text": "%neo4j\n˘\nCALL apoc.load.csv(\"load.csv\", {results: [\u0027list\u0027, \u0027map\u0027, \u0027strings\u0027, \u0027stringMap\u0027]})",
@@ -1515,7 +1510,7 @@
     {
       "text": "%md\n\n## `apoc.load.json` \n\n2 versions:\n\n- `apoc.load.json(file, jsonPath, $config)`\n- `apoc.load.jsonParams(file, headers, payload, jsonPath, $config)`\n\n`$config` has pathOptions with default `[\"DEFAULT_PATH_LEAF_TO_NULL\", \"SUPPRESS_EXCEPTIONS\"]`",
       "user": "anonymous",
-      "dateUpdated": "2022-11-10 22:41:22.048",
+      "dateUpdated": "2022-11-11 08:26:37.308",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1528,8 +1523,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": false,
-        "tableHide": true
+        "editorHide": true,
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -1540,7 +1535,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003e\u003ccode\u003eapoc.load.json\u003c/code\u003e\u003c/h2\u003e\n\u003cp\u003e3 versions:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eapoc.load.json(file, jsonPath, $config)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.load.jsonParams(file, headers, payload, jsonPath, $config)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.load.jsonArray(file, jsonPath, jsonOptions, $config)\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003ccode\u003e$config\u003c/code\u003e has pathOptions with default \u003ccode\u003e[\u0026quot;DEFAULT_PATH_LEAF_TO_NULL\u0026quot;, \u0026quot;SUPPRESS_EXCEPTIONS\u0026quot;]\u003c/code\u003e\u003c/p\u003e\n\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003e\u003ccode\u003eapoc.load.json\u003c/code\u003e\u003c/h2\u003e\n\u003cp\u003e2 versions:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eapoc.load.json(file, jsonPath, $config)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.load.jsonParams(file, headers, payload, jsonPath, $config)\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003ccode\u003e$config\u003c/code\u003e has pathOptions with default \u003ccode\u003e[\u0026quot;DEFAULT_PATH_LEAF_TO_NULL\u0026quot;, \u0026quot;SUPPRESS_EXCEPTIONS\u0026quot;]\u003c/code\u003e\u003c/p\u003e\n\n\u003c/div\u003e"
           }
         ]
       },
@@ -1550,8 +1545,8 @@
       "jobName": "paragraph_1667819967649_1850070851",
       "id": "paragraph_1667819967649_1850070851",
       "dateCreated": "2022-11-07 11:19:27.649",
-      "dateStarted": "2022-11-10 22:36:51.510",
-      "dateFinished": "2022-11-10 22:36:51.677",
+      "dateStarted": "2022-11-11 08:26:37.318",
+      "dateFinished": "2022-11-11 08:26:37.330",
       "status": "FINISHED"
     },
     {
@@ -1744,7 +1739,7 @@
       "title": "apoc.load.jsonParams",
       "text": "%md\n\nIf we want to use it to call an API, we can also pass an http header and a content payload request\n\n`CALL apoc.load.jsonParams(\u003cjsonAPIUrl\u003e, headers, payload, jsonPath, config)`",
       "user": "anonymous",
-      "dateUpdated": "2022-11-10 22:37:28.272",
+      "dateUpdated": "2022-11-11 08:26:24.826",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1757,8 +1752,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": false,
-        "tableHide": true,
+        "editorHide": true,
+        "tableHide": false,
         "title": true
       },
       "settings": {
@@ -1770,7 +1765,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eIf we\u0026rsquo;re want to use it to call an API, we can also pass an http header and a content payload request\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eCALL apoc.load.jsonParams(\u0026lt;jsonAPIUrl\u0026gt;, headers, payload, jsonPath, config)\u003c/code\u003e\u003c/p\u003e\n\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eIf we want to use it to call an API, we can also pass an http header and a content payload request\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eCALL apoc.load.jsonParams(\u0026lt;jsonAPIUrl\u0026gt;, headers, payload, jsonPath, config)\u003c/code\u003e\u003c/p\u003e\n\n\u003c/div\u003e"
           }
         ]
       },
@@ -1780,8 +1775,8 @@
       "jobName": "paragraph_1667820104213_1147762207",
       "id": "paragraph_1667820104213_1147762207",
       "dateCreated": "2022-11-07 11:21:44.213",
-      "dateStarted": "2022-11-10 14:54:13.574",
-      "dateFinished": "2022-11-10 14:54:13.590",
+      "dateStarted": "2022-11-11 08:26:24.833",
+      "dateFinished": "2022-11-11 08:26:24.842",
       "status": "FINISHED"
     },
     {
@@ -2110,7 +2105,7 @@
       "title": "File load_test.xlsx",
       "text": "%md\n\n\nSheet \"Standard\"\n\n|-------|------------\n| name\t| age\n| Selma\t| 8\n| Rana\t| 11\n| Selina\t|18\n\n\nSheet \"Offset\"\n\n|-------|-------------|------|-------|-------------|------|\n| \u003cbr\u003e |  |  |  | | \n|  | String | Boolean | Integer | Float | Array\n|  | Test | true | 2 | 1,5 | 1;2;3\n| \u003cbr\u003e  |  |  |  | | \n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-10 22:41:43.157",
+      "dateUpdated": "2022-11-11 08:26:32.188",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2123,8 +2118,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": false,
-        "tableHide": true,
+        "editorHide": true,
+        "tableHide": false,
         "title": true
       },
       "settings": {
@@ -2146,8 +2141,8 @@
       "jobName": "paragraph_1667860088771_1765472411",
       "id": "paragraph_1667860088771_1765472411",
       "dateCreated": "2022-11-07 22:28:08.773",
-      "dateStarted": "2022-11-10 14:54:57.151",
-      "dateFinished": "2022-11-10 14:54:57.170",
+      "dateStarted": "2022-11-11 08:26:32.197",
+      "dateFinished": "2022-11-11 08:26:32.339",
       "status": "FINISHED"
     },
     {
