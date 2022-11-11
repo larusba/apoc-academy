@@ -3287,7 +3287,7 @@
     {
       "text": "%neo4j\ncall apoc.export.graphml.all(\"exportGephi.graphml\",{format:\"gephi\"})",
       "user": "anonymous",
-      "dateUpdated": "2022-11-11 06:08:01.067",
+      "dateUpdated": "2022-11-11 07:10:46.154",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3296,7 +3296,7 @@
           "0": {
             "graph": {
               "mode": "table",
-              "height": 300.0,
+              "height": 164.0,
               "optionOpen": false,
               "setting": {
                 "table": {
@@ -3527,9 +3527,9 @@
       "status": "FINISHED"
     },
     {
-      "text": "%md\n\n## Export xls\n\n- `CALL apoc.export.xls.all(file, $config)`\n- `CALL apoc.export.xls.data(nodes, relationships, file, $config)`\n- `CALL apoc.export.xls.graph(graph, file, $config)`\n- `CALL apoc.export.xls.query(query, file, $config)`\n\nConfigs:\n\n- \"headerNodeId\", \"\u003cnodeId\u003e\");\n- \"headerRelationshipId\", \"\u003crelationshipId\u003e\");\n- \"headerStartNodeId\", \"\u003cstartNodeId\u003e\");\n- \"headerEndNodeId\", \"\u003cendNodeId\u003e\");\n- arrayDelimiter\", \";\");\n- dateTimeStyle\", \"yyyy-mm-dd hh:mm:ss\");\n- dateStyle\", \"yyyy-mm-dd\");\n- batchSize: 20000\n- \"prefixSheetWithEntityType\", false));\n- joinLabels\", false));\n\nTo use this procedure (and the `apoc.load.xls`) you need to download the jar\n\nhttps://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/\u003cAPOC_VERSION\u003e/apoc-xls-dependencies-\u003cAPOC_VERSION\u003e.jar,\n\nso for example with apoc 4.4.0.10, `https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/4.4.0.10/apoc-xls-dependencies-4.4.0.10.jar`.\n\nand put in the `plugin` folder.\n\n\n",
+      "text": "%md\n\n## Export xls\n\n- `CALL apoc.export.xls.all(file, $config)`\n- `CALL apoc.export.xls.data(nodes, relationships, file, $config)`\n- `CALL apoc.export.xls.graph(graph, file, $config)`\n- `CALL apoc.export.xls.query(query, file, $config)`\n\nConfigs:\n\n- `headerNodeId` - default `\"\u003cnodeId\u003e\"`\n- `headerRelationshipId` - default `\"\u003crelationshipId\u003e\"`\n- `headerStartNodeId` - default `\"\u003cstartNodeId\u003e\"`\n- `headerEndNodeId` -  default `\"\u003cendNodeId\u003e\"`\n- `arrayDelimiter` -  default \";\"\n- `dateTimeStyle` - default \"yyyy-mm-dd hh:mm:ss\"\n- `dateStyle` -  default \"yyyy-mm-dd\"\n- `batchSize` - default 20000\n- `prefixSheetWithEntityType` -  default false\n- `joinLabels` - default false\n\nTo use this procedure (and the `apoc.load.xls`) you need to download the jar\n\nhttps://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/\u003cAPOC_VERSION\u003e/apoc-xls-dependencies-\u003cAPOC_VERSION\u003e.jar,\n\nso for example with apoc 4.4.0.10, `https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/4.4.0.10/apoc-xls-dependencies-4.4.0.10.jar`.\n\nand put in the `plugin` folder.\n\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-11 06:52:38.659",
+      "dateUpdated": "2022-11-11 07:17:11.603",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3542,8 +3542,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": false,
-        "tableHide": true
+        "editorHide": true,
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -3554,7 +3554,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eExport xls\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eCALL apoc.export.xls.all(file, $config)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eCALL apoc.export.xls.data(nodes, relationships, file, $config)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eCALL apoc.export.xls.graph(graph, file, $config)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eCALL apoc.export.xls.query(query, file, $config)\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eTo use this procedure (and the \u003ccode\u003eapoc.load.xls\u003c/code\u003e) you need to download the jar\u003c/p\u003e\n\u003cp\u003e\u003ca href\u003d\"https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/\"\u003ehttps://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/\u003c/a\u003e\u0026lt;APOC_VERSION\u0026gt;/apoc-xls-dependencies-\u0026lt;APOC_VERSION\u0026gt;.jar,\u003c/p\u003e\n\u003cp\u003eso for example with apoc 4.4.0.10, \u003ccode\u003ehttps://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/4.4.0.10/apoc-xls-dependencies-4.4.0.10.jar\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eand put in the \u003ccode\u003eplugin\u003c/code\u003e folder.\u003c/p\u003e\n\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eExport xls\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eCALL apoc.export.xls.all(file, $config)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eCALL apoc.export.xls.data(nodes, relationships, file, $config)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eCALL apoc.export.xls.graph(graph, file, $config)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eCALL apoc.export.xls.query(query, file, $config)\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eConfigs:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eheaderNodeId\u003c/code\u003e - default \u003ccode\u003e\u0026quot;\u0026lt;nodeId\u0026gt;\u0026quot;\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eheaderRelationshipId\u003c/code\u003e - default \u003ccode\u003e\u0026quot;\u0026lt;relationshipId\u0026gt;\u0026quot;\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eheaderStartNodeId\u003c/code\u003e - default \u003ccode\u003e\u0026quot;\u0026lt;startNodeId\u0026gt;\u0026quot;\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eheaderEndNodeId\u003c/code\u003e -  default \u003ccode\u003e\u0026quot;\u0026lt;endNodeId\u0026gt;\u0026quot;\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003earrayDelimiter\u003c/code\u003e -  default \u0026ldquo;;\u0026rdquo;\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003edateTimeStyle\u003c/code\u003e - default \u0026ldquo;yyyy-mm-dd hh:mm:ss\u0026rdquo;\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003edateStyle\u003c/code\u003e -  default \u0026ldquo;yyyy-mm-dd\u0026rdquo;\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ebatchSize\u003c/code\u003e - default 20000\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eprefixSheetWithEntityType\u003c/code\u003e -  default false\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ejoinLabels\u003c/code\u003e - default false\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eTo use this procedure (and the \u003ccode\u003eapoc.load.xls\u003c/code\u003e) you need to download the jar\u003c/p\u003e\n\u003cp\u003e\u003ca href\u003d\"https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/\"\u003ehttps://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/\u003c/a\u003e\u0026lt;APOC_VERSION\u0026gt;/apoc-xls-dependencies-\u0026lt;APOC_VERSION\u0026gt;.jar,\u003c/p\u003e\n\u003cp\u003eso for example with apoc 4.4.0.10, \u003ccode\u003ehttps://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/4.4.0.10/apoc-xls-dependencies-4.4.0.10.jar\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eand put in the \u003ccode\u003eplugin\u003c/code\u003e folder.\u003c/p\u003e\n\n\u003c/div\u003e"
           }
         ]
       },
@@ -3564,8 +3564,8 @@
       "jobName": "paragraph_1667575577938_1158569987",
       "id": "paragraph_1667575577938_1158569987",
       "dateCreated": "2022-11-04 15:26:17.938",
-      "dateStarted": "2022-11-11 06:26:31.245",
-      "dateFinished": "2022-11-11 06:26:31.304",
+      "dateStarted": "2022-11-11 07:17:11.607",
+      "dateFinished": "2022-11-11 07:17:11.623",
       "status": "FINISHED"
     },
     {
@@ -3667,23 +3667,6 @@
       "status": "READY"
     },
     {
-      "text": "%neo4j\n",
-      "user": "anonymous",
-      "dateUpdated": "2022-11-11 07:03:14.839",
-      "config": {},
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1668150194838_855743932",
-      "id": "paragraph_1668150194838_855743932",
-      "dateCreated": "2022-11-11 07:03:14.839",
-      "status": "READY"
-    },
-    {
       "text": "%neo4j\n\n// NOTE: currently there is a problem with docker/zeppelin..\n\n// custom headers\nCALL apoc.export.xls.all(\"allCustomHeaders.xls\", {headerNodeId: \"nodoId\", headerRelationshipId: \"relId\"})",
       "user": "anonymous",
       "dateUpdated": "2022-11-11 06:59:16.783",
@@ -3713,126 +3696,10 @@
       "status": "READY"
     },
     {
-      "text": "%md\nTODO - examples...\n    public XlsExportConfig(Map\u003cString,Object\u003e c) {\n        config \u003d c !\u003d null ? c : Collections.emptyMap();\n        this.headerNodeId \u003d (String) config.getOrDefault(\"headerNodeId\", \"\u003cnodeId\u003e\");\n        this.headerRelationshipId\u003d (String) config.getOrDefault(\"headerRelationshipId\", \"\u003crelationshipId\u003e\");\n        this.headerStartNodeId \u003d (String) config.getOrDefault(\"headerStartNodeId\", \"\u003cstartNodeId\u003e\");\n        this.headerEndNodeId \u003d (String) config.getOrDefault(\"headerEndNodeId\", \"\u003cendNodeId\u003e\");\n        this.arrayDelimiter \u003d (String) config.getOrDefault(\"arrayDelimiter\", \";\");\n        this.dateTimeStyle \u003d (String) config.getOrDefault(\"dateTimeStyle\", \"yyyy-mm-dd hh:mm:ss\");\n        this.dateStyle \u003d (String) config.getOrDefault(\"dateStyle\", \"yyyy-mm-dd\");\n        this.batchSize \u003d ((Number)config.getOrDefault(\"batchSize\", DEFAULT_BATCH_SIZE)).intValue();\n        this.prefixSheetWithEntityType \u003d Util.toBoolean(config.getOrDefault(\"prefixSheetWithEntityType\", false));\n        this.joinLabels \u003d Util.toBoolean(config.getOrDefault(\"joinLabels\", false));\n    }\n",
-      "user": "anonymous",
-      "dateUpdated": "2022-11-04 15:34:01.645",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "markdown",
-          "editOnDblClick": true,
-          "completionKey": "TAB",
-          "completionSupport": false
-        },
-        "editorMode": "ace/mode/markdown"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1667575737193_203994453",
-      "id": "paragraph_1667575737193_203994453",
-      "dateCreated": "2022-11-04 15:28:57.194",
-      "status": "READY"
-    },
-    {
-      "text": "%neo4j\nexample with something...",
-      "user": "anonymous",
-      "dateUpdated": "2022-11-04 15:34:56.398",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/undefined"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1667576047334_685582360",
-      "id": "paragraph_1667576047334_685582360",
-      "dateCreated": "2022-11-04 15:34:07.334",
-      "status": "READY"
-    },
-    {
-      "text": "%md\n",
-      "user": "anonymous",
-      "dateUpdated": "2022-11-04 15:34:34.385",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "markdown",
-          "editOnDblClick": true,
-          "completionKey": "TAB",
-          "completionSupport": false
-        },
-        "editorMode": "ace/mode/markdown"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1667576071482_278603958",
-      "id": "paragraph_1667576071482_278603958",
-      "dateCreated": "2022-11-04 15:34:31.482",
-      "status": "READY"
-    },
-    {
-      "text": "%md\n",
-      "user": "anonymous",
-      "dateUpdated": "2022-11-10 22:27:12.571",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "markdown",
-          "editOnDblClick": true,
-          "completionKey": "TAB",
-          "completionSupport": false
-        },
-        "editorMode": "ace/mode/markdown"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1667575415017_1797430969",
-      "id": "paragraph_1667575415017_1797430969",
-      "dateCreated": "2022-11-04 15:23:35.017",
-      "status": "READY"
-    },
-    {
       "title": "",
-      "text": "%md\n\n## protocols\n\n### We can use various protocols, i.e. : `http/https/gs/ftp/s3/hdfs/file`\n\n### With load and import procedures too\n\n\nTo use `s3` you need to download the jar\n\nhttps://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/\u003cAPOC_VERSION\u003e/apoc-s3-dependencies-\u003cAPOC_VERSION\u003e.jar,\n\nso for example with apoc 4.4.0.10, `https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/4.4.0.10/apoc-s3-dependencies-4.4.0.10.jar`.\n\nand put in the `plugin` folder.\n\n\u003cbr\u003e\n\n\nTo use `hdfs` you need to download the jar\n\nhttps://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/\u003cAPOC_VERSION\u003e/apoc-hadoop-dependencies-\u003cAPOC_VERSION\u003e.jar,\n\nso for example with apoc 4.4.0.10, `https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/4.4.0.10/apoc-hadoop-dependencies-4.4.0.10.jar`.\n\nand put in the `plugin` folder.\n\n#### `CALL apoc.export.csv(\"s3://s3.amazonaws.com:80/bucket/path/to/key\")`\n\n\u003cbr\u003e\u003cbr\u003e\n\nTo read, e.g. with `file://url` outside the `plugin` folder, we can set in `apoc.conf` the config `apoc.import.file.use_neo4j_config\u003dfalse`. \u003cbr\u003e\nWhen it\u0027s true (default), the procedures check whether file system access is allowed (via neo4j config `dbms.security.allow_csv_import_from_file_urls`) and possibly get the specific directory by reading the configuration parameter `dbms.directories.import`. \u003cbr\u003e\n\n\u003cpre\u003e\nNB: pay attention!! When this config is `false` we could read/write from/to sensible directories.\n\u003c/pre\u003e\n",
+      "text": "%md\n\n## protocols\n\n### We can use various protocols, i.e. : `http/https/gs/ftp/s3/hdfs/file`\n\n### With load and import procedures too\n\n\nTo use `s3` you need to download the jar\n\nhttps://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/\u003cAPOC_VERSION\u003e/apoc-s3-dependencies-\u003cAPOC_VERSION\u003e.jar,\n\nso for example with apoc 4.4.0.10, `https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/4.4.0.10/apoc-s3-dependencies-4.4.0.10.jar`.\n\nand put in the `plugin` folder.\n\n\u003cbr\u003e\n\n\nTo use `hdfs` you need to download the jar\n\nhttps://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/\u003cAPOC_VERSION\u003e/apoc-hadoop-dependencies-\u003cAPOC_VERSION\u003e.jar,\n\nso for example with apoc 4.4.0.10, `https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/4.4.0.10/apoc-hadoop-dependencies-4.4.0.10.jar`.\n\nand put in the `plugin` folder.\n\n#### `CALL apoc.export.csv(\"s3://s3.amazonaws.com:80/bucket/path/to/key\")`\n\n\u003cbr\u003e\n\n## read outside neo4j configured dir\n\nTo read, e.g. with `file://url` outside the `plugin` folder, we can set in `apoc.conf` the config `apoc.import.file.use_neo4j_config\u003dfalse`. \u003cbr\u003e\nWhen it\u0027s true (default), the procedures check whether file system access is allowed (via neo4j config `dbms.security.allow_csv_import_from_file_urls`) and possibly get the specific directory by reading the configuration parameter `dbms.directories.import`. \u003cbr\u003e\n\n\u003cpre\u003e\nNB: pay attention!! When this config is `false` we could read/write from/to sensible directories.\n\u003c/pre\u003e\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-11 01:39:43.441",
+      "dateUpdated": "2022-11-11 07:13:26.011",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3858,7 +3725,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eprotocols\u003c/h2\u003e\n\u003ch3\u003eWe can use various protocols, i.e. : \u003ccode\u003ehttp/https/gs/ftp/s3/hdfs/file\u003c/code\u003e\u003c/h3\u003e\n\u003ch3\u003eWith load and import procedures too\u003c/h3\u003e\n\u003cp\u003eTo use \u003ccode\u003es3\u003c/code\u003e you need to download the jar\u003c/p\u003e\n\u003cp\u003e\u003ca href\u003d\"https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/\"\u003ehttps://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/\u003c/a\u003e\u0026lt;APOC_VERSION\u0026gt;/apoc-s3-dependencies-\u0026lt;APOC_VERSION\u0026gt;.jar,\u003c/p\u003e\n\u003cp\u003eso for example with apoc 4.4.0.10, \u003ccode\u003ehttps://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/4.4.0.10/apoc-s3-dependencies-4.4.0.10.jar\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eand put in the \u003ccode\u003eplugin\u003c/code\u003e folder.\u003c/p\u003e\n\u003cbr\u003e\n\u003cp\u003eTo use \u003ccode\u003ehdfs\u003c/code\u003e you need to download the jar\u003c/p\u003e\n\u003cp\u003e\u003ca href\u003d\"https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/\"\u003ehttps://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/\u003c/a\u003e\u0026lt;APOC_VERSION\u0026gt;/apoc-hadoop-dependencies-\u0026lt;APOC_VERSION\u0026gt;.jar,\u003c/p\u003e\n\u003cp\u003eso for example with apoc 4.4.0.10, \u003ccode\u003ehttps://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/4.4.0.10/apoc-hadoop-dependencies-4.4.0.10.jar\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eand put in the \u003ccode\u003eplugin\u003c/code\u003e folder.\u003c/p\u003e\n\u003ch4\u003e\u003ccode\u003eCALL apoc.export.csv(\u0026quot;s3://s3.amazonaws.com:80/bucket/path/to/key\u0026quot;)\u003c/code\u003e\u003c/h4\u003e\n\u003cp\u003e\u003cbr\u003e\u003cbr\u003e\u003c/p\u003e\n\u003cp\u003eTo read, e.g. with \u003ccode\u003efile://url\u003c/code\u003e outside the \u003ccode\u003eplugin\u003c/code\u003e folder, we can set in \u003ccode\u003eapoc.conf\u003c/code\u003e the config \u003ccode\u003eapoc.import.file.use_neo4j_config\u003dfalse\u003c/code\u003e. \u003cbr\u003e\u003cbr /\u003e\nWhen it\u0026rsquo;s true (default), the procedures check whether file system access is allowed (via neo4j config \u003ccode\u003edbms.security.allow_csv_import_from_file_urls\u003c/code\u003e) and possibly get the specific directory by reading the configuration parameter \u003ccode\u003edbms.directories.import\u003c/code\u003e. \u003cbr\u003e\u003c/p\u003e\n\u003cpre\u003e\nNB: pay attention!! When this config is `false` we could read/write from/to sensible directories.\n\u003c/pre\u003e\n\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eprotocols\u003c/h2\u003e\n\u003ch3\u003eWe can use various protocols, i.e. : \u003ccode\u003ehttp/https/gs/ftp/s3/hdfs/file\u003c/code\u003e\u003c/h3\u003e\n\u003ch3\u003eWith load and import procedures too\u003c/h3\u003e\n\u003cp\u003eTo use \u003ccode\u003es3\u003c/code\u003e you need to download the jar\u003c/p\u003e\n\u003cp\u003e\u003ca href\u003d\"https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/\"\u003ehttps://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/\u003c/a\u003e\u0026lt;APOC_VERSION\u0026gt;/apoc-s3-dependencies-\u0026lt;APOC_VERSION\u0026gt;.jar,\u003c/p\u003e\n\u003cp\u003eso for example with apoc 4.4.0.10, \u003ccode\u003ehttps://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/4.4.0.10/apoc-s3-dependencies-4.4.0.10.jar\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eand put in the \u003ccode\u003eplugin\u003c/code\u003e folder.\u003c/p\u003e\n\u003cbr\u003e\n\u003cp\u003eTo use \u003ccode\u003ehdfs\u003c/code\u003e you need to download the jar\u003c/p\u003e\n\u003cp\u003e\u003ca href\u003d\"https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/\"\u003ehttps://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/\u003c/a\u003e\u0026lt;APOC_VERSION\u0026gt;/apoc-hadoop-dependencies-\u0026lt;APOC_VERSION\u0026gt;.jar,\u003c/p\u003e\n\u003cp\u003eso for example with apoc 4.4.0.10, \u003ccode\u003ehttps://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/4.4.0.10/apoc-hadoop-dependencies-4.4.0.10.jar\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eand put in the \u003ccode\u003eplugin\u003c/code\u003e folder.\u003c/p\u003e\n\u003ch4\u003e\u003ccode\u003eCALL apoc.export.csv(\u0026quot;s3://s3.amazonaws.com:80/bucket/path/to/key\u0026quot;)\u003c/code\u003e\u003c/h4\u003e\n\u003cbr\u003e\n\u003ch2\u003eread outside neo4j configured dir\u003c/h2\u003e\n\u003cp\u003eTo read, e.g. with \u003ccode\u003efile://url\u003c/code\u003e outside the \u003ccode\u003eplugin\u003c/code\u003e folder, we can set in \u003ccode\u003eapoc.conf\u003c/code\u003e the config \u003ccode\u003eapoc.import.file.use_neo4j_config\u003dfalse\u003c/code\u003e. \u003cbr\u003e\u003cbr /\u003e\nWhen it\u0026rsquo;s true (default), the procedures check whether file system access is allowed (via neo4j config \u003ccode\u003edbms.security.allow_csv_import_from_file_urls\u003c/code\u003e) and possibly get the specific directory by reading the configuration parameter \u003ccode\u003edbms.directories.import\u003c/code\u003e. \u003cbr\u003e\u003c/p\u003e\n\u003cpre\u003e\nNB: pay attention!! When this config is `false` we could read/write from/to sensible directories.\n\u003c/pre\u003e\n\n\u003c/div\u003e"
           }
         ]
       },
@@ -3868,14 +3735,14 @@
       "jobName": "paragraph_1666606586725_2099638126",
       "id": "paragraph_1666606586725_2099638126",
       "dateCreated": "2022-10-24 10:16:26.729",
-      "dateStarted": "2022-11-11 01:39:43.442",
-      "dateFinished": "2022-11-11 01:39:43.454",
+      "dateStarted": "2022-11-11 07:13:26.020",
+      "dateFinished": "2022-11-11 07:13:26.039",
       "status": "FINISHED"
     },
     {
-      "text": "%md\n3 esercizi di export:\nesportare tutte le persone con proprieta x \u003c 20 in cypher e format plain\nesportare tutte le movie, con la graph, in json in formato default e in un unico array\nesportare tutte le entità, con la graph, in json in formato default e in un unico array",
+      "text": "%md\n\n## exercise!!\n\nexport with 3 different procedures, respectively the Person nodes, the Movie nodes and the relations: ACTED_IN.\nDo it for csv, json, cypher (and optionally for graphml and xls)",
       "user": "anonymous",
-      "dateUpdated": "2022-11-04 15:44:57.558",
+      "dateUpdated": "2022-11-11 08:00:54.996",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3887,11 +3754,22 @@
           "completionKey": "TAB",
           "completionSupport": false
         },
-        "editorMode": "ace/mode/markdown"
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
       },
       "settings": {
         "params": {},
         "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eexercise!!\u003c/h2\u003e\n\u003cp\u003eexport with 3 different procedures, respectively the Person nodes, the Movie nodes and the relations: ACTED_IN.\u003cbr /\u003e\nDo it for csv, json, cypher (and optionally for graphml and xls)\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -3899,24 +3777,26 @@
       "jobName": "paragraph_1666972646699_626512426",
       "id": "paragraph_1666972646699_626512426",
       "dateCreated": "2022-10-28 15:57:26.699",
-      "status": "READY"
+      "dateStarted": "2022-11-11 08:00:55.004",
+      "dateFinished": "2022-11-11 08:00:55.059",
+      "status": "FINISHED"
     },
     {
-      "text": "",
+      "text": "%neo4j\n\n// do exercise stuff\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-05 00:59:09.703",
+      "dateUpdated": "2022-11-11 08:00:46.369",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "scala",
+          "language": "text",
           "editOnDblClick": false,
           "completionKey": "TAB",
-          "completionSupport": true
+          "completionSupport": false
         },
-        "editorMode": "ace/mode/scala"
+        "editorMode": "ace/mode/undefined"
       },
       "settings": {
         "params": {},
@@ -3925,9 +3805,66 @@
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1668153632943_2001560273",
+      "id": "paragraph_1668153632943_2001560273",
+      "dateCreated": "2022-11-11 08:00:32.946",
+      "status": "READY"
+    },
+    {
+      "text": "%md\n## [Load procedures](http://localhost:8080/#/notebook/2HGG9AWSG)",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-11 07:12:20.876",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003e\u003ca href\u003d\"http://localhost:8080/#/notebook/2HGG9AWSG\"\u003eLoad procedures\u003c/a\u003e\u003c/h2\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1666606604863_797590396",
       "id": "paragraph_1666606604863_797590396",
       "dateCreated": "2022-10-24 10:16:44.863",
+      "dateStarted": "2022-11-11 07:12:20.883",
+      "dateFinished": "2022-11-11 07:12:20.940",
+      "status": "FINISHED"
+    },
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1668150706223_998499030",
+      "id": "paragraph_1668150706223_998499030",
+      "dateCreated": "2022-11-11 07:11:46.224",
       "status": "READY"
     }
   ],

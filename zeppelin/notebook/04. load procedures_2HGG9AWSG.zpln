@@ -3049,121 +3049,9 @@
       "status": "FINISHED"
     },
     {
-      "text": "%md\nTODO -- download selenium dependencies...\nAdditionally, we can pass in `$config` the option `{browser: \"CHROME\"}` or `{browser: \"FIREFOX\"}`,\nin order to read html with auto-generated js.\n\n\u003cpre\u003e\nYou have to download additional dependencies if you want to use this config: https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/\u003cAPOC_VERSION\u003e/apoc-selenium-dependencies-\u003cAPOC_VERSION\u003e.jar\n\u003c/pre\u003e\n\nCons: Require additional jars. Leverage an installed browser, chrome or firefox, so it\u0027s slower. So use only if needed, not with html which we know to be static\nvantaggi/svantaggi load.html con selenium --\u003e si appoggia ad un browser chrome/firefox, più lento. \n\nQuindi se non serve, meglio non usarlo",
+      "text": "%md\n\n### Plain Html\n\nAdditionally, exists a procedure with the same parameter as apoc.load.html, but which return a textual rapresentation instead of a list of map.\n\napoc.load.htmlPlainText",
       "user": "anonymous",
-      "dateUpdated": "2022-11-08 11:20:27.145",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "markdown",
-          "editOnDblClick": true,
-          "completionKey": "TAB",
-          "completionSupport": false
-        },
-        "editorMode": "ace/mode/markdown",
-        "editorHide": false,
-        "tableHide": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eTODO \u0026ndash; download selenium dependencies\u0026hellip;\u003cbr /\u003e\nAdditionally, we can pass in \u003ccode\u003e$config\u003c/code\u003e the option \u003ccode\u003e{browser: \u0026quot;CHROME\u0026quot;}\u003c/code\u003e or \u003ccode\u003e{browser: \u0026quot;FIREFOX\u0026quot;}\u003c/code\u003e,\u003cbr /\u003e\nin order to read html with auto-generated js.\u003c/p\u003e\n\u003cpre\u003e\nYou have to download additional dependencies if you want to use this config: https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/\u003cAPOC_VERSION\u003e/apoc-selenium-dependencies-\u003cAPOC_VERSION\u003e.jar\n\u003c/pre\u003e\n\n\u003c/div\u003e"
-          }
-        ]
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1667901302131_1644072257",
-      "id": "paragraph_1667901302131_1644072257",
-      "dateCreated": "2022-11-08 09:55:02.131",
-      "dateStarted": "2022-11-08 10:57:22.134",
-      "dateFinished": "2022-11-08 10:57:22.159",
-      "status": "FINISHED"
-    },
-    {
-      "text": "%neo4j\n\n/*\n\u003chtml\u003e\n\u003chead\u003e\n\n\u003cscript src\u003d\"https://code.jquery.com/jquery-1.9.1.min.js\"\u003e\u003c/script\u003e\n\u003c!-- To make sure that Selenium work also with `$(document).ready()` --\u003e\n\u003cscript type\u003d\"text/javascript\"\u003e\n$(() \u003d\u003e {\n\tvar newP \u003d document.createElement(\"strong\");\n\tvar textNode \u003d document.createTextNode(\"This is a new text node\");\n\tnewP.appendChild(textNode);\n    document.getElementById(\"appendStuff\").appendChild(newP);\n});\n\u003c/script\u003e\n\n\u003c/head\u003e\n\u003cbody\u003e\n\t\u003cdiv class\u003d\"container\"\u003e\n\t\t\u003cdiv id\u003d\"appendStuff\"\u003e\u003c/div\u003e\n\t\t\t\u003ctable id\u003d\"data\" border\u003d\"1\"\u003e\n\t\t\t\t\t\u003ctr\u003e\n\t\t\t\t\t\t\u003cth\u003ecol1\u003c/th\u003e\n\t\t\t\t\t\t\u003cth\u003ecol2\u003c/th\u003e\n\t\t\t\t\t\u003c/tr\u003e\n\t\t\t\u003c/table\u003e\n\t\u003c/div\u003e\n\u003c/body\u003e\n\u003c/html\u003e\n\n*/\n\nCALL apoc.load.html(\"html/wikipediaWithJs.html\", {element: \"strong\"}, {browser: \"FIREFOX\"})\n\n",
-      "user": "anonymous",
-      "dateUpdated": "2022-11-08 11:29:36.020",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {
-          "0": {
-            "graph": {
-              "mode": "table",
-              "height": 300.0,
-              "optionOpen": false,
-              "setting": {
-                "table": {
-                  "tableGridState": {},
-                  "tableColumnTypeState": {
-                    "names": {
-                      "value.element": "string"
-                    },
-                    "updated": false
-                  },
-                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
-                  "tableOptionValue": {
-                    "useFilter": false,
-                    "showPagination": false,
-                    "showAggregationFooter": false
-                  },
-                  "updated": false,
-                  "initialized": false
-                }
-              },
-              "commonSetting": {}
-            }
-          }
-        },
-        "editorSetting": {
-          "language": "text",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": false
-        },
-        "editorMode": "ace/mode/undefined",
-        "editorHide": false,
-        "tableHide": false
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "ERROR",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "Failed to invoke procedure `apoc.load.html`: Caused by: org.openqa.selenium.WebDriverException: Cannot find firefox binary in PATH. Make sure firefox is installed. OS appears to be: LINUX\nBuild info: version: \u0027unknown\u0027, revision: \u0027unknown\u0027, time: \u0027unknown\u0027\nSystem info: host: \u0027neo4j\u0027, ip: \u0027172.18.0.3\u0027, os.name: \u0027Linux\u0027, os.arch: \u0027amd64\u0027, os.version: \u00275.10.76-linuxkit\u0027, java.version: \u002711.0.13\u0027\nDriver info: driver.version: FirefoxDriver"
-          }
-        ]
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1667900827818_2066998149",
-      "id": "paragraph_1667900827818_2066998149",
-      "dateCreated": "2022-11-08 09:47:07.818",
-      "dateStarted": "2022-11-08 11:23:36.712",
-      "dateFinished": "2022-11-08 11:23:45.518",
-      "status": "ERROR"
-    },
-    {
-      "text": "%md\n\nAdditionally, with `browser` not equal to `NONE`, you can set optional various configurations which work like the configurations \n https://bonigarcia.dev/webdrivermanager/[here described], in `Table 1. Configuration capabilities for driver management`.\n \nThe possible configs are:\n\n- `driverVersion`\n- `browserVersion`\n- `architecture`\n- `operatingSystem`\n- `driverRepositoryUrl`\n- `versionsPropertiesUrl`\n- `commandsPropertiesUrl`\n- `cachePath`\n- `resolutionCachePath`\n- `proxy`\n- `proxyUser`\n- `proxyPass`\n- `gitHubToken`\n- `forceDownload`\n- `useBetaVersions`\n- `useMirror`\n- `avoidExport`\n- `avoidOutputTree`\n- `clearDriverCache`\n- `clearResolutionCache`\n- `avoidFallback`\n- `avoidBrowserDetection`\n- `avoidReadReleaseFromRepository`\n- `avoidTmpFolder`\n- `useLocalVersionsPropertiesFirst`\n- `timeout`\n- `ttl`\n- `ttlBrowsers`\n\n\nFor example, to configure a timeout of 60 seconds: `CALL apoc.load.html(\"html/wikipediaWithJs.html\", {element: \"strong\"}, {browser: \"FIREFOX\", timeout: 60})`\n",
-      "user": "anonymous",
-      "dateUpdated": "2022-11-08 11:32:55.025",
+      "dateUpdated": "2022-11-11 07:31:57.481",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -3188,74 +3076,9 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eAdditionally, with \u003ccode\u003ebrowser\u003c/code\u003e not equal to \u003ccode\u003eNONE\u003c/code\u003e, you can set optional various configurations which work like the configurations\u003cbr /\u003e\n\u003ca href\u003d\"https://bonigarcia.dev/webdrivermanager/\"\u003ehttps://bonigarcia.dev/webdrivermanager/\u003c/a\u003e[here described], in \u003ccode\u003eTable 1. Configuration capabilities for driver management\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eThe possible configs are:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003edriverVersion\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ebrowserVersion\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003earchitecture\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eoperatingSystem\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003edriverRepositoryUrl\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eversionsPropertiesUrl\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ecommandsPropertiesUrl\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ecachePath\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eresolutionCachePath\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eproxy\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eproxyUser\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eproxyPass\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003egitHubToken\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eforceDownload\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003euseBetaVersions\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003euseMirror\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eavoidExport\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eavoidOutputTree\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eclearDriverCache\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eclearResolutionCache\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eavoidFallback\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eavoidBrowserDetection\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eavoidReadReleaseFromRepository\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eavoidTmpFolder\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003euseLocalVersionsPropertiesFirst\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003etimeout\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ettl\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ettlBrowsers\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eFor example, to configure a timeout of 60 seconds: \u003ccode\u003eCALL apoc.load.html(\u0026quot;html/wikipediaWithJs.html\u0026quot;, {element: \u0026quot;strong\u0026quot;}, {browser: \u0026quot;FIREFOX\u0026quot;, timeout: 60})\u003c/code\u003e\u003c/p\u003e\n\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003ePlain Html\u003c/h3\u003e\n\u003cp\u003eAdditionally, exists a procedure with the same parameter as apoc.load.html, but which return a textual rapresentation instead of a list of map.\u003c/p\u003e\n\u003cp\u003eapoc.load.htmlPlainText\u003c/p\u003e\n\n\u003c/div\u003e"
           }
         ]
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1667900809047_1465667111",
-      "id": "paragraph_1667900809047_1465667111",
-      "dateCreated": "2022-11-08 09:46:49.047",
-      "dateStarted": "2022-11-08 11:32:55.025",
-      "dateFinished": "2022-11-08 11:32:55.060",
-      "status": "FINISHED"
-    },
-    {
-      "text": "%neo4j\n",
-      "user": "anonymous",
-      "dateUpdated": "2022-11-08 09:46:47.711",
-      "config": {},
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1667900807711_658594561",
-      "id": "paragraph_1667900807711_658594561",
-      "dateCreated": "2022-11-08 09:46:47.711",
-      "status": "READY"
-    },
-    {
-      "text": "%neo4j\n",
-      "user": "anonymous",
-      "dateUpdated": "2022-11-08 09:46:46.232",
-      "config": {},
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1667900806232_1556899268",
-      "id": "paragraph_1667900806232_1556899268",
-      "dateCreated": "2022-11-08 09:46:46.232",
-      "status": "READY"
-    },
-    {
-      "text": "%md\n\nAdditionally, exists a procedure with the same parameter as apoc.load.html, but which return a textual rapresentation instead of a list of map.\n\napoc.load.htmlPlainText",
-      "user": "anonymous",
-      "dateUpdated": "2022-11-08 11:34:04.577",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "markdown",
-          "editOnDblClick": true,
-          "completionKey": "TAB",
-          "completionSupport": false
-        },
-        "editorMode": "ace/mode/markdown"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
       },
       "apps": [],
       "runtimeInfos": {},
@@ -3263,7 +3086,9 @@
       "jobName": "paragraph_1667899683508_2078263579",
       "id": "paragraph_1667899683508_2078263579",
       "dateCreated": "2022-11-08 09:28:03.508",
-      "status": "READY"
+      "dateStarted": "2022-11-11 07:31:57.486",
+      "dateFinished": "2022-11-11 07:31:57.506",
+      "status": "FINISHED"
     },
     {
       "text": "%neo4j\ncall apoc.load.htmlPlainText(\"\u003cbody\u003e\u003cul\u003e\u003cli\u003euno\u003c/li\u003e\u003cli\u003edue\u003c/li\u003e\u003cli\u003etre\u003c/li\u003e\u003c/ul\u003e\u003c/body\u003e\", {ul: \"ul\"}, {htmlString: true}) yield value return value.ul",
@@ -3334,25 +3159,36 @@
       "status": "FINISHED"
     },
     {
-      "text": "2 esercizi\n\ncaricare un file apoc.load.xls e creare un nodo Franco o Ciccio se c\u0027è la proprietà ",
+      "text": "%md\n\n## [Import procedures](http://localhost:8080/#/notebook/2HKDWQ67J)",
       "user": "anonymous",
-      "dateUpdated": "2022-11-04 15:57:17.644",
+      "dateUpdated": "2022-11-11 07:32:37.599",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
+          "language": "markdown",
+          "editOnDblClick": true,
           "completionKey": "TAB",
-          "completionSupport": true
+          "completionSupport": false
         },
-        "editorMode": "ace/mode/scala"
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
       },
       "settings": {
         "params": {},
         "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003e\u003ca href\u003d\"http://localhost:8080/#/notebook/2HKDWQ67J\"\u003eImport procedures\u003c/a\u003e\u003c/h2\u003e\n\n\u003c/div\u003e"
+          }
+        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -3360,6 +3196,25 @@
       "jobName": "paragraph_1667577370551_547969325",
       "id": "paragraph_1667577370551_547969325",
       "dateCreated": "2022-11-04 15:56:10.551",
+      "dateStarted": "2022-11-11 07:32:37.606",
+      "dateFinished": "2022-11-11 07:32:37.621",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%md\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-11 07:32:37.598",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1668151957596_678662173",
+      "id": "paragraph_1668151957596_678662173",
+      "dateCreated": "2022-11-11 07:32:37.598",
       "status": "READY"
     }
   ],

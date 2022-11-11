@@ -42,9 +42,9 @@
       "status": "FINISHED"
     },
     {
-      "text": "%md\n\n## apoc.import.csv\n\nThe `apoc.import.csv([nodeFiles], [relationshipsFiles], $config)` procedure \nit\u0027s implemented along the lines of \u003ca href\u003d\"https://neo4j.com/docs/operations-manual/current/tutorial/neo4j-admin-import/\"\u003eneo4j-admin-import\u003c/a\u003e native tool, but requires no reboot and empty db.\n\nFor example, supports the following config parameters:\n\n- `delimiter` - delimiter character between columns like `--delimiter\u003d,` of `neo4j-admin-import`\n- `arrayDelimiter` - delimiter character in arrays `--array-delimiter\u003d;`\n- `ignoreDuplicateNodes` - for duplicate nodes, only load the first one and skip the rest (true) or fail the import (false)  `--ignore-duplicate-nodes\u003dfalse`\n- `quotationCharacter` - equivalent to `--quote\u003d\u0027\"\u0027`\n\n- `stringIds` - `treat ids as strings` - like `--id-type\u003dSTRING`\n\n- `skipLines` - lines to skip (incl. header)\n\n- `ignoreBlankString` - if true ignore properties with a blank string\n\n- `ignoreEmptyCellArray` - if true ignore array properties containing a single empty string, like the import tool\n\n",
+      "text": "%md\n\n## Import CSV\n\nThe `apoc.import.csv([nodeFiles], [relationshipsFiles], $config)` procedure \nit\u0027s implemented along the lines of \u003ca href\u003d\"https://neo4j.com/docs/operations-manual/current/tutorial/neo4j-admin-import/\"\u003eneo4j-admin-import\u003c/a\u003e native tool, but requires no reboot and empty db.\n\nFor example, supports the following config parameters:\n\n- `delimiter` - delimiter character between columns like `--delimiter\u003d,` of `neo4j-admin-import`\n- `arrayDelimiter` - delimiter character in arrays `--array-delimiter\u003d;`\n- `ignoreDuplicateNodes` - for duplicate nodes, only load the first one and skip the rest (true) or fail the import (false)  `--ignore-duplicate-nodes\u003dfalse`\n- `quotationCharacter` - equivalent to `--quote\u003d\u0027\"\u0027`\n\n- `stringIds` - `treat ids as strings` - like `--id-type\u003dSTRING`\n\n- `skipLines` - lines to skip (incl. header)\n\n- `ignoreBlankString` - if true ignore properties with a blank string\n\n- `ignoreEmptyCellArray` - if true ignore array properties containing a single empty string, like the import tool\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-11 02:01:31.023",
+      "dateUpdated": "2022-11-11 07:33:19.001",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -68,7 +68,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eapoc.import.csv\u003c/h2\u003e\n\u003cp\u003eThe \u003ccode\u003eapoc.import.csv([nodeFiles], [relationshipsFiles], $config)\u003c/code\u003e procedure\u003cbr /\u003e\nit\u0026rsquo;s implemented along the lines of \u003ca href\u003d\"https://neo4j.com/docs/operations-manual/current/tutorial/neo4j-admin-import/\"\u003eneo4j-admin-import\u003c/a\u003e native tool, but requires no reboot and empty db.\u003c/p\u003e\n\u003cp\u003eFor example, supports the following config parameters:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003edelimiter\u003c/code\u003e - delimiter character between columns like \u003ccode\u003e--delimiter\u003d,\u003c/code\u003e of \u003ccode\u003eneo4j-admin-import\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003earrayDelimiter\u003c/code\u003e - delimiter character in arrays \u003ccode\u003e--array-delimiter\u003d;\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eignoreDuplicateNodes\u003c/code\u003e - for duplicate nodes, only load the first one and skip the rest (true) or fail the import (false)  \u003ccode\u003e--ignore-duplicate-nodes\u003dfalse\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003equotationCharacter\u003c/code\u003e - equivalent to \u003ccode\u003e--quote\u003d\u0027\u0026quot;\u0027\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003estringIds\u003c/code\u003e - \u003ccode\u003etreat ids as strings\u003c/code\u003e - like \u003ccode\u003e--id-type\u003dSTRING\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eskipLines\u003c/code\u003e - lines to skip (incl. header)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eignoreBlankString\u003c/code\u003e - if true ignore properties with a blank string\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eignoreEmptyCellArray\u003c/code\u003e - if true ignore array properties containing a single empty string, like the import tool\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eImport CSV\u003c/h2\u003e\n\u003cp\u003eThe \u003ccode\u003eapoc.import.csv([nodeFiles], [relationshipsFiles], $config)\u003c/code\u003e procedure\u003cbr /\u003e\nit\u0026rsquo;s implemented along the lines of \u003ca href\u003d\"https://neo4j.com/docs/operations-manual/current/tutorial/neo4j-admin-import/\"\u003eneo4j-admin-import\u003c/a\u003e native tool, but requires no reboot and empty db.\u003c/p\u003e\n\u003cp\u003eFor example, supports the following config parameters:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003edelimiter\u003c/code\u003e - delimiter character between columns like \u003ccode\u003e--delimiter\u003d,\u003c/code\u003e of \u003ccode\u003eneo4j-admin-import\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003earrayDelimiter\u003c/code\u003e - delimiter character in arrays \u003ccode\u003e--array-delimiter\u003d;\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eignoreDuplicateNodes\u003c/code\u003e - for duplicate nodes, only load the first one and skip the rest (true) or fail the import (false)  \u003ccode\u003e--ignore-duplicate-nodes\u003dfalse\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003equotationCharacter\u003c/code\u003e - equivalent to \u003ccode\u003e--quote\u003d\u0027\u0026quot;\u0027\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003estringIds\u003c/code\u003e - \u003ccode\u003etreat ids as strings\u003c/code\u003e - like \u003ccode\u003e--id-type\u003dSTRING\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eskipLines\u003c/code\u003e - lines to skip (incl. header)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eignoreBlankString\u003c/code\u003e - if true ignore properties with a blank string\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ccode\u003eignoreEmptyCellArray\u003c/code\u003e - if true ignore array properties containing a single empty string, like the import tool\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
           }
         ]
       },
@@ -78,8 +78,8 @@
       "jobName": "paragraph_1667578264649_1909877272",
       "id": "paragraph_1667578264649_1909877272",
       "dateCreated": "2022-11-04 16:11:04.649",
-      "dateStarted": "2022-11-11 02:01:31.028",
-      "dateFinished": "2022-11-11 02:01:31.042",
+      "dateStarted": "2022-11-11 07:33:19.012",
+      "dateFinished": "2022-11-11 07:33:19.033",
       "status": "FINISHED"
     },
     {
@@ -169,7 +169,7 @@
     {
       "text": "%md\n## Import JSON\n\n`apoc.import.json(file, $config)`\n\n\n- unwindBatchSize: under the hood this config.... the batch size of the unwind\n- txBatchSize\n- importIdName (default: \"neo4jImportId\")\n- nodePropertyMappings\n- relPropertyMappings\n- nodePropFilter\n- relPropFilter\n\n\u003cpre\u003e\nCurrently, to import json you have to create node constraints\nCREATE CONSTRAINT ON (n:User) assert n.\u003cimportIdName\u003e IS UNIQUE\n\u003c/pre\u003e",
       "user": "anonymous",
-      "dateUpdated": "2022-11-11 01:56:18.983",
+      "dateUpdated": "2022-11-11 07:32:59.516",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -181,8 +181,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": false,
-        "tableHide": true
+        "editorHide": true,
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -193,7 +193,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eImport JSON\u003c/h2\u003e\n\u003cp\u003e\u003ccode\u003eapoc.import.json(file, $config)\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eunwindBatchSize: under the hood this config\u0026hellip;. the batch size of the unwind\u003cbr /\u003e\ntxBatchSize\u003cbr /\u003e\nimportIdName (default: \u0026ldquo;neo4jImportId\u0026rdquo;)\u003cbr /\u003e\nnodePropertyMappings\u003cbr /\u003e\nrelPropertyMappings\u003cbr /\u003e\ncleanup\u003cbr /\u003e\nnodePropFilter\u003cbr /\u003e\nrelPropFilter\u003c/p\u003e\n\u003cpre\u003e\nCurrently, to import json you have to create node constraints\nCREATE CONSTRAINT ON (n:User) assert n.\u003cimportIdName\u003e IS UNIQUE\n\u003c/pre\u003e\n\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eImport JSON\u003c/h2\u003e\n\u003cp\u003e\u003ccode\u003eapoc.import.json(file, $config)\u003c/code\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eunwindBatchSize: under the hood this config\u0026hellip;. the batch size of the unwind\u003c/li\u003e\n\u003cli\u003etxBatchSize\u003c/li\u003e\n\u003cli\u003eimportIdName (default: \u0026ldquo;neo4jImportId\u0026rdquo;)\u003c/li\u003e\n\u003cli\u003enodePropertyMappings\u003c/li\u003e\n\u003cli\u003erelPropertyMappings\u003c/li\u003e\n\u003cli\u003enodePropFilter\u003c/li\u003e\n\u003cli\u003erelPropFilter\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\nCurrently, to import json you have to create node constraints\nCREATE CONSTRAINT ON (n:User) assert n.\u003cimportIdName\u003e IS UNIQUE\n\u003c/pre\u003e\n\n\u003c/div\u003e"
           }
         ]
       },
@@ -203,8 +203,8 @@
       "jobName": "paragraph_1667578293851_884359711",
       "id": "paragraph_1667578293851_884359711",
       "dateCreated": "2022-11-04 16:11:33.851",
-      "dateStarted": "2022-11-11 01:55:02.952",
-      "dateFinished": "2022-11-11 01:55:02.970",
+      "dateStarted": "2022-11-11 07:32:59.519",
+      "dateFinished": "2022-11-11 07:32:59.552",
       "status": "FINISHED"
     },
     {
@@ -1110,9 +1110,9 @@
       "status": "FINISHED"
     },
     {
-      "text": "## Import Cypher file\n\n- `apoc.cypher.runFile(file,$config)`\n- `apoc.cypher.runSchemaFile(file,$config)`\n- `apoc.cypher.runFiles([files],$config)`\n- `apoc.cypher.runSchemaFiles([files],$config)`\n\nTODO NEXT LESSON : configs",
+      "text": "## Import Cypher file\n\n- `apoc.cypher.runFile(file,$config)`\n- `apoc.cypher.runSchemaFile(file,$config)`\n- `apoc.cypher.runFiles([files],$config)`\n- `apoc.cypher.runSchemaFiles([files],$config)`\n\nwith these configs:\n- timeout - default 10 (seconds)\n- statistics - default true\n- parameters - with the optional map of properties",
       "user": "anonymous",
-      "dateUpdated": "2022-11-11 02:03:01.010",
+      "dateUpdated": "2022-11-11 07:38:00.576",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1136,7 +1136,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eImport Cypher file\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eapoc.cypher.runFile(file,$config)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.cypher.runSchemaFile(file,$config)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.cypher.runFiles([files],$config)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.cypher.runSchemaFiles([files],$config)\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eTODO NEXT LESSON : configs\u003c/p\u003e\n\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eImport Cypher file\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eapoc.cypher.runFile(file,$config)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.cypher.runSchemaFile(file,$config)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.cypher.runFiles([files],$config)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.cypher.runSchemaFiles([files],$config)\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003ewith these configs:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003etimeout - default 10 (seconds)\u003c/li\u003e\n\u003cli\u003estatistics - default true\u003c/li\u003e\n\u003cli\u003eparameters - with the optional map of properties\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
           }
         ]
       },
@@ -1146,19 +1146,60 @@
       "jobName": "paragraph_1667576791537_1115562443",
       "id": "paragraph_1667576791537_1115562443",
       "dateCreated": "2022-11-04 15:46:31.537",
-      "dateStarted": "2022-11-11 02:03:01.012",
-      "dateFinished": "2022-11-11 02:03:01.020",
+      "dateStarted": "2022-11-11 07:38:00.585",
+      "dateFinished": "2022-11-11 07:38:00.630",
       "status": "FINISHED"
     },
     {
       "text": "%neo4j\n\n// I have a file `fileExample.cypher` with this content:\n// CREATE (n:Node {id:1});\n// MATCH (n:Node) SET n.import \u003d true;\n\ncall apoc.cypher.runFile(\"fileExample.cypher\");",
       "user": "anonymous",
-      "dateUpdated": "2022-11-11 01:46:50.553",
+      "dateUpdated": "2022-11-11 07:35:53.425",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
         "enabled": true,
-        "results": {},
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "row": "string",
+                      "result.constraintsRemoved": "string",
+                      "result.indexesRemoved": "string",
+                      "result.nodesCreated": "string",
+                      "result.rows": "string",
+                      "result.propertiesSet": "string",
+                      "result.labelsRemoved": "string",
+                      "result.relationshipsDeleted": "string",
+                      "result.constraintsAdded": "string",
+                      "result.nodesDeleted": "string",
+                      "result.indexesAdded": "string",
+                      "result.labelsAdded": "string",
+                      "result.relationshipsCreated": "string",
+                      "result.time": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
         "editorSetting": {
           "language": "markdown",
           "editOnDblClick": false,
@@ -1176,12 +1217,14 @@
       "jobName": "paragraph_1668131204857_470036539",
       "id": "paragraph_1668131204857_470036539",
       "dateCreated": "2022-11-11 01:46:44.857",
-      "status": "READY"
+      "dateStarted": "2022-11-11 07:35:46.734",
+      "dateFinished": "2022-11-11 07:35:50.588",
+      "status": "FINISHED"
     },
     {
-      "text": "%neo4j\n\n\n\nmatch (n:Node {id: 1}) return n\n\n",
+      "text": "%neo4j\n\n\n\n\nmatch (n:Node {id: 1}) return n\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-11 01:47:01.969",
+      "dateUpdated": "2022-11-11 07:36:20.174",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1210,12 +1253,53 @@
     {
       "text": "%neo4j\n\n// File content:\n// CREATE INDEX FOR (a:Actor) ON (a.name, a.born);\n// CREATE CONSTRAINT ON (movie:Movie) ASSERT movie.title IS UNIQUE\n\nCALL apoc.cypher.runSchemaFile(\"fileExampleSchema.cypher\");",
       "user": "anonymous",
-      "dateUpdated": "2022-11-11 01:47:18.341",
+      "dateUpdated": "2022-11-11 07:36:13.147",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
         "enabled": true,
-        "results": {},
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "row": "string",
+                      "result.constraintsRemoved": "string",
+                      "result.indexesRemoved": "string",
+                      "result.nodesCreated": "string",
+                      "result.rows": "string",
+                      "result.propertiesSet": "string",
+                      "result.labelsRemoved": "string",
+                      "result.relationshipsDeleted": "string",
+                      "result.constraintsAdded": "string",
+                      "result.nodesDeleted": "string",
+                      "result.indexesAdded": "string",
+                      "result.labelsAdded": "string",
+                      "result.relationshipsCreated": "string",
+                      "result.time": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
         "editorSetting": {
           "language": "markdown",
           "editOnDblClick": false,
@@ -1227,13 +1311,24 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "row\tresult.constraintsRemoved\tresult.indexesRemoved\tresult.nodesCreated\tresult.rows\tresult.propertiesSet\tresult.labelsRemoved\tresult.relationshipsDeleted\tresult.constraintsAdded\tresult.nodesDeleted\tresult.indexesAdded\tresult.labelsAdded\tresult.relationshipsCreated\tresult.time\n-1\t0\t0\t0\t0\t0\t0\t0\t0\t0\t1\t0\t0\t0\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1668131222057_1208473159",
       "id": "paragraph_1668131222057_1208473159",
       "dateCreated": "2022-11-11 01:47:02.057",
-      "status": "READY"
+      "dateStarted": "2022-11-11 07:36:11.327",
+      "dateFinished": "2022-11-11 07:36:12.000",
+      "status": "FINISHED"
     },
     {
       "text": "%neo4j\ncall db.indexes",
@@ -1263,6 +1358,40 @@
       "id": "paragraph_1668131230385_94231486",
       "dateCreated": "2022-11-11 01:47:10.386",
       "status": "READY"
+    },
+    {
+      "text": "%neo4j\n\n// does not return query summary, a little lighter\ncall apoc.cypher.runFile(\"fileExample.cypher\", {statistics: false});",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-11 07:37:59.800",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1668152201773_161499286",
+      "id": "paragraph_1668152201773_161499286",
+      "dateCreated": "2022-11-11 07:36:41.774",
+      "dateStarted": "2022-11-11 07:37:07.468",
+      "dateFinished": "2022-11-11 07:37:07.659",
+      "status": "FINISHED"
     },
     {
       "text": "%md\n\n## Import xml\n\n`CALL apoc.import.xml(file, $config)`\n\nTODO NEXT LESSON : configs",
