@@ -1,6 +1,48 @@
 {
   "paragraphs": [
     {
+      "text": "%md\n\n## WORK IN PROGRESS",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-10 19:58:56.457",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eWORK IN PROGRESS\u003c/h2\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1668110319411_1890213630",
+      "id": "paragraph_1668110319411_1890213630",
+      "dateCreated": "2022-11-10 19:58:39.411",
+      "dateStarted": "2022-11-10 19:58:56.464",
+      "dateFinished": "2022-11-10 19:58:56.514",
+      "status": "FINISHED"
+    },
+    {
       "text": "%md\n# export compressed\n\n",
       "user": "anonymous",
       "dateUpdated": "2022-11-05 00:09:20.711",
@@ -30,9 +72,9 @@
       "status": "READY"
     },
     {
-      "text": "%md\n# import/load archives\nNote: currently only 4.3.0.9 and 4.4.0.10 supports tar.gz,tgz and tar arhives.",
+      "text": "%md\n# import/load archives\nNote: currently only 4.3.0.9 and 4.4.0.10 supports tar.gz,tgz and tar archives.",
       "user": "anonymous",
-      "dateUpdated": "2022-11-04 16:54:25.149",
+      "dateUpdated": "2022-11-10 19:56:54.157",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -88,9 +130,9 @@
       "status": "READY"
     },
     {
-      "text": "%md\nripasso. apoc util compress/decompress",
+      "text": "",
       "user": "anonymous",
-      "dateUpdated": "2022-11-05 00:30:37.548",
+      "dateUpdated": "2022-11-10 19:57:32.608",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -103,64 +145,6 @@
           "completionSupport": true
         },
         "editorMode": "ace/mode/scala"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1667608214129_819534560",
-      "id": "paragraph_1667608214129_819534560",
-      "dateCreated": "2022-11-05 00:30:14.137",
-      "status": "READY"
-    },
-    {
-      "text": "%md\nesercizio con compressed\ncreo una funzione che esporta in formato stream e in gzip, e per ogni riga crea un nodo PersonCompressed",
-      "user": "anonymous",
-      "dateUpdated": "2022-11-05 00:34:02.463",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "markdown",
-          "editOnDblClick": true,
-          "completionKey": "TAB",
-          "completionSupport": false
-        },
-        "editorMode": "ace/mode/markdown"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1667580719916_1888707285",
-      "id": "paragraph_1667580719916_1888707285",
-      "dateCreated": "2022-11-04 16:51:59.916",
-      "status": "READY"
-    },
-    {
-      "text": "%md\nesercizio con archive --\u003e esporto, comprimo da terminale in zip, importo",
-      "user": "anonymous",
-      "dateUpdated": "2022-11-04 16:52:53.312",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "markdown",
-          "editOnDblClick": true,
-          "completionKey": "TAB",
-          "completionSupport": false
-        },
-        "editorMode": "ace/mode/markdown"
       },
       "settings": {
         "params": {},
@@ -192,7 +176,7 @@
       "status": "READY"
     }
   ],
-  "name": "03. import\u0026export features",
+  "name": "07. import\u0026export features",
   "id": "2HGPBFCDJ",
   "defaultInterpreterGroup": "spark",
   "version": "0.9.0-preview2",

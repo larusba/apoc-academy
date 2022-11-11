@@ -2763,9 +2763,9 @@
       "status": "FINISHED"
     },
     {
-      "text": "%md\n\n5 min\n\ntrigger exercise:\n\n",
+      "text": "%md\n\n## Exercise!!\n\n10 min ca.\n\n- Create a trigger (with phase after) which for each node created, if the property id is 1000 set a property ok \u003d true, otherwise set id \u003d 666\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-10 15:50:45.463",
+      "dateUpdated": "2022-11-10 17:38:25.273",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2777,11 +2777,22 @@
           "completionKey": "TAB",
           "completionSupport": false
         },
-        "editorMode": "ace/mode/markdown"
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
       },
       "settings": {
         "params": {},
         "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eExercise!!\u003c/h2\u003e\n\u003cp\u003e10 min ca.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eCreate a trigger (with phase after) which for each node created, if the property id is 1000 set a property ok \u003d true, otherwise set id \u003d 666\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+          }
+        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -2789,7 +2800,149 @@
       "jobName": "paragraph_1668095403950_1488119524",
       "id": "paragraph_1668095403950_1488119524",
       "dateCreated": "2022-11-10 15:50:03.951",
-      "status": "READY"
+      "dateStarted": "2022-11-10 17:38:25.274",
+      "dateFinished": "2022-11-10 17:38:28.190",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\n\n// do ex stuff\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-10 17:37:54.394",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "1": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "1\n1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1668098404531_1209904922",
+      "id": "paragraph_1668098404531_1209904922",
+      "dateCreated": "2022-11-10 16:40:04.531",
+      "dateStarted": "2022-11-10 16:42:29.934",
+      "dateFinished": "2022-11-10 16:42:30.484",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%neo4j\ncall apoc.trigger.removeAll()",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-10 17:24:26.851",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "name": "string",
+                      "query": "string",
+                      "selector.phase": "string",
+                      "installed": "string",
+                      "paused": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/undefined"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "name\tquery\tselector.phase\tinstalled\tpaused\n\"unique\"\t\"UNWIND $createdNodes AS n with n call apoc.do.when(n.id \u003d 1000, \\\"SET $n.id \u003d 666\\\", \\\"SET $n.ok \u003d true\\\", {n: n} ) yield value return 1\"\tafter\tFALSE\tFALSE\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1668101056761_660280427",
+      "id": "paragraph_1668101056761_660280427",
+      "dateCreated": "2022-11-10 17:24:16.786",
+      "dateStarted": "2022-11-10 17:24:24.899",
+      "dateFinished": "2022-11-10 17:24:25.422",
+      "status": "FINISHED"
     },
     {
       "text": "%md\n\n## [Refresher+new stuff](http://localhost:8080/#/notebook/2HHYDMAGJ)",

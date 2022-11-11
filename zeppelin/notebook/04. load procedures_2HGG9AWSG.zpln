@@ -3,7 +3,7 @@
     {
       "text": "%md\n\n## File load procedures\nSimilar to import procedure, retrieve the results from file but doesn\u0027t execute graph operation, more flexible\n\n- `apoc.load.csv`\n- `apoc.load.json` \n- `apoc.load.xls`\n- `apoc.load.xml`\n- `apoc.load.html`\n\nSee \u003ca href\u003d\"https://neo4j.com/labs/apoc/4.0/import/\" target\u003d\"_blank\"\u003ehere\u003c/a\u003e for more details.\n\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-07 11:19:19.650",
+      "dateUpdated": "2022-11-10 22:28:02.966",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -16,8 +16,8 @@
           "completionSupport": false
         },
         "editorMode": "ace/mode/markdown",
-        "editorHide": false,
-        "tableHide": true
+        "editorHide": true,
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -38,8 +38,8 @@
       "jobName": "paragraph_1667577365574_808005847",
       "id": "paragraph_1667577365574_808005847",
       "dateCreated": "2022-11-04 15:56:05.574",
-      "dateStarted": "2022-11-07 09:52:16.538",
-      "dateFinished": "2022-11-07 09:52:18.309",
+      "dateStarted": "2022-11-10 22:28:02.968",
+      "dateFinished": "2022-11-10 22:28:02.998",
       "status": "FINISHED"
     },
     {
@@ -1149,9 +1149,9 @@
       "status": "FINISHED"
     },
     {
-      "text": "%md\n\n## execise!!\n\n- Create 3 nodes(n:LoadCsv {id: \u00271.csv\u0027}), (n:LoadCsv {id: \u00272.csv\u0027}), (n:LoadCsv {id: \u00273.csv\u0027})\n- For each node execute a call `apoc.load.csv(n.id)`\n- Do `yield list`\n- Get only first item from yield list and use it to create a property node.csvList \u003d \u003citemYielded\u003e\n- Return nodes",
+      "text": "%md\n\n## execise!!\n\n- Create 3 nodes(n:LoadCsv {id: \u00271.csv\u0027}), (n:LoadCsv {id: \u00272.csv\u0027}), (n:LoadCsv {id: \u00273.csv\u0027})\n- For each node execute a call `apoc.load.csv(n.id)`\n- Do `yield list`\n- Get only first item from yield list and use it to create a property node.csvList \u003d `\u003citemYielded\u003e`\n- Return nodes",
       "user": "anonymous",
-      "dateUpdated": "2022-11-10 14:38:48.377",
+      "dateUpdated": "2022-11-10 22:28:42.838",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1176,7 +1176,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eexecise!!\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eCreate 3 nodes(n:LoadCsv {id: \u0026lsquo;1.csv\u0026rsquo;}), (n:LoadCsv {id: \u0026lsquo;2.csv\u0026rsquo;}), (n:LoadCsv {id: \u0026lsquo;3.csv\u0026rsquo;})\u003c/li\u003e\n\u003cli\u003eFor each node execute a call \u003ccode\u003eapoc.load.csv(n.id)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003eDo \u003ccode\u003eyield list\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003eGet only first item from yield list and use it to create a property node.csvList \u003d \u003citemYielded\u003e\u003c/li\u003e\n\u003cli\u003eReturn nodes\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eexecise!!\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eCreate 3 nodes(n:LoadCsv {id: \u0026lsquo;1.csv\u0026rsquo;}), (n:LoadCsv {id: \u0026lsquo;2.csv\u0026rsquo;}), (n:LoadCsv {id: \u0026lsquo;3.csv\u0026rsquo;})\u003c/li\u003e\n\u003cli\u003eFor each node execute a call \u003ccode\u003eapoc.load.csv(n.id)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003eDo \u003ccode\u003eyield list\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003eGet only first item from yield list and use it to create a property node.csvList \u003d \u003ccode\u003e\u0026lt;itemYielded\u0026gt;\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003eReturn nodes\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
           }
         ]
       },
@@ -1186,8 +1186,8 @@
       "jobName": "paragraph_1667826872613_1545899442",
       "id": "paragraph_1667826872613_1545899442",
       "dateCreated": "2022-11-07 13:14:32.613",
-      "dateStarted": "2022-11-10 14:38:48.382",
-      "dateFinished": "2022-11-10 14:38:48.545",
+      "dateStarted": "2022-11-10 22:28:42.839",
+      "dateFinished": "2022-11-10 22:28:42.851",
       "status": "FINISHED"
     },
     {
@@ -1513,9 +1513,9 @@
       "status": "READY"
     },
     {
-      "text": "%md\n\n## `apoc.load.json` \n\n3 versions:\n\n- `apoc.load.json(file, jsonPath, jsonOptions, $config)`\n- `apoc.load.jsonParams(file, headers, payload, jsonPath, jsonOptions, $config)`\n- `apoc.load.jsonArray(file, jsonPath, jsonOptions, $config)`",
+      "text": "%md\n\n## `apoc.load.json` \n\n2 versions:\n\n- `apoc.load.json(file, jsonPath, $config)`\n- `apoc.load.jsonParams(file, headers, payload, jsonPath, $config)`\n\n`$config` has pathOptions with default `[\"DEFAULT_PATH_LEAF_TO_NULL\", \"SUPPRESS_EXCEPTIONS\"]`",
       "user": "anonymous",
-      "dateUpdated": "2022-11-10 15:25:31.814",
+      "dateUpdated": "2022-11-10 22:41:22.048",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1540,7 +1540,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003e\u003ccode\u003eapoc.load.json\u003c/code\u003e\u003c/h2\u003e\n\u003cp\u003e3 versions:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eapoc.load.json(file, jsonPath, jsonOptions, {})\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.load.jsonParams\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.load.jsonArray\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003e\u003ccode\u003eapoc.load.json\u003c/code\u003e\u003c/h2\u003e\n\u003cp\u003e3 versions:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eapoc.load.json(file, jsonPath, $config)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.load.jsonParams(file, headers, payload, jsonPath, $config)\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003eapoc.load.jsonArray(file, jsonPath, jsonOptions, $config)\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003ccode\u003e$config\u003c/code\u003e has pathOptions with default \u003ccode\u003e[\u0026quot;DEFAULT_PATH_LEAF_TO_NULL\u0026quot;, \u0026quot;SUPPRESS_EXCEPTIONS\u0026quot;]\u003c/code\u003e\u003c/p\u003e\n\n\u003c/div\u003e"
           }
         ]
       },
@@ -1550,20 +1550,51 @@
       "jobName": "paragraph_1667819967649_1850070851",
       "id": "paragraph_1667819967649_1850070851",
       "dateCreated": "2022-11-07 11:19:27.649",
-      "dateStarted": "2022-11-10 15:21:26.556",
-      "dateFinished": "2022-11-10 15:21:26.579",
+      "dateStarted": "2022-11-10 22:36:51.510",
+      "dateFinished": "2022-11-10 22:36:51.677",
       "status": "FINISHED"
     },
     {
       "title": "Default configuration",
-      "text": "%neo4j\n\n/*\n\n*/\n\ncall apoc.load.json(\"\")",
+      "text": "%neo4j\n\n/*\n{\n  \"columns\": {\n    \"row\": {\n      \"poiType\": \"Governorate\",\n      \"poi\": 772\n    },\n    \"col2\": {\n      \"_id\": \"772col2\"\n    },\n    \"col3\": {\n      \"_id\": \"eqwewq\"\n    }\n  }\n}\n\n*/\n\ncall apoc.load.json(\"columns.json\")",
       "user": "anonymous",
-      "dateUpdated": "2022-11-10 15:25:59.999",
+      "dateUpdated": "2022-11-10 22:37:08.089",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
         "enabled": true,
-        "results": {},
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 104.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "value.columns.row.poiType": "string",
+                      "value.columns.row.poi": "string",
+                      "value.columns.col2._id": "string",
+                      "value.columns.col3._id": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
         "editorSetting": {
           "language": "text",
           "editOnDblClick": false,
@@ -1577,23 +1608,66 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "value.columns.row.poiType\tvalue.columns.row.poi\tvalue.columns.col2._id\tvalue.columns.col3._id\nGovernorate\t772\t772col2\teqwewq\n"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1667820280377_396963860",
       "id": "paragraph_1667820280377_396963860",
       "dateCreated": "2022-11-07 11:24:40.377",
-      "status": "READY"
+      "dateStarted": "2022-11-10 22:31:39.957",
+      "dateFinished": "2022-11-10 22:31:40.024",
+      "status": "FINISHED"
     },
     {
-      "text": "%neo4j\nCALL apoc.load.json($url, \u0027$..columns\u0027);",
+      "text": "%neo4j\n// return a list of keys columns, or null if not present\nCALL apoc.load.json(\"columns.json\", \u0027$..columns\u0027);",
       "user": "anonymous",
-      "dateUpdated": "2022-11-10 14:51:16.901",
+      "dateUpdated": "2022-11-10 22:33:05.475",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
         "enabled": true,
-        "results": {},
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "value.row.poiType": "string",
+                      "value.row.poi": "string",
+                      "value.col2._id": "string",
+                      "value.col3._id": "string",
+                      "value": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
         "editorSetting": {
           "language": "text",
           "editOnDblClick": false,
@@ -1607,11 +1681,11 @@
         "forms": {}
       },
       "results": {
-        "code": "ERROR",
+        "code": "SUCCESS",
         "msg": [
           {
-            "type": "TEXT",
-            "data": "Expected parameter(s): url"
+            "type": "TABLE",
+            "data": "value.row.poiType\tvalue.row.poi\tvalue.col2._id\tvalue.col3._id\tvalue\nGovernorate\t772\t772col2\teqwewq\t\n\t\t\t\tNULL\n\t\t\t\tNULL\n\t\t\t\tNULL\n\t\t\t\tNULL\n"
           }
         ]
       },
@@ -1621,14 +1695,14 @@
       "jobName": "paragraph_1667820331890_688115055",
       "id": "paragraph_1667820331890_688115055",
       "dateCreated": "2022-11-07 11:25:31.890",
-      "dateStarted": "2022-11-10 14:51:16.924",
-      "dateFinished": "2022-11-10 14:51:17.103",
-      "status": "ERROR"
+      "dateStarted": "2022-11-10 22:31:56.001",
+      "dateFinished": "2022-11-10 22:31:56.138",
+      "status": "FINISHED"
     },
     {
-      "text": "%neo4j\nCALL apoc.load.json($url, \u0027$..columns\u0027, [\u0027ALWAYS_RETURN_LIST\u0027]);",
+      "text": "%neo4j\nCALL apoc.load.json(\"columns.json\", \u0027$..columns\u0027, {pathOptions: [\u0027SUPPRESS_EXCEPTIONS\u0027]});",
       "user": "anonymous",
-      "dateUpdated": "2022-11-07 15:43:45.923",
+      "dateUpdated": "2022-11-10 22:35:44.339",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1647,19 +1721,30 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Type mismatch: expected Map, Node or Relationship but was List\u003cString\u003e (line 1, column 51 (offset: 50))\n\"CALL apoc.load.json(\"columns.json\", \u0027$..columns\u0027, [\u0027SUPPRESS_EXCEPTIONS\u0027]);\"\n                                                   ^"
+          }
+        ]
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1667820356265_990388704",
       "id": "paragraph_1667820356265_990388704",
       "dateCreated": "2022-11-07 11:25:56.265",
-      "status": "READY"
+      "dateStarted": "2022-11-10 22:34:50.517",
+      "dateFinished": "2022-11-10 22:34:50.774",
+      "status": "ERROR"
     },
     {
       "title": "apoc.load.jsonParams",
-      "text": "%md\n\nIf we\u0027re want to use it to call an API, we can also pass an http header and a content payload request\n\n`CALL apoc.load.jsonParams(\u003cjsonAPIUrl\u003e, headers, payload, jsonPath, config)`",
+      "text": "%md\n\nIf we want to use it to call an API, we can also pass an http header and a content payload request\n\n`CALL apoc.load.jsonParams(\u003cjsonAPIUrl\u003e, headers, payload, jsonPath, config)`",
       "user": "anonymous",
-      "dateUpdated": "2022-11-10 14:54:34.228",
+      "dateUpdated": "2022-11-10 22:37:28.272",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -1843,9 +1928,9 @@
       "status": "FINISHED"
     },
     {
-      "text": "%neo4j\n\n// we can get a password, set in `apoc.conf` file, as `password\u003dSUPER_PASSWORD_4`\nCALL apoc.load.jsonParams(\n  \"https://63692a2828cd16bba716bec4.mockapi.io/api/mock/users\",\n  {method: \"POST\", Authorization: \"Bearer \" + apoc.static.get(\u0027password\u0027) },\n  \"bodyRequest\"\n)",
+      "text": "%neo4j\n\n// we can get a password, set in `apoc.conf` file, as `password\u003dSUPER_PASSWORD_4` or with  apoc.static.set(\u0027password\u0027, \u0027myPassword\u0027)\nCALL apoc.load.jsonParams(\n  \"https://63692a2828cd16bba716bec4.mockapi.io/api/mock/users\",\n  {method: \"POST\", Authorization: \"Bearer \" + apoc.static.get(\u0027password\u0027) },\n  \"bodyRequest\"\n)",
       "user": "anonymous",
-      "dateUpdated": "2022-11-07 16:25:08.690",
+      "dateUpdated": "2022-11-10 22:39:34.036",
       "config": {
         "colWidth": 6.0,
         "fontSize": 9.0,
@@ -1980,81 +2065,9 @@
       "status": "FINISHED"
     },
     {
-      "text": "%neo4j\n\nCALL apoc.load.jsonArray()",
+      "text": "%md\n\n## Load XLS\n\n- `apoc.load.xls(url, selector, $config)`\n\nThe usage of apoc.load.xls is similar to apoc.load.csv with the main difference the ability to select a worksheet or a range from a sheet to load.\n\nConfig similar to apoc.load.csv, accepts for example mapping and skip\n\nSelector is the sheet name, plus an optional `!cellBegin:cellEnd`, to read only some cells\n\n\u003cpre\u003e\nRequire the same dependencies as apoc.export.xls, https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/4.4.0.10/apoc-xls-dependencies-4.4.0.10.jar\n\u003c/pre\u003e\n",
       "user": "anonymous",
-      "dateUpdated": "2022-11-10 15:23:44.129",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/undefined"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1668093802858_633193805",
-      "id": "paragraph_1668093802858_633193805",
-      "dateCreated": "2022-11-10 15:23:22.861",
-      "status": "READY"
-    },
-    {
-      "text": "%md\n\n- `apoc.load.xls(url, selector, $config)`\n\nThe usage of apoc.load.xls is similar to apoc.load.csv with the main difference the ability to select a worksheet or a range from a sheet to load.\n\nConfig similar to apoc.load.csv, accept ... example with mapping and skip\n\nSelector is the sheet name, plus an optional `!cellBegin:cellEnd`, to read only some cells\n\n\u003cpre\u003e\nRequire the same dependencies as apoc.export.xls, https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/4.4.0.10/apoc-xls-dependencies-4.4.0.10.jar\n\u003c/pre\u003e\n\nTODO",
-      "user": "anonymous",
-      "dateUpdated": "2022-11-07 22:39:47.462",
-      "config": {
-        "colWidth": 12.0,
-        "fontSize": 9.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "markdown",
-          "editOnDblClick": true,
-          "completionKey": "TAB",
-          "completionSupport": false
-        },
-        "editorMode": "ace/mode/markdown",
-        "editorHide": false,
-        "tableHide": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eapoc.load.xls(url, selector, $config)\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe usage of apoc.load.xls is similar to apoc.load.csv with the main difference the ability to select a worksheet or a range from a sheet to load.\u003c/p\u003e\n\u003cp\u003eConfig similar to apoc.load.csv, accept \u0026hellip; example with mapping and skip\u003c/p\u003e\n\u003cp\u003eSelector is the sheet name, plus \u0026hellip;TODO\u003c/p\u003e\n\u003cpre\u003e\nRequire the same dependencies as apoc.export.xls, https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/4.4.0.10/apoc-xls-dependencies-4.4.0.10.jar\n\u003c/pre\u003e\n\u003cp\u003eTODO\u003c/p\u003e\n\n\u003c/div\u003e"
-          }
-        ]
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1667819983911_1513188002",
-      "id": "paragraph_1667819983911_1513188002",
-      "dateCreated": "2022-11-07 11:19:43.911",
-      "dateStarted": "2022-11-07 21:49:48.355",
-      "dateFinished": "2022-11-07 21:49:48.385",
-      "status": "FINISHED"
-    },
-    {
-      "title": "File load_test.xlsx",
-      "text": "%md\n\n\nSheet \"Standard\"\n\n|-------|------------\n| name\t| age\n| Selma\t| 8\n| Rana\t| 11\n| Selina\t|18\n\n\nSheet \"Offset\"\n\n|-------|-------------|------|-------|-------------|------|\n| \u003cbr\u003e |  |  |  | | \n|  | String | Boolean | Integer | Float | Array\n|  | Test | true | 2 | 1,5 | 1;2;3\n| \u003cbr\u003e  |  |  |  | | \n\n",
-      "user": "anonymous",
-      "dateUpdated": "2022-11-10 14:54:57.149",
+      "dateUpdated": "2022-11-10 22:42:20.455",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2068,7 +2081,50 @@
         },
         "editorMode": "ace/mode/markdown",
         "editorHide": true,
-        "tableHide": false,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eLoad XLS\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eapoc.load.xls(url, selector, $config)\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThe usage of apoc.load.xls is similar to apoc.load.csv with the main difference the ability to select a worksheet or a range from a sheet to load.\u003c/p\u003e\n\u003cp\u003eConfig similar to apoc.load.csv, accepts for example mapping and skip\u003c/p\u003e\n\u003cp\u003eSelector is the sheet name, plus an optional \u003ccode\u003e!cellBegin:cellEnd\u003c/code\u003e, to read only some cells\u003c/p\u003e\n\u003cpre\u003e\nRequire the same dependencies as apoc.export.xls, https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/4.4.0.10/apoc-xls-dependencies-4.4.0.10.jar\n\u003c/pre\u003e\n\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1667819983911_1513188002",
+      "id": "paragraph_1667819983911_1513188002",
+      "dateCreated": "2022-11-07 11:19:43.911",
+      "dateStarted": "2022-11-10 22:42:20.456",
+      "dateFinished": "2022-11-10 22:42:20.469",
+      "status": "FINISHED"
+    },
+    {
+      "title": "File load_test.xlsx",
+      "text": "%md\n\n\nSheet \"Standard\"\n\n|-------|------------\n| name\t| age\n| Selma\t| 8\n| Rana\t| 11\n| Selina\t|18\n\n\nSheet \"Offset\"\n\n|-------|-------------|------|-------|-------------|------|\n| \u003cbr\u003e |  |  |  | | \n|  | String | Boolean | Integer | Float | Array\n|  | Test | true | 2 | 1,5 | 1;2;3\n| \u003cbr\u003e  |  |  |  | | \n\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-11-10 22:41:43.157",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": false,
+        "tableHide": true,
         "title": true
       },
       "settings": {
@@ -2612,26 +2668,9 @@
       "status": "FINISHED"
     },
     {
-      "text": "%neo4j\n",
+      "text": "%md\n\n## Load HTML\n\n- `apoc.load.html(url, selector, $config)`\n\n\nIt relies on jsoup library, https://jsoup.org/.\n\nConfig can have `charset` (default \u0027UTF-8\u0027), `baseUri`, `htmlString`, ",
       "user": "anonymous",
-      "dateUpdated": "2022-11-08 08:41:27.208",
-      "config": {},
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1667896887208_1666110985",
-      "id": "paragraph_1667896887208_1666110985",
-      "dateCreated": "2022-11-08 08:41:27.208",
-      "status": "READY"
-    },
-    {
-      "text": "%md\n- `apoc.load.html(url, selector, $config)`\n\n\nIt relies on jsoup library, https://jsoup.org/.\n\nConfig can have `charset` (default \u0027UTF-8\u0027), `baseUri`, `htmlString`, ",
-      "user": "anonymous",
-      "dateUpdated": "2022-11-08 09:36:49.269",
+      "dateUpdated": "2022-11-10 22:43:09.598",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -2643,11 +2682,22 @@
           "completionKey": "TAB",
           "completionSupport": false
         },
-        "editorMode": "ace/mode/markdown"
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
       },
       "settings": {
         "params": {},
         "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eLoad HTML\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eapoc.load.html(url, selector, $config)\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eIt relies on jsoup library, \u003ca href\u003d\"https://jsoup.org/\"\u003ehttps://jsoup.org/\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eConfig can have \u003ccode\u003echarset\u003c/code\u003e (default \u0026lsquo;UTF-8\u0026rsquo;), \u003ccode\u003ebaseUri\u003c/code\u003e, \u003ccode\u003ehtmlString\u003c/code\u003e,\u003c/p\u003e\n\n\u003c/div\u003e"
+          }
+        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -2655,7 +2705,9 @@
       "jobName": "paragraph_1667819985329_2095761288",
       "id": "paragraph_1667819985329_2095761288",
       "dateCreated": "2022-11-07 11:19:45.329",
-      "status": "READY"
+      "dateStarted": "2022-11-10 22:43:09.603",
+      "dateFinished": "2022-11-10 22:43:09.616",
+      "status": "FINISHED"
     },
     {
       "text": "%neo4j\n// return in key first all \u003ch1\u003e, and in second all \u003ch2\u003e\n\ncall apoc.load.html(\"https://it.wikipedia.org/wiki/Termostato\", {first:\"h1\", second:\"h2\"})",
@@ -3311,7 +3363,7 @@
       "status": "READY"
     }
   ],
-  "name": "04. loads",
+  "name": "04. load procedures",
   "id": "2HGG9AWSG",
   "defaultInterpreterGroup": "spark",
   "version": "0.9.0-preview2",
