@@ -1,9 +1,0 @@
-{"type":"node","id":"4","labels":["Game"],"properties":{"name":"Unreal Tournament"}}
-{"type":"node","id":"6","labels":["Game"],"properties":{"name":"QuakeJs"}}
-{"type":"node","id":"0","labels":["StreamFilter","User"],"properties":{"createdAt":"2016-07-08T21:50:35.504924Z","followers":33366,"name":"itsbigchase","description":"Welcome to my Channel"}}
-{"type":"node","id":"5","labels":["StreamFilter","User"],"properties":{"createdAt":"2013-11-02T14:39:22.483111Z","followers":543783,"name":"stylishnoob4","description":"感謝します。","id":"50988750","total_view_count":81285942,"url":"https://www.twitch.tv/stylishnoob4"}}
-{"type":"node","id":"1035","labels":["StreamFilter","User"],"properties":{"createdAt":"2013-06-04T00:57:04.261134Z","followers":234646,"name":"immortoru","description":"Pro mid lane player and streamer","id":"44331558","total_view_count":11855227,"url":"https://www.twitch.tv/immortoru"}}
-{"type":"node","id":"1041","labels":["StreamTwo","UserFilter"],"properties":{"createdAt":"2017-11-05T08:47:24.210613Z","followers":70253,"name":"rel_fn","description":"","id":"180550276","total_view_count":940424,"url":"https://www.twitch.tv/rel_fn"}}
-{"id":"0","type":"relationship","label":"REL_STREAM_TO_GAME","properties":{"since":1993,"bffSince":"P5M1DT12H"},"start":{"id":"0","labels":["StreamFilter","User"]},"end":{"id":"1","labels":["Game"]}}
-{"id":"2","type":"relationship","label":"REL_GAME_TO_STREAM","properties":{"since":1993,"bffSince":"P5M1DT12H"},"start":{"id":"4","labels":["Game"]},"end":{"id":"5","labels":["StreamFilter","User"]}}
-{"id":"2","type":"relationship","label":"REL_GAME_TO_STREAM","properties":{"qwertyuiop":1993,"bffSince":"P5M1DT12H"},"start":{"id":"4","labels":["Game"]},"end":{"id":"5","labels":["StreamFilter","User"]}}

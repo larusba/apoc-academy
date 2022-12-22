@@ -1,4 +1,0 @@
-id:ID,:LABEL,str:STRING,int:INT,date:DATE
-1,lab,hello,1,2020-01-01
-2,lab,world,2,2020-01-01
-3,lab,,,

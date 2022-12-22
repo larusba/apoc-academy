@@ -1,0 +1,1 @@
+{"type":"node","id":"18","labels":["ApocTrigger"],"properties":{"paused":false,"database":"neo4j","name":"prova","statement":"return 1","selector":"{}","params":"{}"}}

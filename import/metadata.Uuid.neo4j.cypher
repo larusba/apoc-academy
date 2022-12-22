@@ -1,0 +1,1 @@
+CALL apoc.uuid.install('Person', {addToSetLabels:true, uuidProperty:"alpha"});
